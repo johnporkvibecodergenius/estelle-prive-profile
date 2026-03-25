@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estelle Privé — Company Profile Editor</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rosso: #8B6E4E;
+      --rosso-deep: #6B5239;
+      --bg: #FDFAF6;
+      --bg-warm: #F5EFE6;
+      --bg-dark: #1A1610;
+      --card: #FFFFFF;
+      --text: #1A1610;
+      --text-secondary: #5C5244;
+      --text-muted: #8A847C;
+      --border: #E8E3DC;
+      --green: #1B7A3D;
+      --green-bg: #e8f5ec;
+      --font-display: 'Cormorant Garamond', 'Georgia', serif;
+      --font-body: 'Outfit', 'Helvetica Neue', sans-serif;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--text); font-weight: 300; }
+    ::selection { background: var(--rosso); color: #fff; }
+
+    /* ─── LOGIN ─── */
+    .login-screen {
+      height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 32px;
+    }
+    .login-brand { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rosso); font-weight: 400; }
+    .login-box { background: var(--card); border: 1px solid var(--border); padding: 48px; width: 400px; max-width: 90vw; }
+    .login-box h2 { font-family: var(--font-display); font-size: 24px; font-weight: 300; margin-bottom: 6px; }
+    .login-box p { font-size: 12px; color: var(--text-muted); margin-bottom: 24px; }
+    .login-box input {
+      width: 100%; padding: 14px 16px; border: 1px solid var(--border); font-family: inherit;
+      font-size: 14px; font-weight: 300; outline: none; background: var(--bg); margin-bottom: 14px; transition: border-color 0.3s;
+    }
+    .login-box input:focus { border-color: var(--rosso); }
+    .login-error { font-size: 12px; color: #dc3545; margin-bottom: 10px; display: none; }
+
+    /* ─── LAYOUT ─── */
+    .app { display: none; grid-template-columns: 440px 1fr; height: 100vh; }
+    .app.active { display: grid; }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar { background: var(--card); border-right: 1px solid var(--border); overflow-y: auto; display: flex; flex-direction: column; }
+    .sidebar-header {
+      padding: 16px 24px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--card); z-index: 10;
+    }
+    .sidebar-top { display: flex; align-items: center; justify-content: space-between; }
+    .sidebar-brand { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rosso); font-weight: 400; }
+    .sidebar-title { font-family: var(--font-display); font-size: 20px; font-weight: 300; margin-top: 2px; }
+    .sidebar-user { font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+    .sidebar-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+
+    .btn {
+      display: inline-block; padding: 9px 16px; font-family: inherit; font-size: 10px; font-weight: 400;
+      letter-spacing: 0.12em; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s;
+    }
+    .btn-primary { background: var(--rosso); color: #fff; }
+    .btn-primary:hover { background: var(--rosso-deep); }
+    .btn-secondary { background: var(--bg-warm); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { border-color: var(--rosso); color: var(--rosso); }
+    .btn-danger { background: none; color: var(--text-muted); border: none; padding: 9px 12px; }
+    .btn-danger:hover { color: #dc3545; }
+
+    /* ─── TABS ─── */
+    .tabs {
+      display: flex; gap: 0; border-bottom: 1px solid var(--border); overflow-x: auto;
+      position: sticky; top: 72px; background: var(--card); z-index: 10;
+    }
+    .tab {
+      padding: 11px 14px; font-size: 10px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-muted); background: none; border: none; border-bottom: 2px solid transparent;
+      cursor: pointer; white-space: nowrap; transition: all 0.3s;
+    }
+    .tab:hover { color: var(--text); }
+    .tab.active { color: var(--rosso); border-bottom-color: var(--rosso); }
+
+    /* ─── PANELS ─── */
+    .panels { padding: 24px; flex: 1; }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    .panel-title { font-family: var(--font-display); font-size: 20px; font-weight: 400; margin-bottom: 4px; }
+    .panel-desc { font-size: 11px; color: var(--text-muted); margin-bottom: 20px; }
+
+    .field { margin-bottom: 16px; }
+    .field label {
+      display: block; font-size: 9px; font-weight: 500; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--text-muted); margin-bottom: 5px;
+    }
+    .field input, .field textarea, .field select {
+      width: 100%; padding: 9px 12px; border: 1px solid var(--border); font-family: var(--font-body);
+      font-size: 13px; font-weight: 300; color: var(--text); outline: none; background: var(--bg); transition: border-color 0.3s;
+    }
+    .field input:focus, .field textarea:focus { border-color: var(--rosso); }
+    .field textarea { min-height: 70px; resize: vertical; line-height: 1.6; }
+    .field .hint { font-size: 10px; color: var(--text-muted); margin-top: 3px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .field-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+
+    .section-divider { border: none; height: 1px; background: var(--border); margin: 20px 0; }
+    .section-label {
+      font-size: 9px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 6px; margin-bottom: 12px;
+    }
+
+    /* ─── REPEATER ─── */
+    .repeater-item { background: var(--bg); border: 1px solid var(--border); padding: 14px; margin-bottom: 8px; }
+    .repeater-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .repeater-title { font-size: 11px; font-weight: 400; }
+    .repeater-actions { display: flex; gap: 3px; }
+    .repeater-btn {
+      font-size: 9px; color: var(--text-muted); background: var(--card); border: 1px solid var(--border);
+      padding: 3px 8px; cursor: pointer; transition: all 0.2s;
+    }
+    .repeater-btn:hover { color: var(--rosso); border-color: var(--rosso); }
+    .repeater-add {
+      width: 100%; padding: 10px; border: 2px dashed var(--border); background: none; font-family: inherit;
+      font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);
+      cursor: pointer; margin-top: 4px; transition: all 0.3s;
+    }
+    .repeater-add:hover { border-color: var(--rosso); color: var(--rosso); }
+
+    /* ─── PREVIEW ─── */
+    .preview { background: #e0ddd8; overflow-y: auto; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; }
+    .preview iframe {
+      width: 210mm; border: none; background: white; box-shadow: 0 4px 40px rgba(0,0,0,0.12);
+      flex: 1; min-height: calc(297mm * 8);
+    }
+
+    /* ─── TOAST ─── */
+    .toast {
+      position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-100px);
+      padding: 12px 28px; font-size: 12px; font-weight: 400; z-index: 200; transition: transform 0.4s ease;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+    .toast-success { background: var(--green-bg); color: var(--green); border: 1px solid rgba(27,122,61,0.2); }
+    .toast-error { background: #fde8e8; color: #dc3545; border: 1px solid rgba(220,53,69,0.2); }
+
+    /* ─── SAVE INDICATOR ─── */
+    .save-status {
+      font-size: 10px; color: var(--text-muted); letter-spacing: 0.05em;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .save-dot { width: 6px; height: 6px; border-radius: 50%; }
+    .save-dot.synced { background: var(--green); }
+    .save-dot.saving { background: #f0ad4e; }
+    .save-dot.unsaved { background: var(--text-muted); }
+
+    @media (max-width: 1000px) {
+      .app.active { grid-template-columns: 1fr; }
+      .preview { display: none; }
+      .field-row, .field-row-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ LOGIN ═══ -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-brand">Estelle Prive · Profile Editor</div>
+  <div class="login-box">
+    <h2>Welcome back</h2>
+    <p>Sign in with your admin email and password.</p>
+    <div class="login-error" id="loginError">Incorrect email or password.</div>
+    <input type="email" id="loginEmail" placeholder="Email address" autofocus>
+    <input type="password" id="loginPassword" placeholder="Password">
+    <button class="btn btn-primary" style="width:100%;padding:14px;" id="loginBtn">Sign In</button>
+  </div>
+</div>
+
+<!-- ═══ APP ═══ -->
+<div class="app" id="app">
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-top">
+        <div>
+          <div class="sidebar-brand">Estelle Prive</div>
+          <div class="sidebar-title">Profile Editor</div>
+          <div class="sidebar-user">Signed in as <span id="userEmail"></span></div>
+        </div>
+        <div class="save-status" id="saveStatus">
+          <span class="save-dot synced" id="saveDot"></span>
+          <span id="saveLabel">Synced</span>
+        </div>
+      </div>
+      <div class="sidebar-actions">
+        <button class="btn btn-primary" id="saveBtn">Save & Sync</button>
+        <button class="btn btn-secondary" id="previewBtn">Preview Full</button>
+        <button class="btn btn-secondary" id="downloadBtn">Download</button>
+        <button class="btn btn-secondary" id="exportBtn">Export JSON</button>
+        <label class="btn btn-secondary" style="cursor:pointer;">Import<input type="file" id="importFile" accept=".json" style="display:none;"></label>
+        <button class="btn btn-danger" id="logoutBtn">Log Out</button>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="cover">Cover</button>
+      <button class="tab" data-tab="house">The House</button>
+      <button class="tab" data-tab="markets">Markets</button>
+      <button class="tab" data-tab="portfolio">Portfolio</button>
+      <button class="tab" data-tab="process">Process</button>
+      <button class="tab" data-tab="why">Why Us</button>
+      <button class="tab" data-tab="work">Work</button>
+      <button class="tab" data-tab="contact">Contact</button>
+    </div>
+
+    <div class="panels">
+      <!-- COVER -->
+      <div class="panel active" id="panel-cover">
+        <div class="panel-title">Cover Page</div>
+        <div class="panel-desc">Name, mark, tagline. Nothing else.</div>
+        <div class="field"><label>Monogram</label><input type="text" id="cover_monogram"></div>
+        <div class="field"><label>Company Name</label><input type="text" id="cover_name"></div>
+        <div class="field"><label>Tagline</label><input type="text" id="cover_tagline"></div>
+        <div class="field"><label>Year</label><input type="text" id="cover_year"></div>
+      </div>
+
+      <!-- THE HOUSE -->
+      <div class="panel" id="panel-house">
+        <div class="panel-title">The House</div>
+        <div class="panel-desc">Who you are, what you stand for.</div>
+        <div class="field"><label>Section Label</label><input type="text" id="house_label"></div>
+        <div class="field-row">
+          <div class="field"><label>Heading</label><input type="text" id="house_heading"></div>
+          <div class="field"><label>Heading Italic</label><input type="text" id="house_heading_italic"></div>
+        </div>
+        <div class="field"><label>Paragraph 1</label><textarea id="house_p1"></textarea></div>
+        <div class="field"><label>Paragraph 2</label><textarea id="house_p2"></textarea></div>
+        <div class="field"><label>Paragraph 3</label><textarea id="house_p3"></textarea></div>
+        <hr class="section-divider">
+        <div class="section-label">Statistics</div>
+        <div id="statsRepeater"></div>
+        <button class="repeater-add" onclick="addStat()">+ Add Stat</button>
+      </div>
+
+      <!-- MARKETS -->
+      <div class="panel" id="panel-markets">
+        <div class="panel-title">Our Markets</div>
+        <div class="panel-desc">The cities and regions.</div>
+        <div class="field-row">
+          <div class="field"><label>Heading Line 1</label><input type="text" id="markets_heading1"></div>
+          <div class="field"><label>Heading Line 2</label><input type="text" id="markets_heading2"></div>
+        </div>
+        <hr class="section-divider">
+        <div class="section-label">Cities</div>
+        <div id="citiesRepeater"></div>
+        <button class="repeater-add" onclick="addCity()">+ Add City</button>
+        <hr class="section-divider">
+        <div class="section-label">Regions</div>
+        <div id="regionsRepeater"></div>
+        <button class="repeater-add" onclick="addRegion()">+ Add Region</button>
+      </div>
+
+      <!-- PORTFOLIO -->
+      <div class="panel" id="panel-portfolio">
+        <div class="panel-title">The Portfolio</div>
+        <div class="panel-desc">Property categories you operate in.</div>
+        <div class="field-row">
+          <div class="field"><label>Heading</label><input type="text" id="portfolio_heading"></div>
+          <div class="field"><label>Heading Italic</label><input type="text" id="portfolio_heading_italic"></div>
+        </div>
+        <hr class="section-divider">
+        <div class="section-label">Verticals</div>
+        <div id="verticalsRepeater"></div>
+        <button class="repeater-add" onclick="addVertical()">+ Add Vertical</button>
+      </div>
+
+      <!-- PROCESS -->
+      <div class="panel" id="panel-process">
+        <div class="panel-title">The Process</div>
+        <div class="panel-desc">How a client engagement looks.</div>
+        <div class="field-row">
+          <div class="field"><label>Heading</label><input type="text" id="process_heading"></div>
+          <div class="field"><label>Heading Italic</label><input type="text" id="process_heading_italic"></div>
+        </div>
+        <hr class="section-divider">
+        <div class="section-label">Steps</div>
+        <div id="stepsRepeater"></div>
+        <button class="repeater-add" onclick="addStep()">+ Add Step</button>
+      </div>
+
+      <!-- WHY US -->
+      <div class="panel" id="panel-why">
+        <div class="panel-title">Why Us</div>
+        <div class="panel-desc">Unfair advantages. Proof not claims.</div>
+        <div class="field-row">
+          <div class="field"><label>Heading Line 1</label><input type="text" id="why_heading1"></div>
+          <div class="field"><label>Heading Line 2</label><input type="text" id="why_heading2"></div>
+        </div>
+        <hr class="section-divider">
+        <div class="section-label">Advantages</div>
+        <div id="advantagesRepeater"></div>
+        <button class="repeater-add" onclick="addAdvantage()">+ Add Advantage</button>
+        <hr class="section-divider">
+        <div class="section-label">Client Types</div>
+        <div id="clientsRepeater"></div>
+        <button class="repeater-add" onclick="addClient()">+ Add Client Type</button>
+      </div>
+
+      <!-- WORK -->
+      <div class="panel" id="panel-work">
+        <div class="panel-title">Selected Work</div>
+        <div class="panel-desc">2-3 transactions. Numbers, locations, outcome.</div>
+        <div class="field-row">
+          <div class="field"><label>Heading</label><input type="text" id="work_heading"></div>
+          <div class="field"><label>Heading Italic</label><input type="text" id="work_heading_italic"></div>
+        </div>
+        <hr class="section-divider">
+        <div class="section-label">Transactions</div>
+        <div id="transactionsRepeater"></div>
+        <button class="repeater-add" onclick="addTransaction()">+ Add Transaction</button>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="panel" id="panel-contact">
+        <div class="panel-title">Contact</div>
+        <div class="panel-desc">One person. One number. One email.</div>
+        <div class="field"><label>Monogram</label><input type="text" id="contact_monogram"></div>
+        <div class="field-row">
+          <div class="field"><label>Heading Line 1</label><input type="text" id="contact_heading1"></div>
+          <div class="field"><label>Heading Line 2</label><input type="text" id="contact_heading2"></div>
+        </div>
+        <div class="field"><label>Email</label><input type="email" id="contact_email"></div>
+        <div class="field"><label>Phone</label><input type="text" id="contact_phone"></div>
+        <div class="field"><label>Discretion Note</label><input type="text" id="contact_note"></div>
+        <div class="field"><label>Copyright</label><input type="text" id="contact_copyright"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREVIEW -->
+  <div class="preview">
+    <iframe id="previewFrame" srcdoc=""></iframe>
+  </div>
+</div>
+
+<div class="toast toast-success" id="toast"></div>
+
+<!-- ═══ FIREBASE ═══ -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script>
+firebase.initializeApp({
+  apiKey: 'AIzaSyCToLsIdc23BZlQCGqlsAhMTQPqfBQhTjo',
+  authDomain: 'estelleprive-99857.firebaseapp.com',
+  projectId: 'estelleprive-99857',
+});
+const auth = firebase.auth();
+const FS_URL = 'https://firestore.googleapis.com/v1/projects/estelleprive-99857/databases/(default)/documents/config/profile?key=AIzaSyCToLsIdc23BZlQCGqlsAhMTQPqfBQhTjo';
+
+// ─── FIRESTORE HELPERS ───
+function jsToFs(v) {
+  if (v === null || v === undefined) return { nullValue: null };
+  if (typeof v === 'boolean') return { booleanValue: v };
+  if (typeof v === 'number') return { doubleValue: v };
+  if (typeof v === 'string') return { stringValue: v };
+  if (Array.isArray(v)) return { arrayValue: { values: v.map(jsToFs) } };
+  if (typeof v === 'object') {
+    const fields = {};
+    for (const [k, val] of Object.entries(v)) if (val !== undefined) fields[k] = jsToFs(val);
+    return { mapValue: { fields } };
+  }
+  return { stringValue: String(v) };
+}
+function fsToJs(v) {
+  if (!v) return null;
+  if (v.stringValue !== undefined) return v.stringValue;
+  if (v.booleanValue !== undefined) return v.booleanValue;
+  if (v.doubleValue !== undefined) return v.doubleValue;
+  if (v.integerValue !== undefined) return parseInt(v.integerValue);
+  if (v.nullValue !== undefined) return null;
+  if (v.arrayValue) return (v.arrayValue.values || []).map(fsToJs);
+  if (v.mapValue) {
+    const obj = {};
+    for (const [k, val] of Object.entries(v.mapValue.fields || {})) obj[k] = fsToJs(val);
+    return obj;
+  }
+  return null;
+}
+
+// ─── DEFAULT DATA ───
+const DEFAULT_DATA = {
+  cover: { monogram: "EP", name: "Estelle Privé", tagline: "International Luxury Real Estate", year: "2026" },
+  house: {
+    label: "The Maison", heading: "Discreet Excellence,", headingItalic: "Global Reach",
+    p1: "Estelle Privé was founded on a singular conviction: that exceptional properties deserve exceptional representation.",
+    p2: "We operate at the intersection of private wealth advisory and curated real estate, offering a bespoke service to a discerning international clientele.",
+    p3: "An international luxury real estate brokerage connecting discerning investors, private families, and institutional buyers with extraordinary properties across the world's most coveted markets.",
+    stats: [{ number: "12", label: "Global Markets" }, { number: "€2.4B", label: "Portfolio Value" }, { number: "100%", label: "Private Clients" }],
+  },
+  markets: {
+    heading1: "The World's Most", heading2: "Coveted Addresses",
+    cities: ["Monaco","Paris","London","Dubai","New York","Geneva","Singapore","Auckland","Tuscany","Marbella","Tokyo","Sydney"],
+    regions: ["Middle East","Europe","Asia-Pacific","North America","Indian Ocean"],
+  },
+  portfolio: {
+    heading: "What We", headingItalic: "Do",
+    verticals: [
+      { num: "01", title: "Hotel & Hospitality", desc: "Full-service hotel acquisitions, branded residences, and resort transactions." },
+      { num: "02", title: "Joint Ventures", desc: "Connecting capital with development — from land and planning to completed projects." },
+      { num: "03", title: "Signature Villas", desc: "Private estates and waterfront villas in the world's most prestigious addresses." },
+      { num: "04", title: "Ultra-Prime Penthouses", desc: "Sky residences in landmark towers — on-market and off-market opportunities." },
+    ],
+  },
+  process: {
+    heading: "How We", headingItalic: "Work",
+    steps: [
+      { numeral: "I", title: "Discovery", text: "Every engagement begins with understanding the client — their goals, their timeline, their definition of exceptional." },
+      { numeral: "II", title: "Curation", text: "We deliver curated opportunities backed by market intelligence, independent valuations, and a global network of developers, hotel operators, family offices, and institutional partners." },
+      { numeral: "III", title: "Discretion", text: "Our most significant transactions never appear online. Complete confidentiality is not a feature — it is the foundation of every relationship." },
+      { numeral: "IV", title: "Execution", text: "From a single acquisition to a multi-asset portfolio strategy — bespoke advisory through to completion, across jurisdictions." },
+    ],
+  },
+  why: {
+    heading1: "What Sets", heading2: "Us Apart",
+    advantages: [
+      { title: "Off-Market Access", text: "Access to deals unavailable through conventional channels — sourced directly through our principal network." },
+      { title: "Decision-Maker Network", text: "Direct relationships with developers, hotel owners, sovereign entities, and UHNW individuals across 12 markets." },
+      { title: "Absolute Confidentiality", text: "Every transaction is handled with complete discretion. No public listings, no press, no leaks." },
+      { title: "Bespoke Advisory", text: "From a single acquisition to a multi-asset portfolio strategy — tailored to each client's objectives and timeline." },
+    ],
+    clients: ["UHNW Individuals","Family Offices","Real Estate Developers","Hospitality Developers","Institutional Investors","Private Equity","Hotel Brands","Multinationals"],
+  },
+  work: {
+    heading: "Representative", headingItalic: "Transactions",
+    transactions: [
+      { location: "Monaco · Monte Carlo", title: "Carré d'Or Penthouse", details: "5 Bed · 4 Bath · 480 m² · Sea Views\nOff-market acquisition for a private European family office.", value: "€32,000,000" },
+      { location: "Paris · 7ème Arrondissement", title: "Hôtel Particulier", details: "8 Bed · 6 Bath · 720 m² · Private Garden\nHistoric private mansion sourced and negotiated off-market.", value: "€28,500,000" },
+      { location: "Dubai · Palm Jumeirah", title: "Signature Villa", details: "7 Bed · 8 Bath · 1,200 m² · Beach Access\nBeachfront estate secured for a UHNW principal buyer.", value: "AED 185,000,000" },
+    ],
+  },
+  contact: {
+    monogram: "EP", heading1: "Begin a", heading2: "Conversation",
+    email: "enquiries@estelleprive.com", phone: "+971 56 488 6969",
+    note: "All enquiries are treated with complete discretion.", copyright: "© 2026 Estelle Privé International",
+  },
+};
+
+let data = JSON.parse(JSON.stringify(DEFAULT_DATA));
+
+// ─── AUTH ───
+function doLogin() {
+  const email = document.getElementById('loginEmail').value.trim();
+  const pw = document.getElementById('loginPassword').value;
+  const btn = document.getElementById('loginBtn');
+  const err = document.getElementById('loginError');
+  err.style.display = 'none';
+  btn.textContent = 'Signing in…'; btn.disabled = true;
+  auth.signInWithEmailAndPassword(email, pw)
+    .then(() => { btn.textContent = 'Sign In'; btn.disabled = false; })
+    .catch(() => { err.style.display = 'block'; btn.textContent = 'Sign In'; btn.disabled = false; });
+}
+document.getElementById('loginBtn').addEventListener('click', doLogin);
+document.getElementById('loginEmail').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('loginPassword').focus(); });
+document.getElementById('loginPassword').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+document.getElementById('logoutBtn').addEventListener('click', () => auth.signOut());
+
+auth.onAuthStateChanged(user => {
+  if (user) {
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('app').classList.add('active');
+    document.getElementById('userEmail').textContent = user.email;
+    loadFromFirestore();
+  } else {
+    document.getElementById('loginScreen').style.display = 'flex';
+    document.getElementById('app').classList.remove('active');
+  }
+});
+
+// ─── FIRESTORE LOAD/SAVE ───
+async function loadFromFirestore() {
+  setSaveStatus('saving', 'Loading…');
+  try {
+    const res = await fetch(FS_URL);
+    if (res.ok) {
+      const doc = await res.json();
+      if (doc && doc.fields) {
+        const obj = {};
+        for (const [k, v] of Object.entries(doc.fields)) obj[k] = fsToJs(v);
+        data = deepMerge(obj, JSON.parse(JSON.stringify(DEFAULT_DATA)));
+      }
+    }
+  } catch(e) { /* use defaults */ }
+  populateForm();
+  updatePreview();
+  setSaveStatus('synced', 'Synced');
+}
+
+async function saveToFirestore() {
+  if (!auth.currentUser) { showToast('Not logged in', true); return; }
+  setSaveStatus('saving', 'Saving…');
+  const btn = document.getElementById('saveBtn');
+  btn.textContent = 'Saving…'; btn.disabled = true;
+
+  try {
+    const token = await auth.currentUser.getIdToken(true);
+    const clean = JSON.parse(JSON.stringify(data));
+    const fields = {};
+    for (const [k, v] of Object.entries(clean)) fields[k] = jsToFs(v);
+
+    const res = await fetch(FS_URL, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+      body: JSON.stringify({ fields })
+    });
+    if (!res.ok) throw new Error(await res.text());
+
+    setSaveStatus('synced', 'Synced');
+    showToast('Saved & synced to cloud');
+  } catch(err) {
+    setSaveStatus('unsaved', 'Save failed');
+    showToast('Save failed: ' + err.message, true);
+  }
+  btn.textContent = 'Save & Sync'; btn.disabled = false;
+}
+
+function deepMerge(target, defaults) {
+  const out = Object.assign({}, defaults);
+  for (const k of Object.keys(target)) {
+    const val = target[k];
+    if (val !== null && val !== undefined && typeof val === 'object' && !Array.isArray(val) && defaults[k] && typeof defaults[k] === 'object') {
+      out[k] = deepMerge(val, defaults[k]);
+    } else if (val !== null && val !== undefined) {
+      out[k] = val;
+    }
+  }
+  return out;
+}
+
+function setSaveStatus(state, label) {
+  const dot = document.getElementById('saveDot');
+  const lbl = document.getElementById('saveLabel');
+  dot.className = 'save-dot ' + state;
+  lbl.textContent = label;
+}
+
+// ─── TABS ───
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+// ─── FORM READ/POPULATE ───
+const SIMPLE_FIELDS = [
+  'cover_monogram','cover_name','cover_tagline','cover_year',
+  'house_label','house_heading','house_heading_italic','house_p1','house_p2','house_p3',
+  'markets_heading1','markets_heading2',
+  'portfolio_heading','portfolio_heading_italic',
+  'process_heading','process_heading_italic',
+  'why_heading1','why_heading2',
+  'work_heading','work_heading_italic',
+  'contact_monogram','contact_heading1','contact_heading2','contact_email','contact_phone','contact_note','contact_copyright',
+];
+
+function fieldToPath(id) {
+  const [section, ...rest] = id.split('_');
+  const key = rest.map((w, i) => i === 0 ? w : w.charAt(0).toUpperCase() + w.slice(1)).join('');
+  return [section, key];
+}
+
+function populateForm() {
+  SIMPLE_FIELDS.forEach(id => {
+    const el = document.getElementById(id);
+    const [section, key] = fieldToPath(id);
+    if (el && data[section]) el.value = data[section][key] || '';
+  });
+  buildStats(); buildCities(); buildRegions(); buildVerticals(); buildSteps(); buildAdvantages(); buildClients(); buildTransactions();
+}
+
+function readForm() {
+  SIMPLE_FIELDS.forEach(id => {
+    const el = document.getElementById(id);
+    const [section, key] = fieldToPath(id);
+    if (el && data[section]) data[section][key] = el.value;
+  });
+  readStats(); readCities(); readRegions(); readVerticals(); readSteps(); readAdvantages(); readClients(); readTransactions();
+}
+
+function markUnsaved() { setSaveStatus('unsaved', 'Unsaved changes'); }
+document.addEventListener('input', e => {
+  if (e.target.closest('.sidebar')) markUnsaved();
+});
+
+// ─── REPEATERS ───
+function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function buildStats() {
+  document.getElementById('statsRepeater').innerHTML = data.house.stats.map((s, i) => `
+    <div class="repeater-item"><div class="repeater-header"><div class="repeater-title">Stat ${i+1}</div><div class="repeater-actions"><button class="repeater-btn" onclick="removeStat(${i})">Remove</button></div></div>
+    <div class="field-row"><div class="field"><label>Number</label><input type="text" data-stat="${i}" data-f="number" value="${esc(s.number)}"></div><div class="field"><label>Label</label><input type="text" data-stat="${i}" data-f="label" value="${esc(s.label)}"></div></div></div>`).join('');
+}
+function readStats() { data.house.stats = []; const m={}; document.querySelectorAll('[data-stat]').forEach(el => { const i=parseInt(el.dataset.stat); if(!m[i])m[i]={}; m[i][el.dataset.f]=el.value; }); data.house.stats=Object.values(m); }
+function addStat() { readForm(); data.house.stats.push({number:'',label:''}); buildStats(); markUnsaved(); }
+function removeStat(i) { readForm(); data.house.stats.splice(i,1); buildStats(); markUnsaved(); }
+
+function buildCities() {
+  document.getElementById('citiesRepeater').innerHTML = data.markets.cities.map((c, i) => `
+    <div class="repeater-item" style="padding:8px 14px;display:flex;align-items:center;justify-content:space-between;">
+    <input type="text" data-city="${i}" value="${esc(c)}" style="flex:1;border:none;background:none;font-size:13px;outline:none;">
+    <div class="repeater-actions">${i>0?`<button class="repeater-btn" onclick="moveCity(${i},-1)">↑</button>`:''} ${i<data.markets.cities.length-1?`<button class="repeater-btn" onclick="moveCity(${i},1)">↓</button>`:''} <button class="repeater-btn" onclick="removeCity(${i})">×</button></div></div>`).join('');
+}
+function readCities() { data.markets.cities=[]; document.querySelectorAll('[data-city]').forEach(el => data.markets.cities.push(el.value)); }
+function addCity() { readForm(); data.markets.cities.push('New City'); buildCities(); markUnsaved(); }
+function removeCity(i) { readForm(); data.markets.cities.splice(i,1); buildCities(); markUnsaved(); }
+function moveCity(i,d) { readForm(); const a=data.markets.cities; [a[i],a[i+d]]=[a[i+d],a[i]]; buildCities(); markUnsaved(); }
+
+function buildRegions() {
+  document.getElementById('regionsRepeater').innerHTML = data.markets.regions.map((r, i) => `
+    <div class="repeater-item" style="padding:8px 14px;display:flex;align-items:center;justify-content:space-between;">
+    <input type="text" data-region="${i}" value="${esc(r)}" style="flex:1;border:none;background:none;font-size:13px;outline:none;">
+    <button class="repeater-btn" onclick="removeRegion(${i})">×</button></div>`).join('');
+}
+function readRegions() { data.markets.regions=[]; document.querySelectorAll('[data-region]').forEach(el => data.markets.regions.push(el.value)); }
+function addRegion() { readForm(); data.markets.regions.push('New Region'); buildRegions(); markUnsaved(); }
+function removeRegion(i) { readForm(); data.markets.regions.splice(i,1); buildRegions(); markUnsaved(); }
+
+function buildVerticals() {
+  const len = data.portfolio.verticals.length;
+  document.getElementById('verticalsRepeater').innerHTML = data.portfolio.verticals.map((v, i) => `
+    <div class="repeater-item"><div class="repeater-header"><div class="repeater-title">${v.title||'Vertical '+(i+1)}</div><div class="repeater-actions">${i>0?`<button class="repeater-btn" onclick="moveVertical(${i},-1)">↑</button>`:''} ${i<len-1?`<button class="repeater-btn" onclick="moveVertical(${i},1)">↓</button>`:''} <button class="repeater-btn" onclick="removeVertical(${i})">Remove</button></div></div>
+    <div class="field-row-3"><div class="field"><label>Number</label><input type="text" data-vert="${i}" data-f="num" value="${esc(v.num)}"></div><div class="field" style="grid-column:span 2;"><label>Title</label><input type="text" data-vert="${i}" data-f="title" value="${esc(v.title)}"></div></div>
+    <div class="field"><label>Description</label><textarea data-vert="${i}" data-f="desc">${esc(v.desc)}</textarea></div></div>`).join('');
+}
+function readVerticals() { data.portfolio.verticals=[]; const m={}; document.querySelectorAll('[data-vert]').forEach(el => { const i=parseInt(el.dataset.vert); if(!m[i])m[i]={}; m[i][el.dataset.f]=el.tagName==='TEXTAREA'?el.value:el.value; }); data.portfolio.verticals=Object.values(m); }
+function addVertical() { readForm(); const n=String(data.portfolio.verticals.length+1).padStart(2,'0'); data.portfolio.verticals.push({num:n,title:'',desc:''}); buildVerticals(); markUnsaved(); }
+function removeVertical(i) { readForm(); data.portfolio.verticals.splice(i,1); buildVerticals(); markUnsaved(); }
+function moveVertical(i,d) { readForm(); const a=data.portfolio.verticals; [a[i],a[i+d]]=[a[i+d],a[i]]; buildVerticals(); markUnsaved(); }
+
+function buildSteps() {
+  const len = data.process.steps.length;
+  document.getElementById('stepsRepeater').innerHTML = data.process.steps.map((s, i) => `
+    <div class="repeater-item"><div class="repeater-header"><div class="repeater-title">${s.title||'Step '+(i+1)}</div><div class="repeater-actions">${i>0?`<button class="repeater-btn" onclick="moveStep(${i},-1)">↑</button>`:''} ${i<len-1?`<button class="repeater-btn" onclick="moveStep(${i},1)">↓</button>`:''} <button class="repeater-btn" onclick="removeStep(${i})">Remove</button></div></div>
+    <div class="field-row"><div class="field"><label>Numeral</label><input type="text" data-step="${i}" data-f="numeral" value="${esc(s.numeral)}"></div><div class="field"><label>Title</label><input type="text" data-step="${i}" data-f="title" value="${esc(s.title)}"></div></div>
+    <div class="field"><label>Description</label><textarea data-step="${i}" data-f="text">${esc(s.text)}</textarea></div></div>`).join('');
+}
+function readSteps() { data.process.steps=[]; const m={}; document.querySelectorAll('[data-step]').forEach(el => { const i=parseInt(el.dataset.step); if(!m[i])m[i]={}; m[i][el.dataset.f]=el.tagName==='TEXTAREA'?el.value:el.value; }); data.process.steps=Object.values(m); }
+function addStep() { readForm(); const nums=['I','II','III','IV','V','VI','VII','VIII']; data.process.steps.push({numeral:nums[data.process.steps.length]||'',title:'',text:''}); buildSteps(); markUnsaved(); }
+function removeStep(i) { readForm(); data.process.steps.splice(i,1); buildSteps(); markUnsaved(); }
+function moveStep(i,d) { readForm(); const a=data.process.steps; [a[i],a[i+d]]=[a[i+d],a[i]]; buildSteps(); markUnsaved(); }
+
+function buildAdvantages() {
+  const len = data.why.advantages.length;
+  document.getElementById('advantagesRepeater').innerHTML = data.why.advantages.map((a, i) => `
+    <div class="repeater-item"><div class="repeater-header"><div class="repeater-title">${a.title||'Advantage '+(i+1)}</div><div class="repeater-actions">${i>0?`<button class="repeater-btn" onclick="moveAdvantage(${i},-1)">↑</button>`:''} ${i<len-1?`<button class="repeater-btn" onclick="moveAdvantage(${i},1)">↓</button>`:''} <button class="repeater-btn" onclick="removeAdvantage(${i})">Remove</button></div></div>
+    <div class="field"><label>Title</label><input type="text" data-adv="${i}" data-f="title" value="${esc(a.title)}"></div>
+    <div class="field"><label>Description</label><textarea data-adv="${i}" data-f="text">${esc(a.text)}</textarea></div></div>`).join('');
+}
+function readAdvantages() { data.why.advantages=[]; const m={}; document.querySelectorAll('[data-adv]').forEach(el => { const i=parseInt(el.dataset.adv); if(!m[i])m[i]={}; m[i][el.dataset.f]=el.tagName==='TEXTAREA'?el.value:el.value; }); data.why.advantages=Object.values(m); }
+function addAdvantage() { readForm(); data.why.advantages.push({title:'',text:''}); buildAdvantages(); markUnsaved(); }
+function removeAdvantage(i) { readForm(); data.why.advantages.splice(i,1); buildAdvantages(); markUnsaved(); }
+function moveAdvantage(i,d) { readForm(); const a=data.why.advantages; [a[i],a[i+d]]=[a[i+d],a[i]]; buildAdvantages(); markUnsaved(); }
+
+function buildClients() {
+  document.getElementById('clientsRepeater').innerHTML = data.why.clients.map((c, i) => `
+    <div class="repeater-item" style="padding:8px 14px;display:flex;align-items:center;justify-content:space-between;">
+    <input type="text" data-client="${i}" value="${esc(c)}" style="flex:1;border:none;background:none;font-size:13px;outline:none;">
+    <button class="repeater-btn" onclick="removeClient(${i})">×</button></div>`).join('');
+}
+function readClients() { data.why.clients=[]; document.querySelectorAll('[data-client]').forEach(el => data.why.clients.push(el.value)); }
+function addClient() { readForm(); data.why.clients.push('New Client Type'); buildClients(); markUnsaved(); }
+function removeClient(i) { readForm(); data.why.clients.splice(i,1); buildClients(); markUnsaved(); }
+
+function buildTransactions() {
+  const len = data.work.transactions.length;
+  document.getElementById('transactionsRepeater').innerHTML = data.work.transactions.map((t, i) => `
+    <div class="repeater-item"><div class="repeater-header"><div class="repeater-title">${t.title||'Transaction '+(i+1)}</div><div class="repeater-actions">${i>0?`<button class="repeater-btn" onclick="moveTransaction(${i},-1)">↑</button>`:''} ${i<len-1?`<button class="repeater-btn" onclick="moveTransaction(${i},1)">↓</button>`:''} <button class="repeater-btn" onclick="removeTransaction(${i})">Remove</button></div></div>
+    <div class="field-row"><div class="field"><label>Location</label><input type="text" data-tx="${i}" data-f="location" value="${esc(t.location)}"></div><div class="field"><label>Title</label><input type="text" data-tx="${i}" data-f="title" value="${esc(t.title)}"></div></div>
+    <div class="field"><label>Details</label><textarea data-tx="${i}" data-f="details">${esc(t.details)}</textarea></div>
+    <div class="field"><label>Value</label><input type="text" data-tx="${i}" data-f="value" value="${esc(t.value)}"></div></div>`).join('');
+}
+function readTransactions() { data.work.transactions=[]; const m={}; document.querySelectorAll('[data-tx]').forEach(el => { const i=parseInt(el.dataset.tx); if(!m[i])m[i]={}; m[i][el.dataset.f]=el.tagName==='TEXTAREA'?el.value:el.value; }); data.work.transactions=Object.values(m); }
+function addTransaction() { readForm(); data.work.transactions.push({location:'',title:'',details:'',value:''}); buildTransactions(); markUnsaved(); }
+function removeTransaction(i) { readForm(); data.work.transactions.splice(i,1); buildTransactions(); markUnsaved(); }
+function moveTransaction(i,d) { readForm(); const a=data.work.transactions; [a[i],a[i+d]]=[a[i+d],a[i]]; buildTransactions(); markUnsaved(); }
+
+// ─── GENERATE HTML ───
+function generateHTML() {
+  const d = data;
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${esc(d.cover.name)} — Company Profile</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet"><style>:root{--rosso:#8B6E4E;--rosso-deep:#6B5239;--bg:#FDFAF6;--bg-warm:#F5EFE6;--bg-dark:#1A1610;--text-primary:#1A1610;--text-secondary:#5C5244;--text-tertiary:#8A847C;--text-faint:#B5AFA7;--border:#E8E3DC;--font-display:'Cormorant Garamond','Georgia',serif;--font-body:'Outfit','Helvetica Neue',sans-serif;}*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{-webkit-font-smoothing:antialiased;}::selection{background:var(--rosso);color:#fff;}@page{size:A4;margin:0;}body{background:var(--bg);color:var(--text-secondary);font-family:var(--font-body);font-weight:300;line-height:1.6;}.page{width:210mm;min-height:297mm;margin:0 auto;position:relative;overflow:hidden;display:flex;flex-direction:column;page-break-after:always;break-after:page;}.page:last-child{page-break-after:avoid;break-after:avoid;}.cover{background:var(--bg-dark);justify-content:center;align-items:center;text-align:center;}.cover-inner{padding:60px;}.cover-monogram{font-family:var(--font-display);font-size:72px;font-weight:300;color:var(--rosso);letter-spacing:.15em;margin-bottom:48px;}.cover-line{width:48px;height:1px;background:var(--rosso);margin:0 auto 48px;}.cover-name{font-family:var(--font-display);font-size:52px;font-weight:300;color:#F5EFE6;letter-spacing:.08em;margin-bottom:16px;}.cover-tagline{font-family:var(--font-body);font-size:12px;font-weight:300;letter-spacing:.35em;text-transform:uppercase;color:var(--rosso);}.cover-bottom{position:absolute;bottom:56px;left:0;right:0;text-align:center;}.cover-descriptor{font-family:var(--font-body);font-size:10px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,239,230,.35);}.house{background:var(--bg);padding:80px 64px;justify-content:center;}.page-label{font-family:var(--font-body);font-size:10px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--rosso);margin-bottom:40px;}.page-heading{font-family:var(--font-display);font-size:44px;font-weight:300;color:var(--text-primary);line-height:1.15;margin-bottom:48px;}.page-heading em{font-style:italic;color:var(--rosso);}.page-text{font-family:var(--font-body);font-size:15px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:520px;}.house-stats{display:flex;gap:56px;margin-top:56px;padding-top:40px;border-top:1px solid var(--border);}.house-stat-number{font-family:var(--font-display);font-size:36px;font-weight:300;color:var(--text-primary);margin-bottom:4px;}.house-stat-label{font-family:var(--font-body);font-size:11px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--text-tertiary);}.markets{background:var(--bg-dark);padding:80px 64px;justify-content:center;}.markets .page-label{color:var(--rosso);}.markets .page-heading{color:#F5EFE6;margin-bottom:56px;}.markets-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}.market-city{font-family:var(--font-display);font-size:22px;font-weight:300;color:rgba(245,239,230,.85);padding:20px 0;border-bottom:1px solid rgba(245,239,230,.08);}.markets-regions{display:flex;flex-wrap:wrap;gap:12px;margin-top:48px;}.region-tag{font-family:var(--font-body);font-size:10px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--rosso);border:1px solid rgba(139,110,78,.3);padding:8px 20px;}.portfolio{background:var(--bg);padding:80px 64px;justify-content:center;}.portfolio-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:8px;}.portfolio-card{background:var(--bg-warm);padding:40px 32px;}.portfolio-num{font-family:var(--font-display);font-size:40px;font-weight:300;color:rgba(26,22,16,.1);line-height:1;margin-bottom:20px;}.portfolio-title{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--text-primary);margin-bottom:10px;}.portfolio-desc{font-family:var(--font-body);font-size:13px;font-weight:300;color:var(--text-secondary);line-height:1.75;}.process{background:var(--bg);padding:80px 64px;justify-content:center;}.process-steps{margin-top:8px;}.process-step{display:grid;grid-template-columns:48px 1fr;gap:24px;padding:32px 0;border-bottom:1px solid var(--border);align-items:start;}.process-step:first-child{padding-top:0;}.step-num{font-family:var(--font-display);font-size:28px;font-weight:300;color:var(--rosso);}.step-title{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--text-primary);margin-bottom:8px;}.step-text{font-family:var(--font-body);font-size:13.5px;font-weight:300;color:var(--text-secondary);line-height:1.8;}.why{background:var(--bg-dark);padding:80px 64px;justify-content:center;}.why .page-heading{color:#F5EFE6;margin-bottom:48px;}.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px 56px;}.why-item-title{font-family:var(--font-display);font-size:20px;font-weight:400;color:#F5EFE6;margin-bottom:10px;}.why-item-text{font-family:var(--font-body);font-size:13.5px;font-weight:300;color:rgba(245,239,230,.6);line-height:1.8;}.why-clients{display:flex;flex-wrap:wrap;gap:8px;margin-top:48px;padding-top:40px;border-top:1px solid rgba(245,239,230,.08);}.client-tag{font-family:var(--font-body);font-size:10px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,239,230,.5);border:1px solid rgba(245,239,230,.12);padding:8px 18px;}.work{background:var(--bg);padding:80px 64px;justify-content:center;}.work-items{margin-top:8px;}.work-item{padding:36px 0;border-bottom:1px solid var(--border);}.work-item:first-child{padding-top:0;}.work-location{font-family:var(--font-body);font-size:10px;font-weight:400;letter-spacing:.25em;text-transform:uppercase;color:var(--rosso);margin-bottom:12px;}.work-title{font-family:var(--font-display);font-size:26px;font-weight:300;color:var(--text-primary);margin-bottom:12px;}.work-details{font-family:var(--font-body);font-size:13.5px;font-weight:300;color:var(--text-secondary);line-height:1.8;}.work-value{display:inline-block;font-family:var(--font-display);font-size:18px;font-weight:400;color:var(--text-primary);margin-top:16px;}.contact{background:var(--bg-dark);justify-content:center;align-items:center;text-align:center;padding:80px 64px;}.contact-monogram{font-family:var(--font-display);font-size:48px;font-weight:300;color:var(--rosso);letter-spacing:.15em;margin-bottom:48px;}.contact .page-heading{color:#F5EFE6;margin-bottom:56px;}.contact-detail{margin-bottom:32px;}.contact-detail-label{font-family:var(--font-body);font-size:10px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px;}.contact-detail-value{font-family:var(--font-display);font-size:22px;font-weight:300;color:#F5EFE6;}.contact-line{width:48px;height:1px;background:rgba(139,110,78,.4);margin:48px auto;}.contact-note{font-family:var(--font-body);font-size:12px;font-weight:300;color:rgba(245,239,230,.35);font-style:italic;}.contact-footer{position:absolute;bottom:40px;left:0;right:0;text-align:center;font-family:var(--font-body);font-size:10px;font-weight:300;letter-spacing:.15em;color:rgba(245,239,230,.2);}@media print{body{background:none;}.page{width:100%;height:100vh;margin:0;page-break-inside:avoid;}}</style></head><body>
+<div class="page cover"><div class="cover-inner"><div class="cover-monogram">${esc(d.cover.monogram)}</div><div class="cover-line"></div><div class="cover-name">${esc(d.cover.name)}</div><div class="cover-tagline">${esc(d.cover.tagline)}</div></div><div class="cover-bottom"><div class="cover-descriptor">Company Profile · ${esc(d.cover.year)}</div></div></div>
+<div class="page house"><div class="page-label">${esc(d.house.label)}</div><h2 class="page-heading">${esc(d.house.heading)}<br><em>${esc(d.house.headingItalic)}</em></h2><p class="page-text">${esc(d.house.p1)}</p><p class="page-text" style="margin-top:20px;">${esc(d.house.p2)}</p><p class="page-text" style="margin-top:20px;">${esc(d.house.p3)}</p><div class="house-stats">${d.house.stats.map(s=>`<div><div class="house-stat-number">${esc(s.number)}</div><div class="house-stat-label">${esc(s.label)}</div></div>`).join('')}</div></div>
+<div class="page markets"><div class="page-label">Our Markets</div><h2 class="page-heading">${esc(d.markets.heading1)}<br>${esc(d.markets.heading2)}</h2><div class="markets-grid">${d.markets.cities.map(c=>`<div class="market-city">${esc(c)}</div>`).join('')}</div><div class="markets-regions">${d.markets.regions.map(r=>`<span class="region-tag">${esc(r)}</span>`).join('')}</div></div>
+<div class="page portfolio"><div class="page-label">The Portfolio</div><h2 class="page-heading">${esc(d.portfolio.heading)} <em>${esc(d.portfolio.headingItalic)}</em></h2><div class="portfolio-grid">${d.portfolio.verticals.map(v=>`<div class="portfolio-card"><div class="portfolio-num">${esc(v.num)}</div><div class="portfolio-title">${esc(v.title)}</div><p class="portfolio-desc">${esc(v.desc)}</p></div>`).join('')}</div></div>
+<div class="page process"><div class="page-label">The Process</div><h2 class="page-heading">${esc(d.process.heading)} <em>${esc(d.process.headingItalic)}</em></h2><div class="process-steps">${d.process.steps.map(s=>`<div class="process-step"><div class="step-num">${esc(s.numeral)}</div><div><div class="step-title">${esc(s.title)}</div><p class="step-text">${esc(s.text)}</p></div></div>`).join('')}</div></div>
+<div class="page why"><div class="page-label" style="color:var(--rosso);">Why Us</div><h2 class="page-heading">${esc(d.why.heading1)}<br>${esc(d.why.heading2)}</h2><div class="why-grid">${d.why.advantages.map(a=>`<div><div class="why-item-title">${esc(a.title)}</div><p class="why-item-text">${esc(a.text)}</p></div>`).join('')}</div><div class="why-clients">${d.why.clients.map(c=>`<span class="client-tag">${esc(c)}</span>`).join('')}</div></div>
+<div class="page work"><div class="page-label">Selected Work</div><h2 class="page-heading">${esc(d.work.heading)}<br><em>${esc(d.work.headingItalic)}</em></h2><div class="work-items">${d.work.transactions.map(t=>`<div class="work-item"><div class="work-location">${esc(t.location)}</div><div class="work-title">${esc(t.title)}</div><p class="work-details">${(t.details||'').split('\\n').map(l=>esc(l)).join('<br>')}</p><div class="work-value">${esc(t.value)}</div></div>`).join('')}</div></div>
+<div class="page contact"><div class="contact-monogram">${esc(d.contact.monogram)}</div><h2 class="page-heading">${esc(d.contact.heading1)}<br>${esc(d.contact.heading2)}</h2><div class="contact-detail"><div class="contact-detail-label">Email</div><div class="contact-detail-value">${esc(d.contact.email)}</div></div><div class="contact-detail"><div class="contact-detail-label">Telephone</div><div class="contact-detail-value">${esc(d.contact.phone)}</div></div><div class="contact-line"></div><div class="contact-note">${esc(d.contact.note)}</div><div class="contact-footer">${esc(d.contact.copyright)}</div></div>
+</body></html>`;
+}
+
+// ─── PREVIEW ───
+function updatePreview() {
+  readForm();
+  document.getElementById('previewFrame').srcdoc = generateHTML();
+}
+
+// ─── BUTTONS ───
+document.getElementById('saveBtn').addEventListener('click', () => { readForm(); updatePreview(); saveToFirestore(); });
+document.getElementById('previewBtn').addEventListener('click', () => {
+  readForm();
+  const blob = new Blob([generateHTML()], { type: 'text/html' });
+  window.open(URL.createObjectURL(blob), '_blank');
+});
+document.getElementById('downloadBtn').addEventListener('click', () => {
+  readForm();
+  const blob = new Blob([generateHTML()], { type: 'text/html' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `${data.cover.name.replace(/\s+/g,'-').toLowerCase()}-profile.html`;
+  a.click();
+});
+document.getElementById('exportBtn').addEventListener('click', () => {
+  readForm();
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `profile-backup-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+});
+document.getElementById('importFile').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const imported = JSON.parse(reader.result);
+      if (!imported.cover) throw new Error('Invalid file');
+      if (!confirm('Replace all content with imported data?')) return;
+      data = imported;
+      populateForm();
+      updatePreview();
+      markUnsaved();
+      showToast('Imported — hit Save & Sync to publish');
+    } catch(err) { showToast('Import failed: ' + err.message, true); }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+});
+
+// Auto-update preview on input (debounced)
+let previewTimer;
+document.addEventListener('input', e => {
+  if (e.target.closest('.sidebar')) {
+    clearTimeout(previewTimer);
+    previewTimer = setTimeout(updatePreview, 800);
+  }
+});
+
+function showToast(msg, isError) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast ' + (isError ? 'toast-error' : 'toast-success') + ' show';
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+</script>
+</body>
+</html>
