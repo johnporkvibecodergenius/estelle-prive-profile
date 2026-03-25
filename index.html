@@ -342,6 +342,19 @@
         <div id="citiesRepeater"></div>
         <button class="repeater-add" onclick="addCity()">+ Add City</button>
         <hr class="section-divider">
+        <div class="section-label">Layout</div>
+        <div class="field">
+          <label>Markets Layout Style</label>
+          <select id="markets_style_layout">
+            <option value="list">Vertical List — Cities stacked with dot markers</option>
+            <option value="grid-2">Two Column Grid — Clean 2-column layout</option>
+            <option value="grid-3">Three Column Grid — Compact 3-column</option>
+            <option value="centered">Centered Stack — Cities centered, no dots</option>
+            <option value="minimal">Minimal — City names only, large type, no borders</option>
+            <option value="numbered">Numbered — Each city with number prefix (01, 02...)</option>
+          </select>
+        </div>
+        <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
           <label class="range-label">City Font Size <span class="range-value" id="markets_style_cityFontSize_val">30px</span></label>
@@ -1004,7 +1017,7 @@ const DEFAULT_DATA = {
   markets: {
     label:"Our Markets", heading1:"The World's Most", heading2:"Coveted Addresses",
     cities:["Monaco","Paris","London","Saint Tropez","Marbella","Dubai","Geneva"],
-    _style: { cityFontSize:30, dotColor:'', dotSize:6, cityPadding:24, labelColor:'#8B6E4E', headingColor:'#F5EFE6', cityColor:'#F5EFE6' },
+    _style: { layout:'list', cityFontSize:30, dotColor:'', dotSize:6, cityPadding:24, labelColor:'#8B6E4E', headingColor:'#F5EFE6', cityColor:'#F5EFE6' },
   },
   portfolio: {
     label:"The Portfolio", heading:"What We", headingItalic:"Do",
@@ -1480,6 +1493,7 @@ function populatePageStyles() {
 
   // Markets
   const ms = (data.markets && data.markets._style) || DEFAULT_DATA.markets._style || {};
+  _setVal('markets_style_layout', ms.layout || 'list');
   _setSlider('markets_style_cityFontSize', 'markets_style_cityFontSize_val', ms.cityFontSize || 30, 'px');
   _setColor('markets_style_dotColor_picker', 'markets_style_dotColor', ms.dotColor);
   _setSlider('markets_style_dotSize', 'markets_style_dotSize_val', ms.dotSize || 6, 'px');
@@ -1596,6 +1610,7 @@ function readPageStyles() {
   // Markets
   if (!data.markets) data.markets = {};
   if (!data.markets._style) data.markets._style = {};
+  data.markets._style.layout = _readVal('markets_style_layout');
   data.markets._style.cityFontSize = _readInt('markets_style_cityFontSize');
   data.markets._style.dotColor = _readVal('markets_style_dotColor');
   data.markets._style.dotSize = _readInt('markets_style_dotSize');
@@ -1828,6 +1843,7 @@ function generateHTML(){
   const houseStatNumberColor = houseStyle.statNumberColor || colors.textPrimary || '#1A1610';
   const houseStatLabelColor = houseStyle.statLabelColor || colors.textMuted || '#8A847C';
 
+  const marketsLayout = marketsStyle.layout || 'list';
   const cityFontSize = marketsStyle.cityFontSize || 30;
   const dotColor = marketsStyle.dotColor || colors.accent || '#8B6E4E';
   const dotSize = marketsStyle.dotSize || 6;
@@ -1932,7 +1948,22 @@ function generateHTML(){
   }
 
   if (!hidden.includes('markets')) {
-    pages += `<div class="page markets"><div class="page-label" style="color:${marketsLabelColor};">${esc(d.markets.label)}</div><h2 class="page-heading" style="color:${marketsHeadingColor};">${esc(d.markets.heading1)}<br>${esc(d.markets.heading2)}</h2><div class="markets-list">${d.markets.cities.map(c=>`<div class="market-city" style="font-size:${cityFontSize}px;color:${marketsCityColor};">${esc(c)}</div>`).join('')}</div></div>`;
+    let marketsContent = '';
+    if (marketsLayout === 'grid-2') {
+      marketsContent = `<div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">${d.markets.cities.map(c=>`<div style="font-family:var(--font-display);font-size:${cityFontSize}px;font-weight:300;color:${marketsCityColor};padding:${cityPadding}px 0;border-bottom:1px solid rgba(245,239,230,.06);display:flex;align-items:center;gap:16px;"><span style="width:${dotSize}px;height:${dotSize}px;background:${dotColor};border-radius:50%;flex-shrink:0;"></span>${esc(c)}</div>`).join('')}</div>`;
+    } else if (marketsLayout === 'grid-3') {
+      marketsContent = `<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">${d.markets.cities.map(c=>`<div style="font-family:var(--font-display);font-size:${Math.round(cityFontSize*0.75)}px;font-weight:300;color:${marketsCityColor};padding:${cityPadding}px 0;border-bottom:1px solid rgba(245,239,230,.06);display:flex;align-items:center;gap:12px;"><span style="width:${dotSize}px;height:${dotSize}px;background:${dotColor};border-radius:50%;flex-shrink:0;"></span>${esc(c)}</div>`).join('')}</div>`;
+    } else if (marketsLayout === 'centered') {
+      marketsContent = `<div style="display:flex;flex-direction:column;align-items:center;gap:${cityPadding}px;">${d.markets.cities.map(c=>`<div style="font-family:var(--font-display);font-size:${cityFontSize}px;font-weight:300;color:${marketsCityColor};text-align:center;letter-spacing:.1em;">${esc(c)}</div>`).join('')}</div>`;
+    } else if (marketsLayout === 'minimal') {
+      marketsContent = `<div style="display:flex;flex-direction:column;">${d.markets.cities.map(c=>`<div style="font-family:var(--font-display);font-size:${Math.round(cityFontSize*1.3)}px;font-weight:300;color:${marketsCityColor};padding:${Math.round(cityPadding*1.2)}px 0;letter-spacing:.05em;">${esc(c)}</div>`).join('')}</div>`;
+    } else if (marketsLayout === 'numbered') {
+      marketsContent = `<div style="display:flex;flex-direction:column;">${d.markets.cities.map((c,i)=>`<div style="font-family:var(--font-display);font-size:${cityFontSize}px;font-weight:300;color:${marketsCityColor};padding:${cityPadding}px 0;border-bottom:1px solid rgba(245,239,230,.06);display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:center;"><span style="font-size:14px;font-family:var(--font-body);font-weight:400;color:${dotColor};letter-spacing:.1em;">${String(i+1).padStart(2,'0')}</span>${esc(c)}</div>`).join('')}</div>`;
+    } else {
+      // Default: list
+      marketsContent = `<div class="markets-list">${d.markets.cities.map(c=>`<div class="market-city" style="font-size:${cityFontSize}px;color:${marketsCityColor};">${esc(c)}</div>`).join('')}</div>`;
+    }
+    pages += `<div class="page markets"><div class="page-label" style="color:${marketsLabelColor};">${esc(d.markets.label)}</div><h2 class="page-heading" style="color:${marketsHeadingColor};">${esc(d.markets.heading1)}<br>${esc(d.markets.heading2)}</h2>${marketsContent}</div>`;
   }
 
   if (!hidden.includes('portfolio')) {
