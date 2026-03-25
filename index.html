@@ -30,8 +30,8 @@
     .app { display: none; grid-template-columns: 440px 1fr; height: 100vh; }
     .app.active { display: grid; }
 
-    .sidebar { background: var(--card); border-right: 1px solid var(--border); overflow-y: auto; display: flex; flex-direction: column; }
-    .sidebar-header { padding: 16px 24px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--card); z-index: 10; }
+    .sidebar { background: var(--card); border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; }
+    .sidebar-header { padding: 16px 24px; border-bottom: 1px solid var(--border); background: var(--card); flex-shrink: 0; }
     .sidebar-top { display: flex; align-items: center; justify-content: space-between; }
     .sidebar-brand { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rosso); font-weight: 400; }
     .sidebar-title { font-family: var(--font-display); font-size: 20px; font-weight: 300; margin-top: 2px; }
@@ -46,12 +46,12 @@
     .btn-danger { background: none; color: var(--text-muted); border: none; padding: 9px 12px; }
     .btn-danger:hover { color: #dc3545; }
 
-    .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); overflow-x: auto; position: sticky; top: 72px; background: var(--card); z-index: 10; }
+    .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); overflow-x: auto; background: var(--card); flex-shrink: 0; }
     .tab { padding: 11px 14px; font-size: 10px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; white-space: nowrap; transition: all 0.3s; }
     .tab:hover { color: var(--text); }
     .tab.active { color: var(--rosso); border-bottom-color: var(--rosso); }
 
-    .panels { padding: 24px; flex: 1; }
+    .panels { padding: 24px; flex: 1; overflow-y: auto; }
     .panel { display: none; }
     .panel.active { display: block; }
     .panel-title { font-family: var(--font-display); font-size: 20px; font-weight: 400; margin-bottom: 4px; }
