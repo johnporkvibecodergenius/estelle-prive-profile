@@ -194,6 +194,18 @@
           <label class="range-label">Background Overlay Opacity <span class="range-value" id="cover_style_bgImageOpacity_val">0.3</span></label>
           <input type="range" id="cover_style_bgImageOpacity" min="0" max="1" step="0.05" value="0.3">
         </div>
+        <div class="field">
+          <label class="range-label">Tagline Size <span class="range-value" id="cover_style_taglineSize_val">11px</span></label>
+          <input type="range" id="cover_style_taglineSize" min="8" max="16" value="11">
+        </div>
+        <div class="field">
+          <label class="range-label">Name Letter Spacing <span class="range-value" id="cover_style_nameLetterSpacing_val">0.08em</span></label>
+          <input type="range" id="cover_style_nameLetterSpacing" min="0" max="0.2" step="0.01" value="0.08">
+        </div>
+        <div class="field">
+          <label class="range-label">Monogram Letter Spacing <span class="range-value" id="cover_style_monogramLetterSpacing_val">0.15em</span></label>
+          <input type="range" id="cover_style_monogramLetterSpacing" min="0" max="0.3" step="0.01" value="0.15">
+        </div>
       </div>
 
       <!-- THE HOUSE -->
@@ -211,6 +223,27 @@
         <div class="section-label">Statistics</div>
         <div id="statsRepeater"></div>
         <button class="repeater-add" onclick="addStat()">+ Add Stat</button>
+        <hr class="section-divider">
+        <div class="section-label">Page Styling</div>
+        <div class="field">
+          <label>Background Color Override</label>
+          <div class="color-field">
+            <input type="color" id="house_style_bgColor_picker" value="#FDFAF6">
+            <input type="text" id="house_style_bgColor" placeholder="(use global bgLight)">
+          </div>
+        </div>
+        <div class="field">
+          <label class="range-label">Stat Number Size <span class="range-value" id="house_style_statNumberSize_val">36px</span></label>
+          <input type="range" id="house_style_statNumberSize" min="24" max="56" value="36">
+        </div>
+        <div class="field">
+          <label class="range-label">Stat Label Size <span class="range-value" id="house_style_statLabelSize_val">11px</span></label>
+          <input type="range" id="house_style_statLabelSize" min="8" max="14" value="11">
+        </div>
+        <div class="field">
+          <label class="range-label">Paragraph Max Width <span class="range-value" id="house_style_textMaxWidth_val">520px</span></label>
+          <input type="range" id="house_style_textMaxWidth" min="400" max="700" value="520">
+        </div>
       </div>
 
       <!-- MARKETS -->
@@ -230,6 +263,21 @@
         <div class="field">
           <label class="range-label">City Font Size <span class="range-value" id="markets_style_cityFontSize_val">30px</span></label>
           <input type="range" id="markets_style_cityFontSize" min="20" max="48" value="30">
+        </div>
+        <div class="field">
+          <label>Dot Color Override</label>
+          <div class="color-field">
+            <input type="color" id="markets_style_dotColor_picker" value="#8B6E4E">
+            <input type="text" id="markets_style_dotColor" placeholder="(use accent)">
+          </div>
+        </div>
+        <div class="field">
+          <label class="range-label">Dot Size <span class="range-value" id="markets_style_dotSize_val">6px</span></label>
+          <input type="range" id="markets_style_dotSize" min="4" max="12" value="6">
+        </div>
+        <div class="field">
+          <label class="range-label">City Padding <span class="range-value" id="markets_style_cityPadding_val">24px</span></label>
+          <input type="range" id="markets_style_cityPadding" min="12" max="40" value="24">
         </div>
       </div>
 
@@ -254,6 +302,25 @@
             <option value="grid">Grid</option>
           </select>
         </div>
+        <div class="field">
+          <label>Background Color Override</label>
+          <div class="color-field">
+            <input type="color" id="portfolio_style_bgColor_picker" value="#FDFAF6">
+            <input type="text" id="portfolio_style_bgColor" placeholder="(use global bgLight)">
+          </div>
+        </div>
+        <div class="field">
+          <label class="range-label">Vertical Number Size <span class="range-value" id="portfolio_style_vertNumSize_val">32px</span></label>
+          <input type="range" id="portfolio_style_vertNumSize" min="20" max="48" value="32">
+        </div>
+        <div class="field">
+          <label class="range-label">Vertical Title Size <span class="range-value" id="portfolio_style_vertTitleSize_val">20px</span></label>
+          <input type="range" id="portfolio_style_vertTitleSize" min="14" max="28" value="20">
+        </div>
+        <div class="field">
+          <label class="range-label">Vertical Desc Size <span class="range-value" id="portfolio_style_vertDescSize_val">13px</span></label>
+          <input type="range" id="portfolio_style_vertDescSize" min="11" max="18" value="13">
+        </div>
       </div>
 
       <!-- PROCESS -->
@@ -269,6 +336,31 @@
         <div class="section-label">Steps</div>
         <div id="stepsRepeater"></div>
         <button class="repeater-add" onclick="addStep()">+ Add Step</button>
+        <hr class="section-divider">
+        <div class="section-label">Page Styling</div>
+        <div class="field">
+          <label>Background Color Override</label>
+          <div class="color-field">
+            <input type="color" id="process_style_bgColor_picker" value="#FDFAF6">
+            <input type="text" id="process_style_bgColor" placeholder="(use global bgLight)">
+          </div>
+        </div>
+        <div class="field">
+          <label class="range-label">Step Numeral Size <span class="range-value" id="process_style_stepNumeralSize_val">28px</span></label>
+          <input type="range" id="process_style_stepNumeralSize" min="18" max="40" value="28">
+        </div>
+        <div class="field">
+          <label class="range-label">Step Title Size <span class="range-value" id="process_style_stepTitleSize_val">19px</span></label>
+          <input type="range" id="process_style_stepTitleSize" min="14" max="26" value="19">
+        </div>
+        <div class="field">
+          <label class="range-label">Step Text Size <span class="range-value" id="process_style_stepTextSize_val">13px</span></label>
+          <input type="range" id="process_style_stepTextSize" min="11" max="18" value="13">
+        </div>
+        <div class="field">
+          <label class="range-label">Intro Max Width <span class="range-value" id="process_style_introMaxWidth_val">520px</span></label>
+          <input type="range" id="process_style_introMaxWidth" min="400" max="700" value="520">
+        </div>
       </div>
 
       <!-- WHY US -->
@@ -289,6 +381,18 @@
         <div class="field">
           <label class="range-label">Statement Font Size <span class="range-value" id="why_style_statementSize_val">26px</span></label>
           <input type="range" id="why_style_statementSize" min="18" max="36" value="26">
+        </div>
+        <div class="field">
+          <label class="range-label">Pillar Title Size <span class="range-value" id="why_style_pillarTitleSize_val">22px</span></label>
+          <input type="range" id="why_style_pillarTitleSize" min="16" max="32" value="22">
+        </div>
+        <div class="field">
+          <label class="range-label">Pillar Text Size <span class="range-value" id="why_style_pillarTextSize_val">13.5px</span></label>
+          <input type="range" id="why_style_pillarTextSize" min="11" max="18" step="0.5" value="13.5">
+        </div>
+        <div class="field">
+          <label class="range-label">Pillar Grid Width <span class="range-value" id="why_style_pillarGridWidth_val">180px</span></label>
+          <input type="range" id="why_style_pillarGridWidth" min="120" max="260" value="180">
         </div>
       </div>
 
@@ -318,6 +422,25 @@
             <option value="italic">Italic</option>
           </select>
         </div>
+        <div class="field">
+          <label>Background Color Override</label>
+          <div class="color-field">
+            <input type="color" id="founder_style_bgColor_picker" value="#FDFAF6">
+            <input type="text" id="founder_style_bgColor" placeholder="(use global bgLight)">
+          </div>
+        </div>
+        <div class="field">
+          <label class="range-label">Letter Font Size <span class="range-value" id="founder_style_letterFontSize_val">14px</span></label>
+          <input type="range" id="founder_style_letterFontSize" min="11" max="18" value="14">
+        </div>
+        <div class="field">
+          <label class="range-label">Signature Size <span class="range-value" id="founder_style_signatureSize_val">36px</span></label>
+          <input type="range" id="founder_style_signatureSize" min="24" max="56" value="36">
+        </div>
+        <div class="field">
+          <label class="range-label">Letter Max Width <span class="range-value" id="founder_style_letterMaxWidth_val">500px</span></label>
+          <input type="range" id="founder_style_letterMaxWidth" min="400" max="700" value="500">
+        </div>
       </div>
 
       <!-- CONTACT -->
@@ -341,6 +464,18 @@
             <input type="color" id="contact_style_bgColor_picker" value="#1A1610">
             <input type="text" id="contact_style_bgColor" placeholder="(use global dark)">
           </div>
+        </div>
+        <div class="field">
+          <label class="range-label">Monogram Size <span class="range-value" id="contact_style_monogramSize_val">48px</span></label>
+          <input type="range" id="contact_style_monogramSize" min="32" max="72" value="48">
+        </div>
+        <div class="field">
+          <label class="range-label">Detail Value Size <span class="range-value" id="contact_style_detailValueSize_val">22px</span></label>
+          <input type="range" id="contact_style_detailValueSize" min="16" max="32" value="22">
+        </div>
+        <div class="field">
+          <label class="range-label">Note Size <span class="range-value" id="contact_style_noteSize_val">12px</span></label>
+          <input type="range" id="contact_style_noteSize" min="10" max="16" value="12">
         </div>
       </div>
 
@@ -406,6 +541,13 @@
             <input type="text" id="design_color_textMuted" value="#8A847C">
           </div>
         </div>
+        <div class="field">
+          <label>Border Color</label>
+          <div class="color-field">
+            <input type="color" id="design_color_border_picker" value="#E8E3DC">
+            <input type="text" id="design_color_border" value="#E8E3DC">
+          </div>
+        </div>
 
         <hr class="section-divider">
         <div class="section-label">Typography</div>
@@ -438,6 +580,26 @@
         <div class="field">
           <label class="range-label">Body Text Size <span class="range-value" id="design_size_body_val">15px</span></label>
           <input type="range" id="design_size_body" min="12" max="20" value="15">
+        </div>
+        <div class="field">
+          <label class="range-label">Section Label Size <span class="range-value" id="design_size_sectionLabel_val">10px</span></label>
+          <input type="range" id="design_size_sectionLabel" min="8" max="14" value="10">
+        </div>
+        <div class="field">
+          <label class="range-label">Global Letter Spacing <span class="range-value" id="design_spacing_letterSpacing_val">0.08em</span></label>
+          <input type="range" id="design_spacing_letterSpacing" min="0" max="0.5" step="0.01" value="0.08">
+        </div>
+        <div class="field">
+          <label class="range-label">Global Line Height <span class="range-value" id="design_spacing_lineHeight_val">1.6</span></label>
+          <input type="range" id="design_spacing_lineHeight" min="1.2" max="2.2" step="0.1" value="1.6">
+        </div>
+        <div class="field">
+          <label class="range-label">Page Padding Horizontal <span class="range-value" id="design_spacing_pagePadH_val">64px</span></label>
+          <input type="range" id="design_spacing_pagePadH" min="40" max="100" value="64">
+        </div>
+        <div class="field">
+          <label class="range-label">Page Padding Vertical <span class="range-value" id="design_spacing_pagePadV_val">80px</span></label>
+          <input type="range" id="design_spacing_pagePadV" min="40" max="120" value="80">
         </div>
 
         <hr class="section-divider">
@@ -493,17 +655,18 @@ function fsToJs(v){if(!v)return null;if(v.stringValue!==undefined)return v.strin
 function deepMerge(t,d){const o=Object.assign({},d);for(const k of Object.keys(t)){const v=t[k];if(v!==null&&v!==undefined&&typeof v==='object'&&!Array.isArray(v)&&d[k]&&typeof d[k]==='object')o[k]=deepMerge(v,d[k]);else if(v!==null&&v!==undefined)o[k]=v;}return o;}
 
 const DEFAULT_DATA = {
-  cover: { monogram:"EP", name:"Estelle Privé", tagline:"International Realty", _style: { bgColor:'', monogramSize:72, nameSize:52, bgImageUrl:'', bgImageOpacity:0.3 } },
+  cover: { monogram:"EP", name:"Estelle Privé", tagline:"International Realty", _style: { bgColor:'', monogramSize:72, nameSize:52, bgImageUrl:'', bgImageOpacity:0.3, taglineSize:11, nameLetterSpacing:0.08, monogramLetterSpacing:0.15 } },
   house: {
     label:"The House", heading:"Discreet Excellence,", headingItalic:"Global Reach",
     p1:"Estelle Privé was founded on a singular conviction: that exceptional properties deserve exceptional representation. We operate at the intersection of private wealth advisory and curated real estate, offering a bespoke service to a discerning international clientele.",
     p2:"An international luxury real estate brokerage connecting discerning investors, private families, and institutional buyers with exceptional properties across the world's most coveted markets. From hotel acquisitions and branded residences to joint ventures and signature estates — we deliver curated opportunities backed by market intelligence, independent valuations, and a global network of developers, hotel operators, family offices, and institutional partners.",
     stats:[{number:"8",label:"Global Markets"},{number:"€2.4B",label:"Portfolio Value"},{number:"100%",label:"Private Clients"}],
+    _style: { bgColor:'', statNumberSize:36, statLabelSize:11, textMaxWidth:520 },
   },
   markets: {
     heading1:"The World's Most", heading2:"Coveted Addresses",
     cities:["Monaco","Paris","London","Saint Tropez","Marbella","Dubai","Geneva"],
-    _style: { cityFontSize:30 },
+    _style: { cityFontSize:30, dotColor:'', dotSize:6, cityPadding:24 },
   },
   portfolio: {
     heading:"What We", headingItalic:"Do",
@@ -514,7 +677,7 @@ const DEFAULT_DATA = {
       {num:"04",title:"Iconic Residential",desc:"Private estates, waterfront villas, and sky residences in the world's most prestigious addresses. On-market and off-market opportunities curated for architectural merit, location prestige, and investment integrity."},
       {num:"05",title:"Corporate & Business",desc:"Strategic real estate advisory for multinational corporations, hotel brands, and institutional entities. Headquarters relocations, portfolio optimisation, and commercial asset transactions across key international markets."},
     ],
-    _style: { layout:'list' },
+    _style: { layout:'list', bgColor:'', vertNumSize:32, vertTitleSize:20, vertDescSize:13 },
   },
   process: {
     heading:"How We", headingItalic:"Work",
@@ -525,6 +688,7 @@ const DEFAULT_DATA = {
       {numeral:"III",title:"Discretion & Confidentiality",text:"Our most significant transactions never appear online. For our private clients, complete confidentiality is not a feature — it is the foundation of every relationship we build."},
       {numeral:"IV",title:"Execution & Completion",text:"From a single acquisition to a multi-asset portfolio strategy — bespoke advisory through to completion, across jurisdictions. We coordinate legal, financial, and operational workstreams to ensure seamless closing."},
     ],
+    _style: { bgColor:'', stepNumeralSize:28, stepTitleSize:19, stepTextSize:13, introMaxWidth:520 },
   },
   why: {
     heading1:"Why Invest", heading2:"With Estelle Privé",
@@ -534,7 +698,7 @@ const DEFAULT_DATA = {
       {title:"Decision-Maker Network",text:"Direct relationships with developers, hotel owners, sovereign wealth entities, and UHNW individuals across every market we operate in. No intermediaries. No delays."},
       {title:"Absolute Confidentiality",text:"Every transaction is handled with complete discretion. No public listings, no press coverage, no leaks. Your privacy is the foundation — not a feature."},
     ],
-    _style: { statementSize:26 },
+    _style: { statementSize:26, pillarTitleSize:22, pillarTextSize:13.5, pillarGridWidth:180 },
   },
   founder: {
     heading:"A Personal", headingItalic:"Note",
@@ -548,18 +712,19 @@ const DEFAULT_DATA = {
     closing:"With warm regards,",
     signatureName:"Hani Y. Ayoub",
     role:"Founder & Managing Director — Estelle Privé",
-    _style: { letterStyle:'normal' },
+    _style: { letterStyle:'normal', bgColor:'', letterFontSize:14, signatureSize:36, letterMaxWidth:500 },
   },
   contact: {
     monogram:"EP", heading1:"Begin a", heading2:"Conversation",
     email:"enquiries@estelleprive.com", website:"www.estelleprive.com",
     note:"All enquiries are treated with complete discretion.", copyright:"© 2026 Estelle Privé International",
-    _style: { bgColor:'' },
+    _style: { bgColor:'', monogramSize:48, detailValueSize:22, noteSize:12 },
   },
   design: {
-    colors: { accent:'#8B6E4E', accentDeep:'#6B5239', bgLight:'#FDFAF6', bgWarm:'#F5EFE6', bgDark:'#1A1610', textPrimary:'#1A1610', textSecondary:'#5C5244', textMuted:'#8A847C' },
+    colors: { accent:'#8B6E4E', accentDeep:'#6B5239', bgLight:'#FDFAF6', bgWarm:'#F5EFE6', bgDark:'#1A1610', textPrimary:'#1A1610', textSecondary:'#5C5244', textMuted:'#8A847C', border:'#E8E3DC' },
     fonts: { display:'Cormorant Garamond', body:'Outfit' },
-    sizes: { heading:44, body:15 },
+    sizes: { heading:44, body:15, sectionLabel:10 },
+    spacing: { letterSpacing:0.08, lineHeight:1.6, pagePadH:64, pagePadV:80 },
     pagesHidden: [],
     pdfSize: 'A4',
     logoMode: 'monogram',
@@ -610,7 +775,13 @@ const COLOR_FIELDS = [
   {picker:'design_color_textPrimary_picker', text:'design_color_textPrimary'},
   {picker:'design_color_textSecondary_picker', text:'design_color_textSecondary'},
   {picker:'design_color_textMuted_picker', text:'design_color_textMuted'},
+  {picker:'design_color_border_picker', text:'design_color_border'},
   {picker:'cover_style_bgColor_picker', text:'cover_style_bgColor'},
+  {picker:'house_style_bgColor_picker', text:'house_style_bgColor'},
+  {picker:'markets_style_dotColor_picker', text:'markets_style_dotColor'},
+  {picker:'portfolio_style_bgColor_picker', text:'portfolio_style_bgColor'},
+  {picker:'process_style_bgColor_picker', text:'process_style_bgColor'},
+  {picker:'founder_style_bgColor_picker', text:'founder_style_bgColor'},
   {picker:'contact_style_bgColor_picker', text:'contact_style_bgColor'},
 ];
 
@@ -636,6 +807,35 @@ const RANGE_FIELDS = [
   {id:'why_style_statementSize', valId:'why_style_statementSize_val', unit:'px'},
   {id:'design_size_heading', valId:'design_size_heading_val', unit:'px'},
   {id:'design_size_body', valId:'design_size_body_val', unit:'px'},
+  {id:'design_size_sectionLabel', valId:'design_size_sectionLabel_val', unit:'px'},
+  {id:'design_spacing_letterSpacing', valId:'design_spacing_letterSpacing_val', unit:'em'},
+  {id:'design_spacing_lineHeight', valId:'design_spacing_lineHeight_val', unit:''},
+  {id:'design_spacing_pagePadH', valId:'design_spacing_pagePadH_val', unit:'px'},
+  {id:'design_spacing_pagePadV', valId:'design_spacing_pagePadV_val', unit:'px'},
+  {id:'cover_style_taglineSize', valId:'cover_style_taglineSize_val', unit:'px'},
+  {id:'cover_style_nameLetterSpacing', valId:'cover_style_nameLetterSpacing_val', unit:'em'},
+  {id:'cover_style_monogramLetterSpacing', valId:'cover_style_monogramLetterSpacing_val', unit:'em'},
+  {id:'house_style_statNumberSize', valId:'house_style_statNumberSize_val', unit:'px'},
+  {id:'house_style_statLabelSize', valId:'house_style_statLabelSize_val', unit:'px'},
+  {id:'house_style_textMaxWidth', valId:'house_style_textMaxWidth_val', unit:'px'},
+  {id:'markets_style_dotSize', valId:'markets_style_dotSize_val', unit:'px'},
+  {id:'markets_style_cityPadding', valId:'markets_style_cityPadding_val', unit:'px'},
+  {id:'portfolio_style_vertNumSize', valId:'portfolio_style_vertNumSize_val', unit:'px'},
+  {id:'portfolio_style_vertTitleSize', valId:'portfolio_style_vertTitleSize_val', unit:'px'},
+  {id:'portfolio_style_vertDescSize', valId:'portfolio_style_vertDescSize_val', unit:'px'},
+  {id:'process_style_stepNumeralSize', valId:'process_style_stepNumeralSize_val', unit:'px'},
+  {id:'process_style_stepTitleSize', valId:'process_style_stepTitleSize_val', unit:'px'},
+  {id:'process_style_stepTextSize', valId:'process_style_stepTextSize_val', unit:'px'},
+  {id:'process_style_introMaxWidth', valId:'process_style_introMaxWidth_val', unit:'px'},
+  {id:'why_style_pillarTitleSize', valId:'why_style_pillarTitleSize_val', unit:'px'},
+  {id:'why_style_pillarTextSize', valId:'why_style_pillarTextSize_val', unit:'px'},
+  {id:'why_style_pillarGridWidth', valId:'why_style_pillarGridWidth_val', unit:'px'},
+  {id:'founder_style_letterFontSize', valId:'founder_style_letterFontSize_val', unit:'px'},
+  {id:'founder_style_signatureSize', valId:'founder_style_signatureSize_val', unit:'px'},
+  {id:'founder_style_letterMaxWidth', valId:'founder_style_letterMaxWidth_val', unit:'px'},
+  {id:'contact_style_monogramSize', valId:'contact_style_monogramSize_val', unit:'px'},
+  {id:'contact_style_detailValueSize', valId:'contact_style_detailValueSize_val', unit:'px'},
+  {id:'contact_style_noteSize', valId:'contact_style_noteSize_val', unit:'px'},
 ];
 
 RANGE_FIELDS.forEach(rf => {
@@ -696,7 +896,7 @@ function updateCoverBgPreview() {
 function populateDesign() {
   const ds = data.design || DEFAULT_DATA.design;
   // Colors
-  const colorMap = {accent:'accent', accentDeep:'accentDeep', bgLight:'bgLight', bgWarm:'bgWarm', bgDark:'bgDark', textPrimary:'textPrimary', textSecondary:'textSecondary', textMuted:'textMuted'};
+  const colorMap = {accent:'accent', accentDeep:'accentDeep', bgLight:'bgLight', bgWarm:'bgWarm', bgDark:'bgDark', textPrimary:'textPrimary', textSecondary:'textSecondary', textMuted:'textMuted', border:'border'};
   for (const [key, id] of Object.entries(colorMap)) {
     const val = ds.colors[key] || DEFAULT_DATA.design.colors[key];
     const picker = document.getElementById('design_color_' + id + '_picker');
@@ -714,6 +914,24 @@ function populateDesign() {
   const bodySlider = document.getElementById('design_size_body');
   bodySlider.value = ds.sizes.body || 15;
   document.getElementById('design_size_body_val').textContent = bodySlider.value + 'px';
+  // Section label size
+  const slSlider = document.getElementById('design_size_sectionLabel');
+  slSlider.value = (ds.sizes && ds.sizes.sectionLabel) || 10;
+  document.getElementById('design_size_sectionLabel_val').textContent = slSlider.value + 'px';
+  // Spacing
+  const sp = (ds.spacing) || DEFAULT_DATA.design.spacing;
+  const lsSlider = document.getElementById('design_spacing_letterSpacing');
+  lsSlider.value = sp.letterSpacing !== undefined ? sp.letterSpacing : 0.08;
+  document.getElementById('design_spacing_letterSpacing_val').textContent = lsSlider.value + 'em';
+  const lhSlider = document.getElementById('design_spacing_lineHeight');
+  lhSlider.value = sp.lineHeight !== undefined ? sp.lineHeight : 1.6;
+  document.getElementById('design_spacing_lineHeight_val').textContent = lhSlider.value;
+  const phSlider = document.getElementById('design_spacing_pagePadH');
+  phSlider.value = sp.pagePadH || 64;
+  document.getElementById('design_spacing_pagePadH_val').textContent = phSlider.value + 'px';
+  const pvSlider = document.getElementById('design_spacing_pagePadV');
+  pvSlider.value = sp.pagePadV || 80;
+  document.getElementById('design_spacing_pagePadV_val').textContent = pvSlider.value + 'px';
   // Pages hidden
   const pages = ['cover','house','markets','portfolio','process','why','founder','contact'];
   const hidden = ds.pagesHidden || [];
@@ -742,7 +960,7 @@ function populateDesign() {
 function readDesign() {
   if (!data.design) data.design = JSON.parse(JSON.stringify(DEFAULT_DATA.design));
   // Colors
-  const colorMap = {accent:'accent', accentDeep:'accentDeep', bgLight:'bgLight', bgWarm:'bgWarm', bgDark:'bgDark', textPrimary:'textPrimary', textSecondary:'textSecondary', textMuted:'textMuted'};
+  const colorMap = {accent:'accent', accentDeep:'accentDeep', bgLight:'bgLight', bgWarm:'bgWarm', bgDark:'bgDark', textPrimary:'textPrimary', textSecondary:'textSecondary', textMuted:'textMuted', border:'border'};
   for (const [key, id] of Object.entries(colorMap)) {
     const text = document.getElementById('design_color_' + id);
     if (text) data.design.colors[key] = text.value;
@@ -753,6 +971,12 @@ function readDesign() {
   // Sizes
   data.design.sizes.heading = parseInt(document.getElementById('design_size_heading').value);
   data.design.sizes.body = parseInt(document.getElementById('design_size_body').value);
+  data.design.sizes.sectionLabel = parseInt(document.getElementById('design_size_sectionLabel').value);
+  if (!data.design.spacing) data.design.spacing = {};
+  data.design.spacing.letterSpacing = parseFloat(document.getElementById('design_spacing_letterSpacing').value);
+  data.design.spacing.lineHeight = parseFloat(document.getElementById('design_spacing_lineHeight').value);
+  data.design.spacing.pagePadH = parseInt(document.getElementById('design_spacing_pagePadH').value);
+  data.design.spacing.pagePadV = parseInt(document.getElementById('design_spacing_pagePadV').value);
   // Pages hidden
   const pages = ['cover','house','markets','portfolio','process','why','founder','contact'];
   data.design.pagesHidden = [];
@@ -791,15 +1015,100 @@ function populatePageStyles() {
 
   updateCoverBgPreview();
 
+  // Cover tagline size
+  const tagSlider = document.getElementById('cover_style_taglineSize');
+  tagSlider.value = cs.taglineSize || 11;
+  document.getElementById('cover_style_taglineSize_val').textContent = tagSlider.value + 'px';
+
+  const nlsSlider = document.getElementById('cover_style_nameLetterSpacing');
+  nlsSlider.value = cs.nameLetterSpacing !== undefined ? cs.nameLetterSpacing : 0.08;
+  document.getElementById('cover_style_nameLetterSpacing_val').textContent = nlsSlider.value + 'em';
+
+  const mlsSlider = document.getElementById('cover_style_monogramLetterSpacing');
+  mlsSlider.value = cs.monogramLetterSpacing !== undefined ? cs.monogramLetterSpacing : 0.15;
+  document.getElementById('cover_style_monogramLetterSpacing_val').textContent = mlsSlider.value + 'em';
+
+  // House
+  const hs = (data.house && data.house._style) || DEFAULT_DATA.house._style;
+  const houseBgText = document.getElementById('house_style_bgColor');
+  const houseBgPicker = document.getElementById('house_style_bgColor_picker');
+  houseBgText.value = hs.bgColor || '';
+  if (hs.bgColor && /^#[0-9a-fA-F]{6}$/.test(hs.bgColor)) houseBgPicker.value = hs.bgColor;
+
+  const snSlider = document.getElementById('house_style_statNumberSize');
+  snSlider.value = hs.statNumberSize || 36;
+  document.getElementById('house_style_statNumberSize_val').textContent = snSlider.value + 'px';
+
+  const slSlider2 = document.getElementById('house_style_statLabelSize');
+  slSlider2.value = hs.statLabelSize || 11;
+  document.getElementById('house_style_statLabelSize_val').textContent = slSlider2.value + 'px';
+
+  const tmwSlider = document.getElementById('house_style_textMaxWidth');
+  tmwSlider.value = hs.textMaxWidth || 520;
+  document.getElementById('house_style_textMaxWidth_val').textContent = tmwSlider.value + 'px';
+
   // Markets
   const ms = (data.markets && data.markets._style) || DEFAULT_DATA.markets._style;
   const citySlider = document.getElementById('markets_style_cityFontSize');
   citySlider.value = ms.cityFontSize || 30;
   document.getElementById('markets_style_cityFontSize_val').textContent = citySlider.value + 'px';
 
+  const dotColorText = document.getElementById('markets_style_dotColor');
+  const dotColorPicker = document.getElementById('markets_style_dotColor_picker');
+  dotColorText.value = ms.dotColor || '';
+  if (ms.dotColor && /^#[0-9a-fA-F]{6}$/.test(ms.dotColor)) dotColorPicker.value = ms.dotColor;
+
+  const dotSizeSlider = document.getElementById('markets_style_dotSize');
+  dotSizeSlider.value = ms.dotSize || 6;
+  document.getElementById('markets_style_dotSize_val').textContent = dotSizeSlider.value + 'px';
+
+  const cpSlider = document.getElementById('markets_style_cityPadding');
+  cpSlider.value = ms.cityPadding || 24;
+  document.getElementById('markets_style_cityPadding_val').textContent = cpSlider.value + 'px';
+
   // Portfolio
   const ps = (data.portfolio && data.portfolio._style) || DEFAULT_DATA.portfolio._style;
   document.getElementById('portfolio_style_layout').value = ps.layout || 'list';
+
+  const pBgText = document.getElementById('portfolio_style_bgColor');
+  const pBgPicker = document.getElementById('portfolio_style_bgColor_picker');
+  pBgText.value = ps.bgColor || '';
+  if (ps.bgColor && /^#[0-9a-fA-F]{6}$/.test(ps.bgColor)) pBgPicker.value = ps.bgColor;
+
+  const vnSlider = document.getElementById('portfolio_style_vertNumSize');
+  vnSlider.value = ps.vertNumSize || 32;
+  document.getElementById('portfolio_style_vertNumSize_val').textContent = vnSlider.value + 'px';
+
+  const vtSlider = document.getElementById('portfolio_style_vertTitleSize');
+  vtSlider.value = ps.vertTitleSize || 20;
+  document.getElementById('portfolio_style_vertTitleSize_val').textContent = vtSlider.value + 'px';
+
+  const vdSlider = document.getElementById('portfolio_style_vertDescSize');
+  vdSlider.value = ps.vertDescSize || 13;
+  document.getElementById('portfolio_style_vertDescSize_val').textContent = vdSlider.value + 'px';
+
+  // Process
+  const prs = (data.process && data.process._style) || DEFAULT_DATA.process._style;
+  const prBgText = document.getElementById('process_style_bgColor');
+  const prBgPicker = document.getElementById('process_style_bgColor_picker');
+  prBgText.value = prs.bgColor || '';
+  if (prs.bgColor && /^#[0-9a-fA-F]{6}$/.test(prs.bgColor)) prBgPicker.value = prs.bgColor;
+
+  const snumSlider = document.getElementById('process_style_stepNumeralSize');
+  snumSlider.value = prs.stepNumeralSize || 28;
+  document.getElementById('process_style_stepNumeralSize_val').textContent = snumSlider.value + 'px';
+
+  const stSlider = document.getElementById('process_style_stepTitleSize');
+  stSlider.value = prs.stepTitleSize || 19;
+  document.getElementById('process_style_stepTitleSize_val').textContent = stSlider.value + 'px';
+
+  const sttSlider = document.getElementById('process_style_stepTextSize');
+  sttSlider.value = prs.stepTextSize || 13;
+  document.getElementById('process_style_stepTextSize_val').textContent = sttSlider.value + 'px';
+
+  const imwSlider = document.getElementById('process_style_introMaxWidth');
+  imwSlider.value = prs.introMaxWidth || 520;
+  document.getElementById('process_style_introMaxWidth_val').textContent = imwSlider.value + 'px';
 
   // Why
   const ws = (data.why && data.why._style) || DEFAULT_DATA.why._style;
@@ -807,9 +1116,38 @@ function populatePageStyles() {
   stmtSlider.value = ws.statementSize || 26;
   document.getElementById('why_style_statementSize_val').textContent = stmtSlider.value + 'px';
 
+  const ptSlider = document.getElementById('why_style_pillarTitleSize');
+  ptSlider.value = ws.pillarTitleSize || 22;
+  document.getElementById('why_style_pillarTitleSize_val').textContent = ptSlider.value + 'px';
+
+  const pxtSlider = document.getElementById('why_style_pillarTextSize');
+  pxtSlider.value = ws.pillarTextSize || 13.5;
+  document.getElementById('why_style_pillarTextSize_val').textContent = pxtSlider.value + 'px';
+
+  const pgwSlider = document.getElementById('why_style_pillarGridWidth');
+  pgwSlider.value = ws.pillarGridWidth || 180;
+  document.getElementById('why_style_pillarGridWidth_val').textContent = pgwSlider.value + 'px';
+
   // Founder
-  const fs = (data.founder && data.founder._style) || DEFAULT_DATA.founder._style;
-  document.getElementById('founder_style_letterStyle').value = fs.letterStyle || 'normal';
+  const fds = (data.founder && data.founder._style) || DEFAULT_DATA.founder._style;
+  document.getElementById('founder_style_letterStyle').value = fds.letterStyle || 'normal';
+
+  const fBgText = document.getElementById('founder_style_bgColor');
+  const fBgPicker = document.getElementById('founder_style_bgColor_picker');
+  fBgText.value = fds.bgColor || '';
+  if (fds.bgColor && /^#[0-9a-fA-F]{6}$/.test(fds.bgColor)) fBgPicker.value = fds.bgColor;
+
+  const lfSlider = document.getElementById('founder_style_letterFontSize');
+  lfSlider.value = fds.letterFontSize || 14;
+  document.getElementById('founder_style_letterFontSize_val').textContent = lfSlider.value + 'px';
+
+  const sigSlider = document.getElementById('founder_style_signatureSize');
+  sigSlider.value = fds.signatureSize || 36;
+  document.getElementById('founder_style_signatureSize_val').textContent = sigSlider.value + 'px';
+
+  const lmwSlider = document.getElementById('founder_style_letterMaxWidth');
+  lmwSlider.value = fds.letterMaxWidth || 500;
+  document.getElementById('founder_style_letterMaxWidth_val').textContent = lmwSlider.value + 'px';
 
   // Contact
   const cts = (data.contact && data.contact._style) || DEFAULT_DATA.contact._style;
@@ -817,6 +1155,18 @@ function populatePageStyles() {
   const contactBgPicker = document.getElementById('contact_style_bgColor_picker');
   contactBgText.value = cts.bgColor || '';
   if (cts.bgColor && /^#[0-9a-fA-F]{6}$/.test(cts.bgColor)) contactBgPicker.value = cts.bgColor;
+
+  const cmSlider = document.getElementById('contact_style_monogramSize');
+  cmSlider.value = cts.monogramSize || 48;
+  document.getElementById('contact_style_monogramSize_val').textContent = cmSlider.value + 'px';
+
+  const dvSlider = document.getElementById('contact_style_detailValueSize');
+  dvSlider.value = cts.detailValueSize || 22;
+  document.getElementById('contact_style_detailValueSize_val').textContent = dvSlider.value + 'px';
+
+  const nsSlider = document.getElementById('contact_style_noteSize');
+  nsSlider.value = cts.noteSize || 12;
+  document.getElementById('contact_style_noteSize_val').textContent = nsSlider.value + 'px';
 }
 
 function readPageStyles() {
@@ -826,27 +1176,62 @@ function readPageStyles() {
   data.cover._style.monogramSize = parseInt(document.getElementById('cover_style_monogramSize').value);
   data.cover._style.nameSize = parseInt(document.getElementById('cover_style_nameSize').value);
   data.cover._style.bgImageOpacity = parseFloat(document.getElementById('cover_style_bgImageOpacity').value);
+  data.cover._style.taglineSize = parseInt(document.getElementById('cover_style_taglineSize').value);
+  data.cover._style.nameLetterSpacing = parseFloat(document.getElementById('cover_style_nameLetterSpacing').value);
+  data.cover._style.monogramLetterSpacing = parseFloat(document.getElementById('cover_style_monogramLetterSpacing').value);
   // bgImageUrl is set via file upload handler, not from form field
+
+  // House
+  if (!data.house._style) data.house._style = {};
+  data.house._style.bgColor = document.getElementById('house_style_bgColor').value;
+  data.house._style.statNumberSize = parseInt(document.getElementById('house_style_statNumberSize').value);
+  data.house._style.statLabelSize = parseInt(document.getElementById('house_style_statLabelSize').value);
+  data.house._style.textMaxWidth = parseInt(document.getElementById('house_style_textMaxWidth').value);
 
   // Markets
   if (!data.markets._style) data.markets._style = {};
   data.markets._style.cityFontSize = parseInt(document.getElementById('markets_style_cityFontSize').value);
+  data.markets._style.dotColor = document.getElementById('markets_style_dotColor').value;
+  data.markets._style.dotSize = parseInt(document.getElementById('markets_style_dotSize').value);
+  data.markets._style.cityPadding = parseInt(document.getElementById('markets_style_cityPadding').value);
 
   // Portfolio
   if (!data.portfolio._style) data.portfolio._style = {};
   data.portfolio._style.layout = document.getElementById('portfolio_style_layout').value;
+  data.portfolio._style.bgColor = document.getElementById('portfolio_style_bgColor').value;
+  data.portfolio._style.vertNumSize = parseInt(document.getElementById('portfolio_style_vertNumSize').value);
+  data.portfolio._style.vertTitleSize = parseInt(document.getElementById('portfolio_style_vertTitleSize').value);
+  data.portfolio._style.vertDescSize = parseInt(document.getElementById('portfolio_style_vertDescSize').value);
+
+  // Process
+  if (!data.process._style) data.process._style = {};
+  data.process._style.bgColor = document.getElementById('process_style_bgColor').value;
+  data.process._style.stepNumeralSize = parseInt(document.getElementById('process_style_stepNumeralSize').value);
+  data.process._style.stepTitleSize = parseInt(document.getElementById('process_style_stepTitleSize').value);
+  data.process._style.stepTextSize = parseInt(document.getElementById('process_style_stepTextSize').value);
+  data.process._style.introMaxWidth = parseInt(document.getElementById('process_style_introMaxWidth').value);
 
   // Why
   if (!data.why._style) data.why._style = {};
   data.why._style.statementSize = parseInt(document.getElementById('why_style_statementSize').value);
+  data.why._style.pillarTitleSize = parseInt(document.getElementById('why_style_pillarTitleSize').value);
+  data.why._style.pillarTextSize = parseFloat(document.getElementById('why_style_pillarTextSize').value);
+  data.why._style.pillarGridWidth = parseInt(document.getElementById('why_style_pillarGridWidth').value);
 
   // Founder
   if (!data.founder._style) data.founder._style = {};
   data.founder._style.letterStyle = document.getElementById('founder_style_letterStyle').value;
+  data.founder._style.bgColor = document.getElementById('founder_style_bgColor').value;
+  data.founder._style.letterFontSize = parseInt(document.getElementById('founder_style_letterFontSize').value);
+  data.founder._style.signatureSize = parseInt(document.getElementById('founder_style_signatureSize').value);
+  data.founder._style.letterMaxWidth = parseInt(document.getElementById('founder_style_letterMaxWidth').value);
 
   // Contact
   if (!data.contact._style) data.contact._style = {};
   data.contact._style.bgColor = document.getElementById('contact_style_bgColor').value;
+  data.contact._style.monogramSize = parseInt(document.getElementById('contact_style_monogramSize').value);
+  data.contact._style.detailValueSize = parseInt(document.getElementById('contact_style_detailValueSize').value);
+  data.contact._style.noteSize = parseInt(document.getElementById('contact_style_noteSize').value);
 }
 
 function populateForm(){
@@ -951,10 +1336,20 @@ function generateHTML(){
   const headingSize = sizes.heading || 44;
   const bodySize = sizes.body || 15;
 
+  const spacing = ds.spacing || DEFAULT_DATA.design.spacing;
+  const sectionLabelSize = (sizes.sectionLabel) || 10;
+  const letterSpacingHeadings = spacing.letterSpacing !== undefined ? spacing.letterSpacing : 0.08;
+  const lineHeightBody = spacing.lineHeight !== undefined ? spacing.lineHeight : 1.6;
+  const pagePadH = spacing.pagePadH || 64;
+  const pagePadV = spacing.pagePadV || 80;
+  const borderColor = colors.border || '#E8E3DC';
+
   // Page styles
   const coverStyle = (d.cover && d.cover._style) || {};
+  const houseStyle = (d.house && d.house._style) || {};
   const marketsStyle = (d.markets && d.markets._style) || {};
   const portfolioStyle = (d.portfolio && d.portfolio._style) || {};
+  const processStyle = (d.process && d.process._style) || {};
   const whyStyle = (d.why && d.why._style) || {};
   const founderStyle = (d.founder && d.founder._style) || {};
   const contactStyle = (d.contact && d.contact._style) || {};
@@ -964,11 +1359,47 @@ function generateHTML(){
   const nameSize = coverStyle.nameSize || 52;
   const bgImageUrl = coverStyle.bgImageUrl || '';
   const bgImageOpacity = coverStyle.bgImageOpacity !== undefined ? coverStyle.bgImageOpacity : 0.3;
+  const coverTaglineSize = coverStyle.taglineSize || 11;
+  const coverNameLetterSpacing = coverStyle.nameLetterSpacing !== undefined ? coverStyle.nameLetterSpacing : 0.08;
+  const coverMonogramLetterSpacing = coverStyle.monogramLetterSpacing !== undefined ? coverStyle.monogramLetterSpacing : 0.15;
+
+  const houseBg = houseStyle.bgColor || colors.bgLight || '#FDFAF6';
+  const statNumSize = houseStyle.statNumberSize || 36;
+  const statLabelSize = houseStyle.statLabelSize || 11;
+  const houseTextMaxWidth = houseStyle.textMaxWidth || 520;
+
   const cityFontSize = marketsStyle.cityFontSize || 30;
+  const dotColor = marketsStyle.dotColor || colors.accent || '#8B6E4E';
+  const dotSize = marketsStyle.dotSize || 6;
+  const cityPadding = marketsStyle.cityPadding || 24;
+
   const portfolioLayout = portfolioStyle.layout || 'list';
+  const portfolioBg = portfolioStyle.bgColor || colors.bgLight || '#FDFAF6';
+  const vertNumSize = portfolioStyle.vertNumSize || 32;
+  const vertTitleSize = portfolioStyle.vertTitleSize || 20;
+  const vertDescSize = portfolioStyle.vertDescSize || 13;
+
+  const processBg = processStyle.bgColor || colors.bgLight || '#FDFAF6';
+  const stepNumeralSize = processStyle.stepNumeralSize || 28;
+  const stepTitleSize = processStyle.stepTitleSize || 19;
+  const stepTextSize = processStyle.stepTextSize || 13;
+  const introMaxWidth = processStyle.introMaxWidth || 520;
+
   const statementSize = whyStyle.statementSize || 26;
+  const pillarTitleSize = whyStyle.pillarTitleSize || 22;
+  const pillarTextSize = whyStyle.pillarTextSize || 13.5;
+  const pillarGridWidth = whyStyle.pillarGridWidth || 180;
+
   const letterStyle = founderStyle.letterStyle || 'normal';
+  const founderBg = founderStyle.bgColor || colors.bgLight || '#FDFAF6';
+  const letterFontSize = founderStyle.letterFontSize || 14;
+  const signatureSize = founderStyle.signatureSize || 36;
+  const letterMaxWidth = founderStyle.letterMaxWidth || 500;
+
   const contactBg = contactStyle.bgColor || colors.bgDark || '#1A1610';
+  const contactMonogramSize = contactStyle.monogramSize || 48;
+  const contactDetailValueSize = contactStyle.detailValueSize || 22;
+  const contactNoteSize = contactStyle.noteSize || 12;
 
   const pageSize = pdfSize === 'Letter' ? 'letter' : 'A4';
   const pageWidth = pdfSize === 'Letter' ? '8.5in' : '210mm';
@@ -976,8 +1407,8 @@ function generateHTML(){
 
   // Portfolio grid vs list CSS
   const portfolioItemsCSS = portfolioLayout === 'grid'
-    ? `.portfolio-items{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px;}.portfolio-item{display:flex;flex-direction:column;gap:8px;padding:20px;border:1px solid ${colors.accent}22;}.portfolio-item:first-child{padding-top:20px;}.portfolio-num{font-family:var(--font-display);font-size:32px;font-weight:300;color:rgba(26,22,16,.15);line-height:1;}.portfolio-title{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--text-primary);margin-bottom:6px;}.portfolio-desc{font-family:var(--font-body);font-size:13px;font-weight:300;color:var(--text-secondary);line-height:1.75;}`
-    : `.portfolio-items{margin-top:8px;}.portfolio-item{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid var(--border);align-items:start;}.portfolio-item:first-child{padding-top:0;}.portfolio-num{font-family:var(--font-display);font-size:32px;font-weight:300;color:rgba(26,22,16,.15);line-height:1;}.portfolio-title{font-family:var(--font-display);font-size:20px;font-weight:400;color:var(--text-primary);margin-bottom:6px;}.portfolio-desc{font-family:var(--font-body);font-size:13px;font-weight:300;color:var(--text-secondary);line-height:1.75;}`;
+    ? `.portfolio-items{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px;}.portfolio-item{display:flex;flex-direction:column;gap:8px;padding:20px;border:1px solid ${colors.accent}22;}.portfolio-item:first-child{padding-top:20px;}.portfolio-num{font-family:var(--font-display);font-size:${vertNumSize}px;font-weight:300;color:rgba(26,22,16,.15);line-height:1;}.portfolio-title{font-family:var(--font-display);font-size:${vertTitleSize}px;font-weight:400;color:var(--text-primary);margin-bottom:6px;}.portfolio-desc{font-family:var(--font-body);font-size:${vertDescSize}px;font-weight:300;color:var(--text-secondary);line-height:1.75;}`
+    : `.portfolio-items{margin-top:8px;}.portfolio-item{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid var(--border);align-items:start;}.portfolio-item:first-child{padding-top:0;}.portfolio-num{font-family:var(--font-display);font-size:${vertNumSize}px;font-weight:300;color:rgba(26,22,16,.15);line-height:1;}.portfolio-title{font-family:var(--font-display);font-size:${vertTitleSize}px;font-weight:400;color:var(--text-primary);margin-bottom:6px;}.portfolio-desc{font-family:var(--font-body);font-size:${vertDescSize}px;font-weight:300;color:var(--text-secondary);line-height:1.75;}`;
 
   // Cover background image styles
   const coverBgImageCSS = bgImageUrl ? `background-image:url('${bgImageUrl}');background-size:cover;background-position:center;` : '';
@@ -990,7 +1421,7 @@ function generateHTML(){
     : `<div class="cover-monogram" style="font-size:${monogramSize}px;">${esc(d.cover.monogram)}</div>`;
 
   const contactLogoHTML = logoMode === 'image' && logoUrl
-    ? `<div class="contact-monogram"><img src="${logoUrl}" alt="Logo" style="max-height:48px;max-width:96px;object-fit:contain;"></div>`
+    ? `<div class="contact-monogram"><img src="${logoUrl}" alt="Logo" style="max-height:${contactMonogramSize}px;max-width:${contactMonogramSize * 2}px;object-fit:contain;"></div>`
     : `<div class="contact-monogram">${esc(d.contact.monogram)}</div>`;
 
   // Build pages
@@ -1032,7 +1463,7 @@ function generateHTML(){
   const displayFallback = displayFont.includes('Garamond') || displayFont.includes('Baskerville') || displayFont.includes('Crimson') ? "'Georgia', serif" : "'Georgia', serif";
   const bodyFallback = "'Helvetica Neue', sans-serif";
 
-  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${esc(d.cover.name)} — Company Profile</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="${fontsUrl}" rel="stylesheet"><style>:root{--rosso:${colors.accent};--rosso-deep:${colors.accentDeep};--bg:${colors.bgLight};--bg-warm:${colors.bgWarm};--bg-dark:${colors.bgDark};--text-primary:${colors.textPrimary};--text-secondary:${colors.textSecondary};--text-tertiary:${colors.textMuted};--border:#E8E3DC;--font-display:'${displayFont}',${displayFallback};--font-body:'${bodyFont}',${bodyFallback};}*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{-webkit-font-smoothing:antialiased;}::selection{background:var(--rosso);color:#fff;}@page{size:${pageSize};margin:0;}body{background:var(--bg);color:var(--text-secondary);font-family:var(--font-body);font-weight:300;line-height:1.6;font-size:${bodySize}px;}.page{width:${pageWidth};min-height:${pageMinHeight};margin:0 auto;position:relative;overflow:hidden;display:flex;flex-direction:column;page-break-after:always;break-after:page;}.page:last-child{page-break-after:avoid;break-after:avoid;}.page-label{font-family:var(--font-body);font-size:10px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--rosso);margin-bottom:40px;}.page-heading{font-family:var(--font-display);font-size:${headingSize}px;font-weight:300;color:var(--text-primary);line-height:1.15;margin-bottom:48px;}.page-heading em{font-style:italic;color:var(--rosso);}.page-text{font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:520px;}.cover{background:var(--bg-dark);justify-content:center;align-items:center;text-align:center;}.cover-inner{padding:60px;}.cover-monogram{font-family:var(--font-display);font-size:72px;font-weight:300;color:var(--rosso);letter-spacing:.15em;margin-bottom:48px;}.cover-line{width:48px;height:1px;background:var(--rosso);margin:0 auto 48px;}.cover-name{font-family:var(--font-display);font-size:52px;font-weight:300;color:${colors.bgWarm};letter-spacing:.08em;margin-bottom:20px;}.cover-tagline{font-family:var(--font-body);font-size:11px;font-weight:400;letter-spacing:.4em;text-transform:uppercase;color:var(--rosso);}.house{background:var(--bg);padding:80px 64px;justify-content:center;}.house-stats{display:flex;gap:56px;margin-top:56px;padding-top:40px;border-top:1px solid var(--border);}.house-stat-number{font-family:var(--font-display);font-size:36px;font-weight:300;color:var(--text-primary);margin-bottom:4px;}.house-stat-label{font-family:var(--font-body);font-size:11px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--text-tertiary);}.markets{background:var(--bg-dark);padding:80px 64px;justify-content:center;}.markets .page-label{color:var(--rosso);}.markets .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.markets-list{display:flex;flex-direction:column;}.market-city{font-family:var(--font-display);font-size:${cityFontSize}px;font-weight:300;color:rgba(245,239,230,.9);padding:24px 0;border-bottom:1px solid rgba(245,239,230,.06);display:flex;align-items:center;gap:20px;}.market-city::before{content:'';width:6px;height:6px;background:var(--rosso);border-radius:50%;flex-shrink:0;}.portfolio{background:var(--bg);padding:72px 64px;justify-content:center;}${portfolioItemsCSS}.process{background:var(--bg);padding:80px 64px;justify-content:center;}.process-intro{font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:520px;margin-bottom:48px;}.process-steps{margin-top:0;}.process-step{display:grid;grid-template-columns:48px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--border);align-items:start;}.process-step:first-child{padding-top:0;}.step-num{font-family:var(--font-display);font-size:28px;font-weight:300;color:var(--rosso);}.step-title{font-family:var(--font-display);font-size:19px;font-weight:400;color:var(--text-primary);margin-bottom:6px;}.step-text{font-family:var(--font-body);font-size:13px;font-weight:300;color:var(--text-secondary);line-height:1.8;}.why{background:var(--bg-dark);padding:80px 64px;justify-content:center;}.why .page-heading{color:${colors.bgWarm};margin-bottom:40px;}.why-statement{font-family:var(--font-display);font-size:${statementSize}px;font-weight:300;font-style:italic;color:rgba(245,239,230,.7);line-height:1.5;max-width:480px;margin-bottom:56px;}.why-pillars{display:flex;flex-direction:column;}.why-pillar{display:grid;grid-template-columns:180px 1fr;gap:40px;padding:32px 0;border-top:1px solid rgba(245,239,230,.06);}.why-pillar-title{font-family:var(--font-display);font-size:22px;font-weight:400;color:${colors.bgWarm};}.why-pillar-text{font-family:var(--font-body);font-size:13.5px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.8;}.founder{background:var(--bg);padding:80px 64px;justify-content:center;}.founder-letter{font-family:var(--font-body);font-size:14px;font-weight:300;color:var(--text-secondary);line-height:2;max-width:500px;}.founder-letter p{margin-bottom:20px;}.founder-closing{margin-top:40px;}.founder-closing-regards{font-family:var(--font-body);font-size:14px;font-weight:300;color:var(--text-secondary);margin-bottom:28px;}.founder-signature{font-family:var(--font-display);font-size:36px;font-weight:300;font-style:italic;color:var(--text-primary);margin-bottom:8px;letter-spacing:.02em;}.founder-name{font-family:var(--font-body);font-size:14px;font-weight:400;color:var(--text-primary);letter-spacing:.08em;}.founder-title-role{font-family:var(--font-body);font-size:11px;font-weight:300;color:var(--text-tertiary);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;}.contact{background:var(--bg-dark);justify-content:center;align-items:center;text-align:center;padding:80px 64px;}.contact-monogram{font-family:var(--font-display);font-size:48px;font-weight:300;color:var(--rosso);letter-spacing:.15em;margin-bottom:48px;}.contact .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.contact-detail{margin-bottom:32px;}.contact-detail-label{font-family:var(--font-body);font-size:10px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px;}.contact-detail-value{font-family:var(--font-display);font-size:22px;font-weight:300;color:${colors.bgWarm};}.contact-line{width:48px;height:1px;background:rgba(139,110,78,.4);margin:48px auto;}.contact-note{font-family:var(--font-body);font-size:12px;font-weight:300;color:rgba(245,239,230,.35);font-style:italic;}.contact-footer{position:absolute;bottom:40px;left:0;right:0;text-align:center;font-family:var(--font-body);font-size:10px;font-weight:300;letter-spacing:.15em;color:rgba(245,239,230,.2);}@media print{body{background:none;}.page{width:100%;height:100vh;margin:0;page-break-inside:avoid;}}${customCSS ? '\n' + customCSS : ''}</style></head><body>${pages}</body></html>`;
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${esc(d.cover.name)} — Company Profile</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="${fontsUrl}" rel="stylesheet"><style>:root{--rosso:${colors.accent};--rosso-deep:${colors.accentDeep};--bg:${colors.bgLight};--bg-warm:${colors.bgWarm};--bg-dark:${colors.bgDark};--text-primary:${colors.textPrimary};--text-secondary:${colors.textSecondary};--text-tertiary:${colors.textMuted};--border:${borderColor};--font-display:'${displayFont}',${displayFallback};--font-body:'${bodyFont}',${bodyFallback};}*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{-webkit-font-smoothing:antialiased;}::selection{background:var(--rosso);color:#fff;}@page{size:${pageSize};margin:0;}body{background:var(--bg);color:var(--text-secondary);font-family:var(--font-body);font-weight:300;line-height:${lineHeightBody};font-size:${bodySize}px;}.page{width:${pageWidth};min-height:${pageMinHeight};margin:0 auto;position:relative;overflow:hidden;display:flex;flex-direction:column;page-break-after:always;break-after:page;}.page:last-child{page-break-after:avoid;break-after:avoid;}.page-label{font-family:var(--font-body);font-size:${sectionLabelSize}px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--rosso);margin-bottom:40px;}.page-heading{font-family:var(--font-display);font-size:${headingSize}px;font-weight:300;color:var(--text-primary);line-height:1.15;margin-bottom:48px;letter-spacing:${letterSpacingHeadings}em;}.page-heading em{font-style:italic;color:var(--rosso);}.page-text{font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:${houseTextMaxWidth}px;}.cover{background:var(--bg-dark);justify-content:center;align-items:center;text-align:center;}.cover-inner{padding:60px;}.cover-monogram{font-family:var(--font-display);font-size:72px;font-weight:300;color:var(--rosso);letter-spacing:${coverMonogramLetterSpacing}em;margin-bottom:48px;}.cover-line{width:48px;height:1px;background:var(--rosso);margin:0 auto 48px;}.cover-name{font-family:var(--font-display);font-size:52px;font-weight:300;color:${colors.bgWarm};letter-spacing:${coverNameLetterSpacing}em;margin-bottom:20px;}.cover-tagline{font-family:var(--font-body);font-size:${coverTaglineSize}px;font-weight:400;letter-spacing:.4em;text-transform:uppercase;color:var(--rosso);}.house{background:${houseBg};padding:${pagePadV}px ${pagePadH}px;justify-content:center;}.house-stats{display:flex;gap:56px;margin-top:56px;padding-top:40px;border-top:1px solid var(--border);}.house-stat-number{font-family:var(--font-display);font-size:${statNumSize}px;font-weight:300;color:var(--text-primary);margin-bottom:4px;}.house-stat-label{font-family:var(--font-body);font-size:${statLabelSize}px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--text-tertiary);}.markets{background:var(--bg-dark);padding:${pagePadV}px ${pagePadH}px;justify-content:center;}.markets .page-label{color:var(--rosso);}.markets .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.markets-list{display:flex;flex-direction:column;}.market-city{font-family:var(--font-display);font-size:${cityFontSize}px;font-weight:300;color:rgba(245,239,230,.9);padding:${cityPadding}px 0;border-bottom:1px solid rgba(245,239,230,.06);display:flex;align-items:center;gap:20px;}.market-city::before{content:'';width:${dotSize}px;height:${dotSize}px;background:${dotColor};border-radius:50%;flex-shrink:0;}.portfolio{background:${portfolioBg};padding:${pagePadV}px ${pagePadH}px;justify-content:center;}${portfolioItemsCSS}.process{background:${processBg};padding:${pagePadV}px ${pagePadH}px;justify-content:center;}.process-intro{font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:${introMaxWidth}px;margin-bottom:48px;}.process-steps{margin-top:0;}.process-step{display:grid;grid-template-columns:48px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--border);align-items:start;}.process-step:first-child{padding-top:0;}.step-num{font-family:var(--font-display);font-size:${stepNumeralSize}px;font-weight:300;color:var(--rosso);}.step-title{font-family:var(--font-display);font-size:${stepTitleSize}px;font-weight:400;color:var(--text-primary);margin-bottom:6px;}.step-text{font-family:var(--font-body);font-size:${stepTextSize}px;font-weight:300;color:var(--text-secondary);line-height:1.8;}.why{background:var(--bg-dark);padding:${pagePadV}px ${pagePadH}px;justify-content:center;}.why .page-heading{color:${colors.bgWarm};margin-bottom:40px;}.why-statement{font-family:var(--font-display);font-size:${statementSize}px;font-weight:300;font-style:italic;color:rgba(245,239,230,.7);line-height:1.5;max-width:480px;margin-bottom:56px;}.why-pillars{display:flex;flex-direction:column;}.why-pillar{display:grid;grid-template-columns:${pillarGridWidth}px 1fr;gap:40px;padding:32px 0;border-top:1px solid rgba(245,239,230,.06);}.why-pillar-title{font-family:var(--font-display);font-size:${pillarTitleSize}px;font-weight:400;color:${colors.bgWarm};}.why-pillar-text{font-family:var(--font-body);font-size:${pillarTextSize}px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.8;}.founder{background:${founderBg};padding:${pagePadV}px ${pagePadH}px;justify-content:center;}.founder-letter{font-family:var(--font-body);font-size:${letterFontSize}px;font-weight:300;color:var(--text-secondary);line-height:2;max-width:${letterMaxWidth}px;}.founder-letter p{margin-bottom:20px;}.founder-closing{margin-top:40px;}.founder-closing-regards{font-family:var(--font-body);font-size:${letterFontSize}px;font-weight:300;color:var(--text-secondary);margin-bottom:28px;}.founder-signature{font-family:var(--font-display);font-size:${signatureSize}px;font-weight:300;font-style:italic;color:var(--text-primary);margin-bottom:8px;letter-spacing:.02em;}.founder-name{font-family:var(--font-body);font-size:14px;font-weight:400;color:var(--text-primary);letter-spacing:.08em;}.founder-title-role{font-family:var(--font-body);font-size:11px;font-weight:300;color:var(--text-tertiary);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;}.contact{background:var(--bg-dark);justify-content:center;align-items:center;text-align:center;padding:${pagePadV}px ${pagePadH}px;}.contact-monogram{font-family:var(--font-display);font-size:${contactMonogramSize}px;font-weight:300;color:var(--rosso);letter-spacing:.15em;margin-bottom:48px;}.contact .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.contact-detail{margin-bottom:32px;}.contact-detail-label{font-family:var(--font-body);font-size:10px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px;}.contact-detail-value{font-family:var(--font-display);font-size:${contactDetailValueSize}px;font-weight:300;color:${colors.bgWarm};}.contact-line{width:48px;height:1px;background:rgba(139,110,78,.4);margin:48px auto;}.contact-note{font-family:var(--font-body);font-size:${contactNoteSize}px;font-weight:300;color:rgba(245,239,230,.35);font-style:italic;}.contact-footer{position:absolute;bottom:40px;left:0;right:0;text-align:center;font-family:var(--font-body);font-size:10px;font-weight:300;letter-spacing:.15em;color:rgba(245,239,230,.2);}@media print{body{background:none;}.page{width:100%;height:100vh;margin:0;page-break-inside:avoid;}}${customCSS ? '\n' + customCSS : ''}</style></head><body>${pages}</body></html>`;
 }
 
 // PREVIEW + BUTTONS
