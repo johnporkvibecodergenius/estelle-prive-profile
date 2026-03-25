@@ -1084,7 +1084,47 @@ auth.onAuthStateChanged(user=>{if(user){document.getElementById('loginScreen').s
 // FIRESTORE
 async function loadFromFirestore(){setSaveStatus('saving','Loading…');try{const r=await fetch(FS_URL);if(r.ok){const d=await r.json();if(d&&d.fields){const o={};for(const[k,v]of Object.entries(d.fields))o[k]=fsToJs(v);data=deepMerge(o,JSON.parse(JSON.stringify(DEFAULT_DATA)));}}}catch(e){}populateForm();updatePreview();setSaveStatus('synced','Synced');}
 
-async function saveToFirestore(){if(!auth.currentUser){showToast('Not logged in',true);return;}setSaveStatus('saving','Saving…');const b=document.getElementById('saveBtn');b.textContent='Saving…';b.disabled=true;try{const token=await auth.currentUser.getIdToken(true);const clean=JSON.parse(JSON.stringify(data));const fields={};for(const[k,v]of Object.entries(clean))fields[k]=jsToFs(v);const r=await fetch(FS_URL,{method:'PATCH',headers:{'Content-Type':'application/json','Authorization':`Bearer ${token}`},body:JSON.stringify({fields})});if(!r.ok)throw new Error(await r.text());setSaveStatus('synced','Synced');showToast('Saved & synced to cloud');}catch(err){setSaveStatus('unsaved','Save failed');showToast('Save failed: '+err.message,true);}b.textContent='Save & Sync';b.disabled=false;}
+async function saveToFirestore(){
+  if(!auth.currentUser){showToast('Not logged in',true);return;}
+  setSaveStatus('saving','Saving…');
+  const b=document.getElementById('saveBtn');b.textContent='Saving…';b.disabled=true;
+  try{
+    // 1. Re-fetch latest from Firestore to avoid overwriting other admins' changes
+    let latest={};
+    try{
+      const lr=await fetch(FS_URL);
+      if(lr.ok){const ld=await lr.json();if(ld&&ld.fields){for(const[k,v]of Object.entries(ld.fields))latest[k]=fsToJs(v);}}
+    }catch(e){}
+
+    // 2. Read current form into data
+    readForm();
+
+    // 3. Deep merge: start with latest Firestore state, overlay our form values
+    const merged=deepMerge(JSON.parse(JSON.stringify(data)),latest);
+    // But our current edits should win, so merge the other way: start with latest, overlay ours
+    const final=deepMerge(JSON.parse(JSON.stringify(data)),deepMerge(latest,JSON.parse(JSON.stringify(DEFAULT_DATA))));
+
+    // 4. Get fresh auth token
+    const token=await auth.currentUser.getIdToken(true);
+
+    // 5. Save to Firestore
+    const fields={};
+    for(const[k,v]of Object.entries(final))fields[k]=jsToFs(v);
+    const r=await fetch(FS_URL,{method:'PATCH',headers:{'Content-Type':'application/json','Authorization':`Bearer ${token}`},body:JSON.stringify({fields})});
+    if(!r.ok)throw new Error(await r.text());
+
+    // 6. Update local data with what we saved
+    data=final;
+
+    // 7. Update local state
+    setSaveStatus('synced','Synced');
+    showToast('Saved & synced to cloud');
+  }catch(err){
+    setSaveStatus('unsaved','Save failed');
+    showToast('Save failed: '+err.message,true);
+  }
+  b.textContent='Save & Sync';b.disabled=false;
+}
 
 function setSaveStatus(s,l){document.getElementById('saveDot').className='save-dot '+s;document.getElementById('saveLabel').textContent=l;}
 
