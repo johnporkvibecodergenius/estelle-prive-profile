@@ -332,6 +332,7 @@
       <div class="panel" id="panel-markets">
         <div class="panel-title">Our Markets</div>
         <div class="panel-desc">The cities. No fluff, just the addresses.</div>
+        <div class="field"><label>Section Label</label><input type="text" id="markets_label"></div>
         <div class="field-row">
           <div class="field"><label>Heading Line 1</label><input type="text" id="markets_heading1"></div>
           <div class="field"><label>Heading Line 2</label><input type="text" id="markets_heading2"></div>
@@ -388,6 +389,7 @@
       <div class="panel" id="panel-portfolio">
         <div class="panel-title">The Portfolio</div>
         <div class="panel-desc">Property categories you operate in. Show the range.</div>
+        <div class="field"><label>Section Label</label><input type="text" id="portfolio_label"></div>
         <div class="field-row">
           <div class="field"><label>Heading</label><input type="text" id="portfolio_heading"></div>
           <div class="field"><label>Heading Italic</label><input type="text" id="portfolio_headingItalic"></div>
@@ -472,6 +474,7 @@
       <div class="panel" id="panel-process">
         <div class="panel-title">The Process</div>
         <div class="panel-desc">How a client engagement looks.</div>
+        <div class="field"><label>Section Label</label><input type="text" id="process_label"></div>
         <div class="field-row">
           <div class="field"><label>Heading</label><input type="text" id="process_heading"></div>
           <div class="field"><label>Heading Italic</label><input type="text" id="process_headingItalic"></div>
@@ -565,6 +568,7 @@
       <div class="panel" id="panel-why">
         <div class="panel-title">Why Us</div>
         <div class="panel-desc">Make investors want in. Strike them.</div>
+        <div class="field"><label>Section Label</label><input type="text" id="why_label"></div>
         <div class="field-row">
           <div class="field"><label>Heading Line 1</label><input type="text" id="why_heading1"></div>
           <div class="field"><label>Heading Line 2</label><input type="text" id="why_heading2"></div>
@@ -633,6 +637,7 @@
       <div class="panel" id="panel-founder">
         <div class="panel-title">The Founder</div>
         <div class="panel-desc">Personal letter from the founder. Reads like a contract letter.</div>
+        <div class="field"><label>Section Label</label><input type="text" id="founder_label"></div>
         <div class="field-row">
           <div class="field"><label>Heading</label><input type="text" id="founder_heading"></div>
           <div class="field"><label>Heading Italic</label><input type="text" id="founder_headingItalic"></div>
@@ -736,6 +741,7 @@
       <div class="panel" id="panel-contact">
         <div class="panel-title">Contact</div>
         <div class="panel-desc">One email. One website. That's it.</div>
+        <div class="field"><label>Section Label</label><input type="text" id="contact_label"></div>
         <div class="field"><label>Monogram</label><input type="text" id="contact_monogram"></div>
         <div class="field-row">
           <div class="field"><label>Heading Line 1</label><input type="text" id="contact_heading1"></div>
@@ -996,12 +1002,12 @@ const DEFAULT_DATA = {
     _style: { bgColor:'', statNumberSize:36, statLabelSize:11, textMaxWidth:520, labelColor:'#8B6E4E', labelSize:10, headingColor:'#1A1610', headingSize:44, italicColor:'#8B6E4E', textColor:'#5C5244', textSize:15, statNumberColor:'#1A1610', statLabelColor:'#8A847C' },
   },
   markets: {
-    heading1:"The World's Most", heading2:"Coveted Addresses",
+    label:"Our Markets", heading1:"The World's Most", heading2:"Coveted Addresses",
     cities:["Monaco","Paris","London","Saint Tropez","Marbella","Dubai","Geneva"],
     _style: { cityFontSize:30, dotColor:'', dotSize:6, cityPadding:24, labelColor:'#8B6E4E', headingColor:'#F5EFE6', cityColor:'#F5EFE6' },
   },
   portfolio: {
-    heading:"What We", headingItalic:"Do",
+    label:"The Portfolio", heading:"What We", headingItalic:"Do",
     verticals:[
       {num:"01",title:"Hotel & Hospitality Assets",desc:"Full-service hotel acquisitions, branded residences, and resort transactions. We advise on operational assets, management agreements, and hospitality-driven investment opportunities across established and emerging markets."},
       {num:"02",title:"Joint Venture & Investment",desc:"Connecting capital with development — from land and planning to completed projects. We structure and facilitate joint ventures between investors, developers, and operators to unlock value across asset classes."},
@@ -1012,7 +1018,7 @@ const DEFAULT_DATA = {
     _style: { layout:'list', bgColor:'', vertNumSize:32, vertTitleSize:20, vertDescSize:13, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', vertNumColor:'#D5D3D0', vertTitleColor:'#1A1610', vertDescColor:'#5C5244' },
   },
   process: {
-    heading:"How We", headingItalic:"Work",
+    label:"The Process", heading:"How We", headingItalic:"Work",
     intro:"Every engagement begins with understanding the client — their goals, their timeline, their definition of exceptional. We do not list properties — we curate them. Every residence in our collection has been personally assessed for architectural merit, location prestige, and investment integrity.",
     steps:[
       {numeral:"I",title:"Discovery & Alignment",text:"We begin with a confidential consultation to understand your objectives, risk appetite, timeline, and definition of exceptional. No two mandates are alike — and neither is our approach."},
@@ -1023,7 +1029,7 @@ const DEFAULT_DATA = {
     _style: { bgColor:'', stepNumeralSize:28, stepTitleSize:19, stepTextSize:13, introMaxWidth:520, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', introColor:'#5C5244', introSize:15, stepNumeralColor:'#8B6E4E', stepTitleColor:'#1A1610', stepTextColor:'#5C5244' },
   },
   why: {
-    heading1:"Why Invest", heading2:"With Estelle Privé",
+    label:"Why Us", heading1:"Why Invest", heading2:"With Estelle Privé",
     statement:"\"Access to off-market deals unavailable through conventional channels. A decision-maker network spanning developers, hotel owners, sovereign entities, and UHNW individuals. Absolute confidentiality on every transaction.\"",
     pillars:[
       {title:"Off-Market Access",text:"We source opportunities directly through our principal network — deals that never reach the open market and are unavailable through conventional brokerage channels."},
@@ -1033,7 +1039,7 @@ const DEFAULT_DATA = {
     _style: { statementSize:26, pillarTitleSize:22, pillarTextSize:13.5, pillarGridWidth:180, labelColor:'#8B6E4E', headingColor:'#F5EFE6', statementColor:'#B5AFA7', pillarTitleColor:'#F5EFE6', pillarTextColor:'#8A847C' },
   },
   founder: {
-    heading:"A Personal", headingItalic:"Note",
+    label:"The Founder", heading:"A Personal", headingItalic:"Note",
     paragraphs:[
       "Dear Reader,",
       "I founded Estelle Privé on a simple belief: that the world's most discerning investors deserve representation that matches the calibre of the assets they seek.",
@@ -1047,7 +1053,7 @@ const DEFAULT_DATA = {
     _style: { letterStyle:'normal', bgColor:'', letterFontSize:14, signatureSize:36, letterMaxWidth:500, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', letterColor:'#5C5244', closingColor:'#5C5244', signatureColor:'#1A1610', nameColor:'#1A1610', roleColor:'#8A847C' },
   },
   contact: {
-    monogram:"EP", heading1:"Begin a", heading2:"Conversation",
+    label:"Get in Touch", monogram:"EP", heading1:"Begin a", heading2:"Conversation",
     email:"enquiries@estelleprive.com", website:"www.estelleprive.com",
     note:"All enquiries are treated with complete discretion.", copyright:"© 2026 Estelle Privé International",
     _style: { bgColor:'', monogramSize:48, detailValueSize:22, noteSize:12, monogramColor:'#8B6E4E', headingColor:'#F5EFE6', detailLabelColor:'#8A847C', detailValueColor:'#F5EFE6', noteColor:'#8A847C', footerColor:'#F5EFE6' },
@@ -1089,12 +1095,12 @@ document.querySelectorAll('.tab').forEach(t=>{t.addEventListener('click',()=>{do
 const FIELDS={
   cover:['monogram','name','tagline'],
   house:['label','heading','headingItalic','p1','p2'],
-  markets:['heading1','heading2'],
-  portfolio:['heading','headingItalic'],
-  process:['heading','headingItalic','intro'],
-  why:['heading1','heading2','statement'],
-  founder:['heading','headingItalic','closing','signatureName','role'],
-  contact:['monogram','heading1','heading2','email','website','note','copyright'],
+  markets:['label','heading1','heading2'],
+  portfolio:['label','heading','headingItalic'],
+  process:['label','heading','headingItalic','intro'],
+  why:['label','heading1','heading2','statement'],
+  founder:['label','heading','headingItalic','closing','signatureName','role'],
+  contact:['label','monogram','heading1','heading2','email','website','note','copyright'],
 };
 
 // COLOR PICKER SYNC
@@ -1886,24 +1892,24 @@ function generateHTML(){
   }
 
   if (!hidden.includes('markets')) {
-    pages += `<div class="page markets"><div class="page-label" style="color:${marketsLabelColor};">Our Markets</div><h2 class="page-heading" style="color:${marketsHeadingColor};">${esc(d.markets.heading1)}<br>${esc(d.markets.heading2)}</h2><div class="markets-list">${d.markets.cities.map(c=>`<div class="market-city" style="font-size:${cityFontSize}px;color:${marketsCityColor};">${esc(c)}</div>`).join('')}</div></div>`;
+    pages += `<div class="page markets"><div class="page-label" style="color:${marketsLabelColor};">${esc(d.markets.label)}</div><h2 class="page-heading" style="color:${marketsHeadingColor};">${esc(d.markets.heading1)}<br>${esc(d.markets.heading2)}</h2><div class="markets-list">${d.markets.cities.map(c=>`<div class="market-city" style="font-size:${cityFontSize}px;color:${marketsCityColor};">${esc(c)}</div>`).join('')}</div></div>`;
   }
 
   if (!hidden.includes('portfolio')) {
-    pages += `<div class="page portfolio"><div class="page-label" style="color:${portfolioLabelColor};">The Portfolio</div><h2 class="page-heading" style="color:${portfolioHeadingColor};">${esc(d.portfolio.heading)} <em style="color:${portfolioItalicColor};">${esc(d.portfolio.headingItalic)}</em></h2><div class="portfolio-items">${d.portfolio.verticals.map(v=>`<div class="portfolio-item"><div class="portfolio-num">${esc(v.num)}</div><div><div class="portfolio-title">${esc(v.title)}</div><p class="portfolio-desc">${esc(v.desc)}</p></div></div>`).join('')}</div></div>`;
+    pages += `<div class="page portfolio"><div class="page-label" style="color:${portfolioLabelColor};">${esc(d.portfolio.label)}</div><h2 class="page-heading" style="color:${portfolioHeadingColor};">${esc(d.portfolio.heading)} <em style="color:${portfolioItalicColor};">${esc(d.portfolio.headingItalic)}</em></h2><div class="portfolio-items">${d.portfolio.verticals.map(v=>`<div class="portfolio-item"><div class="portfolio-num">${esc(v.num)}</div><div><div class="portfolio-title">${esc(v.title)}</div><p class="portfolio-desc">${esc(v.desc)}</p></div></div>`).join('')}</div></div>`;
   }
 
   if (!hidden.includes('process')) {
-    pages += `<div class="page process"><div class="page-label" style="color:${processLabelColor};">The Process</div><h2 class="page-heading" style="color:${processHeadingColor};">${esc(d.process.heading)} <em style="color:${processItalicColor};">${esc(d.process.headingItalic)}</em></h2><p class="process-intro" style="color:${processIntroColor};font-size:${processIntroSize}px;">${esc(d.process.intro)}</p><div class="process-steps">${d.process.steps.map(s=>`<div class="process-step"><div class="step-num" style="color:${processStepNumeralColor};">${esc(s.numeral)}</div><div><div class="step-title" style="color:${processStepTitleColor};">${esc(s.title)}</div><p class="step-text" style="color:${processStepTextColor};">${esc(s.text)}</p></div></div>`).join('')}</div></div>`;
+    pages += `<div class="page process"><div class="page-label" style="color:${processLabelColor};">${esc(d.process.label)}</div><h2 class="page-heading" style="color:${processHeadingColor};">${esc(d.process.heading)} <em style="color:${processItalicColor};">${esc(d.process.headingItalic)}</em></h2><p class="process-intro" style="color:${processIntroColor};font-size:${processIntroSize}px;">${esc(d.process.intro)}</p><div class="process-steps">${d.process.steps.map(s=>`<div class="process-step"><div class="step-num" style="color:${processStepNumeralColor};">${esc(s.numeral)}</div><div><div class="step-title" style="color:${processStepTitleColor};">${esc(s.title)}</div><p class="step-text" style="color:${processStepTextColor};">${esc(s.text)}</p></div></div>`).join('')}</div></div>`;
   }
 
   if (!hidden.includes('why')) {
-    pages += `<div class="page why"><div class="page-label" style="color:${whyLabelColor};">Why Us</div><h2 class="page-heading" style="color:${whyHeadingColor};">${esc(d.why.heading1)}<br>${esc(d.why.heading2)}</h2><p class="why-statement" style="font-size:${statementSize}px;color:${whyStatementColor};">${esc(d.why.statement)}</p><div class="why-pillars">${d.why.pillars.map(p=>`<div class="why-pillar"><div class="why-pillar-title" style="color:${whyPillarTitleColor};">${esc(p.title)}</div><p class="why-pillar-text" style="color:${whyPillarTextColor};">${esc(p.text)}</p></div>`).join('')}</div></div>`;
+    pages += `<div class="page why"><div class="page-label" style="color:${whyLabelColor};">${esc(d.why.label)}</div><h2 class="page-heading" style="color:${whyHeadingColor};">${esc(d.why.heading1)}<br>${esc(d.why.heading2)}</h2><p class="why-statement" style="font-size:${statementSize}px;color:${whyStatementColor};">${esc(d.why.statement)}</p><div class="why-pillars">${d.why.pillars.map(p=>`<div class="why-pillar"><div class="why-pillar-title" style="color:${whyPillarTitleColor};">${esc(p.title)}</div><p class="why-pillar-text" style="color:${whyPillarTextColor};">${esc(p.text)}</p></div>`).join('')}</div></div>`;
   }
 
   if (!hidden.includes('founder')) {
     const letterFontStyle = letterStyle === 'italic' ? 'font-style:italic;' : '';
-    pages += `<div class="page founder"><div class="page-label" style="color:${founderLabelColor};">The Founder</div><h2 class="page-heading" style="color:${founderHeadingColor};">${esc(d.founder.heading)}<br><em style="color:${founderItalicColor};">${esc(d.founder.headingItalic)}</em></h2><div class="founder-letter" style="${letterFontStyle}color:${founderLetterColor};">${d.founder.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div><div class="founder-closing"><div class="founder-closing-regards" style="color:${founderClosingColor};">${esc(d.founder.closing)}</div><div class="founder-signature" style="color:${founderSignatureColor};">${esc(d.founder.signatureName)}</div><div class="founder-name" style="color:${founderNameColor};">${esc(d.founder.signatureName)}</div><div class="founder-title-role" style="color:${founderRoleColor};">${esc(d.founder.role)}</div></div></div>`;
+    pages += `<div class="page founder"><div class="page-label" style="color:${founderLabelColor};">${esc(d.founder.label)}</div><h2 class="page-heading" style="color:${founderHeadingColor};">${esc(d.founder.heading)}<br><em style="color:${founderItalicColor};">${esc(d.founder.headingItalic)}</em></h2><div class="founder-letter" style="${letterFontStyle}color:${founderLetterColor};">${d.founder.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div><div class="founder-closing"><div class="founder-closing-regards" style="color:${founderClosingColor};">${esc(d.founder.closing)}</div><div class="founder-signature" style="color:${founderSignatureColor};">${esc(d.founder.signatureName)}</div><div class="founder-name" style="color:${founderNameColor};">${esc(d.founder.signatureName)}</div><div class="founder-title-role" style="color:${founderRoleColor};">${esc(d.founder.role)}</div></div></div>`;
   }
 
   if (!hidden.includes('contact')) {
