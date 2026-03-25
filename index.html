@@ -149,14 +149,14 @@
     </div>
 
     <div class="tabs">
-      <button class="tab active" data-tab="cover">Cover</button>
-      <button class="tab" data-tab="house">The House</button>
-      <button class="tab" data-tab="markets">Markets</button>
-      <button class="tab" data-tab="portfolio">Portfolio</button>
-      <button class="tab" data-tab="process">Process</button>
-      <button class="tab" data-tab="why">Why Us</button>
-      <button class="tab" data-tab="founder">Founder</button>
-      <button class="tab" data-tab="contact">Contact</button>
+      <button class="tab active" data-tab="cover" id="tab_cover">Cover</button>
+      <button class="tab" data-tab="house" id="tab_house">The House</button>
+      <button class="tab" data-tab="markets" id="tab_markets">Markets</button>
+      <button class="tab" data-tab="portfolio" id="tab_portfolio">Portfolio</button>
+      <button class="tab" data-tab="process" id="tab_process">Process</button>
+      <button class="tab" data-tab="why" id="tab_why">Why Us</button>
+      <button class="tab" data-tab="founder" id="tab_founder">Founder</button>
+      <button class="tab" data-tab="contact" id="tab_contact">Contact</button>
       <button class="tab" data-tab="design">&#9881; Design</button>
     </div>
 
@@ -1696,6 +1696,22 @@ function readPageStyles() {
   data.contact._style.footerColor = _readVal('contact_style_footerColor');
 }
 
+function updateTabNames(){
+  const tabMap = {
+    cover: data.cover && data.cover.name ? data.cover.name : 'Cover',
+    house: data.house && data.house.label ? data.house.label : 'The House',
+    markets: data.markets && data.markets.label ? data.markets.label : 'Markets',
+    portfolio: data.portfolio && data.portfolio.label ? data.portfolio.label : 'Portfolio',
+    process: data.process && data.process.label ? data.process.label : 'Process',
+    why: data.why && data.why.label ? data.why.label : 'Why Us',
+    founder: data.founder && data.founder.label ? data.founder.label : 'Founder',
+    contact: data.contact && data.contact.label ? data.contact.label : 'Contact',
+  };
+  for (const [key, label] of Object.entries(tabMap)) {
+    const tab = document.getElementById('tab_' + key);
+    if (tab) tab.textContent = label;
+  }
+}
 function populateForm(){
   for(const[section,keys]of Object.entries(FIELDS)){
     for(const k of keys){const el=document.getElementById(section+'_'+k);if(el&&data[section])el.value=data[section][k]||'';}
@@ -1703,6 +1719,7 @@ function populateForm(){
   buildStats();buildCities();buildVerticals();buildSteps();buildPillars();buildLetterParas();
   try{populateDesign();}catch(e){console.warn('populateDesign error:',e);}
   try{populatePageStyles();}catch(e){console.warn('populatePageStyles error:',e);}
+  updateTabNames();
 }
 function readForm(){
   for(const[section,keys]of Object.entries(FIELDS)){
@@ -2002,7 +2019,7 @@ document.getElementById('exportBtn').addEventListener('click',()=>{readForm();co
 document.getElementById('importFile').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const imp=JSON.parse(r.result);if(!imp.cover)throw new Error('Invalid');if(!confirm('Replace all content?'))return;data=deepMerge(imp,JSON.parse(JSON.stringify(DEFAULT_DATA)));populateForm();updatePreview();markUnsaved();showToast('Imported — hit Save & Sync');}catch(err){showToast('Import failed: '+err.message,true);}};r.readAsText(f);e.target.value='';});
 
 let previewTimer;
-document.addEventListener('input',e=>{if(e.target.closest('.sidebar')){clearTimeout(previewTimer);previewTimer=setTimeout(updatePreview,800);}});
+document.addEventListener('input',e=>{if(e.target.closest('.sidebar')){clearTimeout(previewTimer);previewTimer=setTimeout(()=>{updatePreview();updateTabNames();},800);}});
 function showToast(m,err){const t=document.getElementById('toast');t.textContent=m;t.className='toast '+(err?'toast-error':'toast-success')+' show';setTimeout(()=>t.classList.remove('show'),3000);}
 </script>
 </body>
