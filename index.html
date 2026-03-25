@@ -895,43 +895,45 @@ function updateCoverBgPreview() {
 // POPULATE / READ DESIGN
 function populateDesign() {
   const ds = data.design || DEFAULT_DATA.design;
+  const dColors = (ds.colors || DEFAULT_DATA.design.colors || {});
+  const dFonts = (ds.fonts || DEFAULT_DATA.design.fonts || {});
+  const dSizes = (ds.sizes || DEFAULT_DATA.design.sizes || {});
   // Colors
   const colorMap = {accent:'accent', accentDeep:'accentDeep', bgLight:'bgLight', bgWarm:'bgWarm', bgDark:'bgDark', textPrimary:'textPrimary', textSecondary:'textSecondary', textMuted:'textMuted', border:'border'};
   for (const [key, id] of Object.entries(colorMap)) {
-    const val = ds.colors[key] || DEFAULT_DATA.design.colors[key];
+    const val = dColors[key] || DEFAULT_DATA.design.colors[key] || '#000000';
     const picker = document.getElementById('design_color_' + id + '_picker');
     const text = document.getElementById('design_color_' + id);
     if (picker) picker.value = val;
     if (text) text.value = val;
   }
   // Fonts
-  document.getElementById('design_font_display').value = ds.fonts.display || 'Cormorant Garamond';
-  document.getElementById('design_font_body').value = ds.fonts.body || 'Outfit';
+  const fontDisp = document.getElementById('design_font_display');
+  const fontBody = document.getElementById('design_font_body');
+  if (fontDisp) fontDisp.value = dFonts.display || 'Cormorant Garamond';
+  if (fontBody) fontBody.value = dFonts.body || 'Outfit';
   // Sizes
   const headingSlider = document.getElementById('design_size_heading');
-  headingSlider.value = ds.sizes.heading || 44;
-  document.getElementById('design_size_heading_val').textContent = headingSlider.value + 'px';
+  const headingVal = document.getElementById('design_size_heading_val');
+  if (headingSlider) { headingSlider.value = dSizes.heading || 44; if (headingVal) headingVal.textContent = headingSlider.value + 'px'; }
   const bodySlider = document.getElementById('design_size_body');
-  bodySlider.value = ds.sizes.body || 15;
-  document.getElementById('design_size_body_val').textContent = bodySlider.value + 'px';
+  const bodyVal = document.getElementById('design_size_body_val');
+  if (bodySlider) { bodySlider.value = dSizes.body || 15; if (bodyVal) bodyVal.textContent = bodySlider.value + 'px'; }
   // Section label size
   const slSlider = document.getElementById('design_size_sectionLabel');
-  slSlider.value = (ds.sizes && ds.sizes.sectionLabel) || 10;
-  document.getElementById('design_size_sectionLabel_val').textContent = slSlider.value + 'px';
+  const slVal = document.getElementById('design_size_sectionLabel_val');
+  if (slSlider) { slSlider.value = dSizes.sectionLabel || 10; if (slVal) slVal.textContent = slSlider.value + 'px'; }
   // Spacing
-  const sp = (ds.spacing) || DEFAULT_DATA.design.spacing;
-  const lsSlider = document.getElementById('design_spacing_letterSpacing');
-  lsSlider.value = sp.letterSpacing !== undefined ? sp.letterSpacing : 0.08;
-  document.getElementById('design_spacing_letterSpacing_val').textContent = lsSlider.value + 'em';
-  const lhSlider = document.getElementById('design_spacing_lineHeight');
-  lhSlider.value = sp.lineHeight !== undefined ? sp.lineHeight : 1.6;
-  document.getElementById('design_spacing_lineHeight_val').textContent = lhSlider.value;
-  const phSlider = document.getElementById('design_spacing_pagePadH');
-  phSlider.value = sp.pagePadH || 64;
-  document.getElementById('design_spacing_pagePadH_val').textContent = phSlider.value + 'px';
-  const pvSlider = document.getElementById('design_spacing_pagePadV');
-  pvSlider.value = sp.pagePadV || 80;
-  document.getElementById('design_spacing_pagePadV_val').textContent = pvSlider.value + 'px';
+  const sp = (ds.spacing) || DEFAULT_DATA.design.spacing || {};
+  function setSlider(id, valId, val, unit) {
+    const s = document.getElementById(id);
+    const v = document.getElementById(valId);
+    if (s) { s.value = val; if (v) v.textContent = val + unit; }
+  }
+  setSlider('design_spacing_letterSpacing', 'design_spacing_letterSpacing_val', sp.letterSpacing !== undefined ? sp.letterSpacing : 0.08, 'em');
+  setSlider('design_spacing_lineHeight', 'design_spacing_lineHeight_val', sp.lineHeight !== undefined ? sp.lineHeight : 1.6, '');
+  setSlider('design_spacing_pagePadH', 'design_spacing_pagePadH_val', sp.pagePadH || 64, 'px');
+  setSlider('design_spacing_pagePadV', 'design_spacing_pagePadV_val', sp.pagePadV || 80, 'px');
   // Pages hidden
   const pages = ['cover','house','markets','portfolio','process','why','founder','contact'];
   const hidden = ds.pagesHidden || [];
@@ -940,19 +942,16 @@ function populateDesign() {
     if (cb) cb.checked = !hidden.includes(p);
   });
   // PDF size
-  if (ds.pdfSize === 'Letter') {
-    document.getElementById('pdf_letter').checked = true;
-  } else {
-    document.getElementById('pdf_a4').checked = true;
-  }
+  const pdfL = document.getElementById('pdf_letter');
+  const pdfA = document.getElementById('pdf_a4');
+  if (ds.pdfSize === 'Letter') { if (pdfL) pdfL.checked = true; } else { if (pdfA) pdfA.checked = true; }
   // Logo mode
-  if (ds.logoMode === 'image') {
-    document.getElementById('logo_image').checked = true;
-  } else {
-    document.getElementById('logo_monogram').checked = true;
-  }
+  const logoImg = document.getElementById('logo_image');
+  const logoMono = document.getElementById('logo_monogram');
+  if (ds.logoMode === 'image') { if (logoImg) logoImg.checked = true; } else { if (logoMono) logoMono.checked = true; }
   // Custom CSS
-  document.getElementById('design_customCSS').value = ds.customCSS || '';
+  const cssEl = document.getElementById('design_customCSS');
+  if (cssEl) cssEl.value = ds.customCSS || '';
   // Logo preview
   updateLogoPreview();
 }
@@ -966,17 +965,23 @@ function readDesign() {
     if (text) data.design.colors[key] = text.value;
   }
   // Fonts
-  data.design.fonts.display = document.getElementById('design_font_display').value;
-  data.design.fonts.body = document.getElementById('design_font_body').value;
+  if (!data.design.fonts) data.design.fonts = {};
+  const fd = document.getElementById('design_font_display');
+  const fb = document.getElementById('design_font_body');
+  if (fd) data.design.fonts.display = fd.value;
+  if (fb) data.design.fonts.body = fb.value;
   // Sizes
-  data.design.sizes.heading = parseInt(document.getElementById('design_size_heading').value);
-  data.design.sizes.body = parseInt(document.getElementById('design_size_body').value);
-  data.design.sizes.sectionLabel = parseInt(document.getElementById('design_size_sectionLabel').value);
+  if (!data.design.sizes) data.design.sizes = {};
+  function readSliderInt(id) { const el = document.getElementById(id); return el ? parseInt(el.value) : null; }
+  function readSliderFloat(id) { const el = document.getElementById(id); return el ? parseFloat(el.value) : null; }
+  const sh = readSliderInt('design_size_heading'); if (sh !== null) data.design.sizes.heading = sh;
+  const sb = readSliderInt('design_size_body'); if (sb !== null) data.design.sizes.body = sb;
+  const ssl = readSliderInt('design_size_sectionLabel'); if (ssl !== null) data.design.sizes.sectionLabel = ssl;
   if (!data.design.spacing) data.design.spacing = {};
-  data.design.spacing.letterSpacing = parseFloat(document.getElementById('design_spacing_letterSpacing').value);
-  data.design.spacing.lineHeight = parseFloat(document.getElementById('design_spacing_lineHeight').value);
-  data.design.spacing.pagePadH = parseInt(document.getElementById('design_spacing_pagePadH').value);
-  data.design.spacing.pagePadV = parseInt(document.getElementById('design_spacing_pagePadV').value);
+  const sls = readSliderFloat('design_spacing_letterSpacing'); if (sls !== null) data.design.spacing.letterSpacing = sls;
+  const slh = readSliderFloat('design_spacing_lineHeight'); if (slh !== null) data.design.spacing.lineHeight = slh;
+  const sph = readSliderInt('design_spacing_pagePadH'); if (sph !== null) data.design.spacing.pagePadH = sph;
+  const spv = readSliderInt('design_spacing_pagePadV'); if (spv !== null) data.design.spacing.pagePadV = spv;
   // Pages hidden
   const pages = ['cover','house','markets','portfolio','process','why','founder','contact'];
   data.design.pagesHidden = [];
@@ -985,253 +990,161 @@ function readDesign() {
     if (cb && !cb.checked) data.design.pagesHidden.push(p);
   });
   // PDF size
-  data.design.pdfSize = document.getElementById('pdf_letter').checked ? 'Letter' : 'A4';
+  const pdfL = document.getElementById('pdf_letter');
+  data.design.pdfSize = (pdfL && pdfL.checked) ? 'Letter' : 'A4';
   // Logo mode
-  data.design.logoMode = document.getElementById('logo_image').checked ? 'image' : 'monogram';
+  const logoI = document.getElementById('logo_image');
+  data.design.logoMode = (logoI && logoI.checked) ? 'image' : 'monogram';
   // Custom CSS
-  data.design.customCSS = document.getElementById('design_customCSS').value;
+  const cssEl = document.getElementById('design_customCSS');
+  if (cssEl) data.design.customCSS = cssEl.value;
 }
 
 // POPULATE / READ PAGE STYLES
+// Safe helpers for populate
+function _setVal(id, val) { const el = document.getElementById(id); if (el) el.value = val; }
+function _setSlider(id, valId, val, unit) { const el = document.getElementById(id); const v = document.getElementById(valId); if (el) { el.value = val; if (v) v.textContent = val + unit; } }
+function _setColor(pickerId, textId, val) { const p = document.getElementById(pickerId); const t = document.getElementById(textId); if (t) t.value = val || ''; if (p && val && /^#[0-9a-fA-F]{6}$/.test(val)) p.value = val; }
+// Safe helpers for read
+function _readVal(id) { const el = document.getElementById(id); return el ? el.value : ''; }
+function _readInt(id) { const el = document.getElementById(id); return el ? parseInt(el.value) : 0; }
+function _readFloat(id) { const el = document.getElementById(id); return el ? parseFloat(el.value) : 0; }
+
 function populatePageStyles() {
   // Cover
-  const cs = (data.cover && data.cover._style) || DEFAULT_DATA.cover._style;
-  const coverBgText = document.getElementById('cover_style_bgColor');
-  const coverBgPicker = document.getElementById('cover_style_bgColor_picker');
-  coverBgText.value = cs.bgColor || '';
-  if (cs.bgColor && /^#[0-9a-fA-F]{6}$/.test(cs.bgColor)) coverBgPicker.value = cs.bgColor;
-
-  const monoSlider = document.getElementById('cover_style_monogramSize');
-  monoSlider.value = cs.monogramSize || 72;
-  document.getElementById('cover_style_monogramSize_val').textContent = monoSlider.value + 'px';
-
-  const nameSlider = document.getElementById('cover_style_nameSize');
-  nameSlider.value = cs.nameSize || 52;
-  document.getElementById('cover_style_nameSize_val').textContent = nameSlider.value + 'px';
-
-  const opacitySlider = document.getElementById('cover_style_bgImageOpacity');
-  opacitySlider.value = cs.bgImageOpacity !== undefined ? cs.bgImageOpacity : 0.3;
-  document.getElementById('cover_style_bgImageOpacity_val').textContent = opacitySlider.value;
-
+  const cs = (data.cover && data.cover._style) || DEFAULT_DATA.cover._style || {};
+  _setColor('cover_style_bgColor_picker', 'cover_style_bgColor', cs.bgColor);
+  _setSlider('cover_style_monogramSize', 'cover_style_monogramSize_val', cs.monogramSize || 72, 'px');
+  _setSlider('cover_style_nameSize', 'cover_style_nameSize_val', cs.nameSize || 52, 'px');
+  _setSlider('cover_style_bgImageOpacity', 'cover_style_bgImageOpacity_val', cs.bgImageOpacity !== undefined ? cs.bgImageOpacity : 0.3, '');
   updateCoverBgPreview();
-
-  // Cover tagline size
-  const tagSlider = document.getElementById('cover_style_taglineSize');
-  tagSlider.value = cs.taglineSize || 11;
-  document.getElementById('cover_style_taglineSize_val').textContent = tagSlider.value + 'px';
-
-  const nlsSlider = document.getElementById('cover_style_nameLetterSpacing');
-  nlsSlider.value = cs.nameLetterSpacing !== undefined ? cs.nameLetterSpacing : 0.08;
-  document.getElementById('cover_style_nameLetterSpacing_val').textContent = nlsSlider.value + 'em';
-
-  const mlsSlider = document.getElementById('cover_style_monogramLetterSpacing');
-  mlsSlider.value = cs.monogramLetterSpacing !== undefined ? cs.monogramLetterSpacing : 0.15;
-  document.getElementById('cover_style_monogramLetterSpacing_val').textContent = mlsSlider.value + 'em';
+  _setSlider('cover_style_taglineSize', 'cover_style_taglineSize_val', cs.taglineSize || 11, 'px');
+  _setSlider('cover_style_nameLetterSpacing', 'cover_style_nameLetterSpacing_val', cs.nameLetterSpacing !== undefined ? cs.nameLetterSpacing : 0.08, 'em');
+  _setSlider('cover_style_monogramLetterSpacing', 'cover_style_monogramLetterSpacing_val', cs.monogramLetterSpacing !== undefined ? cs.monogramLetterSpacing : 0.15, 'em');
 
   // House
-  const hs = (data.house && data.house._style) || DEFAULT_DATA.house._style;
-  const houseBgText = document.getElementById('house_style_bgColor');
-  const houseBgPicker = document.getElementById('house_style_bgColor_picker');
-  houseBgText.value = hs.bgColor || '';
-  if (hs.bgColor && /^#[0-9a-fA-F]{6}$/.test(hs.bgColor)) houseBgPicker.value = hs.bgColor;
-
-  const snSlider = document.getElementById('house_style_statNumberSize');
-  snSlider.value = hs.statNumberSize || 36;
-  document.getElementById('house_style_statNumberSize_val').textContent = snSlider.value + 'px';
-
-  const slSlider2 = document.getElementById('house_style_statLabelSize');
-  slSlider2.value = hs.statLabelSize || 11;
-  document.getElementById('house_style_statLabelSize_val').textContent = slSlider2.value + 'px';
-
-  const tmwSlider = document.getElementById('house_style_textMaxWidth');
-  tmwSlider.value = hs.textMaxWidth || 520;
-  document.getElementById('house_style_textMaxWidth_val').textContent = tmwSlider.value + 'px';
+  const hs = (data.house && data.house._style) || DEFAULT_DATA.house._style || {};
+  _setColor('house_style_bgColor_picker', 'house_style_bgColor', hs.bgColor);
+  _setSlider('house_style_statNumberSize', 'house_style_statNumberSize_val', hs.statNumberSize || 36, 'px');
+  _setSlider('house_style_statLabelSize', 'house_style_statLabelSize_val', hs.statLabelSize || 11, 'px');
+  _setSlider('house_style_textMaxWidth', 'house_style_textMaxWidth_val', hs.textMaxWidth || 520, 'px');
 
   // Markets
-  const ms = (data.markets && data.markets._style) || DEFAULT_DATA.markets._style;
-  const citySlider = document.getElementById('markets_style_cityFontSize');
-  citySlider.value = ms.cityFontSize || 30;
-  document.getElementById('markets_style_cityFontSize_val').textContent = citySlider.value + 'px';
-
-  const dotColorText = document.getElementById('markets_style_dotColor');
-  const dotColorPicker = document.getElementById('markets_style_dotColor_picker');
-  dotColorText.value = ms.dotColor || '';
-  if (ms.dotColor && /^#[0-9a-fA-F]{6}$/.test(ms.dotColor)) dotColorPicker.value = ms.dotColor;
-
-  const dotSizeSlider = document.getElementById('markets_style_dotSize');
-  dotSizeSlider.value = ms.dotSize || 6;
-  document.getElementById('markets_style_dotSize_val').textContent = dotSizeSlider.value + 'px';
-
-  const cpSlider = document.getElementById('markets_style_cityPadding');
-  cpSlider.value = ms.cityPadding || 24;
-  document.getElementById('markets_style_cityPadding_val').textContent = cpSlider.value + 'px';
+  const ms = (data.markets && data.markets._style) || DEFAULT_DATA.markets._style || {};
+  _setSlider('markets_style_cityFontSize', 'markets_style_cityFontSize_val', ms.cityFontSize || 30, 'px');
+  _setColor('markets_style_dotColor_picker', 'markets_style_dotColor', ms.dotColor);
+  _setSlider('markets_style_dotSize', 'markets_style_dotSize_val', ms.dotSize || 6, 'px');
+  _setSlider('markets_style_cityPadding', 'markets_style_cityPadding_val', ms.cityPadding || 24, 'px');
 
   // Portfolio
-  const ps = (data.portfolio && data.portfolio._style) || DEFAULT_DATA.portfolio._style;
-  document.getElementById('portfolio_style_layout').value = ps.layout || 'list';
-
-  const pBgText = document.getElementById('portfolio_style_bgColor');
-  const pBgPicker = document.getElementById('portfolio_style_bgColor_picker');
-  pBgText.value = ps.bgColor || '';
-  if (ps.bgColor && /^#[0-9a-fA-F]{6}$/.test(ps.bgColor)) pBgPicker.value = ps.bgColor;
-
-  const vnSlider = document.getElementById('portfolio_style_vertNumSize');
-  vnSlider.value = ps.vertNumSize || 32;
-  document.getElementById('portfolio_style_vertNumSize_val').textContent = vnSlider.value + 'px';
-
-  const vtSlider = document.getElementById('portfolio_style_vertTitleSize');
-  vtSlider.value = ps.vertTitleSize || 20;
-  document.getElementById('portfolio_style_vertTitleSize_val').textContent = vtSlider.value + 'px';
-
-  const vdSlider = document.getElementById('portfolio_style_vertDescSize');
-  vdSlider.value = ps.vertDescSize || 13;
-  document.getElementById('portfolio_style_vertDescSize_val').textContent = vdSlider.value + 'px';
+  const ps = (data.portfolio && data.portfolio._style) || DEFAULT_DATA.portfolio._style || {};
+  _setVal('portfolio_style_layout', ps.layout || 'list');
+  _setColor('portfolio_style_bgColor_picker', 'portfolio_style_bgColor', ps.bgColor);
+  _setSlider('portfolio_style_vertNumSize', 'portfolio_style_vertNumSize_val', ps.vertNumSize || 32, 'px');
+  _setSlider('portfolio_style_vertTitleSize', 'portfolio_style_vertTitleSize_val', ps.vertTitleSize || 20, 'px');
+  _setSlider('portfolio_style_vertDescSize', 'portfolio_style_vertDescSize_val', ps.vertDescSize || 13, 'px');
 
   // Process
-  const prs = (data.process && data.process._style) || DEFAULT_DATA.process._style;
-  const prBgText = document.getElementById('process_style_bgColor');
-  const prBgPicker = document.getElementById('process_style_bgColor_picker');
-  prBgText.value = prs.bgColor || '';
-  if (prs.bgColor && /^#[0-9a-fA-F]{6}$/.test(prs.bgColor)) prBgPicker.value = prs.bgColor;
-
-  const snumSlider = document.getElementById('process_style_stepNumeralSize');
-  snumSlider.value = prs.stepNumeralSize || 28;
-  document.getElementById('process_style_stepNumeralSize_val').textContent = snumSlider.value + 'px';
-
-  const stSlider = document.getElementById('process_style_stepTitleSize');
-  stSlider.value = prs.stepTitleSize || 19;
-  document.getElementById('process_style_stepTitleSize_val').textContent = stSlider.value + 'px';
-
-  const sttSlider = document.getElementById('process_style_stepTextSize');
-  sttSlider.value = prs.stepTextSize || 13;
-  document.getElementById('process_style_stepTextSize_val').textContent = sttSlider.value + 'px';
-
-  const imwSlider = document.getElementById('process_style_introMaxWidth');
-  imwSlider.value = prs.introMaxWidth || 520;
-  document.getElementById('process_style_introMaxWidth_val').textContent = imwSlider.value + 'px';
+  const prs = (data.process && data.process._style) || DEFAULT_DATA.process._style || {};
+  _setColor('process_style_bgColor_picker', 'process_style_bgColor', prs.bgColor);
+  _setSlider('process_style_stepNumeralSize', 'process_style_stepNumeralSize_val', prs.stepNumeralSize || 28, 'px');
+  _setSlider('process_style_stepTitleSize', 'process_style_stepTitleSize_val', prs.stepTitleSize || 19, 'px');
+  _setSlider('process_style_stepTextSize', 'process_style_stepTextSize_val', prs.stepTextSize || 13, 'px');
+  _setSlider('process_style_introMaxWidth', 'process_style_introMaxWidth_val', prs.introMaxWidth || 520, 'px');
 
   // Why
-  const ws = (data.why && data.why._style) || DEFAULT_DATA.why._style;
-  const stmtSlider = document.getElementById('why_style_statementSize');
-  stmtSlider.value = ws.statementSize || 26;
-  document.getElementById('why_style_statementSize_val').textContent = stmtSlider.value + 'px';
-
-  const ptSlider = document.getElementById('why_style_pillarTitleSize');
-  ptSlider.value = ws.pillarTitleSize || 22;
-  document.getElementById('why_style_pillarTitleSize_val').textContent = ptSlider.value + 'px';
-
-  const pxtSlider = document.getElementById('why_style_pillarTextSize');
-  pxtSlider.value = ws.pillarTextSize || 13.5;
-  document.getElementById('why_style_pillarTextSize_val').textContent = pxtSlider.value + 'px';
-
-  const pgwSlider = document.getElementById('why_style_pillarGridWidth');
-  pgwSlider.value = ws.pillarGridWidth || 180;
-  document.getElementById('why_style_pillarGridWidth_val').textContent = pgwSlider.value + 'px';
+  const ws = (data.why && data.why._style) || DEFAULT_DATA.why._style || {};
+  _setSlider('why_style_statementSize', 'why_style_statementSize_val', ws.statementSize || 26, 'px');
+  _setSlider('why_style_pillarTitleSize', 'why_style_pillarTitleSize_val', ws.pillarTitleSize || 22, 'px');
+  _setSlider('why_style_pillarTextSize', 'why_style_pillarTextSize_val', ws.pillarTextSize || 13.5, 'px');
+  _setSlider('why_style_pillarGridWidth', 'why_style_pillarGridWidth_val', ws.pillarGridWidth || 180, 'px');
 
   // Founder
-  const fds = (data.founder && data.founder._style) || DEFAULT_DATA.founder._style;
-  document.getElementById('founder_style_letterStyle').value = fds.letterStyle || 'normal';
-
-  const fBgText = document.getElementById('founder_style_bgColor');
-  const fBgPicker = document.getElementById('founder_style_bgColor_picker');
-  fBgText.value = fds.bgColor || '';
-  if (fds.bgColor && /^#[0-9a-fA-F]{6}$/.test(fds.bgColor)) fBgPicker.value = fds.bgColor;
-
-  const lfSlider = document.getElementById('founder_style_letterFontSize');
-  lfSlider.value = fds.letterFontSize || 14;
-  document.getElementById('founder_style_letterFontSize_val').textContent = lfSlider.value + 'px';
-
-  const sigSlider = document.getElementById('founder_style_signatureSize');
-  sigSlider.value = fds.signatureSize || 36;
-  document.getElementById('founder_style_signatureSize_val').textContent = sigSlider.value + 'px';
-
-  const lmwSlider = document.getElementById('founder_style_letterMaxWidth');
-  lmwSlider.value = fds.letterMaxWidth || 500;
-  document.getElementById('founder_style_letterMaxWidth_val').textContent = lmwSlider.value + 'px';
+  const fds = (data.founder && data.founder._style) || DEFAULT_DATA.founder._style || {};
+  _setVal('founder_style_letterStyle', fds.letterStyle || 'normal');
+  _setColor('founder_style_bgColor_picker', 'founder_style_bgColor', fds.bgColor);
+  _setSlider('founder_style_letterFontSize', 'founder_style_letterFontSize_val', fds.letterFontSize || 14, 'px');
+  _setSlider('founder_style_signatureSize', 'founder_style_signatureSize_val', fds.signatureSize || 36, 'px');
+  _setSlider('founder_style_letterMaxWidth', 'founder_style_letterMaxWidth_val', fds.letterMaxWidth || 500, 'px');
 
   // Contact
-  const cts = (data.contact && data.contact._style) || DEFAULT_DATA.contact._style;
-  const contactBgText = document.getElementById('contact_style_bgColor');
-  const contactBgPicker = document.getElementById('contact_style_bgColor_picker');
-  contactBgText.value = cts.bgColor || '';
-  if (cts.bgColor && /^#[0-9a-fA-F]{6}$/.test(cts.bgColor)) contactBgPicker.value = cts.bgColor;
-
-  const cmSlider = document.getElementById('contact_style_monogramSize');
-  cmSlider.value = cts.monogramSize || 48;
-  document.getElementById('contact_style_monogramSize_val').textContent = cmSlider.value + 'px';
-
-  const dvSlider = document.getElementById('contact_style_detailValueSize');
-  dvSlider.value = cts.detailValueSize || 22;
-  document.getElementById('contact_style_detailValueSize_val').textContent = dvSlider.value + 'px';
-
-  const nsSlider = document.getElementById('contact_style_noteSize');
-  nsSlider.value = cts.noteSize || 12;
-  document.getElementById('contact_style_noteSize_val').textContent = nsSlider.value + 'px';
+  const cts = (data.contact && data.contact._style) || DEFAULT_DATA.contact._style || {};
+  _setColor('contact_style_bgColor_picker', 'contact_style_bgColor', cts.bgColor);
+  _setSlider('contact_style_monogramSize', 'contact_style_monogramSize_val', cts.monogramSize || 48, 'px');
+  _setSlider('contact_style_detailValueSize', 'contact_style_detailValueSize_val', cts.detailValueSize || 22, 'px');
+  _setSlider('contact_style_noteSize', 'contact_style_noteSize_val', cts.noteSize || 12, 'px');
 }
 
 function readPageStyles() {
   // Cover
+  if (!data.cover) data.cover = {};
   if (!data.cover._style) data.cover._style = {};
-  data.cover._style.bgColor = document.getElementById('cover_style_bgColor').value;
-  data.cover._style.monogramSize = parseInt(document.getElementById('cover_style_monogramSize').value);
-  data.cover._style.nameSize = parseInt(document.getElementById('cover_style_nameSize').value);
-  data.cover._style.bgImageOpacity = parseFloat(document.getElementById('cover_style_bgImageOpacity').value);
-  data.cover._style.taglineSize = parseInt(document.getElementById('cover_style_taglineSize').value);
-  data.cover._style.nameLetterSpacing = parseFloat(document.getElementById('cover_style_nameLetterSpacing').value);
-  data.cover._style.monogramLetterSpacing = parseFloat(document.getElementById('cover_style_monogramLetterSpacing').value);
-  // bgImageUrl is set via file upload handler, not from form field
+  data.cover._style.bgColor = _readVal('cover_style_bgColor');
+  data.cover._style.monogramSize = _readInt('cover_style_monogramSize');
+  data.cover._style.nameSize = _readInt('cover_style_nameSize');
+  data.cover._style.bgImageOpacity = _readFloat('cover_style_bgImageOpacity');
+  data.cover._style.taglineSize = _readInt('cover_style_taglineSize');
+  data.cover._style.nameLetterSpacing = _readFloat('cover_style_nameLetterSpacing');
+  data.cover._style.monogramLetterSpacing = _readFloat('cover_style_monogramLetterSpacing');
 
   // House
+  if (!data.house) data.house = {};
   if (!data.house._style) data.house._style = {};
-  data.house._style.bgColor = document.getElementById('house_style_bgColor').value;
-  data.house._style.statNumberSize = parseInt(document.getElementById('house_style_statNumberSize').value);
-  data.house._style.statLabelSize = parseInt(document.getElementById('house_style_statLabelSize').value);
-  data.house._style.textMaxWidth = parseInt(document.getElementById('house_style_textMaxWidth').value);
+  data.house._style.bgColor = _readVal('house_style_bgColor');
+  data.house._style.statNumberSize = _readInt('house_style_statNumberSize');
+  data.house._style.statLabelSize = _readInt('house_style_statLabelSize');
+  data.house._style.textMaxWidth = _readInt('house_style_textMaxWidth');
 
   // Markets
+  if (!data.markets) data.markets = {};
   if (!data.markets._style) data.markets._style = {};
-  data.markets._style.cityFontSize = parseInt(document.getElementById('markets_style_cityFontSize').value);
-  data.markets._style.dotColor = document.getElementById('markets_style_dotColor').value;
-  data.markets._style.dotSize = parseInt(document.getElementById('markets_style_dotSize').value);
-  data.markets._style.cityPadding = parseInt(document.getElementById('markets_style_cityPadding').value);
+  data.markets._style.cityFontSize = _readInt('markets_style_cityFontSize');
+  data.markets._style.dotColor = _readVal('markets_style_dotColor');
+  data.markets._style.dotSize = _readInt('markets_style_dotSize');
+  data.markets._style.cityPadding = _readInt('markets_style_cityPadding');
 
   // Portfolio
+  if (!data.portfolio) data.portfolio = {};
   if (!data.portfolio._style) data.portfolio._style = {};
-  data.portfolio._style.layout = document.getElementById('portfolio_style_layout').value;
-  data.portfolio._style.bgColor = document.getElementById('portfolio_style_bgColor').value;
-  data.portfolio._style.vertNumSize = parseInt(document.getElementById('portfolio_style_vertNumSize').value);
-  data.portfolio._style.vertTitleSize = parseInt(document.getElementById('portfolio_style_vertTitleSize').value);
-  data.portfolio._style.vertDescSize = parseInt(document.getElementById('portfolio_style_vertDescSize').value);
+  data.portfolio._style.layout = _readVal('portfolio_style_layout');
+  data.portfolio._style.bgColor = _readVal('portfolio_style_bgColor');
+  data.portfolio._style.vertNumSize = _readInt('portfolio_style_vertNumSize');
+  data.portfolio._style.vertTitleSize = _readInt('portfolio_style_vertTitleSize');
+  data.portfolio._style.vertDescSize = _readInt('portfolio_style_vertDescSize');
 
   // Process
+  if (!data.process) data.process = {};
   if (!data.process._style) data.process._style = {};
-  data.process._style.bgColor = document.getElementById('process_style_bgColor').value;
-  data.process._style.stepNumeralSize = parseInt(document.getElementById('process_style_stepNumeralSize').value);
-  data.process._style.stepTitleSize = parseInt(document.getElementById('process_style_stepTitleSize').value);
-  data.process._style.stepTextSize = parseInt(document.getElementById('process_style_stepTextSize').value);
-  data.process._style.introMaxWidth = parseInt(document.getElementById('process_style_introMaxWidth').value);
+  data.process._style.bgColor = _readVal('process_style_bgColor');
+  data.process._style.stepNumeralSize = _readInt('process_style_stepNumeralSize');
+  data.process._style.stepTitleSize = _readInt('process_style_stepTitleSize');
+  data.process._style.stepTextSize = _readInt('process_style_stepTextSize');
+  data.process._style.introMaxWidth = _readInt('process_style_introMaxWidth');
 
   // Why
+  if (!data.why) data.why = {};
   if (!data.why._style) data.why._style = {};
-  data.why._style.statementSize = parseInt(document.getElementById('why_style_statementSize').value);
-  data.why._style.pillarTitleSize = parseInt(document.getElementById('why_style_pillarTitleSize').value);
-  data.why._style.pillarTextSize = parseFloat(document.getElementById('why_style_pillarTextSize').value);
-  data.why._style.pillarGridWidth = parseInt(document.getElementById('why_style_pillarGridWidth').value);
+  data.why._style.statementSize = _readInt('why_style_statementSize');
+  data.why._style.pillarTitleSize = _readInt('why_style_pillarTitleSize');
+  data.why._style.pillarTextSize = _readFloat('why_style_pillarTextSize');
+  data.why._style.pillarGridWidth = _readInt('why_style_pillarGridWidth');
 
   // Founder
+  if (!data.founder) data.founder = {};
   if (!data.founder._style) data.founder._style = {};
-  data.founder._style.letterStyle = document.getElementById('founder_style_letterStyle').value;
-  data.founder._style.bgColor = document.getElementById('founder_style_bgColor').value;
-  data.founder._style.letterFontSize = parseInt(document.getElementById('founder_style_letterFontSize').value);
-  data.founder._style.signatureSize = parseInt(document.getElementById('founder_style_signatureSize').value);
-  data.founder._style.letterMaxWidth = parseInt(document.getElementById('founder_style_letterMaxWidth').value);
+  data.founder._style.letterStyle = _readVal('founder_style_letterStyle');
+  data.founder._style.bgColor = _readVal('founder_style_bgColor');
+  data.founder._style.letterFontSize = _readInt('founder_style_letterFontSize');
+  data.founder._style.signatureSize = _readInt('founder_style_signatureSize');
+  data.founder._style.letterMaxWidth = _readInt('founder_style_letterMaxWidth');
 
   // Contact
+  if (!data.contact) data.contact = {};
   if (!data.contact._style) data.contact._style = {};
-  data.contact._style.bgColor = document.getElementById('contact_style_bgColor').value;
-  data.contact._style.monogramSize = parseInt(document.getElementById('contact_style_monogramSize').value);
-  data.contact._style.detailValueSize = parseInt(document.getElementById('contact_style_detailValueSize').value);
-  data.contact._style.noteSize = parseInt(document.getElementById('contact_style_noteSize').value);
+  data.contact._style.bgColor = _readVal('contact_style_bgColor');
+  data.contact._style.monogramSize = _readInt('contact_style_monogramSize');
+  data.contact._style.detailValueSize = _readInt('contact_style_detailValueSize');
+  data.contact._style.noteSize = _readInt('contact_style_noteSize');
 }
 
 function populateForm(){
@@ -1239,16 +1152,16 @@ function populateForm(){
     for(const k of keys){const el=document.getElementById(section+'_'+k);if(el&&data[section])el.value=data[section][k]||'';}
   }
   buildStats();buildCities();buildVerticals();buildSteps();buildPillars();buildLetterParas();
-  populateDesign();
-  populatePageStyles();
+  try{populateDesign();}catch(e){console.warn('populateDesign error:',e);}
+  try{populatePageStyles();}catch(e){console.warn('populatePageStyles error:',e);}
 }
 function readForm(){
   for(const[section,keys]of Object.entries(FIELDS)){
     for(const k of keys){const el=document.getElementById(section+'_'+k);if(el&&data[section])data[section][k]=el.value;}
   }
   readStats();readCities();readVerticals();readSteps();readPillars();readLetterParas();
-  readDesign();
-  readPageStyles();
+  try{readDesign();}catch(e){console.warn('readDesign error:',e);}
+  try{readPageStyles();}catch(e){console.warn('readPageStyles error:',e);}
 }
 function markUnsaved(){setSaveStatus('unsaved','Unsaved changes');}
 document.addEventListener('input',e=>{if(e.target.closest('.sidebar'))markUnsaved();});
