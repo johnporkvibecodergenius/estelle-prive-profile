@@ -256,6 +256,35 @@
         <div id="statsRepeater"></div>
         <button class="repeater-add" onclick="addStat()">+ Add Stat</button>
         <hr class="section-divider">
+        <div class="section-label">Page Image</div>
+        <div class="panel-desc">Click any image to apply it to this page.</div>
+        <div id="house_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
+        <div class="field">
+          <label>Image Layout</label>
+          <select id="house_style_imageLayout">
+            <option value="none">No Image</option>
+            <option value="full-width">Full Width Banner</option>
+            <option value="right-half">Right Half</option>
+            <option value="left-half">Left Half</option>
+            <option value="small-center">Small Centered</option>
+            <option value="background">Background Image</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Image URL</label>
+          <input type="text" id="house_style_imageUrl" placeholder="Paste URL or upload">
+        </div>
+        <div class="field">
+          <label>Upload Image</label>
+          <input type="file" id="house_style_imageUpload" accept="image/*">
+          <div class="bg-image-preview" id="house_image_preview" style="margin-top:6px;"></div>
+        </div>
+        <div class="field">
+          <label class="range-label">Image Opacity <span class="range-value" id="house_style_imageOpacity_val">1</span></label>
+          <input type="range" id="house_style_imageOpacity" min="0" max="1" step="0.05" value="1">
+        </div>
+      </div>
+        <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
           <label>Background Color Override</label>
@@ -358,35 +387,7 @@
             <input type="text" id="house_style_dividerLineColor" value="#E8E3DC">
           </div>
         </div>
-        <hr class="section-divider">
-        <div class="section-label">Page Image</div>
-        <div class="panel-desc">Click any image to apply it to this page.</div>
-        <div id="house_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
-        <div class="field">
-          <label>Image Layout</label>
-          <select id="house_style_imageLayout">
-            <option value="none">No Image</option>
-            <option value="full-width">Full Width Banner</option>
-            <option value="right-half">Right Half</option>
-            <option value="left-half">Left Half</option>
-            <option value="small-center">Small Centered</option>
-            <option value="background">Background Image</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Image URL</label>
-          <input type="text" id="house_style_imageUrl" placeholder="Paste URL or upload">
-        </div>
-        <div class="field">
-          <label>Upload Image</label>
-          <input type="file" id="house_style_imageUpload" accept="image/*">
-          <div class="bg-image-preview" id="house_image_preview" style="margin-top:6px;"></div>
-        </div>
-        <div class="field">
-          <label class="range-label">Image Opacity <span class="range-value" id="house_style_imageOpacity_val">1</span></label>
-          <input type="range" id="house_style_imageOpacity" min="0" max="1" step="0.05" value="1">
-        </div>
-      </div>
+        
 
       <!-- MARKETS -->
       <div class="panel" id="panel-markets">
@@ -416,6 +417,35 @@
             <option value="elegant">Elegant Flow — Centered flowing grid with dot separators</option>
           </select>
         </div>
+        <hr class="section-divider">
+        <div class="section-label">Page Image</div>
+        <div class="panel-desc">Click any image to apply it to this page.</div>
+        <div id="markets_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
+        <div class="field">
+          <label>Image Layout</label>
+          <select id="markets_style_imageLayout">
+            <option value="none">No Image</option>
+            <option value="full-width">Full Width Banner</option>
+            <option value="right-half">Right Half</option>
+            <option value="left-half">Left Half</option>
+            <option value="small-center">Small Centered</option>
+            <option value="background">Background Image</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Image URL</label>
+          <input type="text" id="markets_style_imageUrl" placeholder="Paste URL or upload">
+        </div>
+        <div class="field">
+          <label>Upload Image</label>
+          <input type="file" id="markets_style_imageUpload" accept="image/*">
+          <div class="bg-image-preview" id="markets_image_preview" style="margin-top:6px;"></div>
+        </div>
+        <div class="field">
+          <label class="range-label">Image Opacity <span class="range-value" id="markets_style_imageOpacity_val">1</span></label>
+          <input type="range" id="markets_style_imageOpacity" min="0" max="1" step="0.05" value="1">
+        </div>
+      </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
@@ -485,35 +515,7 @@
             <input type="text" id="markets_style_dividerLineColor" value="#8B6E4E">
           </div>
         </div>
-        <hr class="section-divider">
-        <div class="section-label">Page Image</div>
-        <div class="panel-desc">Click any image to apply it to this page.</div>
-        <div id="markets_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
-        <div class="field">
-          <label>Image Layout</label>
-          <select id="markets_style_imageLayout">
-            <option value="none">No Image</option>
-            <option value="full-width">Full Width Banner</option>
-            <option value="right-half">Right Half</option>
-            <option value="left-half">Left Half</option>
-            <option value="small-center">Small Centered</option>
-            <option value="background">Background Image</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Image URL</label>
-          <input type="text" id="markets_style_imageUrl" placeholder="Paste URL or upload">
-        </div>
-        <div class="field">
-          <label>Upload Image</label>
-          <input type="file" id="markets_style_imageUpload" accept="image/*">
-          <div class="bg-image-preview" id="markets_image_preview" style="margin-top:6px;"></div>
-        </div>
-        <div class="field">
-          <label class="range-label">Image Opacity <span class="range-value" id="markets_style_imageOpacity_val">1</span></label>
-          <input type="range" id="markets_style_imageOpacity" min="0" max="1" step="0.05" value="1">
-        </div>
-      </div>
+        
 
       <!-- PORTFOLIO -->
       <div class="panel" id="panel-portfolio">
@@ -528,6 +530,35 @@
         <div class="section-label">Verticals</div>
         <div id="verticalsRepeater"></div>
         <button class="repeater-add" onclick="addVertical()">+ Add Vertical</button>
+        <hr class="section-divider">
+        <div class="section-label">Page Image</div>
+        <div class="panel-desc">Click any image to apply it to this page.</div>
+        <div id="portfolio_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
+        <div class="field">
+          <label>Image Layout</label>
+          <select id="portfolio_style_imageLayout">
+            <option value="none">No Image</option>
+            <option value="full-width">Full Width Banner</option>
+            <option value="right-half">Right Half</option>
+            <option value="left-half">Left Half</option>
+            <option value="small-center">Small Centered</option>
+            <option value="background">Background Image</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Image URL</label>
+          <input type="text" id="portfolio_style_imageUrl" placeholder="Paste URL or upload">
+        </div>
+        <div class="field">
+          <label>Upload Image</label>
+          <input type="file" id="portfolio_style_imageUpload" accept="image/*">
+          <div class="bg-image-preview" id="portfolio_image_preview" style="margin-top:6px;"></div>
+        </div>
+        <div class="field">
+          <label class="range-label">Image Opacity <span class="range-value" id="portfolio_style_imageOpacity_val">1</span></label>
+          <input type="range" id="portfolio_style_imageOpacity" min="0" max="1" step="0.05" value="1">
+        </div>
+      </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
@@ -618,35 +649,7 @@
             <input type="text" id="portfolio_style_dividerLineColor" value="#E8E3DC">
           </div>
         </div>
-        <hr class="section-divider">
-        <div class="section-label">Page Image</div>
-        <div class="panel-desc">Click any image to apply it to this page.</div>
-        <div id="portfolio_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
-        <div class="field">
-          <label>Image Layout</label>
-          <select id="portfolio_style_imageLayout">
-            <option value="none">No Image</option>
-            <option value="full-width">Full Width Banner</option>
-            <option value="right-half">Right Half</option>
-            <option value="left-half">Left Half</option>
-            <option value="small-center">Small Centered</option>
-            <option value="background">Background Image</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Image URL</label>
-          <input type="text" id="portfolio_style_imageUrl" placeholder="Paste URL or upload">
-        </div>
-        <div class="field">
-          <label>Upload Image</label>
-          <input type="file" id="portfolio_style_imageUpload" accept="image/*">
-          <div class="bg-image-preview" id="portfolio_image_preview" style="margin-top:6px;"></div>
-        </div>
-        <div class="field">
-          <label class="range-label">Image Opacity <span class="range-value" id="portfolio_style_imageOpacity_val">1</span></label>
-          <input type="range" id="portfolio_style_imageOpacity" min="0" max="1" step="0.05" value="1">
-        </div>
-      </div>
+        
 
       <!-- PROCESS -->
       <div class="panel" id="panel-process">
@@ -662,6 +665,35 @@
         <div class="section-label">Steps</div>
         <div id="stepsRepeater"></div>
         <button class="repeater-add" onclick="addStep()">+ Add Step</button>
+        <hr class="section-divider">
+        <div class="section-label">Page Image</div>
+        <div class="panel-desc">Click any image to apply it to this page.</div>
+        <div id="process_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
+        <div class="field">
+          <label>Image Layout</label>
+          <select id="process_style_imageLayout">
+            <option value="none">No Image</option>
+            <option value="full-width">Full Width Banner</option>
+            <option value="right-half">Right Half</option>
+            <option value="left-half">Left Half</option>
+            <option value="small-center">Small Centered</option>
+            <option value="background">Background Image</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Image URL</label>
+          <input type="text" id="process_style_imageUrl" placeholder="Paste URL or upload">
+        </div>
+        <div class="field">
+          <label>Upload Image</label>
+          <input type="file" id="process_style_imageUpload" accept="image/*">
+          <div class="bg-image-preview" id="process_image_preview" style="margin-top:6px;"></div>
+        </div>
+        <div class="field">
+          <label class="range-label">Image Opacity <span class="range-value" id="process_style_imageOpacity_val">1</span></label>
+          <input type="range" id="process_style_imageOpacity" min="0" max="1" step="0.05" value="1">
+        </div>
+      </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
@@ -771,35 +803,7 @@
             <input type="text" id="process_style_dividerLineColor" value="#E8E3DC">
           </div>
         </div>
-        <hr class="section-divider">
-        <div class="section-label">Page Image</div>
-        <div class="panel-desc">Click any image to apply it to this page.</div>
-        <div id="process_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
-        <div class="field">
-          <label>Image Layout</label>
-          <select id="process_style_imageLayout">
-            <option value="none">No Image</option>
-            <option value="full-width">Full Width Banner</option>
-            <option value="right-half">Right Half</option>
-            <option value="left-half">Left Half</option>
-            <option value="small-center">Small Centered</option>
-            <option value="background">Background Image</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Image URL</label>
-          <input type="text" id="process_style_imageUrl" placeholder="Paste URL or upload">
-        </div>
-        <div class="field">
-          <label>Upload Image</label>
-          <input type="file" id="process_style_imageUpload" accept="image/*">
-          <div class="bg-image-preview" id="process_image_preview" style="margin-top:6px;"></div>
-        </div>
-        <div class="field">
-          <label class="range-label">Image Opacity <span class="range-value" id="process_style_imageOpacity_val">1</span></label>
-          <input type="range" id="process_style_imageOpacity" min="0" max="1" step="0.05" value="1">
-        </div>
-      </div>
+        
 
       <!-- WHY US -->
       <div class="panel" id="panel-why">
@@ -815,6 +819,35 @@
         <div class="section-label">Pillars</div>
         <div id="pillarsRepeater"></div>
         <button class="repeater-add" onclick="addPillar()">+ Add Pillar</button>
+        <hr class="section-divider">
+        <div class="section-label">Page Image</div>
+        <div class="panel-desc">Click any image to apply it to this page.</div>
+        <div id="why_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
+        <div class="field">
+          <label>Image Layout</label>
+          <select id="why_style_imageLayout">
+            <option value="none">No Image</option>
+            <option value="full-width">Full Width Banner</option>
+            <option value="right-half">Right Half</option>
+            <option value="left-half">Left Half</option>
+            <option value="small-center">Small Centered</option>
+            <option value="background">Background Image</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Image URL</label>
+          <input type="text" id="why_style_imageUrl" placeholder="Paste URL or upload">
+        </div>
+        <div class="field">
+          <label>Upload Image</label>
+          <input type="file" id="why_style_imageUpload" accept="image/*">
+          <div class="bg-image-preview" id="why_image_preview" style="margin-top:6px;"></div>
+        </div>
+        <div class="field">
+          <label class="range-label">Image Opacity <span class="range-value" id="why_style_imageOpacity_val">1</span></label>
+          <input type="range" id="why_style_imageOpacity" min="0" max="1" step="0.05" value="1">
+        </div>
+      </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
@@ -906,35 +939,7 @@
             <input type="text" id="why_style_dividerLineColor" value="#8B6E4E">
           </div>
         </div>
-        <hr class="section-divider">
-        <div class="section-label">Page Image</div>
-        <div class="panel-desc">Click any image to apply it to this page.</div>
-        <div id="why_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
-        <div class="field">
-          <label>Image Layout</label>
-          <select id="why_style_imageLayout">
-            <option value="none">No Image</option>
-            <option value="full-width">Full Width Banner</option>
-            <option value="right-half">Right Half</option>
-            <option value="left-half">Left Half</option>
-            <option value="small-center">Small Centered</option>
-            <option value="background">Background Image</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Image URL</label>
-          <input type="text" id="why_style_imageUrl" placeholder="Paste URL or upload">
-        </div>
-        <div class="field">
-          <label>Upload Image</label>
-          <input type="file" id="why_style_imageUpload" accept="image/*">
-          <div class="bg-image-preview" id="why_image_preview" style="margin-top:6px;"></div>
-        </div>
-        <div class="field">
-          <label class="range-label">Image Opacity <span class="range-value" id="why_style_imageOpacity_val">1</span></label>
-          <input type="range" id="why_style_imageOpacity" min="0" max="1" step="0.05" value="1">
-        </div>
-      </div>
+        
 
       <!-- FOUNDER -->
       <div class="panel" id="panel-founder">
@@ -962,6 +967,35 @@
         </div>
         <div class="section-label" style="margin-top:16px;">Signature Style Presets</div>
         <div id="signaturePresets" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;"></div>
+        <hr class="section-divider">
+        <div class="section-label">Page Image</div>
+        <div class="panel-desc">Click any image to apply it to this page.</div>
+        <div id="founder_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
+        <div class="field">
+          <label>Image Layout</label>
+          <select id="founder_style_imageLayout">
+            <option value="none">No Image</option>
+            <option value="full-width">Full Width Banner</option>
+            <option value="right-half">Right Half</option>
+            <option value="left-half">Left Half</option>
+            <option value="small-center">Small Centered</option>
+            <option value="background">Background Image</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Image URL</label>
+          <input type="text" id="founder_style_imageUrl" placeholder="Paste URL or upload">
+        </div>
+        <div class="field">
+          <label>Upload Image</label>
+          <input type="file" id="founder_style_imageUpload" accept="image/*">
+          <div class="bg-image-preview" id="founder_image_preview" style="margin-top:6px;"></div>
+        </div>
+        <div class="field">
+          <label class="range-label">Image Opacity <span class="range-value" id="founder_style_imageOpacity_val">1</span></label>
+          <input type="range" id="founder_style_imageOpacity" min="0" max="1" step="0.05" value="1">
+        </div>
+      </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
@@ -1070,35 +1104,7 @@
             <input type="text" id="founder_style_dividerLineColor" value="#E8E3DC">
           </div>
         </div>
-        <hr class="section-divider">
-        <div class="section-label">Page Image</div>
-        <div class="panel-desc">Click any image to apply it to this page.</div>
-        <div id="founder_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
-        <div class="field">
-          <label>Image Layout</label>
-          <select id="founder_style_imageLayout">
-            <option value="none">No Image</option>
-            <option value="full-width">Full Width Banner</option>
-            <option value="right-half">Right Half</option>
-            <option value="left-half">Left Half</option>
-            <option value="small-center">Small Centered</option>
-            <option value="background">Background Image</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Image URL</label>
-          <input type="text" id="founder_style_imageUrl" placeholder="Paste URL or upload">
-        </div>
-        <div class="field">
-          <label>Upload Image</label>
-          <input type="file" id="founder_style_imageUpload" accept="image/*">
-          <div class="bg-image-preview" id="founder_image_preview" style="margin-top:6px;"></div>
-        </div>
-        <div class="field">
-          <label class="range-label">Image Opacity <span class="range-value" id="founder_style_imageOpacity_val">1</span></label>
-          <input type="range" id="founder_style_imageOpacity" min="0" max="1" step="0.05" value="1">
-        </div>
-      </div>
+        
 
       <!-- CONTACT -->
       <div class="panel" id="panel-contact">
@@ -1114,6 +1120,35 @@
         <div class="field"><label>Website</label><input type="text" id="contact_website"></div>
         <div class="field"><label>Discretion Note</label><input type="text" id="contact_note"></div>
         <div class="field"><label>Copyright</label><input type="text" id="contact_copyright"></div>
+        <hr class="section-divider">
+        <div class="section-label">Page Image</div>
+        <div class="panel-desc">Click any image to apply it to this page.</div>
+        <div id="contact_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
+        <div class="field">
+          <label>Image Layout</label>
+          <select id="contact_style_imageLayout">
+            <option value="none">No Image</option>
+            <option value="full-width">Full Width Banner</option>
+            <option value="right-half">Right Half</option>
+            <option value="left-half">Left Half</option>
+            <option value="small-center">Small Centered</option>
+            <option value="background">Background Image</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Image URL</label>
+          <input type="text" id="contact_style_imageUrl" placeholder="Paste URL or upload">
+        </div>
+        <div class="field">
+          <label>Upload Image</label>
+          <input type="file" id="contact_style_imageUpload" accept="image/*">
+          <div class="bg-image-preview" id="contact_image_preview" style="margin-top:6px;"></div>
+        </div>
+        <div class="field">
+          <label class="range-label">Image Opacity <span class="range-value" id="contact_style_imageOpacity_val">1</span></label>
+          <input type="range" id="contact_style_imageOpacity" min="0" max="1" step="0.05" value="1">
+        </div>
+      </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
@@ -1205,35 +1240,7 @@
             <input type="text" id="contact_style_dividerLineColor" value="#8B6E4E">
           </div>
         </div>
-        <hr class="section-divider">
-        <div class="section-label">Page Image</div>
-        <div class="panel-desc">Click any image to apply it to this page.</div>
-        <div id="contact_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
-        <div class="field">
-          <label>Image Layout</label>
-          <select id="contact_style_imageLayout">
-            <option value="none">No Image</option>
-            <option value="full-width">Full Width Banner</option>
-            <option value="right-half">Right Half</option>
-            <option value="left-half">Left Half</option>
-            <option value="small-center">Small Centered</option>
-            <option value="background">Background Image</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Image URL</label>
-          <input type="text" id="contact_style_imageUrl" placeholder="Paste URL or upload">
-        </div>
-        <div class="field">
-          <label>Upload Image</label>
-          <input type="file" id="contact_style_imageUpload" accept="image/*">
-          <div class="bg-image-preview" id="contact_image_preview" style="margin-top:6px;"></div>
-        </div>
-        <div class="field">
-          <label class="range-label">Image Opacity <span class="range-value" id="contact_style_imageOpacity_val">1</span></label>
-          <input type="range" id="contact_style_imageOpacity" min="0" max="1" step="0.05" value="1">
-        </div>
-      </div>
+        
 
       <!-- DESIGN -->
       <div class="panel" id="panel-design">
