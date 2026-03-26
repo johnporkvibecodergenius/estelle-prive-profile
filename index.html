@@ -337,6 +337,7 @@
           <div class="field"><label>Heading Line 1</label><input type="text" id="markets_heading1"></div>
           <div class="field"><label>Heading Line 2</label><input type="text" id="markets_heading2"></div>
         </div>
+        <div class="field"><label>Subtitle</label><input type="text" id="markets_subtitle"></div>
         <hr class="section-divider">
         <div class="section-label">Cities</div>
         <div id="citiesRepeater"></div>
@@ -352,6 +353,7 @@
             <option value="centered">Centered Stack — Cities centered, no dots</option>
             <option value="minimal">Minimal — City names only, large type, no borders</option>
             <option value="numbered">Numbered — Each city with number prefix (01, 02...)</option>
+            <option value="elegant">Elegant Flow — Centered flowing grid with dot separators</option>
           </select>
         </div>
         <hr class="section-divider">
@@ -1015,7 +1017,7 @@ const DEFAULT_DATA = {
     _style: { bgColor:'', statNumberSize:36, statLabelSize:11, textMaxWidth:520, labelColor:'#8B6E4E', labelSize:10, headingColor:'#1A1610', headingSize:44, italicColor:'#8B6E4E', textColor:'#5C5244', textSize:15, statNumberColor:'#1A1610', statLabelColor:'#8A847C' },
   },
   markets: {
-    label:"Our Markets", heading1:"The World's Most", heading2:"Coveted Addresses",
+    label:"Our Markets", heading1:"The World's Most", heading2:"Coveted Addresses", subtitle:"From European grandeur to Asia-Pacific modernity, Estelle Privé curates properties in the world's most sought-after locations.",
     cities:["Monaco","Paris","London","Saint Tropez","Marbella","Dubai","Geneva"],
     _style: { layout:'list', cityFontSize:30, dotColor:'', dotSize:6, cityPadding:24, labelColor:'#8B6E4E', headingColor:'#F5EFE6', cityColor:'#F5EFE6' },
   },
@@ -1148,7 +1150,7 @@ document.querySelectorAll('.tab').forEach(t=>{t.addEventListener('click',()=>{do
 const FIELDS={
   cover:['monogram','name','tagline'],
   house:['label','heading','headingItalic','p1','p2'],
-  markets:['label','heading1','heading2'],
+  markets:['label','heading1','heading2','subtitle'],
   portfolio:['label','heading','headingItalic'],
   process:['label','heading','headingItalic','intro'],
   why:['label','heading1','heading2','statement'],
@@ -1976,11 +1978,16 @@ function generateHTML(){
       marketsContent = `<div style="display:flex;flex-direction:column;">${d.markets.cities.map(c=>`<div style="font-family:var(--font-display);font-size:${Math.round(cityFontSize*1.3)}px;font-weight:300;color:${marketsCityColor};padding:${Math.round(cityPadding*1.2)}px 0;letter-spacing:.05em;">${esc(c)}</div>`).join('')}</div>`;
     } else if (marketsLayout === 'numbered') {
       marketsContent = `<div style="display:flex;flex-direction:column;">${d.markets.cities.map((c,i)=>`<div style="font-family:var(--font-display);font-size:${cityFontSize}px;font-weight:300;color:${marketsCityColor};padding:${cityPadding}px 0;border-bottom:1px solid rgba(245,239,230,.06);display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:center;"><span style="font-size:14px;font-family:var(--font-body);font-weight:400;color:${dotColor};letter-spacing:.1em;">${String(i+1).padStart(2,'0')}</span>${esc(c)}</div>`).join('')}</div>`;
+    } else if (marketsLayout === 'elegant') {
+      const sub = d.markets.subtitle ? `<p style="font-family:var(--font-body);font-size:15px;font-weight:300;color:${marketsCityColor};opacity:0.7;text-align:center;max-width:560px;margin:0 auto 64px;line-height:1.8;">${esc(d.markets.subtitle)}</p>` : '';
+      marketsContent = `${sub}<div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:16px 32px;max-width:680px;margin:0 auto;">${d.markets.cities.map((c,i)=>`${i>0?`<span style="width:${dotSize}px;height:${dotSize}px;background:${dotColor};opacity:0.4;border-radius:50%;display:inline-block;"></span>`:''}   <span style="font-family:var(--font-display);font-size:${cityFontSize}px;font-weight:300;color:${marketsCityColor};letter-spacing:.04em;">${esc(c)}</span>`).join('')}</div><div style="width:48px;height:1px;background:${dotColor};opacity:0.3;margin:64px auto 0;"></div>`;
     } else {
       // Default: list
       marketsContent = `<div class="markets-list">${d.markets.cities.map(c=>`<div class="market-city" style="font-size:${cityFontSize}px;color:${marketsCityColor};">${esc(c)}</div>`).join('')}</div>`;
     }
-    pages += `<div class="page markets"><div class="page-label" style="color:${marketsLabelColor};">${esc(d.markets.label)}</div><h2 class="page-heading" style="color:${marketsHeadingColor};">${esc(d.markets.heading1)}<br>${esc(d.markets.heading2)}</h2>${marketsContent}</div>`;
+    const marketsSubNonElegant = (marketsLayout !== 'elegant' && d.markets.subtitle) ? `<p style="font-family:var(--font-body);font-size:14px;font-weight:300;color:${marketsCityColor};opacity:0.6;margin-bottom:40px;">${esc(d.markets.subtitle)}</p>` : '';
+    const mAlign = marketsLayout === 'elegant' ? 'align-items:center;text-align:center;' : '';
+    pages += `<div class="page markets" style="${mAlign}"><div class="page-label" style="color:${marketsLabelColor};">${esc(d.markets.label)}</div><h2 class="page-heading" style="color:${marketsHeadingColor};${marketsLayout==='elegant'?'text-align:center;':''}">${esc(d.markets.heading1)}<br>${esc(d.markets.heading2)}</h2>${marketsSubNonElegant}${marketsContent}</div>`;
   }
 
   if (!hidden.includes('portfolio')) {
