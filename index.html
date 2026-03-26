@@ -169,6 +169,40 @@
         <div class="field"><label>Company Name</label><input type="text" id="cover_name"></div>
         <div class="field"><label>Tagline</label><input type="text" id="cover_tagline"></div>
         <hr class="section-divider">
+        <div class="section-label">Page Image</div>
+        <div class="panel-desc">Click any image to apply it as the cover background.</div>
+        <div id="cover_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
+        <div class="field">
+          <label>Image Layout</label>
+          <select id="cover_style_imageLayout">
+            <option value="none">No Image</option>
+            <option value="background">Background Image</option>
+            <option value="full-width">Full Width Banner</option>
+            <option value="small-center">Small Centered</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Image URL</label>
+          <input type="text" id="cover_style_imageUrl" placeholder="Paste URL or upload">
+        </div>
+        <div class="field">
+          <label>Upload Image</label>
+          <input type="file" id="cover_style_imageUpload" accept="image/*">
+          <div class="bg-image-preview" id="cover_image_preview" style="margin-top:6px;"></div>
+        </div>
+        <div class="field">
+          <label class="range-label">Image Opacity <span class="range-value" id="cover_style_imageOpacity_val">1</span></label>
+          <input type="range" id="cover_style_imageOpacity" min="0" max="1" step="0.05" value="1">
+        </div>
+        <div class="field">
+          <label class="range-label">Image Width <span class="range-value" id="cover_style_imageWidth_val">100%</span></label>
+          <input type="range" id="cover_style_imageWidth" min="20" max="100" value="100">
+        </div>
+        <div class="field">
+          <label class="range-label">Image Height <span class="range-value" id="cover_style_imageHeight_val">200px</span></label>
+          <input type="range" id="cover_style_imageHeight" min="80" max="500" value="200">
+        </div>
+        <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
           <label>Background Color Override</label>
@@ -1479,7 +1513,7 @@ function fsToJs(v){if(!v)return null;if(v.stringValue!==undefined)return v.strin
 function deepMerge(t,d){const o=Object.assign({},d);for(const k of Object.keys(t)){const v=t[k];if(v!==null&&v!==undefined&&typeof v==='object'&&!Array.isArray(v)&&d[k]&&typeof d[k]==='object')o[k]=deepMerge(v,d[k]);else if(v!==null&&v!==undefined)o[k]=v;}return o;}
 
 const DEFAULT_DATA = {
-  cover: { monogram:"EP", name:"Estelle Privé", tagline:"International Realty", _style: { bgColor:'', monogramSize:72, nameSize:52, bgImageUrl:'', bgImageOpacity:0.3, taglineSize:11, nameLetterSpacing:0.08, monogramLetterSpacing:0.15, monogramColor:'#8B6E4E', nameColor:'#F5EFE6', taglineColor:'#8B6E4E', lineColor:'#8B6E4E', lineWidth:48 } },
+  cover: { monogram:"EP", name:"Estelle Privé", tagline:"International Realty", _style: { bgColor:'', monogramSize:72, nameSize:52, bgImageUrl:'', bgImageOpacity:0.3, taglineSize:11, imageLayout:'none', imageUrl:'', imageOpacity:1, imageWidth:100, imageHeight:200, nameLetterSpacing:0.08, monogramLetterSpacing:0.15, monogramColor:'#8B6E4E', nameColor:'#F5EFE6', taglineColor:'#8B6E4E', lineColor:'#8B6E4E', lineWidth:48 } },
   house: {
     label:"The House", heading:"Discreet Excellence,", headingItalic:"Global Reach",
     p1:"Estelle Privé was founded on a singular conviction: that exceptional properties deserve exceptional representation. We operate at the intersection of private wealth advisory and curated real estate, offering a bespoke service to a discerning international clientele.",
@@ -1797,6 +1831,9 @@ const RANGE_FIELDS = [
   {id:'founder_style_imageOpacity', valId:'founder_style_imageOpacity_val', unit:''},
   {id:'contact_style_imageOpacity', valId:'contact_style_imageOpacity_val', unit:''},
 ,
+{id:'cover_style_imageOpacity', valId:'cover_style_imageOpacity_val', unit:''},
+{id:'cover_style_imageWidth', valId:'cover_style_imageWidth_val', unit:'%'},
+{id:'cover_style_imageHeight', valId:'cover_style_imageHeight_val', unit:'px'},
 {id:'house_style_imageWidth', valId:'house_style_imageWidth_val', unit:'%'},
 {id:'house_style_imageHeight', valId:'house_style_imageHeight_val', unit:'px'},
 {id:'markets_style_imageWidth', valId:'markets_style_imageWidth_val', unit:'%'},
@@ -1851,6 +1888,12 @@ document.getElementById('cover_style_bgImageUpload').addEventListener('change', 
     if (!data.cover._style) data.cover._style = {};
     data.cover._style.bgImageUrl = reader.result;
     updateCoverBgPreview();
+  _setVal('cover_style_imageLayout', cs.imageLayout || 'none');
+  _setVal('cover_style_imageUrl', (cs.imageUrl || '').substring(0, 80));
+  _setSlider('cover_style_imageOpacity', 'cover_style_imageOpacity_val', cs.imageOpacity !== undefined ? cs.imageOpacity : 1, '');
+  _setSlider('cover_style_imageWidth', 'cover_style_imageWidth_val', cs.imageWidth || 100, '%');
+  _setSlider('cover_style_imageHeight', 'cover_style_imageHeight_val', cs.imageHeight || 200, 'px');
+  updatePageImagePreview('cover');
     markUnsaved();
   };
   reader.readAsDataURL(file);
@@ -2262,6 +2305,12 @@ function readPageStyles() {
   data.cover._style.taglineSize = _readInt('cover_style_taglineSize');
   data.cover._style.nameLetterSpacing = _readFloat('cover_style_nameLetterSpacing');
   data.cover._style.monogramLetterSpacing = _readFloat('cover_style_monogramLetterSpacing');
+  data.cover._style.imageLayout = _readVal('cover_style_imageLayout');
+  var coverImgUrl = _readVal('cover_style_imageUrl');
+  if (coverImgUrl && !coverImgUrl.endsWith('...')) data.cover._style.imageUrl = coverImgUrl;
+  data.cover._style.imageOpacity = _readFloat('cover_style_imageOpacity');
+  data.cover._style.imageWidth = _readInt('cover_style_imageWidth');
+  data.cover._style.imageHeight = _readInt('cover_style_imageHeight');
   data.cover._style.monogramColor = _readVal('cover_style_monogramColor');
   data.cover._style.nameColor = _readVal('cover_style_nameColor');
   data.cover._style.taglineColor = _readVal('cover_style_taglineColor');
@@ -2804,7 +2853,8 @@ function generateHTML(){
   let pages = '';
 
   if (!hidden.includes('cover')) {
-    pages += `<div class="page cover" style="background:${esc(coverBg)};${coverBgImageCSS}position:relative;">${coverOverlay}<div class="cover-inner" style="${coverInnerZ}">${coverLogoHTML}<div class="cover-line" style="background:${coverLineColor};"></div><div class="cover-name" style="font-size:${nameSize}px;color:${coverNameColor};">${esc(d.cover.name)}</div><div class="cover-tagline" style="color:${coverTaglineColor};">${esc(d.cover.tagline)}</div></div></div>`;
+        const coverImg = pageImage(coverStyle);
+    pages += `<div class="page cover" style="background:${esc(coverBg)};${coverBgImageCSS}${coverImg.bgStyle}position:relative;">${coverOverlay}${coverImg.overlay||""}${coverImg.before||""}<div class="cover-inner" style="${coverInnerZ}">${coverLogoHTML}<div class="cover-line" style="background:${coverLineColor};"></div><div class="cover-name" style="font-size:${nameSize}px;color:${coverNameColor};">${esc(d.cover.name)}</div><div class="cover-tagline" style="color:${coverTaglineColor};">${esc(d.cover.tagline)}${coverImg.after||""}</div></div></div>`;
   }
 
   if (!hidden.includes('house')) {
@@ -2905,7 +2955,7 @@ function quickApplyImage(page,url){if(!data[page])data[page]={};if(!data[page]._
 function buildImageLibrary(){var el=document.getElementById('imageLibrary');if(!el)return;var html='';for(var i=0;i<CURATED_IMAGES.length;i++){var img=CURATED_IMAGES[i
 ];html+='<div style="cursor:pointer;border:1px solid var(--border);overflow:hidden;" onclick="navigator.clipboard.writeText(this.dataset.url).then(function(){showToast(\'URL copied\')})" data-url="'+img.url+'"><img src="'+img.url+'" alt="'+img.label+'" style="width:100%;height:80px;object-fit:cover;" loading="lazy"><div style="padding:4px 6px;font-size:9px;color:var(--text-muted);background:var(--bg);">'+img.cat+' \u2014 '+img.label+'</div></div>';}el.innerHTML=html;}
 buildImageLibrary();
-['house','markets','portfolio','process','why','founder','contact'].forEach(function(p){buildImagePicker(p+'_imagePicker',p);});
+['cover','house','markets','portfolio','process','why','founder','contact'].forEach(function(p){buildImagePicker(p+'_imagePicker',p);});
 
 var SIG_PRESETS=[
 {label:'Abstract Flowing',uri:'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCAzMDAgODAiPgo8cGF0aCBkPSJNMjAsNTUgQzI1LDIwIDM1LDI1IDQwLDQwIEM0NSw1NSA1MCwzMCA2MCwyNSBDNzAsMjAgNzUsNDUgODUsMzUgQzk1LDI1IDEwMCw1MCAxMTAsNDUgQzExNSw0MiAxMjAsMzAgMTMwLDM1IEMxNDAsNDAgMTM1LDU1IDE0NSw1MCBMMTU1LDQ1IEMxNjAsNDIgMTY1LDU1IDE3MCw0OCBDMTc1LDQxIDE4MCwzNSAxOTAsNDAgQzIwMCw0NSAxOTUsNTUgMjA1LDUwIEMyMTUsNDUgMjI1LDMwIDIzNSwzNSBDMjQ1LDQwIDI0MCw1NSAyNTAsNDggQzI2MCw0MSAyNzAsNTAgMjgwLDQ1IiAKZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMUExNjEwIiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0xMzAsMzUgTDE1NSw2MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMUExNjEwIiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBvcGFjaXR5PSIwLjYiLz4KPC9zdmc+'},{label:'Bold Confident',uri:'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCAzMDAgODAiPgo8cGF0aCBkPSJNMTUsNTAgQzIwLDMwIDMwLDI1IDQwLDM1IEM1MCw0NSA0NSw1NSA1NSw0MCBRNjUsMjUgODAsMzAgQzkwLDMzIDg1LDUwIDk1LDQ1IEwxMTAsMzUgQzExNSwzMiAxMjUsMjggMTMwLDM4IEMxMzUsNDggMTQwLDQyIDE1MCwzOCBDMTYwLDM0IDE2NSw0NSAxNzUsNDAgQzE4NSwzNSAxOTUsMzAgMjA1LDM4IEMyMTAsNDIgMjA4LDUyIDIxNSw0OCBDMjI1LDQyIDIzNSwzNSAyNTAsNDAgQzI2MCw0MyAyNzAsNDggMjgwLDQyIiAKZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMUExNjEwIiBzdHJva2Utd2lkdGg9IjIuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxsaW5lIHgxPSIxNSIgeTE9IjYyIiB4Mj0iMTYwIiB5Mj0iNjIiIHN0cm9rZT0iIzFBMTYxMCIgc3Ryb2tlLXdpZHRoPSIwLjgiIG9wYWNpdHk9IjAuMyIvPgo8L3N2Zz4='},{label:'Elegant Minimal',uri:'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCAzMDAgODAiPgo8cGF0aCBkPSJNMjUsNDggQzMwLDI1IDQ1LDIwIDU1LDMyIEM2NSw0NCA2MCw1MiA3MCw0MiBDODAsMzIgODUsMjggOTUsMzUgQzEwNSw0MiAxMDAsNTIgMTE1LDQ1IFExMjUsMzggMTM1LDQyIEMxNDUsNDYgMTQwLDU1IDE1NSw0OCBDMTY1LDQxIDE3NSwzNSAxODUsNDIgQzE5NSw0OSAxOTAsNTUgMjAwLDUwIEMyMTAsNDUgMjIwLDM4IDIzNSw0MiBDMjQ1LDQ0IDI1MCw1MCAyNjAsNDUiIApmaWxsPSJub25lIiBzdHJva2U9IiMxQTE2MTAiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPGNpcmNsZSBjeD0iMTQ4IiBjeT0iMjUiIHI9IjIiIGZpbGw9IiMxQTE2MTAiIG9wYWNpdHk9IjAuNyIvPgo8L3N2Zz4='},{label:'Artistic Swoosh',uri:'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCAzMDAgODAiPgo8cGF0aCBkPSJNMjAsNDUgQzMwLDIwIDUwLDE4IDY1LDMwIEM4MCw0MiA3MCw1NSA4NSw0NSBDMTAwLDM1IDk1LDI1IDExMCwyOCBDMTI1LDMxIDEyMCw0OCAxMzUsNDIgQzE1MCwzNiAxNjAsMjUgMTc1LDMyIEMxOTAsMzkgMTgwLDU1IDIwMCw0OCBDMjE1LDQyIDIyNSwzMCAyNDAsMzggQzI1MCw0MyAyNTUsNTIgMjcwLDQ1IEMyNzUsNDIgMjc4LDUwIDI4MCw0OCIgCmZpbGw9Im5vbmUiIHN0cm9rZT0iIzFBMTYxMCIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNNjAsNTggUTE1MCw2NSAyNzAsNTUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzFBMTYxMCIgc3Ryb2tlLXdpZHRoPSIwLjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC40Ii8+Cjwvc3ZnPg=='},{label:'Refined Understated',uri:'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCAzMDAgODAiPgo8cGF0aCBkPSJNMzAsNDIgQzM1LDI4IDQ1LDI0IDU1LDM0IEM2MCwzOSA1OCw0OCA2NSw0MiBDNzIsMzYgNzgsMzAgODgsMzQgQzk4LDM4IDkyLDUwIDEwNSw0NCBDMTEyLDQwIDExOCwzNCAxMjgsMzggQzEzOCw0MiAxMzMsNTIgMTQ1LDQ2IEMxNTUsNDAgMTYyLDMyIDE3NSwzOCBDMTg1LDQzIDE4MCw1MiAxOTUsNDYgQzIwNSw0MSAyMTUsMzUgMjI4LDQwIEMyMzgsNDQgMjQ1LDUwIDI1NSw0NCIgCmZpbGw9Im5vbmUiIHN0cm9rZT0iIzFBMTYxMCIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgb3BhY2l0eT0iMC44NSIvPgo8L3N2Zz4='}
