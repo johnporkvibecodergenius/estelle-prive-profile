@@ -234,6 +234,10 @@
             <input type="text" id="cover_style_lineColor" value="#8B6E4E">
           </div>
         </div>
+        <div class="field">
+          <label class="range-label">Cover Line Width <span class="range-value" id="cover_style_lineWidth_val">48px</span></label>
+          <input type="range" id="cover_style_lineWidth" min="24" max="80" value="48">
+        </div>
       </div>
 
       <!-- THE HOUSE -->
@@ -326,6 +330,22 @@
             <input type="text" id="house_style_statLabelColor" value="#8A847C">
           </div>
         </div>
+        <div class="field">
+          <label>Text Alignment</label>
+          <select id="house_style_textAlign">
+            <option value="center">Center</option>
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="range-label">Stats Gap <span class="range-value" id="house_style_statsGap_val">56px</span></label>
+          <input type="range" id="house_style_statsGap" min="24" max="80" value="56">
+        </div>
+        <div class="field">
+          <label class="range-label">Heading Margin Bottom <span class="range-value" id="house_style_headingMarginBottom_val">48px</span></label>
+          <input type="range" id="house_style_headingMarginBottom" min="20" max="80" value="48">
+        </div>
       </div>
 
       <!-- MARKETS -->
@@ -397,6 +417,14 @@
             <input type="color" id="markets_style_cityColor_picker" value="#F5EFE6">
             <input type="text" id="markets_style_cityColor" value="#F5EFE6">
           </div>
+        </div>
+        <div class="field">
+          <label>Text Alignment</label>
+          <select id="markets_style_textAlign">
+            <option value="center">Center</option>
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+          </select>
         </div>
       </div>
 
@@ -482,6 +510,14 @@
             <input type="color" id="portfolio_style_vertDescColor_picker" value="#5C5244">
             <input type="text" id="portfolio_style_vertDescColor" value="#5C5244">
           </div>
+        </div>
+        <div class="field">
+          <label>Text Alignment</label>
+          <select id="portfolio_style_textAlign">
+            <option value="center">Center</option>
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+          </select>
         </div>
       </div>
 
@@ -577,6 +613,25 @@
             <input type="text" id="process_style_stepTextColor" value="#5C5244">
           </div>
         </div>
+        <div class="field">
+          <label>Text Alignment</label>
+          <select id="process_style_textAlign">
+            <option value="center">Center</option>
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="range-label">Step Gap <span class="range-value" id="process_style_stepGap_val">28px</span></label>
+          <input type="range" id="process_style_stepGap" min="16" max="40" value="28">
+        </div>
+        <div class="field">
+          <label>Divider Color</label>
+          <div class="color-field">
+            <input type="color" id="process_style_dividerColor_picker" value="#E8E3DC">
+            <input type="text" id="process_style_dividerColor" placeholder="(use border)">
+          </div>
+        </div>
       </div>
 
       <!-- WHY US -->
@@ -644,6 +699,25 @@
           <div class="color-field">
             <input type="color" id="why_style_pillarTextColor_picker" value="#8A847C">
             <input type="text" id="why_style_pillarTextColor" value="#8A847C">
+          </div>
+        </div>
+        <div class="field">
+          <label>Text Alignment</label>
+          <select id="why_style_textAlign">
+            <option value="center">Center</option>
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="range-label">Statement Max Width <span class="range-value" id="why_style_statementMaxWidth_val">480px</span></label>
+          <input type="range" id="why_style_statementMaxWidth" min="300" max="600" value="480">
+        </div>
+        <div class="field">
+          <label>Pillar Divider Color</label>
+          <div class="color-field">
+            <input type="color" id="why_style_pillarDividerColor_picker" value="#F5EFE6">
+            <input type="text" id="why_style_pillarDividerColor" placeholder="rgba(245,239,230,.06)">
           </div>
         </div>
       </div>
@@ -750,6 +824,18 @@
             <input type="text" id="founder_style_roleColor" value="#8A847C">
           </div>
         </div>
+        <div class="field">
+          <label>Text Alignment</label>
+          <select id="founder_style_textAlign">
+            <option value="center">Center</option>
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="range-label">Letter Line Height <span class="range-value" id="founder_style_letterLineHeight_val">2</span></label>
+          <input type="range" id="founder_style_letterLineHeight" min="1.4" max="2.6" step="0.1" value="2">
+        </div>
       </div>
 
       <!-- CONTACT -->
@@ -828,6 +914,22 @@
             <input type="color" id="contact_style_footerColor_picker" value="#F5EFE6">
             <input type="text" id="contact_style_footerColor" value="#F5EFE6">
           </div>
+        </div>
+        <div class="field">
+          <label>Text Alignment</label>
+          <select id="contact_style_textAlign">
+            <option value="center">Center</option>
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="range-label">Line Width <span class="range-value" id="contact_style_lineWidth_val">48px</span></label>
+          <input type="range" id="contact_style_lineWidth" min="24" max="80" value="48">
+        </div>
+        <div class="field">
+          <label class="range-label">Detail Gap <span class="range-value" id="contact_style_detailGap_val">32px</span></label>
+          <input type="range" id="contact_style_detailGap" min="16" max="48" value="32">
         </div>
       </div>
 
@@ -1008,18 +1110,18 @@ function fsToJs(v){if(!v)return null;if(v.stringValue!==undefined)return v.strin
 function deepMerge(t,d){const o=Object.assign({},d);for(const k of Object.keys(t)){const v=t[k];if(v!==null&&v!==undefined&&typeof v==='object'&&!Array.isArray(v)&&d[k]&&typeof d[k]==='object')o[k]=deepMerge(v,d[k]);else if(v!==null&&v!==undefined)o[k]=v;}return o;}
 
 const DEFAULT_DATA = {
-  cover: { monogram:"EP", name:"Estelle Privé", tagline:"International Realty", _style: { bgColor:'', monogramSize:72, nameSize:52, bgImageUrl:'', bgImageOpacity:0.3, taglineSize:11, nameLetterSpacing:0.08, monogramLetterSpacing:0.15, monogramColor:'#8B6E4E', nameColor:'#F5EFE6', taglineColor:'#8B6E4E', lineColor:'#8B6E4E' } },
+  cover: { monogram:"EP", name:"Estelle Privé", tagline:"International Realty", _style: { bgColor:'', monogramSize:72, nameSize:52, bgImageUrl:'', bgImageOpacity:0.3, taglineSize:11, nameLetterSpacing:0.08, monogramLetterSpacing:0.15, monogramColor:'#8B6E4E', nameColor:'#F5EFE6', taglineColor:'#8B6E4E', lineColor:'#8B6E4E', lineWidth:48 } },
   house: {
     label:"The House", heading:"Discreet Excellence,", headingItalic:"Global Reach",
     p1:"Estelle Privé was founded on a singular conviction: that exceptional properties deserve exceptional representation. We operate at the intersection of private wealth advisory and curated real estate, offering a bespoke service to a discerning international clientele.",
     p2:"An international luxury real estate brokerage connecting discerning investors, private families, and institutional buyers with exceptional properties across the world's most coveted markets. From hotel acquisitions and branded residences to joint ventures and signature estates — we deliver curated opportunities backed by market intelligence, independent valuations, and a global network of developers, hotel operators, family offices, and institutional partners.",
     stats:[{number:"8",label:"Global Markets"},{number:"€2.4B",label:"Portfolio Value"},{number:"100%",label:"Private Clients"}],
-    _style: { bgColor:'', statNumberSize:36, statLabelSize:11, textMaxWidth:520, labelColor:'#8B6E4E', labelSize:10, headingColor:'#1A1610', headingSize:44, italicColor:'#8B6E4E', textColor:'#5C5244', textSize:15, statNumberColor:'#1A1610', statLabelColor:'#8A847C' },
+    _style: { bgColor:'', statNumberSize:36, statLabelSize:11, textMaxWidth:520, labelColor:'#8B6E4E', labelSize:10, headingColor:'#1A1610', headingSize:44, italicColor:'#8B6E4E', textColor:'#5C5244', textSize:15, statNumberColor:'#1A1610', statLabelColor:'#8A847C', textAlign:'center', statsGap:56, headingMarginBottom:48 },
   },
   markets: {
     label:"Our Markets", heading1:"The World's Most", heading2:"Coveted Addresses", subtitle:"From European grandeur to Asia-Pacific modernity, Estelle Privé curates properties in the world's most sought-after locations.",
     cities:["Monaco","Paris","London","Saint Tropez","Marbella","Dubai","Geneva"],
-    _style: { layout:'list', cityFontSize:30, dotColor:'', dotSize:6, cityPadding:24, labelColor:'#8B6E4E', headingColor:'#F5EFE6', cityColor:'#F5EFE6' },
+    _style: { layout:'list', cityFontSize:30, dotColor:'', dotSize:6, cityPadding:24, labelColor:'#8B6E4E', headingColor:'#F5EFE6', cityColor:'#F5EFE6', textAlign:'center' },
   },
   portfolio: {
     label:"The Portfolio", heading:"What We", headingItalic:"Do",
@@ -1030,7 +1132,7 @@ const DEFAULT_DATA = {
       {num:"04",title:"Iconic Residential",desc:"Private estates, waterfront villas, and sky residences in the world's most prestigious addresses. On-market and off-market opportunities curated for architectural merit, location prestige, and investment integrity."},
       {num:"05",title:"Corporate & Business",desc:"Strategic real estate advisory for multinational corporations, hotel brands, and institutional entities. Headquarters relocations, portfolio optimisation, and commercial asset transactions across key international markets."},
     ],
-    _style: { layout:'list', bgColor:'', vertNumSize:32, vertTitleSize:20, vertDescSize:13, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', vertNumColor:'#D5D3D0', vertTitleColor:'#1A1610', vertDescColor:'#5C5244' },
+    _style: { layout:'list', bgColor:'', vertNumSize:32, vertTitleSize:20, vertDescSize:13, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', vertNumColor:'#D5D3D0', vertTitleColor:'#1A1610', vertDescColor:'#5C5244', textAlign:'center' },
   },
   process: {
     label:"The Process", heading:"How We", headingItalic:"Work",
@@ -1041,7 +1143,7 @@ const DEFAULT_DATA = {
       {numeral:"III",title:"Discretion & Confidentiality",text:"Our most significant transactions never appear online. For our private clients, complete confidentiality is not a feature — it is the foundation of every relationship we build."},
       {numeral:"IV",title:"Execution & Completion",text:"From a single acquisition to a multi-asset portfolio strategy — bespoke advisory through to completion, across jurisdictions. We coordinate legal, financial, and operational workstreams to ensure seamless closing."},
     ],
-    _style: { bgColor:'', stepNumeralSize:28, stepTitleSize:19, stepTextSize:13, introMaxWidth:520, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', introColor:'#5C5244', introSize:15, stepNumeralColor:'#8B6E4E', stepTitleColor:'#1A1610', stepTextColor:'#5C5244' },
+    _style: { bgColor:'', stepNumeralSize:28, stepTitleSize:19, stepTextSize:13, introMaxWidth:520, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', introColor:'#5C5244', introSize:15, stepNumeralColor:'#8B6E4E', stepTitleColor:'#1A1610', stepTextColor:'#5C5244', textAlign:'center', stepGap:28, dividerColor:'' },
   },
   why: {
     label:"Why Us", heading1:"Why Invest", heading2:"With Estelle Privé",
@@ -1051,7 +1153,7 @@ const DEFAULT_DATA = {
       {title:"Decision-Maker Network",text:"Direct relationships with developers, hotel owners, sovereign wealth entities, and UHNW individuals across every market we operate in. No intermediaries. No delays."},
       {title:"Absolute Confidentiality",text:"Every transaction is handled with complete discretion. No public listings, no press coverage, no leaks. Your privacy is the foundation — not a feature."},
     ],
-    _style: { statementSize:26, pillarTitleSize:22, pillarTextSize:13.5, pillarGridWidth:180, labelColor:'#8B6E4E', headingColor:'#F5EFE6', statementColor:'#B5AFA7', pillarTitleColor:'#F5EFE6', pillarTextColor:'#8A847C' },
+    _style: { statementSize:26, pillarTitleSize:22, pillarTextSize:13.5, pillarGridWidth:180, labelColor:'#8B6E4E', headingColor:'#F5EFE6', statementColor:'#B5AFA7', pillarTitleColor:'#F5EFE6', pillarTextColor:'#8A847C', textAlign:'center', statementMaxWidth:480, pillarDividerColor:'' },
   },
   founder: {
     label:"The Founder", heading:"A Personal", headingItalic:"Note",
@@ -1065,13 +1167,13 @@ const DEFAULT_DATA = {
     closing:"With warm regards,",
     signatureName:"Hani Y. Ayoub",
     role:"Founder & Managing Director — Estelle Privé",
-    _style: { letterStyle:'normal', bgColor:'', letterFontSize:14, signatureSize:36, letterMaxWidth:500, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', letterColor:'#5C5244', closingColor:'#5C5244', signatureColor:'#1A1610', nameColor:'#1A1610', roleColor:'#8A847C' },
+    _style: { letterStyle:'normal', bgColor:'', letterFontSize:14, signatureSize:36, letterMaxWidth:500, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', letterColor:'#5C5244', closingColor:'#5C5244', signatureColor:'#1A1610', nameColor:'#1A1610', roleColor:'#8A847C', textAlign:'center', letterLineHeight:2 },
   },
   contact: {
     label:"Get in Touch", monogram:"EP", heading1:"Begin a", heading2:"Conversation",
     email:"enquiries@estelleprive.com", website:"www.estelleprive.com",
     note:"All enquiries are treated with complete discretion.", copyright:"© 2026 Estelle Privé International",
-    _style: { bgColor:'', monogramSize:48, detailValueSize:22, noteSize:12, monogramColor:'#8B6E4E', headingColor:'#F5EFE6', detailLabelColor:'#8A847C', detailValueColor:'#F5EFE6', noteColor:'#8A847C', footerColor:'#F5EFE6' },
+    _style: { bgColor:'', monogramSize:48, detailValueSize:22, noteSize:12, monogramColor:'#8B6E4E', headingColor:'#F5EFE6', detailLabelColor:'#8A847C', detailValueColor:'#F5EFE6', noteColor:'#8A847C', footerColor:'#F5EFE6', textAlign:'center', lineWidth:48, detailGap:32 },
   },
   design: {
     colors: { accent:'#8B6E4E', accentDeep:'#6B5239', bgLight:'#FDFAF6', bgWarm:'#F5EFE6', bgDark:'#1A1610', textPrimary:'#1A1610', textSecondary:'#5C5244', textMuted:'#8A847C', border:'#E8E3DC' },
@@ -1229,6 +1331,9 @@ const COLOR_FIELDS = [
   {picker:'contact_style_detailValueColor_picker', text:'contact_style_detailValueColor'},
   {picker:'contact_style_noteColor_picker', text:'contact_style_noteColor'},
   {picker:'contact_style_footerColor_picker', text:'contact_style_footerColor'},
+  // New customization color fields
+  {picker:'process_style_dividerColor_picker', text:'process_style_dividerColor'},
+  {picker:'why_style_pillarDividerColor_picker', text:'why_style_pillarDividerColor'},
 ];
 
 COLOR_FIELDS.forEach(cf => {
@@ -1287,6 +1392,15 @@ const RANGE_FIELDS = [
   {id:'house_style_headingSize', valId:'house_style_headingSize_val', unit:'px'},
   {id:'house_style_textSize', valId:'house_style_textSize_val', unit:'px'},
   {id:'process_style_introSize', valId:'process_style_introSize_val', unit:'px'},
+  // New customization range fields
+  {id:'cover_style_lineWidth', valId:'cover_style_lineWidth_val', unit:'px'},
+  {id:'house_style_statsGap', valId:'house_style_statsGap_val', unit:'px'},
+  {id:'house_style_headingMarginBottom', valId:'house_style_headingMarginBottom_val', unit:'px'},
+  {id:'process_style_stepGap', valId:'process_style_stepGap_val', unit:'px'},
+  {id:'why_style_statementMaxWidth', valId:'why_style_statementMaxWidth_val', unit:'px'},
+  {id:'founder_style_letterLineHeight', valId:'founder_style_letterLineHeight_val', unit:''},
+  {id:'contact_style_lineWidth', valId:'contact_style_lineWidth_val', unit:'px'},
+  {id:'contact_style_detailGap', valId:'contact_style_detailGap_val', unit:'px'},
 ];
 
 RANGE_FIELDS.forEach(rf => {
@@ -1476,6 +1590,7 @@ function populatePageStyles() {
   _setColor('cover_style_nameColor_picker', 'cover_style_nameColor', cs.nameColor || '#F5EFE6');
   _setColor('cover_style_taglineColor_picker', 'cover_style_taglineColor', cs.taglineColor || '#8B6E4E');
   _setColor('cover_style_lineColor_picker', 'cover_style_lineColor', cs.lineColor || '#8B6E4E');
+  _setSlider('cover_style_lineWidth', 'cover_style_lineWidth_val', cs.lineWidth || 48, 'px');
 
   // House
   const hs = (data.house && data.house._style) || DEFAULT_DATA.house._style || {};
@@ -1492,6 +1607,9 @@ function populatePageStyles() {
   _setSlider('house_style_textSize', 'house_style_textSize_val', hs.textSize || 15, 'px');
   _setColor('house_style_statNumberColor_picker', 'house_style_statNumberColor', hs.statNumberColor || '#1A1610');
   _setColor('house_style_statLabelColor_picker', 'house_style_statLabelColor', hs.statLabelColor || '#8A847C');
+  _setVal('house_style_textAlign', hs.textAlign || 'center');
+  _setSlider('house_style_statsGap', 'house_style_statsGap_val', hs.statsGap || 56, 'px');
+  _setSlider('house_style_headingMarginBottom', 'house_style_headingMarginBottom_val', hs.headingMarginBottom || 48, 'px');
 
   // Markets
   const ms = (data.markets && data.markets._style) || DEFAULT_DATA.markets._style || {};
@@ -1503,6 +1621,7 @@ function populatePageStyles() {
   _setColor('markets_style_labelColor_picker', 'markets_style_labelColor', ms.labelColor || '#8B6E4E');
   _setColor('markets_style_headingColor_picker', 'markets_style_headingColor', ms.headingColor || '#F5EFE6');
   _setColor('markets_style_cityColor_picker', 'markets_style_cityColor', ms.cityColor || '#F5EFE6');
+  _setVal('markets_style_textAlign', ms.textAlign || 'center');
 
   // Portfolio
   const ps = (data.portfolio && data.portfolio._style) || DEFAULT_DATA.portfolio._style || {};
@@ -1517,6 +1636,7 @@ function populatePageStyles() {
   _setColor('portfolio_style_vertNumColor_picker', 'portfolio_style_vertNumColor', ps.vertNumColor || '#D5D3D0');
   _setColor('portfolio_style_vertTitleColor_picker', 'portfolio_style_vertTitleColor', ps.vertTitleColor || '#1A1610');
   _setColor('portfolio_style_vertDescColor_picker', 'portfolio_style_vertDescColor', ps.vertDescColor || '#5C5244');
+  _setVal('portfolio_style_textAlign', ps.textAlign || 'center');
 
   // Process
   const prs = (data.process && data.process._style) || DEFAULT_DATA.process._style || {};
@@ -1533,6 +1653,9 @@ function populatePageStyles() {
   _setColor('process_style_stepNumeralColor_picker', 'process_style_stepNumeralColor', prs.stepNumeralColor || '#8B6E4E');
   _setColor('process_style_stepTitleColor_picker', 'process_style_stepTitleColor', prs.stepTitleColor || '#1A1610');
   _setColor('process_style_stepTextColor_picker', 'process_style_stepTextColor', prs.stepTextColor || '#5C5244');
+  _setVal('process_style_textAlign', prs.textAlign || 'center');
+  _setSlider('process_style_stepGap', 'process_style_stepGap_val', prs.stepGap || 28, 'px');
+  _setColor('process_style_dividerColor_picker', 'process_style_dividerColor', prs.dividerColor);
 
   // Why
   const ws = (data.why && data.why._style) || DEFAULT_DATA.why._style || {};
@@ -1545,6 +1668,9 @@ function populatePageStyles() {
   _setColor('why_style_statementColor_picker', 'why_style_statementColor', ws.statementColor || '#B5AFA7');
   _setColor('why_style_pillarTitleColor_picker', 'why_style_pillarTitleColor', ws.pillarTitleColor || '#F5EFE6');
   _setColor('why_style_pillarTextColor_picker', 'why_style_pillarTextColor', ws.pillarTextColor || '#8A847C');
+  _setVal('why_style_textAlign', ws.textAlign || 'center');
+  _setSlider('why_style_statementMaxWidth', 'why_style_statementMaxWidth_val', ws.statementMaxWidth || 480, 'px');
+  _setColor('why_style_pillarDividerColor_picker', 'why_style_pillarDividerColor', ws.pillarDividerColor);
 
   // Founder
   const fds = (data.founder && data.founder._style) || DEFAULT_DATA.founder._style || {};
@@ -1561,6 +1687,8 @@ function populatePageStyles() {
   _setColor('founder_style_signatureColor_picker', 'founder_style_signatureColor', fds.signatureColor || '#1A1610');
   _setColor('founder_style_nameColor_picker', 'founder_style_nameColor', fds.nameColor || '#1A1610');
   _setColor('founder_style_roleColor_picker', 'founder_style_roleColor', fds.roleColor || '#8A847C');
+  _setVal('founder_style_textAlign', fds.textAlign || 'center');
+  _setSlider('founder_style_letterLineHeight', 'founder_style_letterLineHeight_val', fds.letterLineHeight !== undefined ? fds.letterLineHeight : 2, '');
 
   // Contact
   const cts = (data.contact && data.contact._style) || DEFAULT_DATA.contact._style || {};
@@ -1574,6 +1702,9 @@ function populatePageStyles() {
   _setColor('contact_style_detailValueColor_picker', 'contact_style_detailValueColor', cts.detailValueColor || '#F5EFE6');
   _setColor('contact_style_noteColor_picker', 'contact_style_noteColor', cts.noteColor || '#8A847C');
   _setColor('contact_style_footerColor_picker', 'contact_style_footerColor', cts.footerColor || '#F5EFE6');
+  _setVal('contact_style_textAlign', cts.textAlign || 'center');
+  _setSlider('contact_style_lineWidth', 'contact_style_lineWidth_val', cts.lineWidth || 48, 'px');
+  _setSlider('contact_style_detailGap', 'contact_style_detailGap_val', cts.detailGap || 32, 'px');
 }
 
 function readPageStyles() {
@@ -1591,6 +1722,7 @@ function readPageStyles() {
   data.cover._style.nameColor = _readVal('cover_style_nameColor');
   data.cover._style.taglineColor = _readVal('cover_style_taglineColor');
   data.cover._style.lineColor = _readVal('cover_style_lineColor');
+  data.cover._style.lineWidth = _readInt('cover_style_lineWidth');
 
   // House
   if (!data.house) data.house = {};
@@ -1608,6 +1740,9 @@ function readPageStyles() {
   data.house._style.textSize = _readInt('house_style_textSize');
   data.house._style.statNumberColor = _readVal('house_style_statNumberColor');
   data.house._style.statLabelColor = _readVal('house_style_statLabelColor');
+  data.house._style.textAlign = _readVal('house_style_textAlign');
+  data.house._style.statsGap = _readInt('house_style_statsGap');
+  data.house._style.headingMarginBottom = _readInt('house_style_headingMarginBottom');
 
   // Markets
   if (!data.markets) data.markets = {};
@@ -1620,6 +1755,7 @@ function readPageStyles() {
   data.markets._style.labelColor = _readVal('markets_style_labelColor');
   data.markets._style.headingColor = _readVal('markets_style_headingColor');
   data.markets._style.cityColor = _readVal('markets_style_cityColor');
+  data.markets._style.textAlign = _readVal('markets_style_textAlign');
 
   // Portfolio
   if (!data.portfolio) data.portfolio = {};
@@ -1635,6 +1771,7 @@ function readPageStyles() {
   data.portfolio._style.vertNumColor = _readVal('portfolio_style_vertNumColor');
   data.portfolio._style.vertTitleColor = _readVal('portfolio_style_vertTitleColor');
   data.portfolio._style.vertDescColor = _readVal('portfolio_style_vertDescColor');
+  data.portfolio._style.textAlign = _readVal('portfolio_style_textAlign');
 
   // Process
   if (!data.process) data.process = {};
@@ -1652,6 +1789,9 @@ function readPageStyles() {
   data.process._style.stepNumeralColor = _readVal('process_style_stepNumeralColor');
   data.process._style.stepTitleColor = _readVal('process_style_stepTitleColor');
   data.process._style.stepTextColor = _readVal('process_style_stepTextColor');
+  data.process._style.textAlign = _readVal('process_style_textAlign');
+  data.process._style.stepGap = _readInt('process_style_stepGap');
+  data.process._style.dividerColor = _readVal('process_style_dividerColor');
 
   // Why
   if (!data.why) data.why = {};
@@ -1665,6 +1805,9 @@ function readPageStyles() {
   data.why._style.statementColor = _readVal('why_style_statementColor');
   data.why._style.pillarTitleColor = _readVal('why_style_pillarTitleColor');
   data.why._style.pillarTextColor = _readVal('why_style_pillarTextColor');
+  data.why._style.textAlign = _readVal('why_style_textAlign');
+  data.why._style.statementMaxWidth = _readInt('why_style_statementMaxWidth');
+  data.why._style.pillarDividerColor = _readVal('why_style_pillarDividerColor');
 
   // Founder
   if (!data.founder) data.founder = {};
@@ -1682,6 +1825,8 @@ function readPageStyles() {
   data.founder._style.signatureColor = _readVal('founder_style_signatureColor');
   data.founder._style.nameColor = _readVal('founder_style_nameColor');
   data.founder._style.roleColor = _readVal('founder_style_roleColor');
+  data.founder._style.textAlign = _readVal('founder_style_textAlign');
+  data.founder._style.letterLineHeight = _readFloat('founder_style_letterLineHeight');
 
   // Contact
   if (!data.contact) data.contact = {};
@@ -1696,6 +1841,9 @@ function readPageStyles() {
   data.contact._style.detailValueColor = _readVal('contact_style_detailValueColor');
   data.contact._style.noteColor = _readVal('contact_style_noteColor');
   data.contact._style.footerColor = _readVal('contact_style_footerColor');
+  data.contact._style.textAlign = _readVal('contact_style_textAlign');
+  data.contact._style.lineWidth = _readInt('contact_style_lineWidth');
+  data.contact._style.detailGap = _readInt('contact_style_detailGap');
 }
 
 function updateTabNames(){
@@ -1847,6 +1995,7 @@ function generateHTML(){
   const coverNameColor = coverStyle.nameColor || colors.bgWarm || '#F5EFE6';
   const coverTaglineColor = coverStyle.taglineColor || colors.accent || '#8B6E4E';
   const coverLineColor = coverStyle.lineColor || colors.accent || '#8B6E4E';
+  const coverLineWidth = coverStyle.lineWidth || 48;
 
   const houseBg = houseStyle.bgColor || colors.bgLight || '#FDFAF6';
   const statNumSize = houseStyle.statNumberSize || 36;
@@ -1861,6 +2010,9 @@ function generateHTML(){
   const houseTextSize = houseStyle.textSize || 15;
   const houseStatNumberColor = houseStyle.statNumberColor || colors.textPrimary || '#1A1610';
   const houseStatLabelColor = houseStyle.statLabelColor || colors.textMuted || '#8A847C';
+  const houseAlign = houseStyle.textAlign || 'center';
+  const houseStatsGap = houseStyle.statsGap || 56;
+  const houseHeadingMarginBottom = houseStyle.headingMarginBottom || 48;
 
   const marketsLayout = marketsStyle.layout || 'list';
   const cityFontSize = marketsStyle.cityFontSize || 30;
@@ -1870,6 +2022,7 @@ function generateHTML(){
   const marketsLabelColor = marketsStyle.labelColor || colors.accent || '#8B6E4E';
   const marketsHeadingColor = marketsStyle.headingColor || colors.bgWarm || '#F5EFE6';
   const marketsCityColor = marketsStyle.cityColor || '#F5EFE6';
+  const marketsAlign = marketsStyle.textAlign || 'center';
 
   const portfolioLayout = portfolioStyle.layout || 'list';
   const portfolioBg = portfolioStyle.bgColor || colors.bgLight || '#FDFAF6';
@@ -1882,6 +2035,7 @@ function generateHTML(){
   const portfolioVertNumColor = portfolioStyle.vertNumColor || '#D5D3D0';
   const portfolioVertTitleColor = portfolioStyle.vertTitleColor || colors.textPrimary || '#1A1610';
   const portfolioVertDescColor = portfolioStyle.vertDescColor || colors.textSecondary || '#5C5244';
+  const portfolioAlign = portfolioStyle.textAlign || 'center';
 
   const processBg = processStyle.bgColor || colors.bgLight || '#FDFAF6';
   const stepNumeralSize = processStyle.stepNumeralSize || 28;
@@ -1896,6 +2050,9 @@ function generateHTML(){
   const processStepNumeralColor = processStyle.stepNumeralColor || colors.accent || '#8B6E4E';
   const processStepTitleColor = processStyle.stepTitleColor || colors.textPrimary || '#1A1610';
   const processStepTextColor = processStyle.stepTextColor || colors.textSecondary || '#5C5244';
+  const processAlign = processStyle.textAlign || 'center';
+  const processStepGap = processStyle.stepGap || 28;
+  const processDividerColor = processStyle.dividerColor || borderColor;
 
   const statementSize = whyStyle.statementSize || 26;
   const pillarTitleSize = whyStyle.pillarTitleSize || 22;
@@ -1906,6 +2063,9 @@ function generateHTML(){
   const whyStatementColor = whyStyle.statementColor || '#B5AFA7';
   const whyPillarTitleColor = whyStyle.pillarTitleColor || colors.bgWarm || '#F5EFE6';
   const whyPillarTextColor = whyStyle.pillarTextColor || colors.textMuted || '#8A847C';
+  const whyAlign = whyStyle.textAlign || 'center';
+  const whyStatementMaxWidth = whyStyle.statementMaxWidth || 480;
+  const whyPillarDividerColor = whyStyle.pillarDividerColor || 'rgba(245,239,230,.06)';
 
   const letterStyle = founderStyle.letterStyle || 'normal';
   const founderBg = founderStyle.bgColor || colors.bgLight || '#FDFAF6';
@@ -1920,6 +2080,8 @@ function generateHTML(){
   const founderSignatureColor = founderStyle.signatureColor || colors.textPrimary || '#1A1610';
   const founderNameColor = founderStyle.nameColor || colors.textPrimary || '#1A1610';
   const founderRoleColor = founderStyle.roleColor || colors.textMuted || '#8A847C';
+  const founderAlign = founderStyle.textAlign || 'center';
+  const founderLetterLineHeight = founderStyle.letterLineHeight !== undefined ? founderStyle.letterLineHeight : 2;
 
   const contactBg = contactStyle.bgColor || colors.bgDark || '#1A1610';
   const contactMonogramSize = contactStyle.monogramSize || 48;
@@ -1931,6 +2093,9 @@ function generateHTML(){
   const contactDetailValueColor = contactStyle.detailValueColor || colors.bgWarm || '#F5EFE6';
   const contactNoteColor = contactStyle.noteColor || colors.textMuted || '#8A847C';
   const contactFooterColor = contactStyle.footerColor || colors.bgWarm || '#F5EFE6';
+  const contactAlign = contactStyle.textAlign || 'center';
+  const contactLineWidth = contactStyle.lineWidth || 48;
+  const contactDetailGap = contactStyle.detailGap || 32;
 
   const pageSize = pdfSize === 'Letter' ? 'letter' : 'A4';
   const pageWidth = pdfSize === 'Letter' ? '8.5in' : '210mm';
@@ -1938,8 +2103,8 @@ function generateHTML(){
 
   // Portfolio grid vs list CSS
   const portfolioItemsCSS = portfolioLayout === 'grid'
-    ? `.portfolio-items{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px;}.portfolio-item{display:flex;flex-direction:column;gap:8px;padding:20px;border:1px solid ${colors.accent}22;}.portfolio-item:first-child{padding-top:20px;}.portfolio-num{font-family:var(--font-display);font-size:${vertNumSize}px;font-weight:300;color:${portfolioVertNumColor};line-height:1;}.portfolio-title{font-family:var(--font-display);font-size:${vertTitleSize}px;font-weight:400;color:${portfolioVertTitleColor};margin-bottom:6px;}.portfolio-desc{font-family:var(--font-body);font-size:${vertDescSize}px;font-weight:300;color:${portfolioVertDescColor};line-height:1.75;}`
-    : `.portfolio-items{margin-top:8px;}.portfolio-item{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid var(--border);align-items:start;}.portfolio-item:first-child{padding-top:0;}.portfolio-num{font-family:var(--font-display);font-size:${vertNumSize}px;font-weight:300;color:${portfolioVertNumColor};line-height:1;}.portfolio-title{font-family:var(--font-display);font-size:${vertTitleSize}px;font-weight:400;color:${portfolioVertTitleColor};margin-bottom:6px;}.portfolio-desc{font-family:var(--font-body);font-size:${vertDescSize}px;font-weight:300;color:${portfolioVertDescColor};line-height:1.75;}`;
+    ? `.portfolio-items{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px;width:100%;max-width:580px;}.portfolio-item{display:flex;flex-direction:column;gap:8px;padding:20px;border:1px solid ${colors.accent}22;text-align:left;}.portfolio-item:first-child{padding-top:20px;}.portfolio-num{font-family:var(--font-display);font-size:${vertNumSize}px;font-weight:300;color:${portfolioVertNumColor};line-height:1;}.portfolio-title{font-family:var(--font-display);font-size:${vertTitleSize}px;font-weight:400;color:${portfolioVertTitleColor};margin-bottom:6px;}.portfolio-desc{font-family:var(--font-body);font-size:${vertDescSize}px;font-weight:300;color:${portfolioVertDescColor};line-height:1.75;}`
+    : `.portfolio-items{margin-top:8px;width:100%;max-width:580px;}.portfolio-item{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid var(--border);align-items:start;text-align:left;}.portfolio-item:first-child{padding-top:0;}.portfolio-num{font-family:var(--font-display);font-size:${vertNumSize}px;font-weight:300;color:${portfolioVertNumColor};line-height:1;}.portfolio-title{font-family:var(--font-display);font-size:${vertTitleSize}px;font-weight:400;color:${portfolioVertTitleColor};margin-bottom:6px;}.portfolio-desc{font-family:var(--font-body);font-size:${vertDescSize}px;font-weight:300;color:${portfolioVertDescColor};line-height:1.75;}`;
 
   // Cover background image styles
   const coverBgImageCSS = bgImageUrl ? `background-image:url('${bgImageUrl}');background-size:cover;background-position:center;` : '';
@@ -1963,7 +2128,7 @@ function generateHTML(){
   }
 
   if (!hidden.includes('house')) {
-    pages += `<div class="page house"><div class="page-label" style="color:${houseLabelColor};font-size:${houseLabelSize}px;">${esc(d.house.label)}</div><h2 class="page-heading" style="color:${houseHeadingColor};font-size:${houseHeadingSize}px;">${esc(d.house.heading)}<br><em style="color:${houseItalicColor};">${esc(d.house.headingItalic)}</em></h2><p class="page-text" style="color:${houseTextColor};font-size:${houseTextSize}px;">${esc(d.house.p1)}</p><p class="page-text" style="margin-top:20px;color:${houseTextColor};font-size:${houseTextSize}px;">${esc(d.house.p2)}</p><div class="house-stats">${d.house.stats.map(s=>`<div><div class="house-stat-number" style="color:${houseStatNumberColor};">${esc(s.number)}</div><div class="house-stat-label" style="color:${houseStatLabelColor};">${esc(s.label)}</div></div>`).join('')}</div></div>`;
+    pages += `<div class="page house"><div class="page-label" style="color:${houseLabelColor};font-size:${houseLabelSize}px;">${esc(d.house.label)}</div><h2 class="page-heading" style="color:${houseHeadingColor};font-size:${houseHeadingSize}px;margin-bottom:${houseHeadingMarginBottom}px;">${esc(d.house.heading)}<br><em style="color:${houseItalicColor};">${esc(d.house.headingItalic)}</em></h2><p class="page-text" style="color:${houseTextColor};font-size:${houseTextSize}px;">${esc(d.house.p1)}</p><p class="page-text" style="margin-top:20px;color:${houseTextColor};font-size:${houseTextSize}px;">${esc(d.house.p2)}</p><div class="house-stats">${d.house.stats.map(s=>`<div><div class="house-stat-number" style="color:${houseStatNumberColor};">${esc(s.number)}</div><div class="house-stat-label" style="color:${houseStatLabelColor};">${esc(s.label)}</div></div>`).join('')}</div></div>`;
   }
 
   if (!hidden.includes('markets')) {
@@ -2014,7 +2179,7 @@ function generateHTML(){
   const displayFallback = displayFont.includes('Garamond') || displayFont.includes('Baskerville') || displayFont.includes('Crimson') ? "'Georgia', serif" : "'Georgia', serif";
   const bodyFallback = "'Helvetica Neue', sans-serif";
 
-  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${esc(d.cover.name)} — Company Profile</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="${fontsUrl}" rel="stylesheet"><style>:root{--rosso:${colors.accent};--rosso-deep:${colors.accentDeep};--bg:${colors.bgLight};--bg-warm:${colors.bgWarm};--bg-dark:${colors.bgDark};--text-primary:${colors.textPrimary};--text-secondary:${colors.textSecondary};--text-tertiary:${colors.textMuted};--border:${borderColor};--font-display:'${displayFont}',${displayFallback};--font-body:'${bodyFont}',${bodyFallback};}*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{-webkit-font-smoothing:antialiased;}::selection{background:var(--rosso);color:#fff;}@page{size:${pageSize};margin:0;}body{background:var(--bg);color:var(--text-secondary);font-family:var(--font-body);font-weight:300;line-height:${lineHeightBody};font-size:${bodySize}px;}.page{width:${pageWidth};min-height:${pageMinHeight};margin:0 auto;position:relative;overflow:hidden;display:flex;flex-direction:column;page-break-after:always;break-after:page;}.page:last-child{page-break-after:avoid;break-after:avoid;}.page-label{font-family:var(--font-body);font-size:${sectionLabelSize}px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--rosso);margin-bottom:40px;}.page-heading{font-family:var(--font-display);font-size:${headingSize}px;font-weight:300;color:var(--text-primary);line-height:1.15;margin-bottom:48px;letter-spacing:${letterSpacingHeadings}em;}.page-heading em{font-style:italic;color:var(--rosso);}.page-text{font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:${houseTextMaxWidth}px;}.cover{background:var(--bg-dark);justify-content:center;align-items:center;text-align:center;}.cover-inner{padding:60px;}.cover-monogram{font-family:var(--font-display);font-size:72px;font-weight:300;color:var(--rosso);letter-spacing:${coverMonogramLetterSpacing}em;margin-bottom:48px;}.cover-line{width:48px;height:1px;background:var(--rosso);margin:0 auto 48px;}.cover-name{font-family:var(--font-display);font-size:52px;font-weight:300;color:${colors.bgWarm};letter-spacing:${coverNameLetterSpacing}em;margin-bottom:20px;}.cover-tagline{font-family:var(--font-body);font-size:${coverTaglineSize}px;font-weight:400;letter-spacing:.4em;text-transform:uppercase;color:var(--rosso);}.house{background:${houseBg};padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:center;text-align:center;}.house-stats{display:flex;gap:56px;margin-top:56px;padding-top:40px;border-top:1px solid var(--border);}.house-stat-number{font-family:var(--font-display);font-size:${statNumSize}px;font-weight:300;color:var(--text-primary);margin-bottom:4px;}.house-stat-label{font-family:var(--font-body);font-size:${statLabelSize}px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--text-tertiary);}.markets{background:var(--bg-dark);padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:center;text-align:center;}.markets .page-label{color:var(--rosso);}.markets .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.markets-list{display:flex;flex-direction:column;}.market-city{font-family:var(--font-display);font-size:${cityFontSize}px;font-weight:300;color:rgba(245,239,230,.9);padding:${cityPadding}px 0;border-bottom:1px solid rgba(245,239,230,.06);display:flex;align-items:center;gap:20px;}.market-city::before{content:'';width:${dotSize}px;height:${dotSize}px;background:${dotColor};border-radius:50%;flex-shrink:0;}.portfolio{background:${portfolioBg};padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:center;text-align:center;}${portfolioItemsCSS}.process{background:${processBg};padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:center;text-align:center;}.process-intro{font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:${introMaxWidth}px;margin-bottom:48px;}.process-steps{margin-top:0;}.process-step{display:grid;grid-template-columns:48px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--border);align-items:start;}.process-step:first-child{padding-top:0;}.step-num{font-family:var(--font-display);font-size:${stepNumeralSize}px;font-weight:300;color:var(--rosso);}.step-title{font-family:var(--font-display);font-size:${stepTitleSize}px;font-weight:400;color:var(--text-primary);margin-bottom:6px;}.step-text{font-family:var(--font-body);font-size:${stepTextSize}px;font-weight:300;color:var(--text-secondary);line-height:1.8;}.why{background:var(--bg-dark);padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:center;text-align:center;}.why .page-heading{color:${colors.bgWarm};margin-bottom:40px;}.why-statement{font-family:var(--font-display);font-size:${statementSize}px;font-weight:300;font-style:italic;color:rgba(245,239,230,.7);line-height:1.5;max-width:480px;margin-bottom:56px;}.why-pillars{display:flex;flex-direction:column;}.why-pillar{display:grid;grid-template-columns:${pillarGridWidth}px 1fr;gap:40px;padding:32px 0;border-top:1px solid rgba(245,239,230,.06);}.why-pillar-title{font-family:var(--font-display);font-size:${pillarTitleSize}px;font-weight:400;color:${colors.bgWarm};}.why-pillar-text{font-family:var(--font-body);font-size:${pillarTextSize}px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.8;}.founder{background:${founderBg};padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:center;text-align:center;}.founder-letter{font-family:var(--font-body);font-size:${letterFontSize}px;font-weight:300;color:var(--text-secondary);line-height:2;max-width:${letterMaxWidth}px;}.founder-letter p{margin-bottom:20px;}.founder-closing{margin-top:40px;}.founder-closing-regards{font-family:var(--font-body);font-size:${letterFontSize}px;font-weight:300;color:var(--text-secondary);margin-bottom:28px;}.founder-signature{font-family:var(--font-display);font-size:${signatureSize}px;font-weight:300;font-style:italic;color:var(--text-primary);margin-bottom:8px;letter-spacing:.02em;}.founder-name{font-family:var(--font-body);font-size:14px;font-weight:400;color:var(--text-primary);letter-spacing:.08em;}.founder-title-role{font-family:var(--font-body);font-size:11px;font-weight:300;color:var(--text-tertiary);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;}.contact{background:var(--bg-dark);justify-content:center;align-items:center;text-align:center;padding:${pagePadV}px ${pagePadH}px;}.contact-monogram{font-family:var(--font-display);font-size:${contactMonogramSize}px;font-weight:300;color:var(--rosso);letter-spacing:.15em;margin-bottom:48px;}.contact .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.contact-detail{margin-bottom:32px;}.contact-detail-label{font-family:var(--font-body);font-size:10px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px;}.contact-detail-value{font-family:var(--font-display);font-size:${contactDetailValueSize}px;font-weight:300;color:${colors.bgWarm};}.contact-line{width:48px;height:1px;background:rgba(139,110,78,.4);margin:48px auto;}.contact-note{font-family:var(--font-body);font-size:${contactNoteSize}px;font-weight:300;color:rgba(245,239,230,.35);font-style:italic;}.contact-footer{position:absolute;bottom:40px;left:0;right:0;text-align:center;font-family:var(--font-body);font-size:10px;font-weight:300;letter-spacing:.15em;color:rgba(245,239,230,.2);}@media print{body{background:none;}.page{width:100%;height:100vh;margin:0;page-break-inside:avoid;}}${customCSS ? '\n' + customCSS : ''}</style></head><body>${pages}</body></html>`;
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${esc(d.cover.name)} — Company Profile</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="${fontsUrl}" rel="stylesheet"><style>:root{--rosso:${colors.accent};--rosso-deep:${colors.accentDeep};--bg:${colors.bgLight};--bg-warm:${colors.bgWarm};--bg-dark:${colors.bgDark};--text-primary:${colors.textPrimary};--text-secondary:${colors.textSecondary};--text-tertiary:${colors.textMuted};--border:${borderColor};--font-display:'${displayFont}',${displayFallback};--font-body:'${bodyFont}',${bodyFallback};}*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{-webkit-font-smoothing:antialiased;}::selection{background:var(--rosso);color:#fff;}@page{size:${pageSize};margin:0;}body{background:var(--bg);color:var(--text-secondary);font-family:var(--font-body);font-weight:300;line-height:${lineHeightBody};font-size:${bodySize}px;}.page{width:${pageWidth};min-height:${pageMinHeight};margin:0 auto;position:relative;overflow:hidden;display:flex;flex-direction:column;page-break-after:always;break-after:page;}.page:last-child{page-break-after:avoid;break-after:avoid;}.page-label{font-family:var(--font-body);font-size:${sectionLabelSize}px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--rosso);margin-bottom:40px;}.page-heading{font-family:var(--font-display);font-size:${headingSize}px;font-weight:300;color:var(--text-primary);line-height:1.15;margin-bottom:48px;letter-spacing:${letterSpacingHeadings}em;}.page-heading em{font-style:italic;color:var(--rosso);}.page-text{font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:${houseTextMaxWidth}px;text-align:center;margin-left:auto;margin-right:auto;}.cover{background:var(--bg-dark);justify-content:center;align-items:center;text-align:center;}.cover-inner{padding:60px;}.cover-monogram{font-family:var(--font-display);font-size:72px;font-weight:300;color:var(--rosso);letter-spacing:${coverMonogramLetterSpacing}em;margin-bottom:48px;}.cover-line{width:${coverLineWidth}px;height:1px;background:var(--rosso);margin:0 auto 48px;}.cover-name{font-family:var(--font-display);font-size:52px;font-weight:300;color:${colors.bgWarm};letter-spacing:${coverNameLetterSpacing}em;margin-bottom:20px;}.cover-tagline{font-family:var(--font-body);font-size:${coverTaglineSize}px;font-weight:400;letter-spacing:.4em;text-transform:uppercase;color:var(--rosso);}.house{background:${houseBg};padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${houseAlign==='center'?'center':'flex-start'};text-align:${houseAlign};}.house-stats{display:flex;gap:${houseStatsGap}px;margin-top:56px;padding-top:40px;border-top:1px solid var(--border);justify-content:center;}.house-stat-number{font-family:var(--font-display);font-size:${statNumSize}px;font-weight:300;color:var(--text-primary);margin-bottom:4px;}.house-stat-label{font-family:var(--font-body);font-size:${statLabelSize}px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--text-tertiary);}.markets{background:var(--bg-dark);padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${marketsAlign==='center'?'center':'flex-start'};text-align:${marketsAlign};}.markets .page-label{color:var(--rosso);}.markets .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.markets-list{display:flex;flex-direction:column;width:100%;}.market-city{font-family:var(--font-display);font-size:${cityFontSize}px;font-weight:300;color:rgba(245,239,230,.9);padding:${cityPadding}px 0;border-bottom:1px solid rgba(245,239,230,.06);display:flex;align-items:center;gap:20px;}.market-city::before{content:'';width:${dotSize}px;height:${dotSize}px;background:${dotColor};border-radius:50%;flex-shrink:0;}.portfolio{background:${portfolioBg};padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${portfolioAlign==='center'?'center':'flex-start'};text-align:${portfolioAlign};}${portfolioItemsCSS}.process{background:${processBg};padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${processAlign==='center'?'center':'flex-start'};text-align:${processAlign};}.process-intro{font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:${introMaxWidth}px;margin-bottom:48px;text-align:center;margin-left:auto;margin-right:auto;}.process-steps{margin-top:0;width:100%;max-width:580px;}.process-step{display:grid;grid-template-columns:48px 1fr;gap:24px;padding:${processStepGap}px 0;border-bottom:1px solid ${processDividerColor};align-items:start;text-align:left;}.process-step:first-child{padding-top:0;}.step-num{font-family:var(--font-display);font-size:${stepNumeralSize}px;font-weight:300;color:var(--rosso);}.step-title{font-family:var(--font-display);font-size:${stepTitleSize}px;font-weight:400;color:var(--text-primary);margin-bottom:6px;}.step-text{font-family:var(--font-body);font-size:${stepTextSize}px;font-weight:300;color:var(--text-secondary);line-height:1.8;}.why{background:var(--bg-dark);padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${whyAlign==='center'?'center':'flex-start'};text-align:${whyAlign};}.why .page-heading{color:${colors.bgWarm};margin-bottom:40px;}.why-statement{font-family:var(--font-display);font-size:${statementSize}px;font-weight:300;font-style:italic;color:rgba(245,239,230,.7);line-height:1.5;max-width:${whyStatementMaxWidth}px;margin-bottom:56px;text-align:center;margin-left:auto;margin-right:auto;}.why-pillars{display:flex;flex-direction:column;width:100%;max-width:580px;}.why-pillar{display:grid;grid-template-columns:${pillarGridWidth}px 1fr;gap:40px;padding:32px 0;border-top:1px solid ${whyPillarDividerColor};text-align:left;}.why-pillar-title{font-family:var(--font-display);font-size:${pillarTitleSize}px;font-weight:400;color:${colors.bgWarm};}.why-pillar-text{font-family:var(--font-body);font-size:${pillarTextSize}px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.8;}.founder{background:${founderBg};padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${founderAlign==='center'?'center':'flex-start'};text-align:${founderAlign};}.founder-letter{font-family:var(--font-body);font-size:${letterFontSize}px;font-weight:300;color:var(--text-secondary);line-height:${founderLetterLineHeight};max-width:${letterMaxWidth}px;text-align:left;margin-left:auto;margin-right:auto;}.founder-letter p{margin-bottom:20px;}.founder-closing{margin-top:40px;text-align:left;max-width:500px;margin-left:auto;margin-right:auto;}.founder-closing-regards{font-family:var(--font-body);font-size:${letterFontSize}px;font-weight:300;color:var(--text-secondary);margin-bottom:28px;}.founder-signature{font-family:var(--font-display);font-size:${signatureSize}px;font-weight:300;font-style:italic;color:var(--text-primary);margin-bottom:8px;letter-spacing:.02em;}.founder-name{font-family:var(--font-body);font-size:14px;font-weight:400;color:var(--text-primary);letter-spacing:.08em;}.founder-title-role{font-family:var(--font-body);font-size:11px;font-weight:300;color:var(--text-tertiary);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;}.contact{background:var(--bg-dark);justify-content:center;align-items:${contactAlign==='center'?'center':'flex-start'};text-align:${contactAlign};padding:${pagePadV}px ${pagePadH}px;}.contact-monogram{font-family:var(--font-display);font-size:${contactMonogramSize}px;font-weight:300;color:var(--rosso);letter-spacing:.15em;margin-bottom:48px;}.contact .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.contact-detail{margin-bottom:${contactDetailGap}px;}.contact-detail-label{font-family:var(--font-body);font-size:10px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px;}.contact-detail-value{font-family:var(--font-display);font-size:${contactDetailValueSize}px;font-weight:300;color:${colors.bgWarm};}.contact-line{width:${contactLineWidth}px;height:1px;background:rgba(139,110,78,.4);margin:48px auto;}.contact-note{font-family:var(--font-body);font-size:${contactNoteSize}px;font-weight:300;color:rgba(245,239,230,.35);font-style:italic;}.contact-footer{position:absolute;bottom:40px;left:0;right:0;text-align:center;font-family:var(--font-body);font-size:10px;font-weight:300;letter-spacing:.15em;color:rgba(245,239,230,.2);}@media print{body{background:none;}.page{width:100%;height:100vh;margin:0;page-break-inside:avoid;}}${customCSS ? '\n' + customCSS : ''}</style></head><body>${pages}</body></html>`;
 }
 
 // PREVIEW + BUTTONS
