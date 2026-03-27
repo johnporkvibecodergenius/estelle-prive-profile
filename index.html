@@ -1619,10 +1619,10 @@ async function saveToFirestore(){
     // 2. Read current form into data
     readForm();
 
-    // 3. Deep merge: start with latest Firestore state, overlay our form values
-    const merged=deepMerge(JSON.parse(JSON.stringify(data)),latest);
-    // But our current edits should win, so merge the other way: start with latest, overlay ours
-    const final=deepMerge(JSON.parse(JSON.stringify(data)),deepMerge(latest,JSON.parse(JSON.stringify(DEFAULT_DATA))));
+    // 3. Merge: defaults → remote (other admin) → ours (wins)
+    let base=JSON.parse(JSON.stringify(DEFAULT_DATA));
+    if(Object.keys(latest).length>0) base=deepMerge(latest,base);
+    const final=deepMerge(JSON.parse(JSON.stringify(data)),base);
 
     // 4. Get fresh auth token
     const token=await auth.currentUser.getIdToken(true);
@@ -1636,7 +1636,10 @@ async function saveToFirestore(){
     // 6. Update local data with what we saved
     data=final;
 
-    // 7. Update local state
+    // 7. Update sync hash so auto-sync doesn't re-trigger on our own save
+    try{var sr=await fetch(FS_URL);if(sr.ok){lastSyncHash=JSON.stringify((await sr.json()).fields);}}catch(e){}
+
+    // 8. Update local state
     setSaveStatus('synced','Synced');
     showToast('Saved & synced to cloud');
   }catch(err){
@@ -2997,6 +3000,35 @@ document.getElementById('importFile').addEventListener('change',e=>{const f=e.ta
 let previewTimer;
 document.addEventListener('input',e=>{if(e.target.closest('.sidebar')){clearTimeout(previewTimer);previewTimer=setTimeout(()=>{updatePreview();updateTabNames();},800);}});
 function showToast(m,err){const t=document.getElementById('toast');t.textContent=m;t.className='toast '+(err?'toast-error':'toast-success')+' show';setTimeout(()=>t.classList.remove('show'),3000);}
+
+// AUTO-SYNC: poll Firestore every 30s to pick up other admins' changes
+var lastSyncHash='';
+async function autoSync(){
+  if(!auth.currentUser)return;
+  var dot=document.getElementById('saveDot');
+  if(dot&&dot.classList.contains('saving'))return; // don't sync while saving
+  try{
+    var r=await fetch(FS_URL);
+    if(!r.ok)return;
+    var d=await r.json();
+    if(!d||!d.fields)return;
+    var hash=JSON.stringify(d.fields);
+    if(hash===lastSyncHash)return; // no changes
+    lastSyncHash=hash;
+    var o={};
+    for(var k in d.fields)o[k]=fsToJs(d.fields[k]);
+    var merged=deepMerge(o,JSON.parse(JSON.stringify(DEFAULT_DATA)));
+    // Only update if user hasn't made unsaved changes
+    var label=document.getElementById('saveLabel');
+    if(label&&label.textContent==='Synced'){
+      data=merged;
+      populateForm();
+      updatePreview();
+      showToast('Updated from cloud');
+    }
+  }catch(e){}
+}
+setInterval(autoSync,30000);
 </script>
 </body>
 </html>
