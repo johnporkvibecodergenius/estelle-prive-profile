@@ -247,6 +247,13 @@
           <input type="range" id="cover_style_monogramSize" min="48" max="120" value="72">
         </div>
         <div class="field">
+          <label>Text Color</label>
+          <div class="color-field">
+            <input type="color" id="cover_style_textColor_picker" value="#F5EFE6">
+            <input type="text" id="cover_style_textColor" value="#F5EFE6">
+          </div>
+        </div>
+        <div class="field">
           <label class="range-label">Name Font Size <span class="range-value" id="cover_style_nameSize_val">52px</span></label>
           <input type="range" id="cover_style_nameSize" min="36" max="72" value="52">
         </div>
@@ -352,6 +359,13 @@
             <option value="left">Left</option>
             <option value="right">Right</option>
           </select>
+        </div>
+        <div class="field">
+          <label>Text Color</label>
+          <div class="color-field">
+            <input type="color" id="house_style_textColor_picker" value="#5C5244">
+            <input type="text" id="house_style_textColor" value="#5C5244">
+          </div>
         </div>
         <div class="checkbox-field"><input type="checkbox" id="house_style_showDivider"><label for="house_style_showDivider">Show Divider Line Under Text</label></div>
         <div class="field">
@@ -474,6 +488,13 @@
           <input type="range" id="markets_style_cityFontSize" min="20" max="48" value="30">
         </div>
         <div class="field">
+          <label>Text Color</label>
+          <div class="color-field">
+            <input type="color" id="markets_style_textColor_picker" value="#F5EFE6">
+            <input type="text" id="markets_style_textColor" value="#F5EFE6">
+          </div>
+        </div>
+        <div class="field">
           <label>Text Alignment</label>
           <select id="markets_style_textAlign">
             <option value="center">Center</option>
@@ -588,6 +609,13 @@
             <option value="list">List</option>
             <option value="grid">Grid</option>
           </select>
+        </div>
+        <div class="field">
+          <label>Text Color</label>
+          <div class="color-field">
+            <input type="color" id="portfolio_style_textColor_picker" value="#5C5244">
+            <input type="text" id="portfolio_style_textColor" value="#5C5244">
+          </div>
         </div>
         <div class="field">
           <label>Text Alignment</label>
@@ -707,6 +735,13 @@
             <option value="right">Right</option>
           </select>
         </div>
+        <div class="field">
+          <label>Text Color</label>
+          <div class="color-field">
+            <input type="color" id="process_style_textColor_picker" value="#5C5244">
+            <input type="text" id="process_style_textColor" value="#5C5244">
+          </div>
+        </div>
         <div class="checkbox-field"><input type="checkbox" id="process_style_showDivider" checked><label for="process_style_showDivider">Show Divider Line Under Text</label></div>
         <div class="field">
           <label class="range-label">Divider Line Width <span class="range-value" id="process_style_dividerWidth_val">48px</span></label>
@@ -816,6 +851,13 @@
             <option value="left">Left</option>
             <option value="right">Right</option>
           </select>
+        </div>
+        <div class="field">
+          <label>Text Color</label>
+          <div class="color-field">
+            <input type="color" id="why_style_textColor_picker" value="#F5EFE6">
+            <input type="text" id="why_style_textColor" value="#F5EFE6">
+          </div>
         </div>
         <div class="checkbox-field"><input type="checkbox" id="why_style_showDivider"><label for="why_style_showDivider">Show Divider Line Under Text</label></div>
         <div class="field">
@@ -935,6 +977,13 @@
         <div class="field">
           <label class="range-label">Signature Size <span class="range-value" id="founder_style_signatureSize_val">36px</span></label>
           <input type="range" id="founder_style_signatureSize" min="24" max="56" value="36">
+        </div>
+        <div class="field">
+          <label>Text Color</label>
+          <div class="color-field">
+            <input type="color" id="founder_style_textColor_picker" value="#5C5244">
+            <input type="text" id="founder_style_textColor" value="#5C5244">
+          </div>
         </div>
         <div class="field">
           <label>Letter Style</label>
@@ -1060,6 +1109,13 @@
             <option value="left">Left</option>
             <option value="right">Right</option>
           </select>
+        </div>
+        <div class="field">
+          <label>Text Color</label>
+          <div class="color-field">
+            <input type="color" id="contact_style_textColor_picker" value="#F5EFE6">
+            <input type="text" id="contact_style_textColor" value="#F5EFE6">
+          </div>
         </div>
         <div class="checkbox-field"><input type="checkbox" id="contact_style_showDivider"><label for="contact_style_showDivider">Show Divider Line Under Text</label></div>
         <div class="field">
@@ -1441,6 +1497,15 @@ const COLOR_FIELDS = [
   {picker:'why_style_dividerLineColor_picker', text:'why_style_dividerLineColor'},
   {picker:'founder_style_dividerLineColor_picker', text:'founder_style_dividerLineColor'},
   {picker:'contact_style_dividerLineColor_picker', text:'contact_style_dividerLineColor'},
+
+  {picker:'cover_style_textColor_picker', text:'cover_style_textColor'},
+  {picker:'house_style_textColor_picker', text:'house_style_textColor'},
+  {picker:'markets_style_textColor_picker', text:'markets_style_textColor'},
+  {picker:'portfolio_style_textColor_picker', text:'portfolio_style_textColor'},
+  {picker:'process_style_textColor_picker', text:'process_style_textColor'},
+  {picker:'why_style_textColor_picker', text:'why_style_textColor'},
+  {picker:'founder_style_textColor_picker', text:'founder_style_textColor'},
+  {picker:'contact_style_textColor_picker', text:'contact_style_textColor'},
 ];
 
 COLOR_FIELDS.forEach(cf => {
@@ -1778,6 +1843,7 @@ function populatePageStyles() {
   // Cover
   const cs = (data.cover && data.cover._style) || DEFAULT_DATA.cover._style || {};
   _setColor('cover_style_bgColor_picker', 'cover_style_bgColor', cs.bgColor);
+  _setColor('cover_style_textColor_picker', 'cover_style_textColor', cs.textColor || '#F5EFE6');
   _setSlider('cover_style_monogramSize', 'cover_style_monogramSize_val', cs.monogramSize || 72, 'px');
   _setSlider('cover_style_nameSize', 'cover_style_nameSize_val', cs.nameSize || 52, 'px');
   _setSlider('cover_style_taglineSize', 'cover_style_taglineSize_val', cs.taglineSize || 11, 'px');
@@ -1796,6 +1862,7 @@ function populatePageStyles() {
   // House
   const hs = (data.house && data.house._style) || DEFAULT_DATA.house._style || {};
   _setColor('house_style_bgColor_picker', 'house_style_bgColor', hs.bgColor);
+  _setColor('house_style_textColor_picker', 'house_style_textColor', hs.textColor || '#5C5244');
   _setSlider('house_style_statNumberSize', 'house_style_statNumberSize_val', hs.statNumberSize || 36, 'px');
   _setSlider('house_style_statLabelSize', 'house_style_statLabelSize_val', hs.statLabelSize || 11, 'px');
   _setSlider('house_style_textMaxWidth', 'house_style_textMaxWidth_val', hs.textMaxWidth || 520, 'px');
@@ -1830,6 +1897,7 @@ function populatePageStyles() {
   const ms = (data.markets && data.markets._style) || DEFAULT_DATA.markets._style || {};
   _setVal('markets_style_layout', ms.layout || 'list');
   _setColor('markets_style_bgColor_picker', 'markets_style_bgColor', ms.bgColor || '#1A1610');
+  _setColor('markets_style_textColor_picker', 'markets_style_textColor', ms.textColor || '#F5EFE6');
   _setSlider('markets_style_cityFontSize', 'markets_style_cityFontSize_val', ms.cityFontSize || 30, 'px');
   _setColor('markets_style_dotColor_picker', 'markets_style_dotColor', ms.dotColor);
   _setSlider('markets_style_dotSize', 'markets_style_dotSize_val', ms.dotSize || 6, 'px');
@@ -1857,6 +1925,7 @@ function populatePageStyles() {
   const ps = (data.portfolio && data.portfolio._style) || DEFAULT_DATA.portfolio._style || {};
   _setVal('portfolio_style_layout', ps.layout || 'list');
   _setColor('portfolio_style_bgColor_picker', 'portfolio_style_bgColor', ps.bgColor);
+  _setColor('portfolio_style_textColor_picker', 'portfolio_style_textColor', ps.textColor || '#5C5244');
   _setSlider('portfolio_style_vertNumSize', 'portfolio_style_vertNumSize_val', ps.vertNumSize || 32, 'px');
   _setSlider('portfolio_style_vertTitleSize', 'portfolio_style_vertTitleSize_val', ps.vertTitleSize || 20, 'px');
   _setSlider('portfolio_style_vertDescSize', 'portfolio_style_vertDescSize_val', ps.vertDescSize || 13, 'px');
@@ -1885,6 +1954,7 @@ function populatePageStyles() {
   // Process
   const prs = (data.process && data.process._style) || DEFAULT_DATA.process._style || {};
   _setColor('process_style_bgColor_picker', 'process_style_bgColor', prs.bgColor);
+  _setColor('process_style_textColor_picker', 'process_style_textColor', prs.textColor || '#5C5244');
   _setSlider('process_style_stepNumeralSize', 'process_style_stepNumeralSize_val', prs.stepNumeralSize || 28, 'px');
   _setSlider('process_style_stepTitleSize', 'process_style_stepTitleSize_val', prs.stepTitleSize || 19, 'px');
   _setSlider('process_style_stepTextSize', 'process_style_stepTextSize_val', prs.stepTextSize || 13, 'px');
@@ -1922,6 +1992,7 @@ function populatePageStyles() {
   _setSlider('why_style_pillarTextSize', 'why_style_pillarTextSize_val', ws.pillarTextSize || 13.5, 'px');
   _setSlider('why_style_pillarGridWidth', 'why_style_pillarGridWidth_val', ws.pillarGridWidth || 180, 'px');
   _setColor('why_style_bgColor_picker', 'why_style_bgColor', ws.bgColor || '#1A1610');
+  _setColor('why_style_textColor_picker', 'why_style_textColor', ws.textColor || '#F5EFE6');
   _setColor('why_style_labelColor_picker', 'why_style_labelColor', ws.labelColor || '#8B6E4E');
   _setColor('why_style_headingColor_picker', 'why_style_headingColor', ws.headingColor || '#F5EFE6');
   _setColor('why_style_statementColor_picker', 'why_style_statementColor', ws.statementColor || '#B5AFA7');
@@ -1949,6 +2020,7 @@ function populatePageStyles() {
   const fds = (data.founder && data.founder._style) || DEFAULT_DATA.founder._style || {};
   _setVal('founder_style_letterStyle', fds.letterStyle || 'normal');
   _setColor('founder_style_bgColor_picker', 'founder_style_bgColor', fds.bgColor);
+  _setColor('founder_style_textColor_picker', 'founder_style_textColor', fds.textColor || '#5C5244');
   updateSignaturePreview();
   _setSlider('founder_style_letterFontSize', 'founder_style_letterFontSize_val', fds.letterFontSize || 14, 'px');
   _setSlider('founder_style_signatureSize', 'founder_style_signatureSize_val', fds.signatureSize || 36, 'px');
@@ -1981,6 +2053,7 @@ function populatePageStyles() {
   // Contact
   const cts = (data.contact && data.contact._style) || DEFAULT_DATA.contact._style || {};
   _setColor('contact_style_bgColor_picker', 'contact_style_bgColor', cts.bgColor);
+  _setColor('contact_style_textColor_picker', 'contact_style_textColor', cts.textColor || '#F5EFE6');
   _setSlider('contact_style_monogramSize', 'contact_style_monogramSize_val', cts.monogramSize || 48, 'px');
   _setSlider('contact_style_detailValueSize', 'contact_style_detailValueSize_val', cts.detailValueSize || 22, 'px');
   _setSlider('contact_style_noteSize', 'contact_style_noteSize_val', cts.noteSize || 12, 'px');
@@ -2014,6 +2087,7 @@ function readPageStyles() {
   if (!data.cover) data.cover = {};
   if (!data.cover._style) data.cover._style = {};
   data.cover._style.bgColor = _readVal('cover_style_bgColor');
+  data.cover._style.textColor = _readVal('cover_style_textColor');
   data.cover._style.monogramSize = _readInt('cover_style_monogramSize');
   data.cover._style.nameSize = _readInt('cover_style_nameSize');
   data.cover._style.bgImageOpacity = _readFloat('cover_style_bgImageOpacity');
@@ -2037,6 +2111,7 @@ function readPageStyles() {
   if (!data.house) data.house = {};
   if (!data.house._style) data.house._style = {};
   data.house._style.bgColor = _readVal('house_style_bgColor');
+  data.house._style.textColor = _readVal('house_style_textColor');
   data.house._style.statNumberSize = _readInt('house_style_statNumberSize');
   data.house._style.statLabelSize = _readInt('house_style_statLabelSize');
   data.house._style.textMaxWidth = _readInt('house_style_textMaxWidth');
@@ -2069,6 +2144,7 @@ function readPageStyles() {
   if (!data.markets._style) data.markets._style = {};
   data.markets._style.layout = _readVal('markets_style_layout');
   data.markets._style.bgColor = _readVal('markets_style_bgColor');
+  data.markets._style.textColor = _readVal('markets_style_textColor');
   data.markets._style.cityFontSize = _readInt('markets_style_cityFontSize');
   data.markets._style.dotColor = _readVal('markets_style_dotColor');
   data.markets._style.dotSize = _readInt('markets_style_dotSize');
@@ -2094,6 +2170,7 @@ function readPageStyles() {
   if (!data.portfolio._style) data.portfolio._style = {};
   data.portfolio._style.layout = _readVal('portfolio_style_layout');
   data.portfolio._style.bgColor = _readVal('portfolio_style_bgColor');
+  data.portfolio._style.textColor = _readVal('portfolio_style_textColor');
   data.portfolio._style.vertNumSize = _readInt('portfolio_style_vertNumSize');
   data.portfolio._style.vertTitleSize = _readInt('portfolio_style_vertTitleSize');
   data.portfolio._style.vertDescSize = _readInt('portfolio_style_vertDescSize');
@@ -2120,6 +2197,7 @@ function readPageStyles() {
   if (!data.process) data.process = {};
   if (!data.process._style) data.process._style = {};
   data.process._style.bgColor = _readVal('process_style_bgColor');
+  data.process._style.textColor = _readVal('process_style_textColor');
   data.process._style.stepNumeralSize = _readInt('process_style_stepNumeralSize');
   data.process._style.stepTitleSize = _readInt('process_style_stepTitleSize');
   data.process._style.stepTextSize = _readInt('process_style_stepTextSize');
@@ -2151,6 +2229,7 @@ function readPageStyles() {
   if (!data.why) data.why = {};
   if (!data.why._style) data.why._style = {};
   data.why._style.bgColor = _readVal('why_style_bgColor');
+  data.why._style.textColor = _readVal('why_style_textColor');
   data.why._style.statementSize = _readInt('why_style_statementSize');
   data.why._style.pillarTitleSize = _readInt('why_style_pillarTitleSize');
   data.why._style.pillarTextSize = _readFloat('why_style_pillarTextSize');
@@ -2180,6 +2259,7 @@ function readPageStyles() {
   if (!data.founder._style) data.founder._style = {};
   data.founder._style.letterStyle = _readVal('founder_style_letterStyle');
   data.founder._style.bgColor = _readVal('founder_style_bgColor');
+  data.founder._style.textColor = _readVal('founder_style_textColor');
   data.founder._style.letterFontSize = _readInt('founder_style_letterFontSize');
   data.founder._style.signatureSize = _readInt('founder_style_signatureSize');
   data.founder._style.letterMaxWidth = _readInt('founder_style_letterMaxWidth');
@@ -2209,6 +2289,7 @@ function readPageStyles() {
   if (!data.contact) data.contact = {};
   if (!data.contact._style) data.contact._style = {};
   data.contact._style.bgColor = _readVal('contact_style_bgColor');
+  data.contact._style.textColor = _readVal('contact_style_textColor');
   data.contact._style.monogramSize = _readInt('contact_style_monogramSize');
   data.contact._style.detailValueSize = _readInt('contact_style_detailValueSize');
   data.contact._style.noteSize = _readInt('contact_style_noteSize');
@@ -2568,6 +2649,16 @@ function generateHTML(){
   const founderDividerLineColor = founderStyle.dividerLineColor || '#E8E3DC';
 
   const contactBg = contactStyle.bgColor || colors.bgDark || '#1A1610';
+
+  // Page text colors (user-configurable)
+  const coverTextColor = coverStyle.textColor || contrastText(coverBg || '#1A1610', '#F5EFE6', '#1A1610');
+  const housePageTextColor = houseStyle.textColor || '#5C5244';
+  const marketsPageTextColor = marketsStyle.textColor || contrastText(marketsBg, '#F5EFE6', '#1A1610');
+  const portfolioPageTextColor = portfolioStyle.textColor || '#5C5244';
+  const processPageTextColor = processStyle.textColor || '#5C5244';
+  const whyPageTextColor = whyStyle.textColor || contrastText(whyBg, '#F5EFE6', '#1A1610');
+  const founderPageTextColor = founderStyle.textColor || '#5C5244';
+  const contactPageTextColor = contactStyle.textColor || contrastText(contactBg, '#F5EFE6', '#1A1610');
   const contactMonogramSize = contactStyle.monogramSize || 48;
   const contactDetailValueSize = contactStyle.detailValueSize || 22;
   const contactNoteSize = contactStyle.noteSize || 12;
@@ -2672,7 +2763,7 @@ function generateHTML(){
   if (!hidden.includes('founder')) {
     const letterFontStyle = letterStyle === 'italic' ? 'font-style:italic;' : '';
     const founderImg = pageImage(founderStyle);
-    pages += `<div class="page founder" style="${founderImg.bgStyle||'background:'+ founderBg +';'}">${founderImg.overlay||''}${pageLogo(founderStyle, logoUrl, d.cover.monogram)}${founderImg.before}<div style="${founderImg.contentStyle||''}"><div class="page-label" style="color:${founderLabelColor};">${esc(d.founder.label)}</div><h2 class="page-heading" style="color:${founderHeadingColor};">${esc(d.founder.heading)}<br><em style="color:${founderItalicColor};">${esc(d.founder.headingItalic)}</em></h2><div class="founder-letter" style="${letterFontStyle}color:${founderLetterColor};">${d.founder.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div>${founderShowDivider ? `<div style="width:${founderDividerWidth}px;height:1px;background:${founderDividerLineColor};margin:40px ${founderAlign==='center'?'auto':'0'};"></div>` : ''}<div class="founder-closing"><div class="founder-closing-regards" style="color:${founderClosingColor};">${esc(d.founder.closing)}</div><div class="founder-signature" style="color:${founderSignatureColor};">${signatureUrl ? `<img src="${signatureUrl}" alt="${esc(d.founder.signatureName)}" style="max-height:${signatureSize}px;object-fit:contain;">` : esc(d.founder.signatureName)}</div><div class="founder-name" style="color:${founderNameColor};">${esc(d.founder.signatureName)}</div><div class="founder-title-role" style="color:${founderRoleColor};">${esc(d.founder.role)}</div>${d.founder.companyLine ? `<div class="founder-company" style="font-family:var(--font-body);font-size:11px;font-weight:300;color:${founderRoleColor};letter-spacing:.1em;text-transform:uppercase;margin-top:2px;">${esc(d.founder.companyLine)}</div>` : ''}</div>${founderImg.after}</div></div>`;
+    pages += `<div class="page founder" style="${founderImg.bgStyle||'background:'+ founderBg +';'}">${founderImg.overlay||''}${pageLogo(founderStyle, logoUrl, d.cover.monogram)}${founderImg.before}<div style="${founderImg.contentStyle||''}"><div class="page-label" style="color:${founderLabelColor};">${esc(d.founder.label)}</div><h2 class="page-heading" style="color:${founderHeadingColor};">${esc(d.founder.heading)}<br><em style="color:${founderItalicColor};">${esc(d.founder.headingItalic)}</em></h2><div class="founder-letter" style="${letterFontStyle}color:${founderPageTextColor};">${d.founder.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div>${founderShowDivider ? `<div style="width:${founderDividerWidth}px;height:1px;background:${founderDividerLineColor};margin:40px ${founderAlign==='center'?'auto':'0'};"></div>` : ''}<div class="founder-closing"><div class="founder-closing-regards" style="color:${founderClosingColor};">${esc(d.founder.closing)}</div><div class="founder-signature" style="color:${founderSignatureColor};">${signatureUrl ? `<img src="${signatureUrl}" alt="${esc(d.founder.signatureName)}" style="max-height:${signatureSize}px;object-fit:contain;">` : esc(d.founder.signatureName)}</div><div class="founder-name" style="color:${founderNameColor};">${esc(d.founder.signatureName)}</div><div class="founder-title-role" style="color:${founderRoleColor};">${esc(d.founder.role)}</div>${d.founder.companyLine ? `<div class="founder-company" style="font-family:var(--font-body);font-size:11px;font-weight:300;color:${founderRoleColor};letter-spacing:.1em;text-transform:uppercase;margin-top:2px;">${esc(d.founder.companyLine)}</div>` : ''}</div>${founderImg.after}</div></div>`;
   }
 
   if (!hidden.includes('contact')) {
@@ -2683,7 +2774,7 @@ function generateHTML(){
   const displayFallback = "'Georgia', serif";
   const bodyFallback = "'Helvetica Neue', sans-serif";
 
-  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${esc(d.cover.name)} — Company Profile</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="${fontsUrl}" rel="stylesheet"><style>:root{--rosso:${colors.accent};--rosso-deep:${colors.accentDeep};--bg:${colors.bgLight};--bg-warm:${colors.bgWarm};--bg-dark:${colors.bgDark};--text-primary:${colors.textPrimary};--text-secondary:${colors.textSecondary};--text-tertiary:${colors.textMuted};--border:${borderColor};--font-display:'${displayFont}',${displayFallback};--font-body:'${bodyFont}',${bodyFallback};}*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{-webkit-font-smoothing:antialiased;}::selection{background:var(--rosso);color:#fff;}@page{size:${pageSize};margin:0;}body{background:var(--bg);color:var(--text-secondary);font-family:var(--font-body);font-weight:300;line-height:${lineHeightBody};font-size:${bodySize}px;}.page{width:${pageWidth};min-height:${pageMinHeight};margin:0 auto;position:relative;overflow:visible;display:flex;flex-direction:column;page-break-after:always;break-after:page;}.page:last-child{page-break-after:avoid;break-after:avoid;}.page-label{font-family:var(--font-body);font-size:${sectionLabelSize}px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--rosso);margin-bottom:40px;width:100%;}.page-heading{font-family:var(--font-display);font-size:${headingSize}px;font-weight:300;color:var(--text-primary);line-height:1.15;margin-bottom:48px;width:100%;letter-spacing:${letterSpacingHeadings}em;}.page-heading em{font-style:italic;color:var(--rosso);}.page-text{font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:${houseTextMaxWidth}px;width:100%;text-align:left;margin-left:auto;margin-right:auto;}.cover{justify-content:center;align-items:center;text-align:center;}.cover-inner{padding:60px;}.cover-monogram{font-family:var(--font-display);font-size:72px;font-weight:400;color:var(--rosso);letter-spacing:${coverMonogramLetterSpacing}em;margin-bottom:48px;}.cover-line{width:${coverLineWidth}px;height:1px;background:var(--rosso);margin:0 auto 48px;}.cover-name{font-family:var(--font-display);font-size:56px;font-weight:400;letter-spacing:.12em;color:${colors.bgWarm};letter-spacing:${coverNameLetterSpacing}em;margin-bottom:20px;}.cover-tagline{font-family:var(--font-body);font-size:${coverTaglineSize}px;font-weight:400;letter-spacing:.5em;text-transform:uppercase;color:var(--rosso);}.house{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${houseAlign==='center'?'center':'flex-start'};text-align:${houseAlign};}.house-stats{display:flex;gap:${houseStatsGap}px;margin-top:56px;padding-top:40px;border-top:1px solid var(--border);justify-content:center;width:100%;}.house-stat-number{font-family:var(--font-display);font-size:${statNumSize}px;font-weight:300;color:var(--text-primary);margin-bottom:4px;}.house-stat-label{font-family:var(--font-body);font-size:${statLabelSize}px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--text-tertiary);}.markets{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${marketsAlign==='center'?'center':'flex-start'};text-align:${marketsAlign};}.markets .page-label{color:var(--rosso);}.markets .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.markets-list{display:flex;flex-direction:column;width:100%;}.market-city{font-family:var(--font-display);font-size:${cityFontSize}px;font-weight:300;color:rgba(245,239,230,.9);padding:${cityPadding}px 0;border-bottom:1px solid rgba(245,239,230,.06);display:flex;align-items:center;gap:20px;}.market-city::before{content:'';width:${dotSize}px;height:${dotSize}px;background:${dotColor};border-radius:50%;flex-shrink:0;}.portfolio{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${portfolioAlign==='center'?'center':'flex-start'};text-align:${portfolioAlign};}${portfolioItemsCSS}.process{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${processAlign==='center'?'center':'flex-start'};text-align:${processAlign};}.process-intro{font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:${introMaxWidth}px;margin-bottom:48px;text-align:center;margin-left:auto;margin-right:auto;width:100%;}.process-steps{margin-top:0;width:100%;max-width:580px;}.process-step{display:grid;grid-template-columns:48px 1fr;gap:24px;padding:${processStepGap}px 0;border-bottom:1px solid ${processDividerColor};align-items:start;text-align:left;}.process-step:first-child{padding-top:0;}.step-num{font-family:var(--font-display);font-size:${stepNumeralSize}px;font-weight:300;color:var(--rosso);}.step-title{font-family:var(--font-display);font-size:${stepTitleSize}px;font-weight:400;color:var(--text-primary);margin-bottom:6px;}.step-text{font-family:var(--font-body);font-size:${stepTextSize}px;font-weight:300;color:var(--text-secondary);line-height:1.8;}.why{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${whyAlign==='center'?'center':'flex-start'};text-align:${whyAlign};}.why .page-heading{color:${colors.bgWarm};margin-bottom:40px;}.why-statement{font-family:var(--font-display);font-size:${statementSize}px;font-weight:300;font-style:italic;color:rgba(245,239,230,.7);line-height:1.5;max-width:${whyStatementMaxWidth}px;margin-bottom:56px;text-align:center;margin-left:auto;margin-right:auto;width:100%;}.why-pillars{display:flex;flex-direction:column;width:100%;max-width:580px;}.why-pillar{display:grid;grid-template-columns:${pillarGridWidth}px 1fr;gap:40px;padding:32px 0;border-top:1px solid ${whyPillarDividerColor};text-align:left;}.why-pillar-title{font-family:var(--font-display);font-size:${pillarTitleSize}px;font-weight:400;color:${colors.bgWarm};}.why-pillar-text{font-family:var(--font-body);font-size:${pillarTextSize}px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.8;}.founder{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${founderAlign==='center'?'center':'flex-start'};text-align:${founderAlign};}.founder-letter{font-family:var(--font-body);font-size:${letterFontSize}px;font-weight:300;color:var(--text-secondary);line-height:${founderLetterLineHeight};max-width:${letterMaxWidth}px;text-align:left;margin-left:auto;margin-right:auto;width:100%;}.founder-letter p{margin-bottom:20px;}.founder-closing{margin-top:40px;max-width:500px;text-align:left;margin-left:auto;margin-right:auto;width:100%;}.founder-closing-regards{font-family:var(--font-body);font-size:${letterFontSize}px;font-weight:300;color:var(--text-secondary);margin-bottom:28px;}.founder-signature{font-family:var(--font-display);font-size:${signatureSize}px;font-weight:300;font-style:italic;color:var(--text-primary);margin-bottom:8px;letter-spacing:.02em;}.founder-name{font-family:var(--font-body);font-size:14px;font-weight:400;color:var(--text-primary);letter-spacing:.08em;}.founder-title-role{font-family:var(--font-body);font-size:11px;font-weight:300;color:var(--text-tertiary);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;}.contact{justify-content:center;align-items:${contactAlign==='center'?'center':'flex-start'};text-align:${contactAlign};padding:${pagePadV}px ${pagePadH}px;}.contact-monogram{font-family:var(--font-display);font-size:${contactMonogramSize}px;font-weight:300;color:var(--rosso);letter-spacing:.15em;margin-bottom:48px;}.contact .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.contact-detail{margin-bottom:${contactDetailGap}px;}.contact-detail-label{font-family:var(--font-body);font-size:10px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px;}.contact-detail-value{font-family:var(--font-display);font-size:${contactDetailValueSize}px;font-weight:300;color:${colors.bgWarm};}.contact-line{width:${contactLineWidth}px;height:1px;background:rgba(139,110,78,.4);margin:48px auto;}.contact-note{font-family:var(--font-body);font-size:${contactNoteSize}px;font-weight:300;color:rgba(245,239,230,.35);font-style:italic;}.contact-footer{position:absolute;bottom:40px;left:0;right:0;text-align:center;font-family:var(--font-body);font-size:10px;font-weight:300;letter-spacing:.15em;color:rgba(245,239,230,.2);}@media print{body{background:none;}.page{width:100%;height:100vh;margin:0;page-break-inside:avoid;}}${customCSS ? '\n' + customCSS : ''}</style></head><body>${pages}</body></html>`;
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${esc(d.cover.name)} — Company Profile</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="${fontsUrl}" rel="stylesheet"><style>:root{--rosso:${colors.accent};--rosso-deep:${colors.accentDeep};--bg:${colors.bgLight};--bg-warm:${colors.bgWarm};--bg-dark:${colors.bgDark};--text-primary:${colors.textPrimary};--text-secondary:${colors.textSecondary};--text-tertiary:${colors.textMuted};--border:${borderColor};--font-display:'${displayFont}',${displayFallback};--font-body:'${bodyFont}',${bodyFallback};}*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{-webkit-font-smoothing:antialiased;}::selection{background:var(--rosso);color:#fff;}@page{size:${pageSize};margin:0;}body{background:var(--bg);color:var(--text-secondary);font-family:var(--font-body);font-weight:300;line-height:${lineHeightBody};font-size:${bodySize}px;}.page{width:${pageWidth};min-height:${pageMinHeight};margin:0 auto;position:relative;overflow:visible;display:flex;flex-direction:column;page-break-after:always;break-after:page;}.page:last-child{page-break-after:avoid;break-after:avoid;}.page-label{font-family:var(--font-body);font-size:${sectionLabelSize}px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--rosso);margin-bottom:40px;width:100%;}.page-heading{font-family:var(--font-display);font-size:${headingSize}px;font-weight:300;color:var(--text-primary);line-height:1.15;margin-bottom:48px;width:100%;letter-spacing:${letterSpacingHeadings}em;}.page-heading em{font-style:italic;color:var(--rosso);}.page-text{font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:${houseTextMaxWidth}px;width:100%;text-align:left;margin-left:auto;margin-right:auto;}.cover{justify-content:center;align-items:center;text-align:center;}.cover-inner{padding:60px;}.cover-monogram{font-family:var(--font-display);font-size:72px;font-weight:400;color:var(--rosso);letter-spacing:${coverMonogramLetterSpacing}em;margin-bottom:48px;}.cover-line{width:${coverLineWidth}px;height:1px;background:var(--rosso);margin:0 auto 48px;}.cover-name{font-family:var(--font-display);font-size:56px;font-weight:400;letter-spacing:.12em;color:${colors.bgWarm};letter-spacing:${coverNameLetterSpacing}em;margin-bottom:20px;}.cover-tagline{font-family:var(--font-body);font-size:${coverTaglineSize}px;font-weight:400;letter-spacing:.5em;text-transform:uppercase;color:var(--rosso);}.house{padding:${pagePadV}px ${pagePadH}px;justify-content:flex-start;align-items:${houseAlign==='center'?'center':'flex-start'};text-align:${houseAlign};}.house-stats{display:flex;gap:${houseStatsGap}px;margin-top:56px;padding-top:40px;border-top:1px solid var(--border);justify-content:center;width:100%;}.house-stat-number{font-family:var(--font-display);font-size:${statNumSize}px;font-weight:300;color:var(--text-primary);margin-bottom:4px;}.house-stat-label{font-family:var(--font-body);font-size:${statLabelSize}px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--text-tertiary);}.markets{padding:${pagePadV}px ${pagePadH}px;justify-content:flex-start;align-items:${marketsAlign==='center'?'center':'flex-start'};text-align:${marketsAlign};}.markets .page-label{color:var(--rosso);}.markets .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.markets-list{display:flex;flex-direction:column;width:100%;}.market-city{font-family:var(--font-display);font-size:${cityFontSize}px;font-weight:300;color:rgba(245,239,230,.9);padding:${cityPadding}px 0;border-bottom:1px solid rgba(245,239,230,.06);display:flex;align-items:center;gap:20px;}.market-city::before{content:'';width:${dotSize}px;height:${dotSize}px;background:${dotColor};border-radius:50%;flex-shrink:0;}.portfolio{padding:${pagePadV}px ${pagePadH}px;justify-content:flex-start;align-items:${portfolioAlign==='center'?'center':'flex-start'};text-align:${portfolioAlign};}${portfolioItemsCSS}.process{padding:${pagePadV}px ${pagePadH}px;justify-content:flex-start;align-items:${processAlign==='center'?'center':'flex-start'};text-align:${processAlign};}.process-intro{font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:${introMaxWidth}px;margin-bottom:48px;text-align:center;margin-left:auto;margin-right:auto;width:100%;}.process-steps{margin-top:0;width:100%;max-width:580px;}.process-step{display:grid;grid-template-columns:48px 1fr;gap:24px;padding:${processStepGap}px 0;border-bottom:1px solid ${processDividerColor};align-items:start;text-align:left;}.process-step:first-child{padding-top:0;}.step-num{font-family:var(--font-display);font-size:${stepNumeralSize}px;font-weight:300;color:var(--rosso);}.step-title{font-family:var(--font-display);font-size:${stepTitleSize}px;font-weight:400;color:var(--text-primary);margin-bottom:6px;}.step-text{font-family:var(--font-body);font-size:${stepTextSize}px;font-weight:300;color:var(--text-secondary);line-height:1.8;}.why{padding:${pagePadV}px ${pagePadH}px;justify-content:flex-start;align-items:${whyAlign==='center'?'center':'flex-start'};text-align:${whyAlign};}.why .page-heading{color:${colors.bgWarm};margin-bottom:40px;}.why-statement{font-family:var(--font-display);font-size:${statementSize}px;font-weight:300;font-style:italic;color:rgba(245,239,230,.7);line-height:1.5;max-width:${whyStatementMaxWidth}px;margin-bottom:56px;text-align:center;margin-left:auto;margin-right:auto;width:100%;}.why-pillars{display:flex;flex-direction:column;width:100%;max-width:580px;}.why-pillar{display:grid;grid-template-columns:${pillarGridWidth}px 1fr;gap:40px;padding:32px 0;border-top:1px solid ${whyPillarDividerColor};text-align:left;}.why-pillar-title{font-family:var(--font-display);font-size:${pillarTitleSize}px;font-weight:400;color:${colors.bgWarm};}.why-pillar-text{font-family:var(--font-body);font-size:${pillarTextSize}px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.8;}.founder{padding:${pagePadV}px ${pagePadH}px;justify-content:flex-start;align-items:${founderAlign==='center'?'center':'flex-start'};text-align:${founderAlign};}.founder-letter{font-family:var(--font-body);font-size:${letterFontSize}px;font-weight:300;color:var(--text-secondary);line-height:${founderLetterLineHeight};max-width:${letterMaxWidth}px;text-align:left;margin-left:auto;margin-right:auto;width:100%;}.founder-letter p{margin-bottom:20px;}.founder-closing{margin-top:40px;max-width:500px;text-align:left;margin-left:auto;margin-right:auto;width:100%;}.founder-closing-regards{font-family:var(--font-body);font-size:${letterFontSize}px;font-weight:300;color:var(--text-secondary);margin-bottom:28px;}.founder-signature{font-family:var(--font-display);font-size:${signatureSize}px;font-weight:300;font-style:italic;color:var(--text-primary);margin-bottom:8px;letter-spacing:.02em;}.founder-name{font-family:var(--font-body);font-size:14px;font-weight:400;color:var(--text-primary);letter-spacing:.08em;}.founder-title-role{font-family:var(--font-body);font-size:11px;font-weight:300;color:var(--text-tertiary);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;}.contact{justify-content:flex-start;align-items:${contactAlign==='center'?'center':'flex-start'};text-align:${contactAlign};padding:${pagePadV}px ${pagePadH}px;}.contact-monogram{font-family:var(--font-display);font-size:${contactMonogramSize}px;font-weight:300;color:var(--rosso);letter-spacing:.15em;margin-bottom:48px;}.contact .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.contact-detail{margin-bottom:${contactDetailGap}px;}.contact-detail-label{font-family:var(--font-body);font-size:10px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px;}.contact-detail-value{font-family:var(--font-display);font-size:${contactDetailValueSize}px;font-weight:300;color:${colors.bgWarm};}.contact-line{width:${contactLineWidth}px;height:1px;background:rgba(139,110,78,.4);margin:48px auto;}.contact-note{font-family:var(--font-body);font-size:${contactNoteSize}px;font-weight:300;color:rgba(245,239,230,.35);font-style:italic;}.contact-footer{position:absolute;bottom:40px;left:0;right:0;text-align:center;font-family:var(--font-body);font-size:10px;font-weight:300;letter-spacing:.15em;color:rgba(245,239,230,.2);}@media print{body{background:none;}.page{width:100%;height:100vh;margin:0;page-break-inside:avoid;}}${customCSS ? '\n' + customCSS : ''}</style></head><body>${pages}</body></html>`;
 }
 
 // IMAGE LIBRARY
