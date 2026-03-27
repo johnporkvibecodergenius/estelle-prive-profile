@@ -2664,7 +2664,7 @@ function generateHTML(){
     var r = {before:'', after:'', bgStyle:'', overlay:''};
     if (layout === 'none' || !url) return r;
     if (layout === 'background') {
-      r.bgStyle = "background:url('" + url + "') center/cover no-repeat;position:relative;";
+      r.bgStyle = "background-image:url('" + url + "');background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#1A1610;position:relative;";
       r.overlay = '<div style="position:absolute;inset:0;background:rgba(0,0,0,' + (1-opacity).toFixed(2) + ');z-index:0;"></div>';
       r.contentStyle = 'position:relative;z-index:1;';
       return r;
@@ -2866,7 +2866,7 @@ function generateHTML(){
     if (coverImg.bgStyle) {
       coverBgFull = coverImg.bgStyle;
     } else if (bgImageUrl) {
-      coverBgFull = "background:url('" + bgImageUrl + "') center/cover no-repeat;";
+      coverBgFull = "background-image:url('" + bgImageUrl + "');background-size:cover;background-position:center;background-color:#1A1610;";
     }
     const coverOverlayFull = coverImg.overlay || (bgImageUrl ? '<div style="position:absolute;inset:0;background:rgba(0,0,0,' + bgImageOpacity + ');z-index:0;"></div>' : coverOverlay);
     pages += `<div class="page cover" style="${coverBgFull}position:relative;">${coverOverlayFull}<div class="cover-inner" style="position:relative;z-index:1;">${coverLogoHTML}<div class="cover-line" style="background:${coverLineColor};"></div><div class="cover-name" style="font-size:${nameSize}px;color:${coverNameColor};">${esc(d.cover.name)}</div><div class="cover-tagline" style="color:${coverTaglineColor};">${esc(d.cover.tagline)}</div></div>${coverImg.after||''}</div>`;
