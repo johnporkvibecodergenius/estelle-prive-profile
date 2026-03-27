@@ -2549,7 +2549,9 @@ function updateTabNames(){
     if (tab) tab.textContent = label;
   }
 }
+var formReady=false;
 function populateForm(){
+  formReady=false;
   for(const[section,keys]of Object.entries(FIELDS)){
     for(const k of keys){const el=document.getElementById(section+'_'+k);if(el&&data[section])el.value=data[section][k]||'';}
   }
@@ -2557,8 +2559,10 @@ function populateForm(){
   try{populateDesign();}catch(e){console.warn('populateDesign error:',e);}
   try{populatePageStyles();}catch(e){console.warn('populatePageStyles error:',e);}
   updateTabNames();
+  formReady=true;
 }
 function readForm(){
+  if(!formReady)return;
   for(const[section,keys]of Object.entries(FIELDS)){
     for(const k of keys){const el=document.getElementById(section+'_'+k);if(el&&data[section])data[section][k]=el.value;}
   }
