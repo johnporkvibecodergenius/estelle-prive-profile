@@ -2865,16 +2865,17 @@ function generateHTML(){
   let pages = '';
 
   if (!hidden.includes('cover')) {
-    const coverImg = pageImage(coverStyle);
-    // Determine cover background: new image system takes priority, then old bgImage, then solid color
-    let coverBgFull = 'background:' + esc(coverBg) + ';';
-    if (coverImg.bgStyle) {
-      coverBgFull = coverImg.bgStyle;
-    } else if (bgImageUrl) {
-      coverBgFull = "background-image:url('" + bgImageUrl + "');background-size:cover;background-position:center;background-color:#1A1610;";
+    // Cover background: check imageUrl first, then bgImageUrl (old), then solid color
+    var coverImgUrl = coverStyle.imageUrl || bgImageUrl || '';
+    var coverImgLayout = coverStyle.imageLayout || 'none';
+    var coverImgOpacity = coverStyle.imageOpacity !== undefined ? coverStyle.imageOpacity : 1;
+    var coverPageStyle = 'background-color:' + (coverBg || '#1A1610') + ';position:relative;';
+    var coverOverlayDiv = '';
+    if (coverImgUrl && coverImgLayout === 'background') {
+      coverPageStyle = 'background-color:#1A1610;background-image:url(' + coverImgUrl + ');background-size:cover;background-position:center;background-repeat:no-repeat;position:relative;';
+      coverOverlayDiv = '<div style="position:absolute;inset:0;background:rgba(0,0,0,' + (1 - coverImgOpacity).toFixed(2) + ');z-index:0;"></div>';
     }
-    const coverOverlayFull = coverImg.overlay || (bgImageUrl ? '<div style="position:absolute;inset:0;background:rgba(0,0,0,' + bgImageOpacity + ');z-index:0;"></div>' : coverOverlay);
-    pages += `<div class="page cover" style="${coverBgFull}position:relative;">${coverOverlayFull}<div class="cover-inner" style="position:relative;z-index:1;">${coverLogoHTML}<div class="cover-line" style="background:${coverLineColor};"></div><div class="cover-name" style="font-size:${nameSize}px;color:${coverNameColor};">${esc(d.cover.name)}</div><div class="cover-tagline" style="color:${coverTaglineColor};">${esc(d.cover.tagline)}</div></div>${coverImg.after||''}</div>`;
+    pages += `<div class="page cover" style="${coverPageStyle}">${coverOverlayDiv}<div class="cover-inner" style="position:relative;z-index:1;">${coverLogoHTML}<div class="cover-line" style="background:${coverLineColor};"></div><div class="cover-name" style="font-size:${nameSize}px;color:${coverNameColor};">${esc(d.cover.name)}</div><div class="cover-tagline" style="color:${coverTaglineColor};">${esc(d.cover.tagline)}</div></div></div>`;
   }
 
   if (!hidden.includes('house')) {
@@ -3010,7 +3011,7 @@ buildSignaturePresets();
 function updatePreview(){readForm();document.getElementById('previewFrame').srcdoc=generateHTML();}
 document.getElementById('saveBtn').addEventListener('click',()=>{readForm();updatePreview();saveToFirestore();});
 document.getElementById('refreshBtn').addEventListener('click',()=>{loadFromFirestore();showToast('Refreshed from cloud');});
-document.getElementById('debugBtn').addEventListener('click',()=>{readForm();var html=generateHTML();var coverMatch=html.match(/class="page cover"[^>]*style="([^"]*)"/);var imgUrl=data.cover&&data.cover._style?data.cover._style.imageUrl:'NONE';var imgLayout=data.cover&&data.cover._style?data.cover._style.imageLayout:'NONE';alert('imageUrl: '+imgUrl+'\nimageLayout: '+imgLayout+'\ncover style attr: '+(coverMatch?coverMatch[1]:'NOT FOUND'));});
+document.getElementById('debugBtn').addEventListener('click',()=>{readForm();var html=generateHTML();var coverStart=html.indexOf('class="page cover"');var coverChunk=coverStart>-1?html.substring(coverStart,coverStart+400):'NOT FOUND';var imgUrl=data.cover&&data.cover._style?data.cover._style.imageUrl:'NONE';var imgLayout=data.cover&&data.cover._style?data.cover._style.imageLayout:'NONE';var w=window.open('','_blank');w.document.write('<pre>imageUrl: '+imgUrl+'\nimageLayout: '+imgLayout+'\n\nCover HTML:\n'+coverChunk.replace(/</g,'&lt;')+'</pre>');});
 document.getElementById('previewBtn').addEventListener('click',()=>{readForm();window.open(URL.createObjectURL(new Blob([generateHTML()],{type:'text/html'})),'_blank');});
 document.getElementById('downloadBtn').addEventListener('click',()=>{readForm();const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([generateHTML()],{type:'text/html'}));a.download=`${data.cover.name.replace(/\s+/g,'-').toLowerCase()}-profile.html`;a.click();});
 document.getElementById('exportBtn').addEventListener('click',()=>{readForm();const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));a.download=`profile-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();});
