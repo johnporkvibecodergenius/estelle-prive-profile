@@ -2761,9 +2761,27 @@ function generateHTML(){
   }
 
   if (!hidden.includes('founder')) {
-    const letterFontStyle = letterStyle === 'italic' ? 'font-style:italic;' : '';
     const founderImg = pageImage(founderStyle);
-    pages += `<div style="width:210mm;min-height:297mm;margin:0 auto;position:relative;overflow:visible;page-break-after:always;display:block;${founderImg.bgStyle||'background:'+ founderBg +';'}">${founderImg.overlay||''}${pageLogo(founderStyle, logoUrl, d.cover.monogram)}${founderImg.before}<div class="page-label" style="color:${founderLabelColor};">${esc(d.founder.label)}</div><h2 class="page-heading" style="color:${founderHeadingColor};">${esc(d.founder.heading)}<br><em style="color:${founderItalicColor};">${esc(d.founder.headingItalic)}</em></h2><div style="max-width:${letterMaxWidth}px;width:100%;text-align:left;${founderAlign==='center'?'margin-left:auto;margin-right:auto;':''}">${d.founder.paragraphs.map(p=>`<div style="margin:0 0 20px 0;font-family:var(--font-body);font-size:${letterFontSize}px;font-weight:300;color:${founderPageTextColor};line-height:${founderLetterLineHeight};${letterFontStyle}">${esc(p)}</div>`).join('')}</div>${founderShowDivider ? `<div style="width:${founderDividerWidth}px;height:1px;background:${founderDividerLineColor};margin:40px ${founderAlign==='center'?'auto':'0'};"></div>` : ''}<div class="founder-closing"><div class="founder-closing-regards" style="color:${founderClosingColor};">${esc(d.founder.closing)}</div><div class="founder-signature" style="color:${founderSignatureColor};">${signatureUrl ? `<img src="${signatureUrl}" alt="${esc(d.founder.signatureName)}" style="max-height:${signatureSize}px;object-fit:contain;">` : esc(d.founder.signatureName)}</div><div class="founder-name" style="color:${founderNameColor};">${esc(d.founder.signatureName)}</div><div class="founder-title-role" style="color:${founderRoleColor};">${esc(d.founder.role)}</div>${d.founder.companyLine ? `<div class="founder-company" style="font-family:var(--font-body);font-size:11px;font-weight:300;color:${founderRoleColor};letter-spacing:.1em;text-transform:uppercase;margin-top:2px;">${esc(d.founder.companyLine)}</div>` : ''}</div>${founderImg.after}</div>`;
+    const fBg = founderImg.bgStyle || ('background:' + founderBg + ';');
+    const fLetterStyle = letterStyle === 'italic' ? 'font-style:italic;' : '';
+    const fParagraphs = d.founder.paragraphs.map(function(p) {
+      return '<div style="margin-bottom:20px;">' + esc(p) + '</div>';
+    }).join('');
+    pages += '<div style="width:' + pageWidth + ';min-height:' + pageMinHeight + ';margin:0 auto;padding:' + pagePadV + 'px ' + pagePadH + 'px;' + fBg + 'page-break-after:always;">'
+      + '<div style="font-size:' + sectionLabelSize + 'px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:' + founderLabelColor + ';margin-bottom:40px;">' + esc(d.founder.label) + '</div>'
+      + '<div style="font-family:var(--font-display);font-size:' + headingSize + 'px;font-weight:300;color:' + founderHeadingColor + ';line-height:1.15;margin-bottom:48px;">' + esc(d.founder.heading) + '<br><span style="font-style:italic;color:' + founderItalicColor + ';">' + esc(d.founder.headingItalic) + '</span></div>'
+      + '<div style="max-width:' + letterMaxWidth + 'px;text-align:left;margin:0 auto;font-family:var(--font-body);font-size:' + letterFontSize + 'px;font-weight:300;color:' + founderPageTextColor + ';line-height:' + founderLetterLineHeight + ';' + fLetterStyle + '">'
+      + fParagraphs
+      + '</div>'
+      + (founderShowDivider ? '<div style="width:' + founderDividerWidth + 'px;height:1px;background:' + founderDividerLineColor + ';margin:40px auto;"></div>' : '')
+      + '<div style="margin-top:40px;max-width:' + letterMaxWidth + 'px;text-align:left;margin-left:auto;margin-right:auto;">'
+      + '<div style="color:' + founderClosingColor + ';margin-bottom:28px;font-size:' + letterFontSize + 'px;">' + esc(d.founder.closing) + '</div>'
+      + '<div style="font-family:var(--font-display);font-size:' + signatureSize + 'px;font-weight:300;font-style:italic;color:' + founderSignatureColor + ';margin-bottom:8px;letter-spacing:.02em;">' + (signatureUrl ? '<img src="' + signatureUrl + '" alt="' + esc(d.founder.signatureName) + '" style="max-height:' + signatureSize + 'px;object-fit:contain;">' : esc(d.founder.signatureName)) + '</div>'
+      + '<div style="font-size:14px;font-weight:400;color:' + founderNameColor + ';letter-spacing:.08em;">' + esc(d.founder.signatureName) + '</div>'
+      + '<div style="font-size:11px;font-weight:300;color:' + founderRoleColor + ';letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">' + esc(d.founder.role) + '</div>'
+      + (d.founder.companyLine ? '<div style="font-size:11px;font-weight:300;color:' + founderRoleColor + ';letter-spacing:.1em;text-transform:uppercase;margin-top:2px;">' + esc(d.founder.companyLine) + '</div>' : '')
+      + '</div>'
+      + '</div>';
   }
 
   if (!hidden.includes('contact')) {
