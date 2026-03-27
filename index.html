@@ -207,6 +207,12 @@
         </div>
         <hr class="section-divider">
         <div class="section-label">Logo Placement</div>
+        <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
+        <div class="field">
+          <label>Upload Page Logo</label>
+          <input type="file" id="cover_style_logoUpload" accept="image/*">
+          <div class="bg-image-preview" id="cover_logo_preview" style="width:120px;height:40px;margin-top:6px;"></div>
+        </div>
         <div class="field">
           <label>Logo Position</label>
           <select id="cover_style_logoPosition">
@@ -354,6 +360,12 @@
       </div>
         <hr class="section-divider">
         <div class="section-label">Logo Placement</div>
+        <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
+        <div class="field">
+          <label>Upload Page Logo</label>
+          <input type="file" id="house_style_logoUpload" accept="image/*">
+          <div class="bg-image-preview" id="house_logo_preview" style="width:120px;height:40px;margin-top:6px;"></div>
+        </div>
         <div class="field">
           <label>Logo Position</label>
           <select id="house_style_logoPosition">
@@ -547,6 +559,12 @@
       </div>
         <hr class="section-divider">
         <div class="section-label">Logo Placement</div>
+        <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
+        <div class="field">
+          <label>Upload Page Logo</label>
+          <input type="file" id="markets_style_logoUpload" accept="image/*">
+          <div class="bg-image-preview" id="markets_logo_preview" style="width:120px;height:40px;margin-top:6px;"></div>
+        </div>
         <div class="field">
           <label>Logo Position</label>
           <select id="markets_style_logoPosition">
@@ -691,6 +709,12 @@
       </div>
         <hr class="section-divider">
         <div class="section-label">Logo Placement</div>
+        <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
+        <div class="field">
+          <label>Upload Page Logo</label>
+          <input type="file" id="portfolio_style_logoUpload" accept="image/*">
+          <div class="bg-image-preview" id="portfolio_logo_preview" style="width:120px;height:40px;margin-top:6px;"></div>
+        </div>
         <div class="field">
           <label>Logo Position</label>
           <select id="portfolio_style_logoPosition">
@@ -857,6 +881,12 @@
       </div>
         <hr class="section-divider">
         <div class="section-label">Logo Placement</div>
+        <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
+        <div class="field">
+          <label>Upload Page Logo</label>
+          <input type="file" id="process_style_logoUpload" accept="image/*">
+          <div class="bg-image-preview" id="process_logo_preview" style="width:120px;height:40px;margin-top:6px;"></div>
+        </div>
         <div class="field">
           <label>Logo Position</label>
           <select id="process_style_logoPosition">
@@ -1042,6 +1072,12 @@
       </div>
         <hr class="section-divider">
         <div class="section-label">Logo Placement</div>
+        <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
+        <div class="field">
+          <label>Upload Page Logo</label>
+          <input type="file" id="why_style_logoUpload" accept="image/*">
+          <div class="bg-image-preview" id="why_logo_preview" style="width:120px;height:40px;margin-top:6px;"></div>
+        </div>
         <div class="field">
           <label>Logo Position</label>
           <select id="why_style_logoPosition">
@@ -1222,6 +1258,12 @@
       </div>
         <hr class="section-divider">
         <div class="section-label">Logo Placement</div>
+        <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
+        <div class="field">
+          <label>Upload Page Logo</label>
+          <input type="file" id="founder_style_logoUpload" accept="image/*">
+          <div class="bg-image-preview" id="founder_logo_preview" style="width:120px;height:40px;margin-top:6px;"></div>
+        </div>
         <div class="field">
           <label>Logo Position</label>
           <select id="founder_style_logoPosition">
@@ -1406,6 +1448,12 @@
       </div>
         <hr class="section-divider">
         <div class="section-label">Logo Placement</div>
+        <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
+        <div class="field">
+          <label>Upload Page Logo</label>
+          <input type="file" id="contact_style_logoUpload" accept="image/*">
+          <div class="bg-image-preview" id="contact_logo_preview" style="width:120px;height:40px;margin-top:6px;"></div>
+        </div>
         <div class="field">
           <label>Logo Position</label>
           <select id="contact_style_logoPosition">
@@ -1700,7 +1748,7 @@ function fsToJs(v){if(!v)return null;if(v.stringValue!==undefined)return v.strin
 function deepMerge(t,d){const o=Object.assign({},d);for(const k of Object.keys(t)){const v=t[k];if(v!==null&&v!==undefined&&typeof v==='object'&&!Array.isArray(v)&&d[k]&&typeof d[k]==='object')o[k]=deepMerge(v,d[k]);else if(v!==null&&v!==undefined)o[k]=v;}return o;}
 
 const DEFAULT_DATA = {
-  cover: { monogram:"EP", name:"Estelle Privé", tagline:"International Realty", _style: { bgColor:'', monogramSize:72, nameSize:52, bgImageUrl:'', bgImageOpacity:0.3, taglineSize:11, imageLayout:'none', imageUrl:'', imageOpacity:1, imageWidth:100, imageHeight:200, nameLetterSpacing:0.08, monogramLetterSpacing:0.15, monogramColor:'#8B6E4E', nameColor:'#F5EFE6', taglineColor:'#8B6E4E', lineColor:'#8B6E4E', lineWidth:48, logoPosition:'none', logoSize:40, logoOpacity:1 } },
+  cover: { monogram:"EP", name:"Estelle Privé", tagline:"International Realty", _style: { bgColor:'', monogramSize:72, nameSize:52, bgImageUrl:'', bgImageOpacity:0.3, taglineSize:11, imageLayout:'none', imageUrl:'', imageOpacity:1, imageWidth:100, imageHeight:200, nameLetterSpacing:0.08, monogramLetterSpacing:0.15, monogramColor:'#8B6E4E', nameColor:'#F5EFE6', taglineColor:'#8B6E4E', lineColor:'#8B6E4E', lineWidth:48, logoPosition:'none', logoSize:40, logoOpacity:1, logoUrl:'', logoUrl:'', logoUrl:'', logoUrl:'', logoUrl:'', logoUrl:'', logoUrl:'', logoUrl:'' } },
   house: {
     label:"The House", heading:"Discreet Excellence,", headingItalic:"Global Reach",
     p1:"Estelle Privé was founded on a singular conviction: that exceptional properties deserve exceptional representation. We operate at the intersection of private wealth advisory and curated real estate, offering a bespoke service to a discerning international clientele.",
@@ -2161,6 +2209,27 @@ function updateSignaturePreview() {
 (function(){var el=document.getElementById('founder_style_imageLayout');if(el)el.addEventListener('change',function(){if(!data.founder)data.founder={};if(!data.founder._style)data.founder._style={};data.founder._style.imageLayout=el.value;markUnsaved();});})();
 (function(){var el=document.getElementById('contact_style_imageLayout');if(el)el.addEventListener('change',function(){if(!data.contact)data.contact={};if(!data.contact._style)data.contact._style={};data.contact._style.imageLayout=el.value;markUnsaved();});})();
 
+// PAGE LOGO UPLOADS
+['cover','house','markets','portfolio','process','why','founder','contact'].forEach(function(page){
+  var uploadEl=document.getElementById(page+'_style_logoUpload');
+  if(uploadEl){
+    uploadEl.addEventListener('change',function(e){
+      var file=e.target.files[0];if(!file)return;
+      var reader=new FileReader();
+      reader.onload=function(){
+        if(!data[page])data[page]={};
+        if(!data[page]._style)data[page]._style={};
+        data[page]._style.logoUrl=reader.result;
+        var preview=document.getElementById(page+'_logo_preview');
+        if(preview)preview.innerHTML='<img src="'+reader.result+'" style="max-width:100%;max-height:100%;object-fit:contain;">';
+        markUnsaved();
+        showToast('Logo uploaded for '+page);
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+});
+
 // LOGO POSITION SELECT HANDLERS
 ['cover','house','markets','portfolio','process','why','founder','contact'].forEach(function(page){
   var el=document.getElementById(page+'_style_logoPosition');
@@ -2342,6 +2411,7 @@ function populatePageStyles() {
   _setVal('cover_style_logoPosition', cs.logoPosition || 'none');
   _setSlider('cover_style_logoSize', 'cover_style_logoSize_val', cs.logoSize || 40, 'px');
   _setSlider('cover_style_logoOpacity', 'cover_style_logoOpacity_val', cs.logoOpacity !== undefined ? cs.logoOpacity : 1, '');
+  var coverLogoPrev=document.getElementById('cover_logo_preview');if(coverLogoPrev){var lu=cs.logoUrl||'';if(lu){coverLogoPrev.innerHTML='<img src="'+lu+'" style="max-width:100%;max-height:100%;object-fit:contain;">';}else{coverLogoPrev.innerHTML='';}}
 
   // House
   const hs = (data.house && data.house._style) || DEFAULT_DATA.house._style || {};
@@ -2374,6 +2444,7 @@ function populatePageStyles() {
   _setVal('house_style_logoPosition', hs.logoPosition || 'none');
   _setSlider('house_style_logoSize', 'house_style_logoSize_val', hs.logoSize || 40, 'px');
   _setSlider('house_style_logoOpacity', 'house_style_logoOpacity_val', hs.logoOpacity !== undefined ? hs.logoOpacity : 1, '');
+  var houseLogoPrev=document.getElementById('house_logo_preview');if(houseLogoPrev){var lu=hs.logoUrl||'';if(lu){houseLogoPrev.innerHTML='<img src="'+lu+'" style="max-width:100%;max-height:100%;object-fit:contain;">';}else{houseLogoPrev.innerHTML='';}}
 
   // Markets
   const ms = (data.markets && data.markets._style) || DEFAULT_DATA.markets._style || {};
@@ -2400,6 +2471,7 @@ function populatePageStyles() {
   _setVal('markets_style_logoPosition', ms.logoPosition || 'none');
   _setSlider('markets_style_logoSize', 'markets_style_logoSize_val', ms.logoSize || 40, 'px');
   _setSlider('markets_style_logoOpacity', 'markets_style_logoOpacity_val', ms.logoOpacity !== undefined ? ms.logoOpacity : 1, '');
+  var marketsLogoPrev=document.getElementById('markets_logo_preview');if(marketsLogoPrev){var lu=ms.logoUrl||'';if(lu){marketsLogoPrev.innerHTML='<img src="'+lu+'" style="max-width:100%;max-height:100%;object-fit:contain;">';}else{marketsLogoPrev.innerHTML='';}}
 
   // Portfolio
   const ps = (data.portfolio && data.portfolio._style) || DEFAULT_DATA.portfolio._style || {};
@@ -2428,6 +2500,7 @@ function populatePageStyles() {
   _setVal('portfolio_style_logoPosition', ps.logoPosition || 'none');
   _setSlider('portfolio_style_logoSize', 'portfolio_style_logoSize_val', ps.logoSize || 40, 'px');
   _setSlider('portfolio_style_logoOpacity', 'portfolio_style_logoOpacity_val', ps.logoOpacity !== undefined ? ps.logoOpacity : 1, '');
+  var portfolioLogoPrev=document.getElementById('portfolio_logo_preview');if(portfolioLogoPrev){var lu=ps.logoUrl||'';if(lu){portfolioLogoPrev.innerHTML='<img src="'+lu+'" style="max-width:100%;max-height:100%;object-fit:contain;">';}else{portfolioLogoPrev.innerHTML='';}}
 
   // Process
   const prs = (data.process && data.process._style) || DEFAULT_DATA.process._style || {};
@@ -2460,6 +2533,7 @@ function populatePageStyles() {
   _setVal('process_style_logoPosition', prs.logoPosition || 'none');
   _setSlider('process_style_logoSize', 'process_style_logoSize_val', prs.logoSize || 40, 'px');
   _setSlider('process_style_logoOpacity', 'process_style_logoOpacity_val', prs.logoOpacity !== undefined ? prs.logoOpacity : 1, '');
+  var processLogoPrev=document.getElementById('process_logo_preview');if(processLogoPrev){var lu=prs.logoUrl||'';if(lu){processLogoPrev.innerHTML='<img src="'+lu+'" style="max-width:100%;max-height:100%;object-fit:contain;">';}else{processLogoPrev.innerHTML='';}}
 
   // Why
   const ws = (data.why && data.why._style) || DEFAULT_DATA.why._style || {};
@@ -2489,6 +2563,7 @@ function populatePageStyles() {
   _setVal('why_style_logoPosition', ws.logoPosition || 'none');
   _setSlider('why_style_logoSize', 'why_style_logoSize_val', ws.logoSize || 40, 'px');
   _setSlider('why_style_logoOpacity', 'why_style_logoOpacity_val', ws.logoOpacity !== undefined ? ws.logoOpacity : 1, '');
+  var whyLogoPrev=document.getElementById('why_logo_preview');if(whyLogoPrev){var lu=ws.logoUrl||'';if(lu){whyLogoPrev.innerHTML='<img src="'+lu+'" style="max-width:100%;max-height:100%;object-fit:contain;">';}else{whyLogoPrev.innerHTML='';}}
 
   // Founder
   const fds = (data.founder && data.founder._style) || DEFAULT_DATA.founder._style || {};
@@ -2521,6 +2596,7 @@ function populatePageStyles() {
   _setVal('founder_style_logoPosition', fds.logoPosition || 'none');
   _setSlider('founder_style_logoSize', 'founder_style_logoSize_val', fds.logoSize || 40, 'px');
   _setSlider('founder_style_logoOpacity', 'founder_style_logoOpacity_val', fds.logoOpacity !== undefined ? fds.logoOpacity : 1, '');
+  var founderLogoPrev=document.getElementById('founder_logo_preview');if(founderLogoPrev){var lu=fds.logoUrl||'';if(lu){founderLogoPrev.innerHTML='<img src="'+lu+'" style="max-width:100%;max-height:100%;object-fit:contain;">';}else{founderLogoPrev.innerHTML='';}}
 
   // Contact
   const cts = (data.contact && data.contact._style) || DEFAULT_DATA.contact._style || {};
@@ -2550,6 +2626,7 @@ function populatePageStyles() {
   _setVal('contact_style_logoPosition', cts.logoPosition || 'none');
   _setSlider('contact_style_logoSize', 'contact_style_logoSize_val', cts.logoSize || 40, 'px');
   _setSlider('contact_style_logoOpacity', 'contact_style_logoOpacity_val', cts.logoOpacity !== undefined ? cts.logoOpacity : 1, '');
+  var contactLogoPrev=document.getElementById('contact_logo_preview');if(contactLogoPrev){var lu=cts.logoUrl||'';if(lu){contactLogoPrev.innerHTML='<img src="'+lu+'" style="max-width:100%;max-height:100%;object-fit:contain;">';}else{contactLogoPrev.innerHTML='';}}
 }
 
 function readPageStyles() {
@@ -2953,11 +3030,12 @@ function generateHTML(){
   }
 
   // Page logo helper
-  function pageLogo(style, logoUrl, monogram) {
+  function pageLogo(style, globalLogoUrl, monogram) {
     var pos = style.logoPosition || 'none';
     if (pos === 'none') return '';
     var size = style.logoSize || 40;
     var opacity = style.logoOpacity !== undefined ? style.logoOpacity : 1;
+    var localLogo = style.logoUrl || globalLogoUrl || '';
     var posStyle = 'position:absolute;z-index:2;';
     if (pos === 'top-left') posStyle += 'top:24px;left:24px;';
     if (pos === 'top-center') posStyle += 'top:24px;left:50%;transform:translateX(-50%);';
@@ -2965,8 +3043,8 @@ function generateHTML(){
     if (pos === 'bottom-left') posStyle += 'bottom:24px;left:24px;';
     if (pos === 'bottom-center') posStyle += 'bottom:24px;left:50%;transform:translateX(-50%);';
     if (pos === 'bottom-right') posStyle += 'bottom:24px;right:24px;';
-    var content = logoUrl
-      ? '<img src="' + logoUrl + '" style="height:' + size + 'px;object-fit:contain;opacity:' + opacity + ';">'
+    var content = localLogo
+      ? '<img src="' + localLogo + '" style="height:' + size + 'px;object-fit:contain;opacity:' + opacity + ';">'
       : '<span style="font-family:var(--font-display);font-size:' + size + 'px;font-weight:300;color:var(--rosso);letter-spacing:.15em;opacity:' + opacity + ';">' + (monogram||'EP') + '</span>';
     return '<div style="' + posStyle + '">' + content + '</div>';
   }
@@ -3150,7 +3228,7 @@ function generateHTML(){
     var coverPageStyle = 'background-color:' + (coverBg || '#1A1610') + ';position:relative;';
     var coverOverlayDiv = '';
     if (coverImgUrl && coverImgLayout === 'background') {
-      coverPageStyle = 'background-color:#1A1610;background-image:url(' + coverImgUrl + ');background-size:cover;background-position:center;background-repeat:no-repeat;position:relative;';
+      coverPageStyle = 'background-color:#1A1610;background-image:url(' + coverImgUrl + ');background-size:cover;background-position:center;background-repeat:no-repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact;position:relative;';
       coverOverlayDiv = '<div style="position:absolute;inset:0;background:rgba(0,0,0,' + (1 - coverImgOpacity).toFixed(2) + ');z-index:0;"></div>';
     }
     pages += `<div class="page cover" style="${coverPageStyle}">${coverOverlayDiv}${pageLogo(coverStyle, logoUrl, d.cover.monogram)}<div class="cover-inner" style="position:relative;z-index:1;">${coverLogoHTML}<div class="cover-line" style="background:${coverLineColor};"></div><div class="cover-name" style="font-size:${nameSize}px;color:${coverNameColor};">${esc(d.cover.name)}</div><div class="cover-tagline" style="color:${coverTaglineColor};">${esc(d.cover.tagline)}</div></div></div>`;
@@ -3220,56 +3298,56 @@ function generateHTML(){
 
 // IMAGE LIBRARY
 var CURATED_IMAGES=[
-{url:'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80',label:'Hotel Infinity Pool',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&q=80',label:'Grand Hotel Lobby',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80',label:'Hotel at Night',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1200&q=80',label:'Boutique Suite',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1455587734955-081b22074882?w=1200&q=80',label:'Palace Hotel',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1200&q=80',label:'Resort Terrace',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1200&q=80',label:'Mediterranean Coast',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80',label:'Turquoise Beach',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=1200&q=80',label:'Coastal Cliffs',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&q=80',label:'Infinity Pool Resort',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1200&q=80',label:'Ocean Sunset',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1499678329028-101435549a4e?w=1200&q=80',label:'Beach Panorama',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200&q=80',label:'Lake Mountain View',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80',label:'Modern Villa',cat:'Villas'},
-{url:'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80',label:'Villa with Pool',cat:'Villas'},
-{url:'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80',label:'Contemporary Estate',cat:'Villas'},
-{url:'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1200&q=80',label:'Mediterranean Villa',cat:'Villas'},
-{url:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80',label:'Luxury Estate',cat:'Villas'},
-{url:'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80',label:'Villa Facade',cat:'Villas'},
-{url:'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80',label:'Penthouse View',cat:'Penthouses'},
-{url:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80',label:'Modern Interior',cat:'Interiors'},
-{url:'https://images.unsplash.com/photo-1505577058444-a3dab90d4253?w=1200&q=80',label:'Elegant Living Room',cat:'Interiors'},
-{url:'https://images.unsplash.com/photo-1416331108676-a22ccb276e35?w=1200&q=80',label:'Grand Hallway',cat:'Interiors'},
-{url:'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?w=1200&q=80',label:'Marble Bathroom',cat:'Interiors'},
-{url:'https://images.unsplash.com/photo-1586375300773-8384e3e4916f?w=1200&q=80',label:'Country Manor',cat:'Countryside'},
-{url:'https://images.unsplash.com/photo-1582610116397-edb318620f90?w=1200&q=80',label:'Heritage Estate',cat:'Countryside'},
-{url:'https://images.unsplash.com/photo-1573052905904-34ad8c27f0cc?w=1200&q=80',label:'Vineyard Estate',cat:'Countryside'},
-{url:'https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=1200&q=80',label:'Tuscan Villa',cat:'Countryside'},
+{url:'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=2400&q=90',label:'Hotel Infinity Pool',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=2400&q=90',label:'Grand Hotel Lobby',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=2400&q=90',label:'Hotel at Night',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=2400&q=90',label:'Boutique Suite',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1455587734955-081b22074882?w=2400&q=90',label:'Palace Hotel',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=2400&q=90',label:'Resort Terrace',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=2400&q=90',label:'Mediterranean Coast',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=2400&q=90',label:'Turquoise Beach',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=2400&q=90',label:'Coastal Cliffs',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=2400&q=90',label:'Infinity Pool Resort',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=2400&q=90',label:'Ocean Sunset',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1499678329028-101435549a4e?w=2400&q=90',label:'Beach Panorama',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=2400&q=90',label:'Lake Mountain View',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=2400&q=90',label:'Modern Villa',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=2400&q=90',label:'Villa with Pool',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=2400&q=90',label:'Contemporary Estate',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=2400&q=90',label:'Mediterranean Villa',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=2400&q=90',label:'Luxury Estate',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=2400&q=90',label:'Villa Facade',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=2400&q=90',label:'Penthouse View',cat:'Penthouses'},
+{url:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2400&q=90',label:'Modern Interior',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1505577058444-a3dab90d4253?w=2400&q=90',label:'Elegant Living Room',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1416331108676-a22ccb276e35?w=2400&q=90',label:'Grand Hallway',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?w=2400&q=90',label:'Marble Bathroom',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1586375300773-8384e3e4916f?w=2400&q=90',label:'Country Manor',cat:'Countryside'},
+{url:'https://images.unsplash.com/photo-1582610116397-edb318620f90?w=2400&q=90',label:'Heritage Estate',cat:'Countryside'},
+{url:'https://images.unsplash.com/photo-1573052905904-34ad8c27f0cc?w=2400&q=90',label:'Vineyard Estate',cat:'Countryside'},
+{url:'https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=2400&q=90',label:'Tuscan Villa',cat:'Countryside'},
 
-{url:'https://images.unsplash.com/photo-1602941525421-8f8b81d3edbb?w=1200&q=80',label:'Santorini View',cat:'Mediterranean'},
-{url:'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80',label:'Luxury Bedroom',cat:'Interiors'},
-{url:'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1200&q=80',label:'Poolside Villa',cat:'Villas'},
-{url:'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1200&q=80',label:'Tropical Beach',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?w=1200&q=80',label:'Amalfi Coast',cat:'Mediterranean'},
-{url:'https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=1200&q=80',label:'Dubai Skyline',cat:'City Views'},
-{url:'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80',label:'Modern Skyscraper',cat:'City Views'},
-{url:'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=1200&q=80',label:'Hotel Room View',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1200&q=80',label:'Luxury Hotel Room',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1200&q=80',label:'Resort Morning',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80',label:'Modern Kitchen',cat:'Interiors'},
-{url:'https://images.unsplash.com/photo-1577495508048-b635879837f1?w=1200&q=80',label:'Chandelier Hall',cat:'Interiors'},
-{url:'https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=1200&q=80',label:'White Villa',cat:'Villas'},
-{url:'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1200&q=80',label:'Overwater Bungalow',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1200&q=80',label:'Dubai Marina',cat:'City Views'},
-{url:'https://images.unsplash.com/photo-1549294413-26f195200c16?w=1200&q=80',label:'Monaco Harbor',cat:'Mediterranean'},
-{url:'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1200&q=80',label:'Maldives Paradise',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=1200&q=80',label:'Coastal Road',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=1200&q=80',label:'Ocean Waves',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1559599189-fe84dea4eb79?w=1200&q=80',label:'Greek Islands',cat:'Mediterranean'},
-{url:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80',label:'Dining Room',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1602941525421-8f8b81d3edbb?w=2400&q=90',label:'Santorini View',cat:'Mediterranean'},
+{url:'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=2400&q=90',label:'Luxury Bedroom',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=2400&q=90',label:'Poolside Villa',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=2400&q=90',label:'Tropical Beach',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?w=2400&q=90',label:'Amalfi Coast',cat:'Mediterranean'},
+{url:'https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=2400&q=90',label:'Dubai Skyline',cat:'City Views'},
+{url:'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=2400&q=90',label:'Modern Skyscraper',cat:'City Views'},
+{url:'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=2400&q=90',label:'Hotel Room View',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=2400&q=90',label:'Luxury Hotel Room',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=2400&q=90',label:'Resort Morning',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=2400&q=90',label:'Modern Kitchen',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1577495508048-b635879837f1?w=2400&q=90',label:'Chandelier Hall',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=2400&q=90',label:'White Villa',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=2400&q=90',label:'Overwater Bungalow',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1518684079-3c830dcef090?w=2400&q=90',label:'Dubai Marina',cat:'City Views'},
+{url:'https://images.unsplash.com/photo-1549294413-26f195200c16?w=2400&q=90',label:'Monaco Harbor',cat:'Mediterranean'},
+{url:'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=2400&q=90',label:'Maldives Paradise',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=2400&q=90',label:'Coastal Road',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=2400&q=90',label:'Ocean Waves',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1559599189-fe84dea4eb79?w=2400&q=90',label:'Greek Islands',cat:'Mediterranean'},
+{url:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=2400&q=90',label:'Dining Room',cat:'Interiors'},
 ];
 function buildImagePicker(containerId,page){var el=document.getElementById(containerId);if(!el)return;var html='';for(var i=0;i<CURATED_IMAGES.length;i++){var img=CURATED_IMAGES[i];html+='<div style="cursor:pointer;border:1px solid var(--border);overflow:hidden;" onclick="quickApplyImage(\''+page+'\',this.dataset.url)" data-url="'+img.url+'"><img src="'+img.url+'" alt="'+img.label+'" style="width:100%;height:60px;object-fit:cover;" loading="lazy"><div style="padding:3px 5px;font-size:8px;color:var(--text-muted);background:var(--bg);">'+img.label+'</div></div>';}el.innerHTML=html;}
 function quickApplyImage(page,url){if(!data[page])data[page]={};if(!data[page]._style)data[page]._style={};data[page]._style.imageUrl=url;if(!data[page]._style.imageLayout||data[page]._style.imageLayout==='none')data[page]._style.imageLayout='full-width';var layoutEl=document.getElementById(page+'_style_imageLayout');if(layoutEl&&layoutEl.value==='none')layoutEl.value='full-width';var urlEl=document.getElementById(page+'_style_imageUrl');if(urlEl)urlEl.value=url;updatePageImagePreview(page);markUnsaved();showToast('Image applied');}
