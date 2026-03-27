@@ -1466,35 +1466,7 @@ function updateLogoPreview() {
   }
 }
 
-// COVER BACKGROUND IMAGE UPLOAD
-document.getElementById('cover_style_bgImageUpload').addEventListener('change', function(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function() {
-    if (!data.cover._style) data.cover._style = {};
-    data.cover._style.bgImageUrl = reader.result;
-    updateCoverBgPreview();
-  _setVal('cover_style_imageLayout', cs.imageLayout || 'none');
-  _setVal('cover_style_imageUrl', (cs.imageUrl || ''));
-  _setSlider('cover_style_imageOpacity', 'cover_style_imageOpacity_val', cs.imageOpacity !== undefined ? cs.imageOpacity : 1, '');
-  _setSlider('cover_style_imageWidth', 'cover_style_imageWidth_val', cs.imageWidth || 100, '%');
-  _setSlider('cover_style_imageHeight', 'cover_style_imageHeight_val', cs.imageHeight || 200, 'px');
-  updatePageImagePreview('cover');
-    markUnsaved();
-  };
-  reader.readAsDataURL(file);
-});
-
-function updateCoverBgPreview() {
-  const preview = document.getElementById('cover_bgImage_preview');
-  const url = data.cover._style && data.cover._style.bgImageUrl;
-  if (url) {
-    preview.innerHTML = '<img src="' + url + '" alt="Background">';
-  } else {
-    preview.innerHTML = '';
-  }
-}
+// Cover background image handled by Page Image system
 
 // SIGNATURE IMAGE UPLOAD
 document.getElementById('founder_signatureUpload').addEventListener('change', function(e) {
