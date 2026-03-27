@@ -169,6 +169,32 @@
         <div class="field"><label>Company Name</label><input type="text" id="cover_name"></div>
         <div class="field"><label>Tagline</label><input type="text" id="cover_tagline"></div>
         <hr class="section-divider">
+        <div class="section-label">Page Image</div>
+        <div class="panel-desc">Click any image to apply it as the page background.</div>
+        <div id="cover_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
+        <div class="field">
+          <label>Image Layout</label>
+          <select id="cover_style_imageLayout">
+            <option value="none">No Image</option>
+            <option value="background">Background Image</option>
+            <option value="full-width">Full Width Banner</option>
+            <option value="small-center">Small Centered</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Image URL</label>
+          <input type="text" id="cover_style_imageUrl" placeholder="Use picker or upload above" readonly style="cursor:default;opacity:0.7;">
+        </div>
+        <div class="field">
+          <label>Upload Image</label>
+          <input type="file" id="cover_style_imageUpload" accept="image/*">
+          <div class="bg-image-preview" id="cover_image_preview" style="margin-top:6px;"></div>
+        </div>
+        <div class="field">
+          <label class="range-label">Image Opacity <span class="range-value" id="cover_style_imageOpacity_val">1</span></label>
+          <input type="range" id="cover_style_imageOpacity" min="0" max="1" step="0.05" value="1">
+        </div>
+        <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
           <label>Background Color Override</label>
@@ -255,6 +281,32 @@
         <div class="section-label">Statistics</div>
         <div id="statsRepeater"></div>
         <button class="repeater-add" onclick="addStat()">+ Add Stat</button>
+        <hr class="section-divider">
+        <div class="section-label">Page Image</div>
+        <div class="panel-desc">Click any image to apply it to this page.</div>
+        <div id="house_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
+        <div class="field">
+          <label>Image Layout</label>
+          <select id="house_style_imageLayout">
+            <option value="none">No Image</option>
+            <option value="background">Background Image</option>
+            <option value="full-width">Full Width Banner</option>
+            <option value="small-center">Small Centered</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Image URL</label>
+          <input type="text" id="house_style_imageUrl" placeholder="Use picker or upload above" readonly style="cursor:default;opacity:0.7;">
+        </div>
+        <div class="field">
+          <label>Upload Image</label>
+          <input type="file" id="house_style_imageUpload" accept="image/*">
+          <div class="bg-image-preview" id="house_image_preview" style="margin-top:6px;"></div>
+        </div>
+        <div class="field">
+          <label class="range-label">Image Opacity <span class="range-value" id="house_style_imageOpacity_val">1</span></label>
+          <input type="range" id="house_style_imageOpacity" min="0" max="1" step="0.05" value="1">
+        </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
@@ -363,6 +415,32 @@
         <div id="citiesRepeater"></div>
         <button class="repeater-add" onclick="addCity()">+ Add City</button>
         <hr class="section-divider">
+        <div class="section-label">Page Image</div>
+        <div class="panel-desc">Click any image to apply it to this page.</div>
+        <div id="markets_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
+        <div class="field">
+          <label>Image Layout</label>
+          <select id="markets_style_imageLayout">
+            <option value="none">No Image</option>
+            <option value="background">Background Image</option>
+            <option value="full-width">Full Width Banner</option>
+            <option value="small-center">Small Centered</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Image URL</label>
+          <input type="text" id="markets_style_imageUrl" placeholder="Use picker or upload above" readonly style="cursor:default;opacity:0.7;">
+        </div>
+        <div class="field">
+          <label>Upload Image</label>
+          <input type="file" id="markets_style_imageUpload" accept="image/*">
+          <div class="bg-image-preview" id="markets_image_preview" style="margin-top:6px;"></div>
+        </div>
+        <div class="field">
+          <label class="range-label">Image Opacity <span class="range-value" id="markets_style_imageOpacity_val">1</span></label>
+          <input type="range" id="markets_style_imageOpacity" min="0" max="1" step="0.05" value="1">
+        </div>
+        <hr class="section-divider">
         <div class="section-label">Layout</div>
         <div class="field">
           <label>Markets Layout Style</label>
@@ -441,6 +519,32 @@
         <div class="section-label">Verticals</div>
         <div id="verticalsRepeater"></div>
         <button class="repeater-add" onclick="addVertical()">+ Add Vertical</button>
+        <hr class="section-divider">
+        <div class="section-label">Page Image</div>
+        <div class="panel-desc">Click any image to apply it to this page.</div>
+        <div id="portfolio_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
+        <div class="field">
+          <label>Image Layout</label>
+          <select id="portfolio_style_imageLayout">
+            <option value="none">No Image</option>
+            <option value="background">Background Image</option>
+            <option value="full-width">Full Width Banner</option>
+            <option value="small-center">Small Centered</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Image URL</label>
+          <input type="text" id="portfolio_style_imageUrl" placeholder="Use picker or upload above" readonly style="cursor:default;opacity:0.7;">
+        </div>
+        <div class="field">
+          <label>Upload Image</label>
+          <input type="file" id="portfolio_style_imageUpload" accept="image/*">
+          <div class="bg-image-preview" id="portfolio_image_preview" style="margin-top:6px;"></div>
+        </div>
+        <div class="field">
+          <label class="range-label">Image Opacity <span class="range-value" id="portfolio_style_imageOpacity_val">1</span></label>
+          <input type="range" id="portfolio_style_imageOpacity" min="0" max="1" step="0.05" value="1">
+        </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
@@ -535,6 +639,32 @@
         <div class="section-label">Steps</div>
         <div id="stepsRepeater"></div>
         <button class="repeater-add" onclick="addStep()">+ Add Step</button>
+        <hr class="section-divider">
+        <div class="section-label">Page Image</div>
+        <div class="panel-desc">Click any image to apply it to this page.</div>
+        <div id="process_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
+        <div class="field">
+          <label>Image Layout</label>
+          <select id="process_style_imageLayout">
+            <option value="none">No Image</option>
+            <option value="background">Background Image</option>
+            <option value="full-width">Full Width Banner</option>
+            <option value="small-center">Small Centered</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Image URL</label>
+          <input type="text" id="process_style_imageUrl" placeholder="Use picker or upload above" readonly style="cursor:default;opacity:0.7;">
+        </div>
+        <div class="field">
+          <label>Upload Image</label>
+          <input type="file" id="process_style_imageUpload" accept="image/*">
+          <div class="bg-image-preview" id="process_image_preview" style="margin-top:6px;"></div>
+        </div>
+        <div class="field">
+          <label class="range-label">Image Opacity <span class="range-value" id="process_style_imageOpacity_val">1</span></label>
+          <input type="range" id="process_style_imageOpacity" min="0" max="1" step="0.05" value="1">
+        </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
@@ -649,6 +779,32 @@
         <div id="pillarsRepeater"></div>
         <button class="repeater-add" onclick="addPillar()">+ Add Pillar</button>
         <hr class="section-divider">
+        <div class="section-label">Page Image</div>
+        <div class="panel-desc">Click any image to apply it to this page.</div>
+        <div id="why_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
+        <div class="field">
+          <label>Image Layout</label>
+          <select id="why_style_imageLayout">
+            <option value="none">No Image</option>
+            <option value="background">Background Image</option>
+            <option value="full-width">Full Width Banner</option>
+            <option value="small-center">Small Centered</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Image URL</label>
+          <input type="text" id="why_style_imageUrl" placeholder="Use picker or upload above" readonly style="cursor:default;opacity:0.7;">
+        </div>
+        <div class="field">
+          <label>Upload Image</label>
+          <input type="file" id="why_style_imageUpload" accept="image/*">
+          <div class="bg-image-preview" id="why_image_preview" style="margin-top:6px;"></div>
+        </div>
+        <div class="field">
+          <label class="range-label">Image Opacity <span class="range-value" id="why_style_imageOpacity_val">1</span></label>
+          <input type="range" id="why_style_imageOpacity" min="0" max="1" step="0.05" value="1">
+        </div>
+        <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
           <label class="range-label">Statement Font Size <span class="range-value" id="why_style_statementSize_val">26px</span></label>
@@ -740,6 +896,32 @@
         <div class="field"><label>Closing Line</label><input type="text" id="founder_closing"></div>
         <div class="field"><label>Full Name (Signature)</label><input type="text" id="founder_signatureName"></div>
         <div class="field"><label>Title / Role</label><input type="text" id="founder_role"></div>
+        <hr class="section-divider">
+        <div class="section-label">Page Image</div>
+        <div class="panel-desc">Click any image to apply it to this page.</div>
+        <div id="founder_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
+        <div class="field">
+          <label>Image Layout</label>
+          <select id="founder_style_imageLayout">
+            <option value="none">No Image</option>
+            <option value="background">Background Image</option>
+            <option value="full-width">Full Width Banner</option>
+            <option value="small-center">Small Centered</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Image URL</label>
+          <input type="text" id="founder_style_imageUrl" placeholder="Use picker or upload above" readonly style="cursor:default;opacity:0.7;">
+        </div>
+        <div class="field">
+          <label>Upload Image</label>
+          <input type="file" id="founder_style_imageUpload" accept="image/*">
+          <div class="bg-image-preview" id="founder_image_preview" style="margin-top:6px;"></div>
+        </div>
+        <div class="field">
+          <label class="range-label">Image Opacity <span class="range-value" id="founder_style_imageOpacity_val">1</span></label>
+          <input type="range" id="founder_style_imageOpacity" min="0" max="1" step="0.05" value="1">
+        </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
@@ -852,6 +1034,32 @@
         <div class="field"><label>Website</label><input type="text" id="contact_website"></div>
         <div class="field"><label>Discretion Note</label><input type="text" id="contact_note"></div>
         <div class="field"><label>Copyright</label><input type="text" id="contact_copyright"></div>
+        <hr class="section-divider">
+        <div class="section-label">Page Image</div>
+        <div class="panel-desc">Click any image to apply it to this page.</div>
+        <div id="contact_imagePicker" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px;max-height:200px;overflow-y:auto;border:1px solid var(--border);padding:6px;"></div>
+        <div class="field">
+          <label>Image Layout</label>
+          <select id="contact_style_imageLayout">
+            <option value="none">No Image</option>
+            <option value="background">Background Image</option>
+            <option value="full-width">Full Width Banner</option>
+            <option value="small-center">Small Centered</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Image URL</label>
+          <input type="text" id="contact_style_imageUrl" placeholder="Use picker or upload above" readonly style="cursor:default;opacity:0.7;">
+        </div>
+        <div class="field">
+          <label>Upload Image</label>
+          <input type="file" id="contact_style_imageUpload" accept="image/*">
+          <div class="bg-image-preview" id="contact_image_preview" style="margin-top:6px;"></div>
+        </div>
+        <div class="field">
+          <label class="range-label">Image Opacity <span class="range-value" id="contact_style_imageOpacity_val">1</span></label>
+          <input type="range" id="contact_style_imageOpacity" min="0" max="1" step="0.05" value="1">
+        </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
@@ -1110,18 +1318,18 @@ function fsToJs(v){if(!v)return null;if(v.stringValue!==undefined)return v.strin
 function deepMerge(t,d){const o=Object.assign({},d);for(const k of Object.keys(t)){const v=t[k];if(v!==null&&v!==undefined&&typeof v==='object'&&!Array.isArray(v)&&d[k]&&typeof d[k]==='object')o[k]=deepMerge(v,d[k]);else if(v!==null&&v!==undefined)o[k]=v;}return o;}
 
 const DEFAULT_DATA = {
-  cover: { monogram:"EP", name:"Estelle Privé", tagline:"International Realty", _style: { bgColor:'', monogramSize:72, nameSize:52, bgImageUrl:'', bgImageOpacity:0.3, taglineSize:11, nameLetterSpacing:0.08, monogramLetterSpacing:0.15, monogramColor:'#8B6E4E', nameColor:'#F5EFE6', taglineColor:'#8B6E4E', lineColor:'#8B6E4E', lineWidth:48 } },
+  cover: { monogram:"EP", name:"Estelle Privé", tagline:"International Realty", _style: { bgColor:'', monogramSize:72, nameSize:52, bgImageUrl:'', bgImageOpacity:0.3, taglineSize:11, imageLayout:'none', imageUrl:'', imageOpacity:1, nameLetterSpacing:0.08, monogramLetterSpacing:0.15, monogramColor:'#8B6E4E', nameColor:'#F5EFE6', taglineColor:'#8B6E4E', lineColor:'#8B6E4E', lineWidth:48 } },
   house: {
     label:"The House", heading:"Discreet Excellence,", headingItalic:"Global Reach",
     p1:"Estelle Privé was founded on a singular conviction: that exceptional properties deserve exceptional representation. We operate at the intersection of private wealth advisory and curated real estate, offering a bespoke service to a discerning international clientele.",
     p2:"An international luxury real estate brokerage connecting discerning investors, private families, and institutional buyers with exceptional properties across the world's most coveted markets. From hotel acquisitions and branded residences to joint ventures and signature estates — we deliver curated opportunities backed by market intelligence, independent valuations, and a global network of developers, hotel operators, family offices, and institutional partners.",
     stats:[{number:"8",label:"Global Markets"},{number:"€2.4B",label:"Portfolio Value"},{number:"100%",label:"Private Clients"}],
-    _style: { bgColor:'', statNumberSize:36, statLabelSize:11, textMaxWidth:520, labelColor:'#8B6E4E', labelSize:10, headingColor:'#1A1610', headingSize:44, italicColor:'#8B6E4E', textColor:'#5C5244', textSize:15, statNumberColor:'#1A1610', statLabelColor:'#8A847C', textAlign:'center', statsGap:56, headingMarginBottom:48 },
+    _style: { bgColor:'', statNumberSize:36, statLabelSize:11, textMaxWidth:520, labelColor:'#8B6E4E', labelSize:10, headingColor:'#1A1610', headingSize:44, italicColor:'#8B6E4E', textColor:'#5C5244', textSize:15, statNumberColor:'#1A1610', statLabelColor:'#8A847C', textAlign:'center', statsGap:56, headingMarginBottom:48, imageLayout:'none', imageUrl:'', imageOpacity:1 },
   },
   markets: {
     label:"Our Markets", heading1:"The World's Most", heading2:"Coveted Addresses", subtitle:"From European grandeur to Asia-Pacific modernity, Estelle Privé curates properties in the world's most sought-after locations.",
     cities:["Monaco","Paris","London","Saint Tropez","Marbella","Dubai","Geneva"],
-    _style: { layout:'list', cityFontSize:30, dotColor:'', dotSize:6, cityPadding:24, labelColor:'#8B6E4E', headingColor:'#F5EFE6', cityColor:'#F5EFE6', textAlign:'center' },
+    _style: { layout:'list', cityFontSize:30, dotColor:'', dotSize:6, cityPadding:24, labelColor:'#8B6E4E', headingColor:'#F5EFE6', cityColor:'#F5EFE6', textAlign:'center', imageLayout:'none', imageUrl:'', imageOpacity:1 },
   },
   portfolio: {
     label:"The Portfolio", heading:"What We", headingItalic:"Do",
@@ -1132,7 +1340,7 @@ const DEFAULT_DATA = {
       {num:"04",title:"Iconic Residential",desc:"Private estates, waterfront villas, and sky residences in the world's most prestigious addresses. On-market and off-market opportunities curated for architectural merit, location prestige, and investment integrity."},
       {num:"05",title:"Corporate & Business",desc:"Strategic real estate advisory for multinational corporations, hotel brands, and institutional entities. Headquarters relocations, portfolio optimisation, and commercial asset transactions across key international markets."},
     ],
-    _style: { layout:'list', bgColor:'', vertNumSize:32, vertTitleSize:20, vertDescSize:13, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', vertNumColor:'#D5D3D0', vertTitleColor:'#1A1610', vertDescColor:'#5C5244', textAlign:'center' },
+    _style: { layout:'list', bgColor:'', vertNumSize:32, vertTitleSize:20, vertDescSize:13, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', vertNumColor:'#D5D3D0', vertTitleColor:'#1A1610', vertDescColor:'#5C5244', textAlign:'center', imageLayout:'none', imageUrl:'', imageOpacity:1 },
   },
   process: {
     label:"The Process", heading:"How We", headingItalic:"Work",
@@ -1143,7 +1351,7 @@ const DEFAULT_DATA = {
       {numeral:"III",title:"Discretion & Confidentiality",text:"Our most significant transactions never appear online. For our private clients, complete confidentiality is not a feature — it is the foundation of every relationship we build."},
       {numeral:"IV",title:"Execution & Completion",text:"From a single acquisition to a multi-asset portfolio strategy — bespoke advisory through to completion, across jurisdictions. We coordinate legal, financial, and operational workstreams to ensure seamless closing."},
     ],
-    _style: { bgColor:'', stepNumeralSize:28, stepTitleSize:19, stepTextSize:13, introMaxWidth:520, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', introColor:'#5C5244', introSize:15, stepNumeralColor:'#8B6E4E', stepTitleColor:'#1A1610', stepTextColor:'#5C5244', textAlign:'center', stepGap:28, dividerColor:'' },
+    _style: { bgColor:'', stepNumeralSize:28, stepTitleSize:19, stepTextSize:13, introMaxWidth:520, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', introColor:'#5C5244', introSize:15, stepNumeralColor:'#8B6E4E', stepTitleColor:'#1A1610', stepTextColor:'#5C5244', textAlign:'center', stepGap:28, dividerColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1 },
   },
   why: {
     label:"Why Us", heading1:"Why Invest", heading2:"With Estelle Privé",
@@ -1153,7 +1361,7 @@ const DEFAULT_DATA = {
       {title:"Decision-Maker Network",text:"Direct relationships with developers, hotel owners, sovereign wealth entities, and UHNW individuals across every market we operate in. No intermediaries. No delays."},
       {title:"Absolute Confidentiality",text:"Every transaction is handled with complete discretion. No public listings, no press coverage, no leaks. Your privacy is the foundation — not a feature."},
     ],
-    _style: { statementSize:26, pillarTitleSize:22, pillarTextSize:13.5, pillarGridWidth:180, labelColor:'#8B6E4E', headingColor:'#F5EFE6', statementColor:'#B5AFA7', pillarTitleColor:'#F5EFE6', pillarTextColor:'#8A847C', textAlign:'center', statementMaxWidth:480, pillarDividerColor:'' },
+    _style: { statementSize:26, pillarTitleSize:22, pillarTextSize:13.5, pillarGridWidth:180, labelColor:'#8B6E4E', headingColor:'#F5EFE6', statementColor:'#B5AFA7', pillarTitleColor:'#F5EFE6', pillarTextColor:'#8A847C', textAlign:'center', statementMaxWidth:480, pillarDividerColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1 },
   },
   founder: {
     label:"The Founder", heading:"A Personal", headingItalic:"Note",
@@ -1167,13 +1375,13 @@ const DEFAULT_DATA = {
     closing:"With warm regards,",
     signatureName:"Hani Y. Ayoub",
     role:"Founder & Managing Director — Estelle Privé",
-    _style: { letterStyle:'normal', bgColor:'', letterFontSize:14, signatureSize:36, letterMaxWidth:500, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', letterColor:'#5C5244', closingColor:'#5C5244', signatureColor:'#1A1610', nameColor:'#1A1610', roleColor:'#8A847C', textAlign:'center', letterLineHeight:2 },
+    _style: { letterStyle:'normal', bgColor:'', letterFontSize:14, signatureSize:36, letterMaxWidth:500, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', letterColor:'#5C5244', closingColor:'#5C5244', signatureColor:'#1A1610', nameColor:'#1A1610', roleColor:'#8A847C', textAlign:'center', letterLineHeight:2, imageLayout:'none', imageUrl:'', imageOpacity:1 },
   },
   contact: {
     label:"Get in Touch", monogram:"EP", heading1:"Begin a", heading2:"Conversation",
     email:"enquiries@estelleprive.com", website:"www.estelleprive.com",
     note:"All enquiries are treated with complete discretion.", copyright:"© 2026 Estelle Privé International",
-    _style: { bgColor:'', monogramSize:48, detailValueSize:22, noteSize:12, monogramColor:'#8B6E4E', headingColor:'#F5EFE6', detailLabelColor:'#8A847C', detailValueColor:'#F5EFE6', noteColor:'#8A847C', footerColor:'#F5EFE6', textAlign:'center', lineWidth:48, detailGap:32 },
+    _style: { bgColor:'', monogramSize:48, detailValueSize:22, noteSize:12, monogramColor:'#8B6E4E', headingColor:'#F5EFE6', detailLabelColor:'#8A847C', detailValueColor:'#F5EFE6', noteColor:'#8A847C', footerColor:'#F5EFE6', textAlign:'center', lineWidth:48, detailGap:32, imageLayout:'none', imageUrl:'', imageOpacity:1 },
   },
   design: {
     colors: { accent:'#8B6E4E', accentDeep:'#6B5239', bgLight:'#FDFAF6', bgWarm:'#F5EFE6', bgDark:'#1A1610', textPrimary:'#1A1610', textSecondary:'#5C5244', textMuted:'#8A847C', border:'#E8E3DC' },
@@ -1401,6 +1609,15 @@ const RANGE_FIELDS = [
   {id:'founder_style_letterLineHeight', valId:'founder_style_letterLineHeight_val', unit:''},
   {id:'contact_style_lineWidth', valId:'contact_style_lineWidth_val', unit:'px'},
   {id:'contact_style_detailGap', valId:'contact_style_detailGap_val', unit:'px'},
+  // Image opacity sliders
+  {id:'cover_style_imageOpacity', valId:'cover_style_imageOpacity_val', unit:''},
+  {id:'house_style_imageOpacity', valId:'house_style_imageOpacity_val', unit:''},
+  {id:'markets_style_imageOpacity', valId:'markets_style_imageOpacity_val', unit:''},
+  {id:'portfolio_style_imageOpacity', valId:'portfolio_style_imageOpacity_val', unit:''},
+  {id:'process_style_imageOpacity', valId:'process_style_imageOpacity_val', unit:''},
+  {id:'why_style_imageOpacity', valId:'why_style_imageOpacity_val', unit:''},
+  {id:'founder_style_imageOpacity', valId:'founder_style_imageOpacity_val', unit:''},
+  {id:'contact_style_imageOpacity', valId:'contact_style_imageOpacity_val', unit:''},
 ];
 
 RANGE_FIELDS.forEach(rf => {
@@ -1591,6 +1808,10 @@ function populatePageStyles() {
   _setColor('cover_style_taglineColor_picker', 'cover_style_taglineColor', cs.taglineColor || '#8B6E4E');
   _setColor('cover_style_lineColor_picker', 'cover_style_lineColor', cs.lineColor || '#8B6E4E');
   _setSlider('cover_style_lineWidth', 'cover_style_lineWidth_val', cs.lineWidth || 48, 'px');
+  _setVal('cover_style_imageLayout', cs.imageLayout || 'none');
+  _setVal('cover_style_imageUrl', (cs.imageUrl || ''));
+  _setSlider('cover_style_imageOpacity', 'cover_style_imageOpacity_val', cs.imageOpacity !== undefined ? cs.imageOpacity : 1, '');
+  updatePageImagePreview('cover');
 
   // House
   const hs = (data.house && data.house._style) || DEFAULT_DATA.house._style || {};
@@ -1610,6 +1831,10 @@ function populatePageStyles() {
   _setVal('house_style_textAlign', hs.textAlign || 'center');
   _setSlider('house_style_statsGap', 'house_style_statsGap_val', hs.statsGap || 56, 'px');
   _setSlider('house_style_headingMarginBottom', 'house_style_headingMarginBottom_val', hs.headingMarginBottom || 48, 'px');
+  _setVal('house_style_imageLayout', hs.imageLayout || 'none');
+  _setVal('house_style_imageUrl', (hs.imageUrl || ''));
+  _setSlider('house_style_imageOpacity', 'house_style_imageOpacity_val', hs.imageOpacity !== undefined ? hs.imageOpacity : 1, '');
+  updatePageImagePreview('house');
 
   // Markets
   const ms = (data.markets && data.markets._style) || DEFAULT_DATA.markets._style || {};
@@ -1622,6 +1847,10 @@ function populatePageStyles() {
   _setColor('markets_style_headingColor_picker', 'markets_style_headingColor', ms.headingColor || '#F5EFE6');
   _setColor('markets_style_cityColor_picker', 'markets_style_cityColor', ms.cityColor || '#F5EFE6');
   _setVal('markets_style_textAlign', ms.textAlign || 'center');
+  _setVal('markets_style_imageLayout', ms.imageLayout || 'none');
+  _setVal('markets_style_imageUrl', (ms.imageUrl || ''));
+  _setSlider('markets_style_imageOpacity', 'markets_style_imageOpacity_val', ms.imageOpacity !== undefined ? ms.imageOpacity : 1, '');
+  updatePageImagePreview('markets');
 
   // Portfolio
   const ps = (data.portfolio && data.portfolio._style) || DEFAULT_DATA.portfolio._style || {};
@@ -1637,6 +1866,10 @@ function populatePageStyles() {
   _setColor('portfolio_style_vertTitleColor_picker', 'portfolio_style_vertTitleColor', ps.vertTitleColor || '#1A1610');
   _setColor('portfolio_style_vertDescColor_picker', 'portfolio_style_vertDescColor', ps.vertDescColor || '#5C5244');
   _setVal('portfolio_style_textAlign', ps.textAlign || 'center');
+  _setVal('portfolio_style_imageLayout', ps.imageLayout || 'none');
+  _setVal('portfolio_style_imageUrl', (ps.imageUrl || ''));
+  _setSlider('portfolio_style_imageOpacity', 'portfolio_style_imageOpacity_val', ps.imageOpacity !== undefined ? ps.imageOpacity : 1, '');
+  updatePageImagePreview('portfolio');
 
   // Process
   const prs = (data.process && data.process._style) || DEFAULT_DATA.process._style || {};
@@ -1656,6 +1889,10 @@ function populatePageStyles() {
   _setVal('process_style_textAlign', prs.textAlign || 'center');
   _setSlider('process_style_stepGap', 'process_style_stepGap_val', prs.stepGap || 28, 'px');
   _setColor('process_style_dividerColor_picker', 'process_style_dividerColor', prs.dividerColor);
+  _setVal('process_style_imageLayout', prs.imageLayout || 'none');
+  _setVal('process_style_imageUrl', (prs.imageUrl || ''));
+  _setSlider('process_style_imageOpacity', 'process_style_imageOpacity_val', prs.imageOpacity !== undefined ? prs.imageOpacity : 1, '');
+  updatePageImagePreview('process');
 
   // Why
   const ws = (data.why && data.why._style) || DEFAULT_DATA.why._style || {};
@@ -1671,6 +1908,10 @@ function populatePageStyles() {
   _setVal('why_style_textAlign', ws.textAlign || 'center');
   _setSlider('why_style_statementMaxWidth', 'why_style_statementMaxWidth_val', ws.statementMaxWidth || 480, 'px');
   _setColor('why_style_pillarDividerColor_picker', 'why_style_pillarDividerColor', ws.pillarDividerColor);
+  _setVal('why_style_imageLayout', ws.imageLayout || 'none');
+  _setVal('why_style_imageUrl', (ws.imageUrl || ''));
+  _setSlider('why_style_imageOpacity', 'why_style_imageOpacity_val', ws.imageOpacity !== undefined ? ws.imageOpacity : 1, '');
+  updatePageImagePreview('why');
 
   // Founder
   const fds = (data.founder && data.founder._style) || DEFAULT_DATA.founder._style || {};
@@ -1689,6 +1930,10 @@ function populatePageStyles() {
   _setColor('founder_style_roleColor_picker', 'founder_style_roleColor', fds.roleColor || '#8A847C');
   _setVal('founder_style_textAlign', fds.textAlign || 'center');
   _setSlider('founder_style_letterLineHeight', 'founder_style_letterLineHeight_val', fds.letterLineHeight !== undefined ? fds.letterLineHeight : 2, '');
+  _setVal('founder_style_imageLayout', fds.imageLayout || 'none');
+  _setVal('founder_style_imageUrl', (fds.imageUrl || ''));
+  _setSlider('founder_style_imageOpacity', 'founder_style_imageOpacity_val', fds.imageOpacity !== undefined ? fds.imageOpacity : 1, '');
+  updatePageImagePreview('founder');
 
   // Contact
   const cts = (data.contact && data.contact._style) || DEFAULT_DATA.contact._style || {};
@@ -1705,6 +1950,10 @@ function populatePageStyles() {
   _setVal('contact_style_textAlign', cts.textAlign || 'center');
   _setSlider('contact_style_lineWidth', 'contact_style_lineWidth_val', cts.lineWidth || 48, 'px');
   _setSlider('contact_style_detailGap', 'contact_style_detailGap_val', cts.detailGap || 32, 'px');
+  _setVal('contact_style_imageLayout', cts.imageLayout || 'none');
+  _setVal('contact_style_imageUrl', (cts.imageUrl || ''));
+  _setSlider('contact_style_imageOpacity', 'contact_style_imageOpacity_val', cts.imageOpacity !== undefined ? cts.imageOpacity : 1, '');
+  updatePageImagePreview('contact');
 }
 
 function readPageStyles() {
@@ -1723,6 +1972,9 @@ function readPageStyles() {
   data.cover._style.taglineColor = _readVal('cover_style_taglineColor');
   data.cover._style.lineColor = _readVal('cover_style_lineColor');
   data.cover._style.lineWidth = _readInt('cover_style_lineWidth');
+  // imageLayout set by select onchange, not readForm
+  // imageUrl managed by quickApplyImage/upload, not text field
+  data.cover._style.imageOpacity = _readFloat('cover_style_imageOpacity');
 
   // House
   if (!data.house) data.house = {};
@@ -1743,6 +1995,9 @@ function readPageStyles() {
   data.house._style.textAlign = _readVal('house_style_textAlign');
   data.house._style.statsGap = _readInt('house_style_statsGap');
   data.house._style.headingMarginBottom = _readInt('house_style_headingMarginBottom');
+  // imageLayout set by select onchange, not readForm
+  // imageUrl managed by quickApplyImage/upload, not text field
+  data.house._style.imageOpacity = _readFloat('house_style_imageOpacity');
 
   // Markets
   if (!data.markets) data.markets = {};
@@ -1756,6 +2011,9 @@ function readPageStyles() {
   data.markets._style.headingColor = _readVal('markets_style_headingColor');
   data.markets._style.cityColor = _readVal('markets_style_cityColor');
   data.markets._style.textAlign = _readVal('markets_style_textAlign');
+  // imageLayout set by select onchange, not readForm
+  // imageUrl managed by quickApplyImage/upload, not text field
+  data.markets._style.imageOpacity = _readFloat('markets_style_imageOpacity');
 
   // Portfolio
   if (!data.portfolio) data.portfolio = {};
@@ -1772,6 +2030,9 @@ function readPageStyles() {
   data.portfolio._style.vertTitleColor = _readVal('portfolio_style_vertTitleColor');
   data.portfolio._style.vertDescColor = _readVal('portfolio_style_vertDescColor');
   data.portfolio._style.textAlign = _readVal('portfolio_style_textAlign');
+  // imageLayout set by select onchange, not readForm
+  // imageUrl managed by quickApplyImage/upload, not text field
+  data.portfolio._style.imageOpacity = _readFloat('portfolio_style_imageOpacity');
 
   // Process
   if (!data.process) data.process = {};
@@ -1792,6 +2053,9 @@ function readPageStyles() {
   data.process._style.textAlign = _readVal('process_style_textAlign');
   data.process._style.stepGap = _readInt('process_style_stepGap');
   data.process._style.dividerColor = _readVal('process_style_dividerColor');
+  // imageLayout set by select onchange, not readForm
+  // imageUrl managed by quickApplyImage/upload, not text field
+  data.process._style.imageOpacity = _readFloat('process_style_imageOpacity');
 
   // Why
   if (!data.why) data.why = {};
@@ -1808,6 +2072,9 @@ function readPageStyles() {
   data.why._style.textAlign = _readVal('why_style_textAlign');
   data.why._style.statementMaxWidth = _readInt('why_style_statementMaxWidth');
   data.why._style.pillarDividerColor = _readVal('why_style_pillarDividerColor');
+  // imageLayout set by select onchange, not readForm
+  // imageUrl managed by quickApplyImage/upload, not text field
+  data.why._style.imageOpacity = _readFloat('why_style_imageOpacity');
 
   // Founder
   if (!data.founder) data.founder = {};
@@ -1827,6 +2094,9 @@ function readPageStyles() {
   data.founder._style.roleColor = _readVal('founder_style_roleColor');
   data.founder._style.textAlign = _readVal('founder_style_textAlign');
   data.founder._style.letterLineHeight = _readFloat('founder_style_letterLineHeight');
+  // imageLayout set by select onchange, not readForm
+  // imageUrl managed by quickApplyImage/upload, not text field
+  data.founder._style.imageOpacity = _readFloat('founder_style_imageOpacity');
 
   // Contact
   if (!data.contact) data.contact = {};
@@ -1844,6 +2114,9 @@ function readPageStyles() {
   data.contact._style.textAlign = _readVal('contact_style_textAlign');
   data.contact._style.lineWidth = _readInt('contact_style_lineWidth');
   data.contact._style.detailGap = _readInt('contact_style_detailGap');
+  // imageLayout set by select onchange, not readForm
+  // imageUrl managed by quickApplyImage/upload, not text field
+  data.contact._style.imageOpacity = _readFloat('contact_style_imageOpacity');
 }
 
 function updateTabNames(){
@@ -1931,6 +2204,38 @@ function addLetterPara(){readForm();data.founder.paragraphs.push('');buildLetter
 function removeLetterPara(i){readForm();data.founder.paragraphs.splice(i,1);buildLetterParas();markUnsaved();}
 function moveLetterPara(i,d){readForm();const a=data.founder.paragraphs;[a[i],a[i+d]]=[a[i+d],a[i]];buildLetterParas();markUnsaved();}
 
+// PAGE IMAGE UPLOADS
+['cover','house','markets','portfolio','process','why','founder','contact'].forEach(page => {
+  const uploadEl = document.getElementById(page + '_style_imageUpload');
+  if (uploadEl) {
+    uploadEl.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function() {
+        if (!data[page]) data[page] = {};
+        if (!data[page]._style) data[page]._style = {};
+        data[page]._style.imageUrl = reader.result;
+        document.getElementById(page + '_style_imageUrl').value = reader.result.substring(0, 100) + (reader.result.length > 100 ? '...' : '');
+        updatePageImagePreview(page);
+        markUnsaved();
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+});
+
+function updatePageImagePreview(page) {
+  const preview = document.getElementById(page + '_image_preview');
+  const url = data[page] && data[page]._style && data[page]._style.imageUrl;
+  if (preview) {
+    if (url) {
+      preview.innerHTML = '<img src="' + url + '" alt="Preview" style="max-width:100%;max-height:100%;object-fit:cover;">';
+    } else {
+      preview.innerHTML = '';
+    }
+  }
+}
 
 // IMAGE LAYOUT SELECT HANDLERS
 (function(){var el=document.getElementById('cover_style_imageLayout');if(el)el.addEventListener('change',function(){if(!data.cover)data.cover={};if(!data.cover._style)data.cover._style={};data.cover._style.imageLayout=el.value;markUnsaved();});})();
@@ -1941,6 +2246,65 @@ function moveLetterPara(i,d){readForm();const a=data.founder.paragraphs;[a[i],a[
 (function(){var el=document.getElementById('why_style_imageLayout');if(el)el.addEventListener('change',function(){if(!data.why)data.why={};if(!data.why._style)data.why._style={};data.why._style.imageLayout=el.value;markUnsaved();});})();
 (function(){var el=document.getElementById('founder_style_imageLayout');if(el)el.addEventListener('change',function(){if(!data.founder)data.founder={};if(!data.founder._style)data.founder._style={};data.founder._style.imageLayout=el.value;markUnsaved();});})();
 (function(){var el=document.getElementById('contact_style_imageLayout');if(el)el.addEventListener('change',function(){if(!data.contact)data.contact={};if(!data.contact._style)data.contact._style={};data.contact._style.imageLayout=el.value;markUnsaved();});})();
+
+// IMAGE LIBRARY
+var CURATED_IMAGES=[
+{url:'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80',label:'Hotel Infinity Pool',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&q=80',label:'Grand Hotel Lobby',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80',label:'Hotel at Night',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1200&q=80',label:'Boutique Suite',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1455587734955-081b22074882?w=1200&q=80',label:'Palace Hotel',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1200&q=80',label:'Resort Terrace',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1200&q=80',label:'Mediterranean Coast',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80',label:'Turquoise Beach',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=1200&q=80',label:'Coastal Cliffs',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&q=80',label:'Infinity Pool Resort',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1200&q=80',label:'Ocean Sunset',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1499678329028-101435549a4e?w=1200&q=80',label:'Beach Panorama',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200&q=80',label:'Lake Mountain View',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80',label:'Modern Villa',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80',label:'Villa with Pool',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80',label:'Contemporary Estate',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1200&q=80',label:'Mediterranean Villa',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80',label:'Luxury Estate',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80',label:'Villa Facade',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80',label:'Penthouse View',cat:'Penthouses'},
+{url:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80',label:'Modern Interior',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1505577058444-a3dab90d4253?w=1200&q=80',label:'Elegant Living Room',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1416331108676-a22ccb276e35?w=1200&q=80',label:'Grand Hallway',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?w=1200&q=80',label:'Marble Bathroom',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1586375300773-8384e3e4916f?w=1200&q=80',label:'Country Manor',cat:'Countryside'},
+{url:'https://images.unsplash.com/photo-1582610116397-edb318620f90?w=1200&q=80',label:'Heritage Estate',cat:'Countryside'},
+{url:'https://images.unsplash.com/photo-1573052905904-34ad8c27f0cc?w=1200&q=80',label:'Vineyard Estate',cat:'Countryside'},
+{url:'https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=1200&q=80',label:'Tuscan Villa',cat:'Countryside'},
+{url:'https://images.unsplash.com/photo-1602941525421-8f8b81d3edbb?w=1200&q=80',label:'Santorini View',cat:'Mediterranean'},
+{url:'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80',label:'Luxury Bedroom',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1200&q=80',label:'Poolside Villa',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1200&q=80',label:'Tropical Beach',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?w=1200&q=80',label:'Amalfi Coast',cat:'Mediterranean'},
+{url:'https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=1200&q=80',label:'Dubai Skyline',cat:'City Views'},
+{url:'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80',label:'Modern Skyscraper',cat:'City Views'},
+{url:'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=1200&q=80',label:'Hotel Room View',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1200&q=80',label:'Luxury Hotel Room',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1200&q=80',label:'Resort Morning',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80',label:'Modern Kitchen',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1577495508048-b635879837f1?w=1200&q=80',label:'Chandelier Hall',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=1200&q=80',label:'White Villa',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1200&q=80',label:'Overwater Bungalow',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1200&q=80',label:'Dubai Marina',cat:'City Views'},
+{url:'https://images.unsplash.com/photo-1549294413-26f195200c16?w=1200&q=80',label:'Monaco Harbor',cat:'Mediterranean'},
+{url:'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1200&q=80',label:'Maldives Paradise',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=1200&q=80',label:'Coastal Road',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=1200&q=80',label:'Ocean Waves',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1559599189-fe84dea4eb79?w=1200&q=80',label:'Greek Islands',cat:'Mediterranean'},
+{url:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80',label:'Dining Room',cat:'Interiors'},
+];
+function buildImagePicker(containerId,page){var el=document.getElementById(containerId);if(!el)return;var html='';for(var i=0;i<CURATED_IMAGES.length;i++){var img=CURATED_IMAGES[i];html+='<div style="cursor:pointer;border:1px solid var(--border);overflow:hidden;" onclick="quickApplyImage(\''+page+'\',this.dataset.url)" data-url="'+img.url+'"><img src="'+img.url+'" alt="'+img.label+'" style="width:100%;height:60px;object-fit:cover;" loading="lazy"><div style="padding:3px 5px;font-size:8px;color:var(--text-muted);background:var(--bg);">'+img.label+'</div></div>';}el.innerHTML=html;}
+function quickApplyImage(page,url){if(!data[page])data[page]={};if(!data[page]._style)data[page]._style={};data[page]._style.imageUrl=url;if(!data[page]._style.imageLayout||data[page]._style.imageLayout==='none')data[page]._style.imageLayout='full-width';var layoutEl=document.getElementById(page+'_style_imageLayout');if(layoutEl&&layoutEl.value==='none')layoutEl.value='full-width';var urlEl=document.getElementById(page+'_style_imageUrl');if(urlEl)urlEl.value=url;updatePageImagePreview(page);markUnsaved();showToast('Image applied');}
+function buildImageLibrary(){var el=document.getElementById('imageLibrary');if(!el)return;var html='';for(var i=0;i<CURATED_IMAGES.length;i++){var img=CURATED_IMAGES[i];html+='<div style="cursor:pointer;border:1px solid var(--border);overflow:hidden;" onclick="navigator.clipboard.writeText(this.dataset.url).then(function(){showToast(\'URL copied\')})" data-url="'+img.url+'"><img src="'+img.url+'" alt="'+img.label+'" style="width:100%;height:80px;object-fit:cover;" loading="lazy"><div style="padding:4px 6px;font-size:9px;color:var(--text-muted);background:var(--bg);">'+img.cat+' \u2014 '+img.label+'</div></div>';}el.innerHTML=html;}
+function copyImageUrl(url){navigator.clipboard.writeText(url).then(function(){showToast('URL copied');});}
+buildImageLibrary();
+['cover','house','markets','portfolio','process','why','founder','contact'].forEach(function(p){buildImagePicker(p+'_imagePicker',p);});
 
 // GENERATE HTML
 function generateHTML(){
@@ -1997,6 +2361,30 @@ function generateHTML(){
   const whyStyle = (d.why && d.why._style) || {};
   const founderStyle = (d.founder && d.founder._style) || {};
   const contactStyle = (d.contact && d.contact._style) || {};
+
+  // Page image helper
+  function pageImage(style) {
+    var layout = style.imageLayout || 'none';
+    var url = style.imageUrl || '';
+    var opacity = style.imageOpacity !== undefined ? style.imageOpacity : 1;
+    var r = {before:'', after:'', bgStyle:'', overlay:'', contentStyle:''};
+    if (layout === 'none' || !url) return r;
+    if (layout === 'background') {
+      r.bgStyle = "background-image:url('" + url + "');background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#1A1610;position:relative;";
+      r.overlay = '<div style="position:absolute;inset:0;background:rgba(0,0,0,' + (1-opacity).toFixed(2) + ');z-index:0;"></div>';
+      r.contentStyle = 'position:relative;z-index:1;';
+      return r;
+    }
+    if (layout === 'full-width') {
+      r.after = '<div style="width:100%;margin:40px auto 0;max-width:100%;"><img src="' + url + '" style="width:100%;height:200px;object-fit:cover;opacity:' + opacity + ';display:block;"></div>';
+      return r;
+    }
+    if (layout === 'small-center') {
+      r.after = '<div style="width:100%;text-align:center;margin-top:40px;"><img src="' + url + '" style="width:60%;max-height:200px;object-fit:cover;opacity:' + opacity + ';"></div>';
+      return r;
+    }
+    return r;
+  }
 
   const coverBg = coverStyle.bgColor || colors.bgDark || '#1A1610';
   const monogramSize = coverStyle.monogramSize || 72;
@@ -2139,11 +2527,26 @@ function generateHTML(){
   let pages = '';
 
   if (!hidden.includes('cover')) {
-    pages += `<div class="page cover" style="background:${esc(coverBg)};${coverBgImageCSS}position:relative;">${coverOverlay}<div class="cover-inner" style="${coverInnerZ}">${coverLogoHTML}<div class="cover-line" style="background:${coverLineColor};"></div><div class="cover-name" style="font-size:${nameSize}px;color:${coverNameColor};">${esc(d.cover.name)}</div><div class="cover-tagline" style="color:${coverTaglineColor};">${esc(d.cover.tagline)}</div></div></div>`;
+    // Cover background: check imageUrl first, then bgImageUrl (old), then solid color
+    var coverImgUrl = coverStyle.imageUrl || bgImageUrl || '';
+    var coverImgLayout = coverStyle.imageLayout || 'none';
+    var coverImgOpacity = coverStyle.imageOpacity !== undefined ? coverStyle.imageOpacity : 1;
+    var coverPageStyle = 'background-color:' + (coverBg || '#1A1610') + ';position:relative;';
+    var coverOverlayDiv = '';
+    if (coverImgUrl && coverImgLayout === 'background') {
+      coverPageStyle = 'background-color:#1A1610;background-image:url(' + coverImgUrl + ');background-size:cover;background-position:center;background-repeat:no-repeat;position:relative;';
+      coverOverlayDiv = '<div style="position:absolute;inset:0;background:rgba(0,0,0,' + (1 - coverImgOpacity).toFixed(2) + ');z-index:0;"></div>';
+    } else if (!coverImgUrl) {
+      // Fallback to old bgImage system
+      coverPageStyle = 'background:' + esc(coverBg) + ';' + coverBgImageCSS + 'position:relative;';
+      coverOverlayDiv = coverOverlay;
+    }
+    pages += `<div class="page cover" style="${coverPageStyle}">${coverOverlayDiv}<div class="cover-inner" style="position:relative;z-index:1;">${coverLogoHTML}<div class="cover-line" style="background:${coverLineColor};"></div><div class="cover-name" style="font-size:${nameSize}px;color:${coverNameColor};">${esc(d.cover.name)}</div><div class="cover-tagline" style="color:${coverTaglineColor};">${esc(d.cover.tagline)}</div></div></div>`;
   }
 
   if (!hidden.includes('house')) {
-    pages += `<div class="page house"><div class="page-label" style="color:${houseLabelColor};font-size:${houseLabelSize}px;">${esc(d.house.label)}</div><h2 class="page-heading" style="color:${houseHeadingColor};font-size:${houseHeadingSize}px;margin-bottom:${houseHeadingMarginBottom}px;">${esc(d.house.heading)}<br><em style="color:${houseItalicColor};">${esc(d.house.headingItalic)}</em></h2><p class="page-text" style="color:${houseTextColor};font-size:${houseTextSize}px;">${esc(d.house.p1)}</p><p class="page-text" style="margin-top:20px;color:${houseTextColor};font-size:${houseTextSize}px;">${esc(d.house.p2)}</p><div class="house-stats">${d.house.stats.map(s=>`<div><div class="house-stat-number" style="color:${houseStatNumberColor};">${esc(s.number)}</div><div class="house-stat-label" style="color:${houseStatLabelColor};">${esc(s.label)}</div></div>`).join('')}</div></div>`;
+    const houseImg = pageImage(houseStyle);
+    pages += `<div class="page house" style="${houseImg.bgStyle||'background:'+ houseBg +';'}">${houseImg.overlay||''}${houseImg.before||''}<div style="${houseImg.contentStyle||''}"><div class="page-label" style="color:${houseLabelColor};font-size:${houseLabelSize}px;">${esc(d.house.label)}</div><h2 class="page-heading" style="color:${houseHeadingColor};font-size:${houseHeadingSize}px;margin-bottom:${houseHeadingMarginBottom}px;">${esc(d.house.heading)}<br><em style="color:${houseItalicColor};">${esc(d.house.headingItalic)}</em></h2><p class="page-text" style="color:${houseTextColor};font-size:${houseTextSize}px;">${esc(d.house.p1)}</p><p class="page-text" style="margin-top:20px;color:${houseTextColor};font-size:${houseTextSize}px;">${esc(d.house.p2)}</p><div class="house-stats">${d.house.stats.map(s=>`<div><div class="house-stat-number" style="color:${houseStatNumberColor};">${esc(s.number)}</div><div class="house-stat-label" style="color:${houseStatLabelColor};">${esc(s.label)}</div></div>`).join('')}</div>${houseImg.after||''}</div></div>`;
   }
 
   if (!hidden.includes('markets')) {
@@ -2167,28 +2570,34 @@ function generateHTML(){
     }
     const marketsSubNonElegant = (marketsLayout !== 'elegant' && d.markets.subtitle) ? `<p style="font-family:var(--font-body);font-size:14px;font-weight:300;color:${marketsCityColor};opacity:0.6;margin-bottom:40px;">${esc(d.markets.subtitle)}</p>` : '';
     const mAlign = marketsLayout === 'elegant' ? 'align-items:center;text-align:center;justify-content:center;' : '';
-    pages += `<div class="page markets" style="${mAlign}"><div class="page-label" style="color:${marketsLabelColor};${marketsLayout==='elegant'?'width:100%;':''}">${esc(d.markets.label)}</div><h2 class="page-heading" style="color:${marketsHeadingColor};${marketsLayout==='elegant'?'text-align:center;width:100%;':''}">${esc(d.markets.heading1)}<br>${esc(d.markets.heading2)}</h2>${marketsSubNonElegant}${marketsContent}</div>`;
+    const marketsImg = pageImage(marketsStyle);
+    pages += `<div class="page markets" style="${marketsImg.bgStyle||mAlign}">${marketsImg.overlay||''}${marketsImg.before||''}<div style="${marketsImg.contentStyle||''}"><div class="page-label" style="color:${marketsLabelColor};${marketsLayout==='elegant'?'width:100%;':''}">${esc(d.markets.label)}</div><h2 class="page-heading" style="color:${marketsHeadingColor};${marketsLayout==='elegant'?'text-align:center;width:100%;':''}">${esc(d.markets.heading1)}<br>${esc(d.markets.heading2)}</h2>${marketsSubNonElegant}${marketsContent}${marketsImg.after||''}</div></div>`;
   }
 
   if (!hidden.includes('portfolio')) {
-    pages += `<div class="page portfolio"><div class="page-label" style="color:${portfolioLabelColor};">${esc(d.portfolio.label)}</div><h2 class="page-heading" style="color:${portfolioHeadingColor};">${esc(d.portfolio.heading)} <em style="color:${portfolioItalicColor};">${esc(d.portfolio.headingItalic)}</em></h2><div class="portfolio-items">${d.portfolio.verticals.map(v=>`<div class="portfolio-item"><div class="portfolio-num">${esc(v.num)}</div><div><div class="portfolio-title">${esc(v.title)}</div><p class="portfolio-desc">${esc(v.desc)}</p></div></div>`).join('')}</div></div>`;
+    const portfolioImg = pageImage(portfolioStyle);
+    pages += `<div class="page portfolio" style="${portfolioImg.bgStyle||'background:'+ portfolioBg +';'}">${portfolioImg.overlay||''}${portfolioImg.before||''}<div style="${portfolioImg.contentStyle||''}"><div class="page-label" style="color:${portfolioLabelColor};">${esc(d.portfolio.label)}</div><h2 class="page-heading" style="color:${portfolioHeadingColor};">${esc(d.portfolio.heading)} <em style="color:${portfolioItalicColor};">${esc(d.portfolio.headingItalic)}</em></h2><div class="portfolio-items">${d.portfolio.verticals.map(v=>`<div class="portfolio-item"><div class="portfolio-num">${esc(v.num)}</div><div><div class="portfolio-title">${esc(v.title)}</div><p class="portfolio-desc">${esc(v.desc)}</p></div></div>`).join('')}</div>${portfolioImg.after||''}</div></div>`;
   }
 
   if (!hidden.includes('process')) {
-    pages += `<div class="page process"><div class="page-label" style="color:${processLabelColor};">${esc(d.process.label)}</div><h2 class="page-heading" style="color:${processHeadingColor};">${esc(d.process.heading)} <em style="color:${processItalicColor};">${esc(d.process.headingItalic)}</em></h2><p class="process-intro" style="color:${processIntroColor};font-size:${processIntroSize}px;">${esc(d.process.intro)}</p><div class="process-steps">${d.process.steps.map(s=>`<div class="process-step"><div class="step-num" style="color:${processStepNumeralColor};">${esc(s.numeral)}</div><div><div class="step-title" style="color:${processStepTitleColor};">${esc(s.title)}</div><p class="step-text" style="color:${processStepTextColor};">${esc(s.text)}</p></div></div>`).join('')}</div></div>`;
+    const processImg = pageImage(processStyle);
+    pages += `<div class="page process" style="${processImg.bgStyle||'background:'+ processBg +';'}">${processImg.overlay||''}${processImg.before||''}<div style="${processImg.contentStyle||''}"><div class="page-label" style="color:${processLabelColor};">${esc(d.process.label)}</div><h2 class="page-heading" style="color:${processHeadingColor};">${esc(d.process.heading)} <em style="color:${processItalicColor};">${esc(d.process.headingItalic)}</em></h2><p class="process-intro" style="color:${processIntroColor};font-size:${processIntroSize}px;">${esc(d.process.intro)}</p><div class="process-steps">${d.process.steps.map(s=>`<div class="process-step"><div class="step-num" style="color:${processStepNumeralColor};">${esc(s.numeral)}</div><div><div class="step-title" style="color:${processStepTitleColor};">${esc(s.title)}</div><p class="step-text" style="color:${processStepTextColor};">${esc(s.text)}</p></div></div>`).join('')}</div>${processImg.after||''}</div></div>`;
   }
 
   if (!hidden.includes('why')) {
-    pages += `<div class="page why"><div class="page-label" style="color:${whyLabelColor};">${esc(d.why.label)}</div><h2 class="page-heading" style="color:${whyHeadingColor};">${esc(d.why.heading1)}<br>${esc(d.why.heading2)}</h2><p class="why-statement" style="font-size:${statementSize}px;color:${whyStatementColor};">${esc(d.why.statement)}</p><div class="why-pillars">${d.why.pillars.map(p=>`<div class="why-pillar"><div class="why-pillar-title" style="color:${whyPillarTitleColor};">${esc(p.title)}</div><p class="why-pillar-text" style="color:${whyPillarTextColor};">${esc(p.text)}</p></div>`).join('')}</div></div>`;
+    const whyImg = pageImage(whyStyle);
+    pages += `<div class="page why" style="${whyImg.bgStyle||''}">${whyImg.overlay||''}${whyImg.before||''}<div style="${whyImg.contentStyle||''}"><div class="page-label" style="color:${whyLabelColor};">${esc(d.why.label)}</div><h2 class="page-heading" style="color:${whyHeadingColor};">${esc(d.why.heading1)}<br>${esc(d.why.heading2)}</h2><p class="why-statement" style="font-size:${statementSize}px;color:${whyStatementColor};">${esc(d.why.statement)}</p><div class="why-pillars">${d.why.pillars.map(p=>`<div class="why-pillar"><div class="why-pillar-title" style="color:${whyPillarTitleColor};">${esc(p.title)}</div><p class="why-pillar-text" style="color:${whyPillarTextColor};">${esc(p.text)}</p></div>`).join('')}</div>${whyImg.after||''}</div></div>`;
   }
 
   if (!hidden.includes('founder')) {
     const letterFontStyle = letterStyle === 'italic' ? 'font-style:italic;' : '';
-    pages += `<div class="page founder"><div class="page-label" style="color:${founderLabelColor};">${esc(d.founder.label)}</div><h2 class="page-heading" style="color:${founderHeadingColor};">${esc(d.founder.heading)}<br><em style="color:${founderItalicColor};">${esc(d.founder.headingItalic)}</em></h2><div class="founder-letter" style="${letterFontStyle}color:${founderLetterColor};">${d.founder.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div><div class="founder-closing"><div class="founder-closing-regards" style="color:${founderClosingColor};">${esc(d.founder.closing)}</div><div class="founder-signature" style="color:${founderSignatureColor};">${esc(d.founder.signatureName)}</div><div class="founder-name" style="color:${founderNameColor};">${esc(d.founder.signatureName)}</div><div class="founder-title-role" style="color:${founderRoleColor};">${esc(d.founder.role)}</div></div></div>`;
+    const founderImg = pageImage(founderStyle);
+    pages += `<div class="page founder" style="${founderImg.bgStyle||''}">${founderImg.overlay||''}${founderImg.before||''}<div style="${founderImg.contentStyle||''}"><div class="page-label" style="color:${founderLabelColor};">${esc(d.founder.label)}</div><h2 class="page-heading" style="color:${founderHeadingColor};">${esc(d.founder.heading)}<br><em style="color:${founderItalicColor};">${esc(d.founder.headingItalic)}</em></h2><div class="founder-letter" style="${letterFontStyle}color:${founderLetterColor};">${d.founder.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div><div class="founder-closing"><div class="founder-closing-regards" style="color:${founderClosingColor};">${esc(d.founder.closing)}</div><div class="founder-signature" style="color:${founderSignatureColor};">${esc(d.founder.signatureName)}</div><div class="founder-name" style="color:${founderNameColor};">${esc(d.founder.signatureName)}</div><div class="founder-title-role" style="color:${founderRoleColor};">${esc(d.founder.role)}</div></div>${founderImg.after||''}</div></div>`;
   }
 
   if (!hidden.includes('contact')) {
-    pages += `<div class="page contact" style="background:${esc(contactBg)};">${contactLogoHTML}<h2 class="page-heading" style="color:${contactHeadingColor};">${esc(d.contact.heading1)}<br>${esc(d.contact.heading2)}</h2><div class="contact-detail"><div class="contact-detail-label" style="color:${contactDetailLabelColor};">Email</div><div class="contact-detail-value" style="color:${contactDetailValueColor};">${esc(d.contact.email)}</div></div><div class="contact-detail"><div class="contact-detail-label" style="color:${contactDetailLabelColor};">Web</div><div class="contact-detail-value" style="color:${contactDetailValueColor};">${esc(d.contact.website)}</div></div><div class="contact-line"></div><div class="contact-note" style="color:${contactNoteColor};">${esc(d.contact.note)}</div><div class="contact-footer" style="color:${contactFooterColor};">${esc(d.contact.copyright)}</div></div>`;
+    const contactImg = pageImage(contactStyle);
+    pages += `<div class="page contact" style="${contactImg.bgStyle||'background:'+esc(contactBg)+';'}">${contactImg.overlay||''}${contactImg.before||''}<div style="${contactImg.contentStyle||''}">${contactLogoHTML}<h2 class="page-heading" style="color:${contactHeadingColor};">${esc(d.contact.heading1)}<br>${esc(d.contact.heading2)}</h2><div class="contact-detail"><div class="contact-detail-label" style="color:${contactDetailLabelColor};">Email</div><div class="contact-detail-value" style="color:${contactDetailValueColor};">${esc(d.contact.email)}</div></div><div class="contact-detail"><div class="contact-detail-label" style="color:${contactDetailLabelColor};">Web</div><div class="contact-detail-value" style="color:${contactDetailValueColor};">${esc(d.contact.website)}</div></div><div class="contact-line"></div><div class="contact-note" style="color:${contactNoteColor};">${esc(d.contact.note)}</div><div class="contact-footer" style="color:${contactFooterColor};">${esc(d.contact.copyright)}</div>${contactImg.after||''}</div></div>`;
   }
 
   const displayFallback = displayFont.includes('Garamond') || displayFont.includes('Baskerville') || displayFont.includes('Crimson') ? "'Georgia', serif" : "'Georgia', serif";
