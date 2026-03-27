@@ -166,6 +166,7 @@
       <div class="panel active" id="panel-cover">
         <div class="panel-title">Cover Page</div>
         <div class="panel-desc">Name, mark, tagline. Nothing else.</div>
+        <button class="repeater-btn" onclick="resetPageStyle('cover')" style="margin-bottom:12px;">Reset Cover Styling to Defaults</button>
         <div class="field"><label>Monogram</label><input type="text" id="cover_monogram"></div>
         <div class="field"><label>Company Name</label><input type="text" id="cover_name"></div>
         <div class="field"><label>Tagline</label><input type="text" id="cover_tagline"></div>
@@ -279,6 +280,7 @@
       <div class="panel" id="panel-house">
         <div class="panel-title">The House</div>
         <div class="panel-desc">Who you are, what you stand for.</div>
+        <button class="repeater-btn" onclick="resetPageStyle('house')" style="margin-bottom:12px;">Reset The House Styling to Defaults</button>
         <div class="field"><label>Section Label</label><input type="text" id="house_label"></div>
         <div class="field-row">
           <div class="field"><label>Heading</label><input type="text" id="house_heading"></div>
@@ -436,6 +438,7 @@
       <div class="panel" id="panel-markets">
         <div class="panel-title">Our Markets</div>
         <div class="panel-desc">The cities. No fluff, just the addresses.</div>
+        <button class="repeater-btn" onclick="resetPageStyle('markets')" style="margin-bottom:12px;">Reset Our Markets Styling to Defaults</button>
         <div class="field"><label>Section Label</label><input type="text" id="markets_label"></div>
         <div class="field-row">
           <div class="field"><label>Heading Line 1</label><input type="text" id="markets_heading1"></div>
@@ -572,6 +575,7 @@
       <div class="panel" id="panel-portfolio">
         <div class="panel-title">The Portfolio</div>
         <div class="panel-desc">Property categories you operate in. Show the range.</div>
+        <button class="repeater-btn" onclick="resetPageStyle('portfolio')" style="margin-bottom:12px;">Reset The Portfolio Styling to Defaults</button>
         <div class="field"><label>Section Label</label><input type="text" id="portfolio_label"></div>
         <div class="field-row">
           <div class="field"><label>Heading</label><input type="text" id="portfolio_heading"></div>
@@ -714,6 +718,7 @@
       <div class="panel" id="panel-process">
         <div class="panel-title">The Process</div>
         <div class="panel-desc">How a client engagement looks.</div>
+        <button class="repeater-btn" onclick="resetPageStyle('process')" style="margin-bottom:12px;">Reset The Process Styling to Defaults</button>
         <div class="field"><label>Section Label</label><input type="text" id="process_label"></div>
         <div class="field-row">
           <div class="field"><label>Heading</label><input type="text" id="process_heading"></div>
@@ -876,6 +881,7 @@
       <div class="panel" id="panel-why">
         <div class="panel-title">Why Us</div>
         <div class="panel-desc">Make investors want in. Strike them.</div>
+        <button class="repeater-btn" onclick="resetPageStyle('why')" style="margin-bottom:12px;">Reset Why Us Styling to Defaults</button>
         <div class="field"><label>Section Label</label><input type="text" id="why_label"></div>
         <div class="field-row">
           <div class="field"><label>Heading Line 1</label><input type="text" id="why_heading1"></div>
@@ -1020,6 +1026,7 @@
       <div class="panel" id="panel-founder">
         <div class="panel-title">The Founder</div>
         <div class="panel-desc">Personal letter from the founder. Reads like a contract letter.</div>
+        <button class="repeater-btn" onclick="resetPageStyle('founder')" style="margin-bottom:12px;">Reset The Founder Styling to Defaults</button>
         <div class="field"><label>Section Label</label><input type="text" id="founder_label"></div>
         <div class="field-row">
           <div class="field"><label>Heading</label><input type="text" id="founder_heading"></div>
@@ -1193,6 +1200,7 @@
       <div class="panel" id="panel-contact">
         <div class="panel-title">Contact</div>
         <div class="panel-desc">One email. One website. That's it.</div>
+        <button class="repeater-btn" onclick="resetPageStyle('contact')" style="margin-bottom:12px;">Reset Contact Styling to Defaults</button>
         <div class="field"><label>Section Label</label><input type="text" id="contact_label"></div>
         <div class="field"><label>Monogram</label><input type="text" id="contact_monogram"></div>
         <div class="field-row">
@@ -3002,6 +3010,16 @@ document.getElementById('importFile').addEventListener('change',e=>{const f=e.ta
 let previewTimer;
 document.addEventListener('input',e=>{if(e.target.closest('.sidebar')){clearTimeout(previewTimer);previewTimer=setTimeout(()=>{updatePreview();updateTabNames();},800);}});
 function showToast(m,err){const t=document.getElementById('toast');t.textContent=m;t.className='toast '+(err?'toast-error':'toast-success')+' show';setTimeout(()=>t.classList.remove('show'),3000);}
+
+// RESET PAGE STYLE
+function resetPageStyle(page){
+  if(!confirm('Reset all styling on this page to defaults? Content will be kept.'))return;
+  if(data[page]&&DEFAULT_DATA[page]&&DEFAULT_DATA[page]._style){
+    data[page]._style=JSON.parse(JSON.stringify(DEFAULT_DATA[page]._style));
+  }
+  populateForm();updatePreview();markUnsaved();
+  showToast(page+' styling reset to defaults');
+}
 
 // AUTO-SYNC: poll Firestore every 30s to pick up other admins' changes
 var lastSyncHash='';
