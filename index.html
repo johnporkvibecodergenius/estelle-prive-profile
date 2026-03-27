@@ -185,7 +185,7 @@
         </div>
         <div class="field">
           <label>Image URL</label>
-          <input type="text" id="cover_style_imageUrl" placeholder="Paste URL or upload">
+          <input type="text" id="cover_style_imageUrl" placeholder="Use picker or upload above" readonly style="cursor:default;opacity:0.7;">
         </div>
         <div class="field">
           <label>Upload Image</label>
@@ -309,7 +309,7 @@
         </div>
         <div class="field">
           <label>Image URL</label>
-          <input type="text" id="house_style_imageUrl" placeholder="Paste URL or upload">
+          <input type="text" id="house_style_imageUrl" placeholder="Use picker or upload above" readonly style="cursor:default;opacity:0.7;">
         </div>
         <div class="field">
           <label>Upload Image</label>
@@ -480,7 +480,7 @@
         </div>
         <div class="field">
           <label>Image URL</label>
-          <input type="text" id="markets_style_imageUrl" placeholder="Paste URL or upload">
+          <input type="text" id="markets_style_imageUrl" placeholder="Use picker or upload above" readonly style="cursor:default;opacity:0.7;">
         </div>
         <div class="field">
           <label>Upload Image</label>
@@ -602,7 +602,7 @@
         </div>
         <div class="field">
           <label>Image URL</label>
-          <input type="text" id="portfolio_style_imageUrl" placeholder="Paste URL or upload">
+          <input type="text" id="portfolio_style_imageUrl" placeholder="Use picker or upload above" readonly style="cursor:default;opacity:0.7;">
         </div>
         <div class="field">
           <label>Upload Image</label>
@@ -746,7 +746,7 @@
         </div>
         <div class="field">
           <label>Image URL</label>
-          <input type="text" id="process_style_imageUrl" placeholder="Paste URL or upload">
+          <input type="text" id="process_style_imageUrl" placeholder="Use picker or upload above" readonly style="cursor:default;opacity:0.7;">
         </div>
         <div class="field">
           <label>Upload Image</label>
@@ -909,7 +909,7 @@
         </div>
         <div class="field">
           <label>Image URL</label>
-          <input type="text" id="why_style_imageUrl" placeholder="Paste URL or upload">
+          <input type="text" id="why_style_imageUrl" placeholder="Use picker or upload above" readonly style="cursor:default;opacity:0.7;">
         </div>
         <div class="field">
           <label>Upload Image</label>
@@ -1067,7 +1067,7 @@
         </div>
         <div class="field">
           <label>Image URL</label>
-          <input type="text" id="founder_style_imageUrl" placeholder="Paste URL or upload">
+          <input type="text" id="founder_style_imageUrl" placeholder="Use picker or upload above" readonly style="cursor:default;opacity:0.7;">
         </div>
         <div class="field">
           <label>Upload Image</label>
@@ -1229,7 +1229,7 @@
         </div>
         <div class="field">
           <label>Image URL</label>
-          <input type="text" id="contact_style_imageUrl" placeholder="Paste URL or upload">
+          <input type="text" id="contact_style_imageUrl" placeholder="Use picker or upload above" readonly style="cursor:default;opacity:0.7;">
         </div>
         <div class="field">
           <label>Upload Image</label>
@@ -2320,8 +2320,7 @@ function readPageStyles() {
   data.cover._style.nameLetterSpacing = _readFloat('cover_style_nameLetterSpacing');
   data.cover._style.monogramLetterSpacing = _readFloat('cover_style_monogramLetterSpacing');
   data.cover._style.imageLayout = _readVal('cover_style_imageLayout');
-    var coverUrlField = _readVal('cover_style_imageUrl');
-  if (coverUrlField) data.cover._style.imageUrl = coverUrlField;
+    // imageUrl managed by quickApplyImage/upload, not text field
   data.cover._style.imageOpacity = _readFloat('cover_style_imageOpacity');
   data.cover._style.imageWidth = _readInt('cover_style_imageWidth');
   data.cover._style.imageHeight = _readInt('cover_style_imageHeight');
@@ -2355,8 +2354,7 @@ function readPageStyles() {
   data.house._style.dividerWidth = _readInt('house_style_dividerWidth');
   data.house._style.dividerLineColor = _readVal('house_style_dividerLineColor');
   data.house._style.imageLayout = _readVal('house_style_imageLayout');
-    var houseUrlField = _readVal('house_style_imageUrl');
-  if (houseUrlField) data.house._style.imageUrl = houseUrlField;
+    // imageUrl managed by quickApplyImage/upload, not text field
   data.house._style.imageOpacity = _readFloat('house_style_imageOpacity');
   data.house._style.imageWidth = _readInt('house_style_imageWidth');
   data.house._style.imageHeight = _readInt('house_style_imageHeight');
@@ -2379,8 +2377,7 @@ function readPageStyles() {
   data.markets._style.dividerWidth = _readInt('markets_style_dividerWidth');
   data.markets._style.dividerLineColor = _readVal('markets_style_dividerLineColor');
   data.markets._style.imageLayout = _readVal('markets_style_imageLayout');
-    var marketsUrlField = _readVal('markets_style_imageUrl');
-  if (marketsUrlField) data.markets._style.imageUrl = marketsUrlField;
+    // imageUrl managed by quickApplyImage/upload, not text field
   data.markets._style.imageOpacity = _readFloat('markets_style_imageOpacity');
   data.markets._style.imageWidth = _readInt('markets_style_imageWidth');
   data.markets._style.imageHeight = _readInt('markets_style_imageHeight');
@@ -2405,8 +2402,7 @@ function readPageStyles() {
   data.portfolio._style.dividerWidth = _readInt('portfolio_style_dividerWidth');
   data.portfolio._style.dividerLineColor = _readVal('portfolio_style_dividerLineColor');
   data.portfolio._style.imageLayout = _readVal('portfolio_style_imageLayout');
-    var portfolioUrlField = _readVal('portfolio_style_imageUrl');
-  if (portfolioUrlField) data.portfolio._style.imageUrl = portfolioUrlField;
+    // imageUrl managed by quickApplyImage/upload, not text field
   data.portfolio._style.imageOpacity = _readFloat('portfolio_style_imageOpacity');
   data.portfolio._style.imageWidth = _readInt('portfolio_style_imageWidth');
   data.portfolio._style.imageHeight = _readInt('portfolio_style_imageHeight');
@@ -2435,8 +2431,7 @@ function readPageStyles() {
   data.process._style.dividerWidth = _readInt('process_style_dividerWidth');
   data.process._style.dividerLineColor = _readVal('process_style_dividerLineColor');
   data.process._style.imageLayout = _readVal('process_style_imageLayout');
-    var processUrlField = _readVal('process_style_imageUrl');
-  if (processUrlField) data.process._style.imageUrl = processUrlField;
+    // imageUrl managed by quickApplyImage/upload, not text field
   data.process._style.imageOpacity = _readFloat('process_style_imageOpacity');
   data.process._style.imageWidth = _readInt('process_style_imageWidth');
   data.process._style.imageHeight = _readInt('process_style_imageHeight');
@@ -2462,8 +2457,7 @@ function readPageStyles() {
   data.why._style.dividerWidth = _readInt('why_style_dividerWidth');
   data.why._style.dividerLineColor = _readVal('why_style_dividerLineColor');
   data.why._style.imageLayout = _readVal('why_style_imageLayout');
-    var whyUrlField = _readVal('why_style_imageUrl');
-  if (whyUrlField) data.why._style.imageUrl = whyUrlField;
+    // imageUrl managed by quickApplyImage/upload, not text field
   data.why._style.imageOpacity = _readFloat('why_style_imageOpacity');
   data.why._style.imageWidth = _readInt('why_style_imageWidth');
   data.why._style.imageHeight = _readInt('why_style_imageHeight');
@@ -2491,8 +2485,7 @@ function readPageStyles() {
   data.founder._style.dividerWidth = _readInt('founder_style_dividerWidth');
   data.founder._style.dividerLineColor = _readVal('founder_style_dividerLineColor');
   data.founder._style.imageLayout = _readVal('founder_style_imageLayout');
-    var founderUrlField = _readVal('founder_style_imageUrl');
-  if (founderUrlField) data.founder._style.imageUrl = founderUrlField;
+    // imageUrl managed by quickApplyImage/upload, not text field
   data.founder._style.imageOpacity = _readFloat('founder_style_imageOpacity');
   data.founder._style.imageWidth = _readInt('founder_style_imageWidth');
   data.founder._style.imageHeight = _readInt('founder_style_imageHeight');
@@ -2518,8 +2511,7 @@ function readPageStyles() {
   data.contact._style.dividerWidth = _readInt('contact_style_dividerWidth');
   data.contact._style.dividerLineColor = _readVal('contact_style_dividerLineColor');
   data.contact._style.imageLayout = _readVal('contact_style_imageLayout');
-    var contactUrlField = _readVal('contact_style_imageUrl');
-  if (contactUrlField) data.contact._style.imageUrl = contactUrlField;
+    // imageUrl managed by quickApplyImage/upload, not text field
   data.contact._style.imageOpacity = _readFloat('contact_style_imageOpacity');
   data.contact._style.imageWidth = _readInt('contact_style_imageWidth');
   data.contact._style.imageHeight = _readInt('contact_style_imageHeight');
