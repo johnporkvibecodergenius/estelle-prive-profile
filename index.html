@@ -1041,6 +1041,7 @@
         <div class="field"><label>Closing Line</label><input type="text" id="founder_closing"></div>
         <div class="field"><label>Full Name (Signature)</label><input type="text" id="founder_signatureName"></div>
         <div class="field"><label>Title / Role</label><input type="text" id="founder_role"></div>
+        <div class="field"><label>Company Line</label><input type="text" id="founder_companyLine"></div>
         <div class="field">
           <label>Signature Image (optional — replaces handwritten text)</label>
           <input type="file" id="founder_signatureUpload" accept="image/*">
@@ -1578,8 +1579,9 @@ const DEFAULT_DATA = {
     ],
     closing:"With warm regards,",
     signatureName:"Hani Y. Ayoub",
-    role:"Founder & Managing Director — Estelle Privé",
-    _style: { letterStyle:'normal', bgColor:'', letterFontSize:14, signatureSize:36, letterMaxWidth:500, signatureUrl:'', labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', letterColor:'#5C5244', closingColor:'#5C5244', signatureColor:'#1A1610', nameColor:'#1A1610', roleColor:'#8A847C', textAlign:'center', letterLineHeight:2, showDivider:false, dividerWidth:48, dividerLineColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1 },
+    role:"Founder & Chief Executive Officer",
+    companyLine:"Estelle Privé International Realty",
+    _style: { letterStyle:'normal', bgColor:'', letterFontSize:14, signatureSize:52, letterMaxWidth:500, signatureUrl:'', labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', letterColor:'#5C5244', closingColor:'#5C5244', signatureColor:'#1A1610', nameColor:'#1A1610', roleColor:'#8A847C', textAlign:'center', letterLineHeight:2, showDivider:false, dividerWidth:48, dividerLineColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1 },
   },
   contact: {
     label:"Get in Touch", monogram:"EP", heading1:"Begin a", heading2:"Conversation",
@@ -1671,7 +1673,7 @@ const FIELDS={
   portfolio:['label','heading','headingItalic'],
   process:['label','heading','headingItalic','intro'],
   why:['label','heading1','heading2','statement'],
-  founder:['label','heading','headingItalic','closing','signatureName','role'],
+  founder:['label','heading','headingItalic','closing','signatureName','role','companyLine'],
   contact:['label','monogram','heading1','heading2','email','website','note','copyright'],
 };
 
@@ -2318,8 +2320,8 @@ function readPageStyles() {
   data.cover._style.nameLetterSpacing = _readFloat('cover_style_nameLetterSpacing');
   data.cover._style.monogramLetterSpacing = _readFloat('cover_style_monogramLetterSpacing');
   data.cover._style.imageLayout = _readVal('cover_style_imageLayout');
-  var coverImgUrl = _readVal('cover_style_imageUrl');
-  if (coverImgUrl && !coverImgUrl.endsWith('...')) data.cover._style.imageUrl = coverImgUrl;
+    var coverUrlField = _readVal('cover_style_imageUrl');
+  if (coverUrlField) data.cover._style.imageUrl = coverUrlField;
   data.cover._style.imageOpacity = _readFloat('cover_style_imageOpacity');
   data.cover._style.imageWidth = _readInt('cover_style_imageWidth');
   data.cover._style.imageHeight = _readInt('cover_style_imageHeight');
@@ -2353,8 +2355,8 @@ function readPageStyles() {
   data.house._style.dividerWidth = _readInt('house_style_dividerWidth');
   data.house._style.dividerLineColor = _readVal('house_style_dividerLineColor');
   data.house._style.imageLayout = _readVal('house_style_imageLayout');
-  const houseImgUrl = _readVal('house_style_imageUrl');
-  if (houseImgUrl && !houseImgUrl.endsWith('...')) data.house._style.imageUrl = houseImgUrl;
+    var houseUrlField = _readVal('house_style_imageUrl');
+  if (houseUrlField) data.house._style.imageUrl = houseUrlField;
   data.house._style.imageOpacity = _readFloat('house_style_imageOpacity');
   data.house._style.imageWidth = _readInt('house_style_imageWidth');
   data.house._style.imageHeight = _readInt('house_style_imageHeight');
@@ -2377,8 +2379,8 @@ function readPageStyles() {
   data.markets._style.dividerWidth = _readInt('markets_style_dividerWidth');
   data.markets._style.dividerLineColor = _readVal('markets_style_dividerLineColor');
   data.markets._style.imageLayout = _readVal('markets_style_imageLayout');
-  const marketsImgUrl = _readVal('markets_style_imageUrl');
-  if (marketsImgUrl && !marketsImgUrl.endsWith('...')) data.markets._style.imageUrl = marketsImgUrl;
+    var marketsUrlField = _readVal('markets_style_imageUrl');
+  if (marketsUrlField) data.markets._style.imageUrl = marketsUrlField;
   data.markets._style.imageOpacity = _readFloat('markets_style_imageOpacity');
   data.markets._style.imageWidth = _readInt('markets_style_imageWidth');
   data.markets._style.imageHeight = _readInt('markets_style_imageHeight');
@@ -2403,8 +2405,8 @@ function readPageStyles() {
   data.portfolio._style.dividerWidth = _readInt('portfolio_style_dividerWidth');
   data.portfolio._style.dividerLineColor = _readVal('portfolio_style_dividerLineColor');
   data.portfolio._style.imageLayout = _readVal('portfolio_style_imageLayout');
-  const portfolioImgUrl = _readVal('portfolio_style_imageUrl');
-  if (portfolioImgUrl && !portfolioImgUrl.endsWith('...')) data.portfolio._style.imageUrl = portfolioImgUrl;
+    var portfolioUrlField = _readVal('portfolio_style_imageUrl');
+  if (portfolioUrlField) data.portfolio._style.imageUrl = portfolioUrlField;
   data.portfolio._style.imageOpacity = _readFloat('portfolio_style_imageOpacity');
   data.portfolio._style.imageWidth = _readInt('portfolio_style_imageWidth');
   data.portfolio._style.imageHeight = _readInt('portfolio_style_imageHeight');
@@ -2433,8 +2435,8 @@ function readPageStyles() {
   data.process._style.dividerWidth = _readInt('process_style_dividerWidth');
   data.process._style.dividerLineColor = _readVal('process_style_dividerLineColor');
   data.process._style.imageLayout = _readVal('process_style_imageLayout');
-  const processImgUrl = _readVal('process_style_imageUrl');
-  if (processImgUrl && !processImgUrl.endsWith('...')) data.process._style.imageUrl = processImgUrl;
+    var processUrlField = _readVal('process_style_imageUrl');
+  if (processUrlField) data.process._style.imageUrl = processUrlField;
   data.process._style.imageOpacity = _readFloat('process_style_imageOpacity');
   data.process._style.imageWidth = _readInt('process_style_imageWidth');
   data.process._style.imageHeight = _readInt('process_style_imageHeight');
@@ -2460,8 +2462,8 @@ function readPageStyles() {
   data.why._style.dividerWidth = _readInt('why_style_dividerWidth');
   data.why._style.dividerLineColor = _readVal('why_style_dividerLineColor');
   data.why._style.imageLayout = _readVal('why_style_imageLayout');
-  const whyImgUrl = _readVal('why_style_imageUrl');
-  if (whyImgUrl && !whyImgUrl.endsWith('...')) data.why._style.imageUrl = whyImgUrl;
+    var whyUrlField = _readVal('why_style_imageUrl');
+  if (whyUrlField) data.why._style.imageUrl = whyUrlField;
   data.why._style.imageOpacity = _readFloat('why_style_imageOpacity');
   data.why._style.imageWidth = _readInt('why_style_imageWidth');
   data.why._style.imageHeight = _readInt('why_style_imageHeight');
@@ -2489,8 +2491,8 @@ function readPageStyles() {
   data.founder._style.dividerWidth = _readInt('founder_style_dividerWidth');
   data.founder._style.dividerLineColor = _readVal('founder_style_dividerLineColor');
   data.founder._style.imageLayout = _readVal('founder_style_imageLayout');
-  const founderImgUrl = _readVal('founder_style_imageUrl');
-  if (founderImgUrl && !founderImgUrl.endsWith('...')) data.founder._style.imageUrl = founderImgUrl;
+    var founderUrlField = _readVal('founder_style_imageUrl');
+  if (founderUrlField) data.founder._style.imageUrl = founderUrlField;
   data.founder._style.imageOpacity = _readFloat('founder_style_imageOpacity');
   data.founder._style.imageWidth = _readInt('founder_style_imageWidth');
   data.founder._style.imageHeight = _readInt('founder_style_imageHeight');
@@ -2516,8 +2518,8 @@ function readPageStyles() {
   data.contact._style.dividerWidth = _readInt('contact_style_dividerWidth');
   data.contact._style.dividerLineColor = _readVal('contact_style_dividerLineColor');
   data.contact._style.imageLayout = _readVal('contact_style_imageLayout');
-  const contactImgUrl = _readVal('contact_style_imageUrl');
-  if (contactImgUrl && !contactImgUrl.endsWith('...')) data.contact._style.imageUrl = contactImgUrl;
+    var contactUrlField = _readVal('contact_style_imageUrl');
+  if (contactUrlField) data.contact._style.imageUrl = contactUrlField;
   data.contact._style.imageOpacity = _readFloat('contact_style_imageOpacity');
   data.contact._style.imageWidth = _readInt('contact_style_imageWidth');
   data.contact._style.imageHeight = _readInt('contact_style_imageHeight');
@@ -2926,7 +2928,7 @@ function generateHTML(){
   if (!hidden.includes('founder')) {
     const letterFontStyle = letterStyle === 'italic' ? 'font-style:italic;' : '';
     const founderImg = pageImage(founderStyle);
-    pages += `<div class="page founder" style="${founderImg.bgStyle||'background:'+ founderBg +';'}">${founderImg.overlay||''}${founderImg.before}<div style="${founderImg.contentStyle||''}"><div class="page-label" style="color:${founderLabelColor};">${esc(d.founder.label)}</div><h2 class="page-heading" style="color:${founderHeadingColor};">${esc(d.founder.heading)}<br><em style="color:${founderItalicColor};">${esc(d.founder.headingItalic)}</em></h2><div class="founder-letter" style="${letterFontStyle}color:${founderLetterColor};">${d.founder.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div>${founderShowDivider ? `<div style="width:${founderDividerWidth}px;height:1px;background:${founderDividerLineColor};margin:40px ${founderAlign==='center'?'auto':'0'};"></div>` : ''}<div class="founder-closing"><div class="founder-closing-regards" style="color:${founderClosingColor};">${esc(d.founder.closing)}</div><div class="founder-signature" style="color:${founderSignatureColor};">${signatureUrl ? `<img src="${signatureUrl}" alt="${esc(d.founder.signatureName)}" style="max-height:${signatureSize}px;object-fit:contain;">` : esc(d.founder.signatureName)}</div><div class="founder-name" style="color:${founderNameColor};">${esc(d.founder.signatureName)}</div><div class="founder-title-role" style="color:${founderRoleColor};">${esc(d.founder.role)}</div></div>${founderImg.after}</div></div>`;
+    pages += `<div class="page founder" style="${founderImg.bgStyle||'background:'+ founderBg +';'}">${founderImg.overlay||''}${founderImg.before}<div style="${founderImg.contentStyle||''}"><div class="page-label" style="color:${founderLabelColor};">${esc(d.founder.label)}</div><h2 class="page-heading" style="color:${founderHeadingColor};">${esc(d.founder.heading)}<br><em style="color:${founderItalicColor};">${esc(d.founder.headingItalic)}</em></h2><div class="founder-letter" style="${letterFontStyle}color:${founderLetterColor};">${d.founder.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div>${founderShowDivider ? `<div style="width:${founderDividerWidth}px;height:1px;background:${founderDividerLineColor};margin:40px ${founderAlign==='center'?'auto':'0'};"></div>` : ''}<div class="founder-closing"><div class="founder-closing-regards" style="color:${founderClosingColor};">${esc(d.founder.closing)}</div><div class="founder-signature" style="color:${founderSignatureColor};">${signatureUrl ? `<img src="${signatureUrl}" alt="${esc(d.founder.signatureName)}" style="max-height:${signatureSize}px;object-fit:contain;">` : esc(d.founder.signatureName)}</div><div class="founder-name" style="color:${founderNameColor};">${esc(d.founder.signatureName)}</div><div class="founder-title-role" style="color:${founderRoleColor};">${esc(d.founder.role)}</div>${d.founder.companyLine ? `<div class="founder-company" style="font-family:var(--font-body);font-size:11px;font-weight:300;color:${founderRoleColor};letter-spacing:.1em;text-transform:uppercase;margin-top:2px;">${esc(d.founder.companyLine)}</div>` : ''}</div>${founderImg.after}</div></div>`;
   }
 
   if (!hidden.includes('contact')) {
