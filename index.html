@@ -2949,6 +2949,28 @@ var CURATED_IMAGES=[
 {url:'https://images.unsplash.com/photo-1582610116397-edb318620f90?w=1200&q=80',label:'Heritage Estate',cat:'Countryside'},
 {url:'https://images.unsplash.com/photo-1573052905904-34ad8c27f0cc?w=1200&q=80',label:'Vineyard Estate',cat:'Countryside'},
 {url:'https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=1200&q=80',label:'Tuscan Villa',cat:'Countryside'},
+
+{url:'https://images.unsplash.com/photo-1602941525421-8f8b81d3edbb?w=1200&q=80',label:'Santorini View',cat:'Mediterranean'},
+{url:'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80',label:'Luxury Bedroom',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1200&q=80',label:'Poolside Villa',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1200&q=80',label:'Tropical Beach',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?w=1200&q=80',label:'Amalfi Coast',cat:'Mediterranean'},
+{url:'https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=1200&q=80',label:'Dubai Skyline',cat:'City Views'},
+{url:'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80',label:'Modern Skyscraper',cat:'City Views'},
+{url:'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=1200&q=80',label:'Hotel Room View',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1200&q=80',label:'Luxury Hotel Room',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1200&q=80',label:'Resort Morning',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80',label:'Modern Kitchen',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1577495508048-b635879837f1?w=1200&q=80',label:'Chandelier Hall',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=1200&q=80',label:'White Villa',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1200&q=80',label:'Overwater Bungalow',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1200&q=80',label:'Dubai Marina',cat:'City Views'},
+{url:'https://images.unsplash.com/photo-1549294413-26f195200c16?w=1200&q=80',label:'Monaco Harbor',cat:'Mediterranean'},
+{url:'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1200&q=80',label:'Maldives Paradise',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=1200&q=80',label:'Coastal Road',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=1200&q=80',label:'Ocean Waves',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1559599189-fe84dea4eb79?w=1200&q=80',label:'Greek Islands',cat:'Mediterranean'},
+{url:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80',label:'Dining Room',cat:'Interiors'},
 ];
 function buildImagePicker(containerId,page){var el=document.getElementById(containerId);if(!el)return;var html='';for(var i=0;i<CURATED_IMAGES.length;i++){var img=CURATED_IMAGES[i];html+='<div style="cursor:pointer;border:1px solid var(--border);overflow:hidden;" onclick="quickApplyImage(\''+page+'\',this.dataset.url)" data-url="'+img.url+'"><img src="'+img.url+'" alt="'+img.label+'" style="width:100%;height:60px;object-fit:cover;" loading="lazy"><div style="padding:3px 5px;font-size:8px;color:var(--text-muted);background:var(--bg);">'+img.label+'</div></div>';}el.innerHTML=html;}
 function quickApplyImage(page,url){if(!data[page])data[page]={};if(!data[page]._style)data[page]._style={};data[page]._style.imageUrl=url;if(!data[page]._style.imageLayout||data[page]._style.imageLayout==='none')data[page]._style.imageLayout='full-width';var layoutEl=document.getElementById(page+'_style_imageLayout');if(layoutEl&&layoutEl.value==='none')layoutEl.value='full-width';var urlEl=document.getElementById(page+'_style_imageUrl');if(urlEl)urlEl.value=url.substring(0,80);updatePageImagePreview(page);markUnsaved();showToast('Image applied');}
