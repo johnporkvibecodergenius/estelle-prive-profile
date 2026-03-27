@@ -1957,6 +1957,17 @@ function updateSignaturePreview() {
   }
 }
 
+
+// IMAGE LAYOUT SELECT HANDLERS
+(function(){var el=document.getElementById('cover_style_imageLayout');if(el)el.addEventListener('change',function(){if(!data.cover)data.cover={};if(!data.cover._style)data.cover._style={};data.cover._style.imageLayout=el.value;markUnsaved();});})();
+(function(){var el=document.getElementById('house_style_imageLayout');if(el)el.addEventListener('change',function(){if(!data.house)data.house={};if(!data.house._style)data.house._style={};data.house._style.imageLayout=el.value;markUnsaved();});})();
+(function(){var el=document.getElementById('markets_style_imageLayout');if(el)el.addEventListener('change',function(){if(!data.markets)data.markets={};if(!data.markets._style)data.markets._style={};data.markets._style.imageLayout=el.value;markUnsaved();});})();
+(function(){var el=document.getElementById('portfolio_style_imageLayout');if(el)el.addEventListener('change',function(){if(!data.portfolio)data.portfolio={};if(!data.portfolio._style)data.portfolio._style={};data.portfolio._style.imageLayout=el.value;markUnsaved();});})();
+(function(){var el=document.getElementById('process_style_imageLayout');if(el)el.addEventListener('change',function(){if(!data.process)data.process={};if(!data.process._style)data.process._style={};data.process._style.imageLayout=el.value;markUnsaved();});})();
+(function(){var el=document.getElementById('why_style_imageLayout');if(el)el.addEventListener('change',function(){if(!data.why)data.why={};if(!data.why._style)data.why._style={};data.why._style.imageLayout=el.value;markUnsaved();});})();
+(function(){var el=document.getElementById('founder_style_imageLayout');if(el)el.addEventListener('change',function(){if(!data.founder)data.founder={};if(!data.founder._style)data.founder._style={};data.founder._style.imageLayout=el.value;markUnsaved();});})();
+(function(){var el=document.getElementById('contact_style_imageLayout');if(el)el.addEventListener('change',function(){if(!data.contact)data.contact={};if(!data.contact._style)data.contact._style={};data.contact._style.imageLayout=el.value;markUnsaved();});})();
+
 // PAGE IMAGE UPLOADS
 ['house','markets','portfolio','process','why','founder','contact'].forEach(page => {
   const uploadEl = document.getElementById(page + '_style_imageUpload');
@@ -2324,7 +2335,7 @@ function readPageStyles() {
   data.cover._style.taglineSize = _readInt('cover_style_taglineSize');
   data.cover._style.nameLetterSpacing = _readFloat('cover_style_nameLetterSpacing');
   data.cover._style.monogramLetterSpacing = _readFloat('cover_style_monogramLetterSpacing');
-  data.cover._style.imageLayout = _readVal('cover_style_imageLayout');
+  // imageLayout set by select onchange, not readForm
     // imageUrl managed by quickApplyImage/upload, not text field
   data.cover._style.imageOpacity = _readFloat('cover_style_imageOpacity');
   data.cover._style.imageWidth = _readInt('cover_style_imageWidth');
@@ -2358,7 +2369,7 @@ function readPageStyles() {
   data.house._style.showDivider = houseDivCb ? houseDivCb.checked : false;
   data.house._style.dividerWidth = _readInt('house_style_dividerWidth');
   data.house._style.dividerLineColor = _readVal('house_style_dividerLineColor');
-  data.house._style.imageLayout = _readVal('house_style_imageLayout');
+  // imageLayout set by select onchange, not readForm
     // imageUrl managed by quickApplyImage/upload, not text field
   data.house._style.imageOpacity = _readFloat('house_style_imageOpacity');
   data.house._style.imageWidth = _readInt('house_style_imageWidth');
@@ -2381,7 +2392,7 @@ function readPageStyles() {
   data.markets._style.showDivider = marketsDivCb ? marketsDivCb.checked : false;
   data.markets._style.dividerWidth = _readInt('markets_style_dividerWidth');
   data.markets._style.dividerLineColor = _readVal('markets_style_dividerLineColor');
-  data.markets._style.imageLayout = _readVal('markets_style_imageLayout');
+  // imageLayout set by select onchange, not readForm
     // imageUrl managed by quickApplyImage/upload, not text field
   data.markets._style.imageOpacity = _readFloat('markets_style_imageOpacity');
   data.markets._style.imageWidth = _readInt('markets_style_imageWidth');
@@ -2406,7 +2417,7 @@ function readPageStyles() {
   data.portfolio._style.showDivider = portfolioDivCb ? portfolioDivCb.checked : false;
   data.portfolio._style.dividerWidth = _readInt('portfolio_style_dividerWidth');
   data.portfolio._style.dividerLineColor = _readVal('portfolio_style_dividerLineColor');
-  data.portfolio._style.imageLayout = _readVal('portfolio_style_imageLayout');
+  // imageLayout set by select onchange, not readForm
     // imageUrl managed by quickApplyImage/upload, not text field
   data.portfolio._style.imageOpacity = _readFloat('portfolio_style_imageOpacity');
   data.portfolio._style.imageWidth = _readInt('portfolio_style_imageWidth');
@@ -2435,7 +2446,7 @@ function readPageStyles() {
   data.process._style.showDivider = processDivCb ? processDivCb.checked : false;
   data.process._style.dividerWidth = _readInt('process_style_dividerWidth');
   data.process._style.dividerLineColor = _readVal('process_style_dividerLineColor');
-  data.process._style.imageLayout = _readVal('process_style_imageLayout');
+  // imageLayout set by select onchange, not readForm
     // imageUrl managed by quickApplyImage/upload, not text field
   data.process._style.imageOpacity = _readFloat('process_style_imageOpacity');
   data.process._style.imageWidth = _readInt('process_style_imageWidth');
@@ -2461,7 +2472,7 @@ function readPageStyles() {
   data.why._style.showDivider = whyDivCb ? whyDivCb.checked : false;
   data.why._style.dividerWidth = _readInt('why_style_dividerWidth');
   data.why._style.dividerLineColor = _readVal('why_style_dividerLineColor');
-  data.why._style.imageLayout = _readVal('why_style_imageLayout');
+  // imageLayout set by select onchange, not readForm
     // imageUrl managed by quickApplyImage/upload, not text field
   data.why._style.imageOpacity = _readFloat('why_style_imageOpacity');
   data.why._style.imageWidth = _readInt('why_style_imageWidth');
@@ -2489,7 +2500,7 @@ function readPageStyles() {
   data.founder._style.showDivider = founderDivCb ? founderDivCb.checked : false;
   data.founder._style.dividerWidth = _readInt('founder_style_dividerWidth');
   data.founder._style.dividerLineColor = _readVal('founder_style_dividerLineColor');
-  data.founder._style.imageLayout = _readVal('founder_style_imageLayout');
+  // imageLayout set by select onchange, not readForm
     // imageUrl managed by quickApplyImage/upload, not text field
   data.founder._style.imageOpacity = _readFloat('founder_style_imageOpacity');
   data.founder._style.imageWidth = _readInt('founder_style_imageWidth');
@@ -2515,7 +2526,7 @@ function readPageStyles() {
   data.contact._style.showDivider = contactDivCb ? contactDivCb.checked : false;
   data.contact._style.dividerWidth = _readInt('contact_style_dividerWidth');
   data.contact._style.dividerLineColor = _readVal('contact_style_dividerLineColor');
-  data.contact._style.imageLayout = _readVal('contact_style_imageLayout');
+  // imageLayout set by select onchange, not readForm
     // imageUrl managed by quickApplyImage/upload, not text field
   data.contact._style.imageOpacity = _readFloat('contact_style_imageOpacity');
   data.contact._style.imageWidth = _readInt('contact_style_imageWidth');
