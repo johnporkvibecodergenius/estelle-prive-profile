@@ -144,6 +144,7 @@
         <button class="btn btn-secondary" id="downloadBtn">Download</button>
         <button class="btn btn-secondary" id="exportBtn">Export JSON</button>
         <label class="btn btn-secondary" style="cursor:pointer;">Import<input type="file" id="importFile" accept=".json" style="display:none;"></label>
+        <button class="btn btn-secondary" id="refreshBtn">Refresh from Cloud</button>
         <button class="btn btn-danger" id="logoutBtn">Log Out</button>
       </div>
     </div>
@@ -1602,7 +1603,7 @@ document.getElementById('logoutBtn').addEventListener('click',()=>auth.signOut()
 auth.onAuthStateChanged(user=>{if(user){document.getElementById('loginScreen').style.display='none';document.getElementById('app').classList.add('active');document.getElementById('userEmail').textContent=user.email;loadFromFirestore();}else{document.getElementById('loginScreen').style.display='flex';document.getElementById('app').classList.remove('active');}});
 
 // FIRESTORE
-async function loadFromFirestore(){setSaveStatus('saving','Loading…');try{const r=await fetch(FS_URL);if(r.ok){const d=await r.json();if(d&&d.fields){const o={};for(const[k,v]of Object.entries(d.fields))o[k]=fsToJs(v);data=deepMerge(o,JSON.parse(JSON.stringify(DEFAULT_DATA)));}}}catch(e){}populateForm();updatePreview();setSaveStatus('synced','Synced');}
+async function loadFromFirestore(){setSaveStatus('saving','Loading…');try{const r=await fetch(FS_URL);if(r.ok){const d=await r.json();if(d&&d.fields){const o={};for(const[k,v]of Object.entries(d.fields))o[k]=fsToJs(v);data=deepMerge(o,JSON.parse(JSON.stringify(DEFAULT_DATA)));console.log('Loaded from Firestore:',Object.keys(o).length,'sections');}else{console.log('Firestore returned no fields, using defaults');}}else{console.log('Firestore fetch failed:',r.status);}}catch(e){console.warn('Firestore load error:',e);}populateForm();updatePreview();setSaveStatus('synced','Synced');}
 
 async function saveToFirestore(){
   if(!auth.currentUser){showToast('Not logged in',true);return;}
@@ -2992,6 +2993,7 @@ buildSignaturePresets();
 // PREVIEW + BUTTONS
 function updatePreview(){readForm();document.getElementById('previewFrame').srcdoc=generateHTML();}
 document.getElementById('saveBtn').addEventListener('click',()=>{readForm();updatePreview();saveToFirestore();});
+document.getElementById('refreshBtn').addEventListener('click',()=>{loadFromFirestore();showToast('Refreshed from cloud');});
 document.getElementById('previewBtn').addEventListener('click',()=>{readForm();window.open(URL.createObjectURL(new Blob([generateHTML()],{type:'text/html'})),'_blank');});
 document.getElementById('downloadBtn').addEventListener('click',()=>{readForm();const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([generateHTML()],{type:'text/html'}));a.download=`${data.cover.name.replace(/\s+/g,'-').toLowerCase()}-profile.html`;a.click();});
 document.getElementById('exportBtn').addEventListener('click',()=>{readForm();const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));a.download=`profile-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();});
