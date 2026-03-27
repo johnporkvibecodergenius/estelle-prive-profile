@@ -96,7 +96,7 @@
     input[type="range"] { width:100%; margin-top:4px; accent-color: var(--rosso); }
     .color-field { display:flex; gap:8px; align-items:center; }
     .color-field input[type="text"] { width:80px; }
-    .logo-preview { width:80px; height:80px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:visible; background:var(--bg); }
+    .logo-preview { width:80px; height:80px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden; background:var(--bg); }
     .logo-preview img { max-width:100%; max-height:100%; object-fit:contain; }
     .range-label { display: flex; justify-content: space-between; align-items: center; }
     .range-value { font-size: 11px; color: var(--text-secondary); font-weight: 400; }
@@ -206,34 +206,6 @@
           <input type="range" id="cover_style_imageHeight" min="80" max="500" value="200">
         </div>
         <hr class="section-divider">
-        <div class="section-label">Logo Placement</div>
-        <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
-        <div class="field">
-          <label>Upload Page Logo</label>
-          <input type="file" id="cover_style_logoUpload" accept="image/*">
-          <div class="bg-image-preview" id="cover_logo_preview" style="width:120px;height:40px;margin-top:6px;"></div>
-        </div>
-        <div class="field">
-          <label>Logo Position</label>
-          <select id="cover_style_logoPosition">
-            <option value="none">No Logo</option>
-            <option value="top-left">Top Left</option>
-            <option value="top-center">Top Center</option>
-            <option value="top-right">Top Right</option>
-            <option value="bottom-left">Bottom Left</option>
-            <option value="bottom-center">Bottom Center</option>
-            <option value="bottom-right">Bottom Right</option>
-          </select>
-        </div>
-        <div class="field">
-          <label class="range-label">Logo Size <span class="range-value" id="cover_style_logoSize_val">40px</span></label>
-          <input type="range" id="cover_style_logoSize" min="20" max="120" value="40">
-        </div>
-        <div class="field">
-          <label class="range-label">Logo Opacity <span class="range-value" id="cover_style_logoOpacity_val">1</span></label>
-          <input type="range" id="cover_style_logoOpacity" min="0" max="1" step="0.05" value="1">
-        </div>
-        <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
           <label>Background Color Override</label>
@@ -247,19 +219,61 @@
           <input type="range" id="cover_style_monogramSize" min="48" max="120" value="72">
         </div>
         <div class="field">
-          <label>Text Color</label>
-          <div class="color-field">
-            <input type="color" id="cover_style_textColor_picker" value="#F5EFE6">
-            <input type="text" id="cover_style_textColor" value="#F5EFE6">
-          </div>
-        </div>
-        <div class="field">
           <label class="range-label">Name Font Size <span class="range-value" id="cover_style_nameSize_val">52px</span></label>
           <input type="range" id="cover_style_nameSize" min="36" max="72" value="52">
         </div>
         <div class="field">
+          <label>Background Image</label>
+          <input type="file" id="cover_style_bgImageUpload" accept="image/*">
+          <div class="bg-image-preview" id="cover_bgImage_preview"></div>
+        </div>
+        <div class="field">
+          <label class="range-label">Background Overlay Opacity <span class="range-value" id="cover_style_bgImageOpacity_val">0.3</span></label>
+          <input type="range" id="cover_style_bgImageOpacity" min="0" max="1" step="0.05" value="0.3">
+        </div>
+        <div class="field">
           <label class="range-label">Tagline Size <span class="range-value" id="cover_style_taglineSize_val">11px</span></label>
           <input type="range" id="cover_style_taglineSize" min="8" max="16" value="11">
+        </div>
+        <div class="field">
+          <label class="range-label">Name Letter Spacing <span class="range-value" id="cover_style_nameLetterSpacing_val">0.08em</span></label>
+          <input type="range" id="cover_style_nameLetterSpacing" min="0" max="0.2" step="0.01" value="0.08">
+        </div>
+        <div class="field">
+          <label class="range-label">Monogram Letter Spacing <span class="range-value" id="cover_style_monogramLetterSpacing_val">0.15em</span></label>
+          <input type="range" id="cover_style_monogramLetterSpacing" min="0" max="0.3" step="0.01" value="0.15">
+        </div>
+        <div class="field">
+          <label>Monogram Color</label>
+          <div class="color-field">
+            <input type="color" id="cover_style_monogramColor_picker" value="#8B6E4E">
+            <input type="text" id="cover_style_monogramColor" value="#8B6E4E">
+          </div>
+        </div>
+        <div class="field">
+          <label>Name Color</label>
+          <div class="color-field">
+            <input type="color" id="cover_style_nameColor_picker" value="#F5EFE6">
+            <input type="text" id="cover_style_nameColor" value="#F5EFE6">
+          </div>
+        </div>
+        <div class="field">
+          <label>Tagline Color</label>
+          <div class="color-field">
+            <input type="color" id="cover_style_taglineColor_picker" value="#8B6E4E">
+            <input type="text" id="cover_style_taglineColor" value="#8B6E4E">
+          </div>
+        </div>
+        <div class="field">
+          <label>Line Color</label>
+          <div class="color-field">
+            <input type="color" id="cover_style_lineColor_picker" value="#8B6E4E">
+            <input type="text" id="cover_style_lineColor" value="#8B6E4E">
+          </div>
+        </div>
+        <div class="field">
+          <label class="range-label">Cover Line Width <span class="range-value" id="cover_style_lineWidth_val">48px</span></label>
+          <input type="range" id="cover_style_lineWidth" min="24" max="80" value="48">
         </div>
       </div>
 
@@ -315,34 +329,7 @@
           <label class="range-label">Image Height <span class="range-value" id="house_style_imageHeight_val">200px</span></label>
           <input type="range" id="house_style_imageHeight" min="80" max="500" value="200">
         </div>
-        <hr class="section-divider">
-        <div class="section-label">Logo Placement</div>
-        <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
-        <div class="field">
-          <label>Upload Page Logo</label>
-          <input type="file" id="house_style_logoUpload" accept="image/*">
-          <div class="bg-image-preview" id="house_logo_preview" style="width:120px;height:40px;margin-top:6px;"></div>
-        </div>
-        <div class="field">
-          <label>Logo Position</label>
-          <select id="house_style_logoPosition">
-            <option value="none">No Logo</option>
-            <option value="top-left">Top Left</option>
-            <option value="top-center">Top Center</option>
-            <option value="top-right">Top Right</option>
-            <option value="bottom-left">Bottom Left</option>
-            <option value="bottom-center">Bottom Center</option>
-            <option value="bottom-right">Bottom Right</option>
-          </select>
-        </div>
-        <div class="field">
-          <label class="range-label">Logo Size <span class="range-value" id="house_style_logoSize_val">40px</span></label>
-          <input type="range" id="house_style_logoSize" min="20" max="120" value="40">
-        </div>
-        <div class="field">
-          <label class="range-label">Logo Opacity <span class="range-value" id="house_style_logoOpacity_val">1</span></label>
-          <input type="range" id="house_style_logoOpacity" min="0" max="1" step="0.05" value="1">
-        </div>
+      </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
@@ -350,6 +337,72 @@
           <div class="color-field">
             <input type="color" id="house_style_bgColor_picker" value="#FDFAF6">
             <input type="text" id="house_style_bgColor" placeholder="(use global bgLight)">
+          </div>
+        </div>
+        <div class="field">
+          <label class="range-label">Stat Number Size <span class="range-value" id="house_style_statNumberSize_val">36px</span></label>
+          <input type="range" id="house_style_statNumberSize" min="24" max="56" value="36">
+        </div>
+        <div class="field">
+          <label class="range-label">Stat Label Size <span class="range-value" id="house_style_statLabelSize_val">11px</span></label>
+          <input type="range" id="house_style_statLabelSize" min="8" max="14" value="11">
+        </div>
+        <div class="field">
+          <label class="range-label">Paragraph Max Width <span class="range-value" id="house_style_textMaxWidth_val">520px</span></label>
+          <input type="range" id="house_style_textMaxWidth" min="400" max="700" value="520">
+        </div>
+        <div class="field">
+          <label>Label Color</label>
+          <div class="color-field">
+            <input type="color" id="house_style_labelColor_picker" value="#8B6E4E">
+            <input type="text" id="house_style_labelColor" value="#8B6E4E">
+          </div>
+        </div>
+        <div class="field">
+          <label class="range-label">Label Size <span class="range-value" id="house_style_labelSize_val">10px</span></label>
+          <input type="range" id="house_style_labelSize" min="8" max="14" value="10">
+        </div>
+        <div class="field">
+          <label>Heading Color</label>
+          <div class="color-field">
+            <input type="color" id="house_style_headingColor_picker" value="#1A1610">
+            <input type="text" id="house_style_headingColor" value="#1A1610">
+          </div>
+        </div>
+        <div class="field">
+          <label class="range-label">Heading Size <span class="range-value" id="house_style_headingSize_val">44px</span></label>
+          <input type="range" id="house_style_headingSize" min="28" max="60" value="44">
+        </div>
+        <div class="field">
+          <label>Italic Color</label>
+          <div class="color-field">
+            <input type="color" id="house_style_italicColor_picker" value="#8B6E4E">
+            <input type="text" id="house_style_italicColor" value="#8B6E4E">
+          </div>
+        </div>
+        <div class="field">
+          <label>Text Color</label>
+          <div class="color-field">
+            <input type="color" id="house_style_textColor_picker" value="#5C5244">
+            <input type="text" id="house_style_textColor" value="#5C5244">
+          </div>
+        </div>
+        <div class="field">
+          <label class="range-label">Text Size <span class="range-value" id="house_style_textSize_val">15px</span></label>
+          <input type="range" id="house_style_textSize" min="12" max="20" value="15">
+        </div>
+        <div class="field">
+          <label>Stat Number Color</label>
+          <div class="color-field">
+            <input type="color" id="house_style_statNumberColor_picker" value="#1A1610">
+            <input type="text" id="house_style_statNumberColor" value="#1A1610">
+          </div>
+        </div>
+        <div class="field">
+          <label>Stat Label Color</label>
+          <div class="color-field">
+            <input type="color" id="house_style_statLabelColor_picker" value="#8A847C">
+            <input type="text" id="house_style_statLabelColor" value="#8A847C">
           </div>
         </div>
         <div class="field">
@@ -361,11 +414,12 @@
           </select>
         </div>
         <div class="field">
-          <label>Text Color</label>
-          <div class="color-field">
-            <input type="color" id="house_style_textColor_picker" value="#5C5244">
-            <input type="text" id="house_style_textColor" value="#5C5244">
-          </div>
+          <label class="range-label">Stats Gap <span class="range-value" id="house_style_statsGap_val">56px</span></label>
+          <input type="range" id="house_style_statsGap" min="24" max="80" value="56">
+        </div>
+        <div class="field">
+          <label class="range-label">Heading Margin Bottom <span class="range-value" id="house_style_headingMarginBottom_val">48px</span></label>
+          <input type="range" id="house_style_headingMarginBottom" min="20" max="80" value="48">
         </div>
         <div class="checkbox-field"><input type="checkbox" id="house_style_showDivider"><label for="house_style_showDivider">Show Divider Line Under Text</label></div>
         <div class="field">
@@ -379,7 +433,7 @@
             <input type="text" id="house_style_dividerLineColor" value="#E8E3DC">
           </div>
         </div>
-      </div>
+        
 
       <!-- MARKETS -->
       <div class="panel" id="panel-markets">
@@ -446,36 +500,28 @@
           <label class="range-label">Image Height <span class="range-value" id="markets_style_imageHeight_val">200px</span></label>
           <input type="range" id="markets_style_imageHeight" min="80" max="500" value="200">
         </div>
-        <hr class="section-divider">
-        <div class="section-label">Logo Placement</div>
-        <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
-        <div class="field">
-          <label>Upload Page Logo</label>
-          <input type="file" id="markets_style_logoUpload" accept="image/*">
-          <div class="bg-image-preview" id="markets_logo_preview" style="width:120px;height:40px;margin-top:6px;"></div>
-        </div>
-        <div class="field">
-          <label>Logo Position</label>
-          <select id="markets_style_logoPosition">
-            <option value="none">No Logo</option>
-            <option value="top-left">Top Left</option>
-            <option value="top-center">Top Center</option>
-            <option value="top-right">Top Right</option>
-            <option value="bottom-left">Bottom Left</option>
-            <option value="bottom-center">Bottom Center</option>
-            <option value="bottom-right">Bottom Right</option>
-          </select>
-        </div>
-        <div class="field">
-          <label class="range-label">Logo Size <span class="range-value" id="markets_style_logoSize_val">40px</span></label>
-          <input type="range" id="markets_style_logoSize" min="20" max="120" value="40">
-        </div>
-        <div class="field">
-          <label class="range-label">Logo Opacity <span class="range-value" id="markets_style_logoOpacity_val">1</span></label>
-          <input type="range" id="markets_style_logoOpacity" min="0" max="1" step="0.05" value="1">
-        </div>
+      </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
+        <div class="field">
+          <label class="range-label">City Font Size <span class="range-value" id="markets_style_cityFontSize_val">30px</span></label>
+          <input type="range" id="markets_style_cityFontSize" min="20" max="48" value="30">
+        </div>
+        <div class="field">
+          <label>Dot Color Override</label>
+          <div class="color-field">
+            <input type="color" id="markets_style_dotColor_picker" value="#8B6E4E">
+            <input type="text" id="markets_style_dotColor" placeholder="(use accent)">
+          </div>
+        </div>
+        <div class="field">
+          <label class="range-label">Dot Size <span class="range-value" id="markets_style_dotSize_val">6px</span></label>
+          <input type="range" id="markets_style_dotSize" min="4" max="12" value="6">
+        </div>
+        <div class="field">
+          <label class="range-label">City Padding <span class="range-value" id="markets_style_cityPadding_val">24px</span></label>
+          <input type="range" id="markets_style_cityPadding" min="12" max="40" value="24">
+        </div>
         <div class="field">
           <label>Background Color</label>
           <div class="color-field">
@@ -484,14 +530,24 @@
           </div>
         </div>
         <div class="field">
-          <label class="range-label">City Font Size <span class="range-value" id="markets_style_cityFontSize_val">30px</span></label>
-          <input type="range" id="markets_style_cityFontSize" min="20" max="48" value="30">
+          <label>Label Color</label>
+          <div class="color-field">
+            <input type="color" id="markets_style_labelColor_picker" value="#8B6E4E">
+            <input type="text" id="markets_style_labelColor" value="#8B6E4E">
+          </div>
         </div>
         <div class="field">
-          <label>Text Color</label>
+          <label>Heading Color</label>
           <div class="color-field">
-            <input type="color" id="markets_style_textColor_picker" value="#F5EFE6">
-            <input type="text" id="markets_style_textColor" value="#F5EFE6">
+            <input type="color" id="markets_style_headingColor_picker" value="#F5EFE6">
+            <input type="text" id="markets_style_headingColor" value="#F5EFE6">
+          </div>
+        </div>
+        <div class="field">
+          <label>City Color</label>
+          <div class="color-field">
+            <input type="color" id="markets_style_cityColor_picker" value="#F5EFE6">
+            <input type="text" id="markets_style_cityColor" value="#F5EFE6">
           </div>
         </div>
         <div class="field">
@@ -514,7 +570,7 @@
             <input type="text" id="markets_style_dividerLineColor" value="#8B6E4E">
           </div>
         </div>
-      </div>
+        
 
       <!-- PORTFOLIO -->
       <div class="panel" id="panel-portfolio">
@@ -566,43 +622,9 @@
           <label class="range-label">Image Height <span class="range-value" id="portfolio_style_imageHeight_val">200px</span></label>
           <input type="range" id="portfolio_style_imageHeight" min="80" max="500" value="200">
         </div>
-        <hr class="section-divider">
-        <div class="section-label">Logo Placement</div>
-        <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
-        <div class="field">
-          <label>Upload Page Logo</label>
-          <input type="file" id="portfolio_style_logoUpload" accept="image/*">
-          <div class="bg-image-preview" id="portfolio_logo_preview" style="width:120px;height:40px;margin-top:6px;"></div>
-        </div>
-        <div class="field">
-          <label>Logo Position</label>
-          <select id="portfolio_style_logoPosition">
-            <option value="none">No Logo</option>
-            <option value="top-left">Top Left</option>
-            <option value="top-center">Top Center</option>
-            <option value="top-right">Top Right</option>
-            <option value="bottom-left">Bottom Left</option>
-            <option value="bottom-center">Bottom Center</option>
-            <option value="bottom-right">Bottom Right</option>
-          </select>
-        </div>
-        <div class="field">
-          <label class="range-label">Logo Size <span class="range-value" id="portfolio_style_logoSize_val">40px</span></label>
-          <input type="range" id="portfolio_style_logoSize" min="20" max="120" value="40">
-        </div>
-        <div class="field">
-          <label class="range-label">Logo Opacity <span class="range-value" id="portfolio_style_logoOpacity_val">1</span></label>
-          <input type="range" id="portfolio_style_logoOpacity" min="0" max="1" step="0.05" value="1">
-        </div>
+      </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
-        <div class="field">
-          <label>Background Color Override</label>
-          <div class="color-field">
-            <input type="color" id="portfolio_style_bgColor_picker" value="#FDFAF6">
-            <input type="text" id="portfolio_style_bgColor" placeholder="(use global bgLight)">
-          </div>
-        </div>
         <div class="field">
           <label>Layout</label>
           <select id="portfolio_style_layout">
@@ -611,10 +633,64 @@
           </select>
         </div>
         <div class="field">
-          <label>Text Color</label>
+          <label>Background Color Override</label>
           <div class="color-field">
-            <input type="color" id="portfolio_style_textColor_picker" value="#5C5244">
-            <input type="text" id="portfolio_style_textColor" value="#5C5244">
+            <input type="color" id="portfolio_style_bgColor_picker" value="#FDFAF6">
+            <input type="text" id="portfolio_style_bgColor" placeholder="(use global bgLight)">
+          </div>
+        </div>
+        <div class="field">
+          <label class="range-label">Vertical Number Size <span class="range-value" id="portfolio_style_vertNumSize_val">32px</span></label>
+          <input type="range" id="portfolio_style_vertNumSize" min="20" max="48" value="32">
+        </div>
+        <div class="field">
+          <label class="range-label">Vertical Title Size <span class="range-value" id="portfolio_style_vertTitleSize_val">20px</span></label>
+          <input type="range" id="portfolio_style_vertTitleSize" min="14" max="28" value="20">
+        </div>
+        <div class="field">
+          <label class="range-label">Vertical Desc Size <span class="range-value" id="portfolio_style_vertDescSize_val">13px</span></label>
+          <input type="range" id="portfolio_style_vertDescSize" min="11" max="18" value="13">
+        </div>
+        <div class="field">
+          <label>Label Color</label>
+          <div class="color-field">
+            <input type="color" id="portfolio_style_labelColor_picker" value="#8B6E4E">
+            <input type="text" id="portfolio_style_labelColor" value="#8B6E4E">
+          </div>
+        </div>
+        <div class="field">
+          <label>Heading Color</label>
+          <div class="color-field">
+            <input type="color" id="portfolio_style_headingColor_picker" value="#1A1610">
+            <input type="text" id="portfolio_style_headingColor" value="#1A1610">
+          </div>
+        </div>
+        <div class="field">
+          <label>Italic Color</label>
+          <div class="color-field">
+            <input type="color" id="portfolio_style_italicColor_picker" value="#8B6E4E">
+            <input type="text" id="portfolio_style_italicColor" value="#8B6E4E">
+          </div>
+        </div>
+        <div class="field">
+          <label>Vertical Number Color</label>
+          <div class="color-field">
+            <input type="color" id="portfolio_style_vertNumColor_picker" value="#D5D3D0">
+            <input type="text" id="portfolio_style_vertNumColor" value="#D5D3D0">
+          </div>
+        </div>
+        <div class="field">
+          <label>Vertical Title Color</label>
+          <div class="color-field">
+            <input type="color" id="portfolio_style_vertTitleColor_picker" value="#1A1610">
+            <input type="text" id="portfolio_style_vertTitleColor" value="#1A1610">
+          </div>
+        </div>
+        <div class="field">
+          <label>Vertical Desc Color</label>
+          <div class="color-field">
+            <input type="color" id="portfolio_style_vertDescColor_picker" value="#5C5244">
+            <input type="text" id="portfolio_style_vertDescColor" value="#5C5244">
           </div>
         </div>
         <div class="field">
@@ -637,7 +713,7 @@
             <input type="text" id="portfolio_style_dividerLineColor" value="#E8E3DC">
           </div>
         </div>
-      </div>
+        
 
       <!-- PROCESS -->
       <div class="panel" id="panel-process">
@@ -690,34 +766,7 @@
           <label class="range-label">Image Height <span class="range-value" id="process_style_imageHeight_val">200px</span></label>
           <input type="range" id="process_style_imageHeight" min="80" max="500" value="200">
         </div>
-        <hr class="section-divider">
-        <div class="section-label">Logo Placement</div>
-        <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
-        <div class="field">
-          <label>Upload Page Logo</label>
-          <input type="file" id="process_style_logoUpload" accept="image/*">
-          <div class="bg-image-preview" id="process_logo_preview" style="width:120px;height:40px;margin-top:6px;"></div>
-        </div>
-        <div class="field">
-          <label>Logo Position</label>
-          <select id="process_style_logoPosition">
-            <option value="none">No Logo</option>
-            <option value="top-left">Top Left</option>
-            <option value="top-center">Top Center</option>
-            <option value="top-right">Top Right</option>
-            <option value="bottom-left">Bottom Left</option>
-            <option value="bottom-center">Bottom Center</option>
-            <option value="bottom-right">Bottom Right</option>
-          </select>
-        </div>
-        <div class="field">
-          <label class="range-label">Logo Size <span class="range-value" id="process_style_logoSize_val">40px</span></label>
-          <input type="range" id="process_style_logoSize" min="20" max="120" value="40">
-        </div>
-        <div class="field">
-          <label class="range-label">Logo Opacity <span class="range-value" id="process_style_logoOpacity_val">1</span></label>
-          <input type="range" id="process_style_logoOpacity" min="0" max="1" step="0.05" value="1">
-        </div>
+      </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
@@ -725,6 +774,75 @@
           <div class="color-field">
             <input type="color" id="process_style_bgColor_picker" value="#FDFAF6">
             <input type="text" id="process_style_bgColor" placeholder="(use global bgLight)">
+          </div>
+        </div>
+        <div class="field">
+          <label class="range-label">Step Numeral Size <span class="range-value" id="process_style_stepNumeralSize_val">28px</span></label>
+          <input type="range" id="process_style_stepNumeralSize" min="18" max="40" value="28">
+        </div>
+        <div class="field">
+          <label class="range-label">Step Title Size <span class="range-value" id="process_style_stepTitleSize_val">19px</span></label>
+          <input type="range" id="process_style_stepTitleSize" min="14" max="26" value="19">
+        </div>
+        <div class="field">
+          <label class="range-label">Step Text Size <span class="range-value" id="process_style_stepTextSize_val">13px</span></label>
+          <input type="range" id="process_style_stepTextSize" min="11" max="18" value="13">
+        </div>
+        <div class="field">
+          <label class="range-label">Intro Max Width <span class="range-value" id="process_style_introMaxWidth_val">520px</span></label>
+          <input type="range" id="process_style_introMaxWidth" min="400" max="700" value="520">
+        </div>
+        <div class="field">
+          <label>Label Color</label>
+          <div class="color-field">
+            <input type="color" id="process_style_labelColor_picker" value="#8B6E4E">
+            <input type="text" id="process_style_labelColor" value="#8B6E4E">
+          </div>
+        </div>
+        <div class="field">
+          <label>Heading Color</label>
+          <div class="color-field">
+            <input type="color" id="process_style_headingColor_picker" value="#1A1610">
+            <input type="text" id="process_style_headingColor" value="#1A1610">
+          </div>
+        </div>
+        <div class="field">
+          <label>Italic Color</label>
+          <div class="color-field">
+            <input type="color" id="process_style_italicColor_picker" value="#8B6E4E">
+            <input type="text" id="process_style_italicColor" value="#8B6E4E">
+          </div>
+        </div>
+        <div class="field">
+          <label>Intro Color</label>
+          <div class="color-field">
+            <input type="color" id="process_style_introColor_picker" value="#5C5244">
+            <input type="text" id="process_style_introColor" value="#5C5244">
+          </div>
+        </div>
+        <div class="field">
+          <label class="range-label">Intro Size <span class="range-value" id="process_style_introSize_val">15px</span></label>
+          <input type="range" id="process_style_introSize" min="12" max="20" value="15">
+        </div>
+        <div class="field">
+          <label>Step Numeral Color</label>
+          <div class="color-field">
+            <input type="color" id="process_style_stepNumeralColor_picker" value="#8B6E4E">
+            <input type="text" id="process_style_stepNumeralColor" value="#8B6E4E">
+          </div>
+        </div>
+        <div class="field">
+          <label>Step Title Color</label>
+          <div class="color-field">
+            <input type="color" id="process_style_stepTitleColor_picker" value="#1A1610">
+            <input type="text" id="process_style_stepTitleColor" value="#1A1610">
+          </div>
+        </div>
+        <div class="field">
+          <label>Step Text Color</label>
+          <div class="color-field">
+            <input type="color" id="process_style_stepTextColor_picker" value="#5C5244">
+            <input type="text" id="process_style_stepTextColor" value="#5C5244">
           </div>
         </div>
         <div class="field">
@@ -736,10 +854,14 @@
           </select>
         </div>
         <div class="field">
-          <label>Text Color</label>
+          <label class="range-label">Step Gap <span class="range-value" id="process_style_stepGap_val">28px</span></label>
+          <input type="range" id="process_style_stepGap" min="16" max="40" value="28">
+        </div>
+        <div class="field">
+          <label>Divider Color</label>
           <div class="color-field">
-            <input type="color" id="process_style_textColor_picker" value="#5C5244">
-            <input type="text" id="process_style_textColor" value="#5C5244">
+            <input type="color" id="process_style_dividerColor_picker" value="#E8E3DC">
+            <input type="text" id="process_style_dividerColor" placeholder="(use border)">
           </div>
         </div>
         <div class="checkbox-field"><input type="checkbox" id="process_style_showDivider" checked><label for="process_style_showDivider">Show Divider Line Under Text</label></div>
@@ -754,7 +876,7 @@
             <input type="text" id="process_style_dividerLineColor" value="#E8E3DC">
           </div>
         </div>
-      </div>
+        
 
       <!-- WHY US -->
       <div class="panel" id="panel-why">
@@ -807,41 +929,65 @@
           <label class="range-label">Image Height <span class="range-value" id="why_style_imageHeight_val">200px</span></label>
           <input type="range" id="why_style_imageHeight" min="80" max="500" value="200">
         </div>
-        <hr class="section-divider">
-        <div class="section-label">Logo Placement</div>
-        <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
-        <div class="field">
-          <label>Upload Page Logo</label>
-          <input type="file" id="why_style_logoUpload" accept="image/*">
-          <div class="bg-image-preview" id="why_logo_preview" style="width:120px;height:40px;margin-top:6px;"></div>
-        </div>
-        <div class="field">
-          <label>Logo Position</label>
-          <select id="why_style_logoPosition">
-            <option value="none">No Logo</option>
-            <option value="top-left">Top Left</option>
-            <option value="top-center">Top Center</option>
-            <option value="top-right">Top Right</option>
-            <option value="bottom-left">Bottom Left</option>
-            <option value="bottom-center">Bottom Center</option>
-            <option value="bottom-right">Bottom Right</option>
-          </select>
-        </div>
-        <div class="field">
-          <label class="range-label">Logo Size <span class="range-value" id="why_style_logoSize_val">40px</span></label>
-          <input type="range" id="why_style_logoSize" min="20" max="120" value="40">
-        </div>
-        <div class="field">
-          <label class="range-label">Logo Opacity <span class="range-value" id="why_style_logoOpacity_val">1</span></label>
-          <input type="range" id="why_style_logoOpacity" min="0" max="1" step="0.05" value="1">
-        </div>
+      </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
+        <div class="field">
+          <label class="range-label">Statement Font Size <span class="range-value" id="why_style_statementSize_val">26px</span></label>
+          <input type="range" id="why_style_statementSize" min="18" max="36" value="26">
+        </div>
+        <div class="field">
+          <label class="range-label">Pillar Title Size <span class="range-value" id="why_style_pillarTitleSize_val">22px</span></label>
+          <input type="range" id="why_style_pillarTitleSize" min="16" max="32" value="22">
+        </div>
+        <div class="field">
+          <label class="range-label">Pillar Text Size <span class="range-value" id="why_style_pillarTextSize_val">13.5px</span></label>
+          <input type="range" id="why_style_pillarTextSize" min="11" max="18" step="0.5" value="13.5">
+        </div>
+        <div class="field">
+          <label class="range-label">Pillar Grid Width <span class="range-value" id="why_style_pillarGridWidth_val">180px</span></label>
+          <input type="range" id="why_style_pillarGridWidth" min="120" max="260" value="180">
+        </div>
         <div class="field">
           <label>Background Color</label>
           <div class="color-field">
             <input type="color" id="why_style_bgColor_picker" value="#1A1610">
             <input type="text" id="why_style_bgColor" value="#1A1610">
+          </div>
+        </div>
+        <div class="field">
+          <label>Label Color</label>
+          <div class="color-field">
+            <input type="color" id="why_style_labelColor_picker" value="#8B6E4E">
+            <input type="text" id="why_style_labelColor" value="#8B6E4E">
+          </div>
+        </div>
+        <div class="field">
+          <label>Heading Color</label>
+          <div class="color-field">
+            <input type="color" id="why_style_headingColor_picker" value="#F5EFE6">
+            <input type="text" id="why_style_headingColor" value="#F5EFE6">
+          </div>
+        </div>
+        <div class="field">
+          <label>Statement Color</label>
+          <div class="color-field">
+            <input type="color" id="why_style_statementColor_picker" value="#B5AFA7">
+            <input type="text" id="why_style_statementColor" value="#B5AFA7">
+          </div>
+        </div>
+        <div class="field">
+          <label>Pillar Title Color</label>
+          <div class="color-field">
+            <input type="color" id="why_style_pillarTitleColor_picker" value="#F5EFE6">
+            <input type="text" id="why_style_pillarTitleColor" value="#F5EFE6">
+          </div>
+        </div>
+        <div class="field">
+          <label>Pillar Text Color</label>
+          <div class="color-field">
+            <input type="color" id="why_style_pillarTextColor_picker" value="#8A847C">
+            <input type="text" id="why_style_pillarTextColor" value="#8A847C">
           </div>
         </div>
         <div class="field">
@@ -853,10 +999,14 @@
           </select>
         </div>
         <div class="field">
-          <label>Text Color</label>
+          <label class="range-label">Statement Max Width <span class="range-value" id="why_style_statementMaxWidth_val">480px</span></label>
+          <input type="range" id="why_style_statementMaxWidth" min="300" max="600" value="480">
+        </div>
+        <div class="field">
+          <label>Pillar Divider Color</label>
           <div class="color-field">
-            <input type="color" id="why_style_textColor_picker" value="#F5EFE6">
-            <input type="text" id="why_style_textColor" value="#F5EFE6">
+            <input type="color" id="why_style_pillarDividerColor_picker" value="#F5EFE6">
+            <input type="text" id="why_style_pillarDividerColor" placeholder="rgba(245,239,230,.06)">
           </div>
         </div>
         <div class="checkbox-field"><input type="checkbox" id="why_style_showDivider"><label for="why_style_showDivider">Show Divider Line Under Text</label></div>
@@ -871,7 +1021,7 @@
             <input type="text" id="why_style_dividerLineColor" value="#8B6E4E">
           </div>
         </div>
-      </div>
+        
 
       <!-- FOUNDER -->
       <div class="panel" id="panel-founder">
@@ -937,54 +1087,9 @@
           <label class="range-label">Image Height <span class="range-value" id="founder_style_imageHeight_val">200px</span></label>
           <input type="range" id="founder_style_imageHeight" min="80" max="500" value="200">
         </div>
-        <hr class="section-divider">
-        <div class="section-label">Logo Placement</div>
-        <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
-        <div class="field">
-          <label>Upload Page Logo</label>
-          <input type="file" id="founder_style_logoUpload" accept="image/*">
-          <div class="bg-image-preview" id="founder_logo_preview" style="width:120px;height:40px;margin-top:6px;"></div>
-        </div>
-        <div class="field">
-          <label>Logo Position</label>
-          <select id="founder_style_logoPosition">
-            <option value="none">No Logo</option>
-            <option value="top-left">Top Left</option>
-            <option value="top-center">Top Center</option>
-            <option value="top-right">Top Right</option>
-            <option value="bottom-left">Bottom Left</option>
-            <option value="bottom-center">Bottom Center</option>
-            <option value="bottom-right">Bottom Right</option>
-          </select>
-        </div>
-        <div class="field">
-          <label class="range-label">Logo Size <span class="range-value" id="founder_style_logoSize_val">40px</span></label>
-          <input type="range" id="founder_style_logoSize" min="20" max="120" value="40">
-        </div>
-        <div class="field">
-          <label class="range-label">Logo Opacity <span class="range-value" id="founder_style_logoOpacity_val">1</span></label>
-          <input type="range" id="founder_style_logoOpacity" min="0" max="1" step="0.05" value="1">
-        </div>
+      </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
-        <div class="field">
-          <label>Background Color Override</label>
-          <div class="color-field">
-            <input type="color" id="founder_style_bgColor_picker" value="#FDFAF6">
-            <input type="text" id="founder_style_bgColor" placeholder="(use global bgLight)">
-          </div>
-        </div>
-        <div class="field">
-          <label class="range-label">Signature Size <span class="range-value" id="founder_style_signatureSize_val">36px</span></label>
-          <input type="range" id="founder_style_signatureSize" min="24" max="56" value="36">
-        </div>
-        <div class="field">
-          <label>Text Color</label>
-          <div class="color-field">
-            <input type="color" id="founder_style_textColor_picker" value="#5C5244">
-            <input type="text" id="founder_style_textColor" value="#5C5244">
-          </div>
-        </div>
         <div class="field">
           <label>Letter Style</label>
           <select id="founder_style_letterStyle">
@@ -993,12 +1098,91 @@
           </select>
         </div>
         <div class="field">
+          <label>Background Color Override</label>
+          <div class="color-field">
+            <input type="color" id="founder_style_bgColor_picker" value="#FDFAF6">
+            <input type="text" id="founder_style_bgColor" placeholder="(use global bgLight)">
+          </div>
+        </div>
+        <div class="field">
+          <label class="range-label">Letter Font Size <span class="range-value" id="founder_style_letterFontSize_val">14px</span></label>
+          <input type="range" id="founder_style_letterFontSize" min="11" max="18" value="14">
+        </div>
+        <div class="field">
+          <label class="range-label">Signature Size <span class="range-value" id="founder_style_signatureSize_val">36px</span></label>
+          <input type="range" id="founder_style_signatureSize" min="24" max="56" value="36">
+        </div>
+        <div class="field">
+          <label class="range-label">Letter Max Width <span class="range-value" id="founder_style_letterMaxWidth_val">500px</span></label>
+          <input type="range" id="founder_style_letterMaxWidth" min="400" max="700" value="500">
+        </div>
+        <div class="field">
+          <label>Label Color</label>
+          <div class="color-field">
+            <input type="color" id="founder_style_labelColor_picker" value="#8B6E4E">
+            <input type="text" id="founder_style_labelColor" value="#8B6E4E">
+          </div>
+        </div>
+        <div class="field">
+          <label>Heading Color</label>
+          <div class="color-field">
+            <input type="color" id="founder_style_headingColor_picker" value="#1A1610">
+            <input type="text" id="founder_style_headingColor" value="#1A1610">
+          </div>
+        </div>
+        <div class="field">
+          <label>Italic Color</label>
+          <div class="color-field">
+            <input type="color" id="founder_style_italicColor_picker" value="#8B6E4E">
+            <input type="text" id="founder_style_italicColor" value="#8B6E4E">
+          </div>
+        </div>
+        <div class="field">
+          <label>Letter Color</label>
+          <div class="color-field">
+            <input type="color" id="founder_style_letterColor_picker" value="#5C5244">
+            <input type="text" id="founder_style_letterColor" value="#5C5244">
+          </div>
+        </div>
+        <div class="field">
+          <label>Closing Color</label>
+          <div class="color-field">
+            <input type="color" id="founder_style_closingColor_picker" value="#5C5244">
+            <input type="text" id="founder_style_closingColor" value="#5C5244">
+          </div>
+        </div>
+        <div class="field">
+          <label>Signature Color</label>
+          <div class="color-field">
+            <input type="color" id="founder_style_signatureColor_picker" value="#1A1610">
+            <input type="text" id="founder_style_signatureColor" value="#1A1610">
+          </div>
+        </div>
+        <div class="field">
+          <label>Name Color</label>
+          <div class="color-field">
+            <input type="color" id="founder_style_nameColor_picker" value="#1A1610">
+            <input type="text" id="founder_style_nameColor" value="#1A1610">
+          </div>
+        </div>
+        <div class="field">
+          <label>Role Color</label>
+          <div class="color-field">
+            <input type="color" id="founder_style_roleColor_picker" value="#8A847C">
+            <input type="text" id="founder_style_roleColor" value="#8A847C">
+          </div>
+        </div>
+        <div class="field">
           <label>Text Alignment</label>
           <select id="founder_style_textAlign">
             <option value="center">Center</option>
             <option value="left">Left</option>
             <option value="right">Right</option>
           </select>
+        </div>
+        <div class="field">
+          <label class="range-label">Letter Line Height <span class="range-value" id="founder_style_letterLineHeight_val">2</span></label>
+          <input type="range" id="founder_style_letterLineHeight" min="1.4" max="2.6" step="0.1" value="2">
         </div>
         <div class="checkbox-field"><input type="checkbox" id="founder_style_showDivider"><label for="founder_style_showDivider">Show Divider Line Under Text</label></div>
         <div class="field">
@@ -1012,7 +1196,7 @@
             <input type="text" id="founder_style_dividerLineColor" value="#E8E3DC">
           </div>
         </div>
-      </div>
+        
 
       <!-- CONTACT -->
       <div class="panel" id="panel-contact">
@@ -1065,34 +1249,7 @@
           <label class="range-label">Image Height <span class="range-value" id="contact_style_imageHeight_val">200px</span></label>
           <input type="range" id="contact_style_imageHeight" min="80" max="500" value="200">
         </div>
-        <hr class="section-divider">
-        <div class="section-label">Logo Placement</div>
-        <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
-        <div class="field">
-          <label>Upload Page Logo</label>
-          <input type="file" id="contact_style_logoUpload" accept="image/*">
-          <div class="bg-image-preview" id="contact_logo_preview" style="width:120px;height:40px;margin-top:6px;"></div>
-        </div>
-        <div class="field">
-          <label>Logo Position</label>
-          <select id="contact_style_logoPosition">
-            <option value="none">No Logo</option>
-            <option value="top-left">Top Left</option>
-            <option value="top-center">Top Center</option>
-            <option value="top-right">Top Right</option>
-            <option value="bottom-left">Bottom Left</option>
-            <option value="bottom-center">Bottom Center</option>
-            <option value="bottom-right">Bottom Right</option>
-          </select>
-        </div>
-        <div class="field">
-          <label class="range-label">Logo Size <span class="range-value" id="contact_style_logoSize_val">40px</span></label>
-          <input type="range" id="contact_style_logoSize" min="20" max="120" value="40">
-        </div>
-        <div class="field">
-          <label class="range-label">Logo Opacity <span class="range-value" id="contact_style_logoOpacity_val">1</span></label>
-          <input type="range" id="contact_style_logoOpacity" min="0" max="1" step="0.05" value="1">
-        </div>
+      </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
@@ -1100,6 +1257,60 @@
           <div class="color-field">
             <input type="color" id="contact_style_bgColor_picker" value="#1A1610">
             <input type="text" id="contact_style_bgColor" placeholder="(use global dark)">
+          </div>
+        </div>
+        <div class="field">
+          <label class="range-label">Monogram Size <span class="range-value" id="contact_style_monogramSize_val">48px</span></label>
+          <input type="range" id="contact_style_monogramSize" min="32" max="72" value="48">
+        </div>
+        <div class="field">
+          <label class="range-label">Detail Value Size <span class="range-value" id="contact_style_detailValueSize_val">22px</span></label>
+          <input type="range" id="contact_style_detailValueSize" min="16" max="32" value="22">
+        </div>
+        <div class="field">
+          <label class="range-label">Note Size <span class="range-value" id="contact_style_noteSize_val">12px</span></label>
+          <input type="range" id="contact_style_noteSize" min="10" max="16" value="12">
+        </div>
+        <div class="field">
+          <label>Monogram Color</label>
+          <div class="color-field">
+            <input type="color" id="contact_style_monogramColor_picker" value="#8B6E4E">
+            <input type="text" id="contact_style_monogramColor" value="#8B6E4E">
+          </div>
+        </div>
+        <div class="field">
+          <label>Heading Color</label>
+          <div class="color-field">
+            <input type="color" id="contact_style_headingColor_picker" value="#F5EFE6">
+            <input type="text" id="contact_style_headingColor" value="#F5EFE6">
+          </div>
+        </div>
+        <div class="field">
+          <label>Detail Label Color</label>
+          <div class="color-field">
+            <input type="color" id="contact_style_detailLabelColor_picker" value="#8A847C">
+            <input type="text" id="contact_style_detailLabelColor" value="#8A847C">
+          </div>
+        </div>
+        <div class="field">
+          <label>Detail Value Color</label>
+          <div class="color-field">
+            <input type="color" id="contact_style_detailValueColor_picker" value="#F5EFE6">
+            <input type="text" id="contact_style_detailValueColor" value="#F5EFE6">
+          </div>
+        </div>
+        <div class="field">
+          <label>Note Color</label>
+          <div class="color-field">
+            <input type="color" id="contact_style_noteColor_picker" value="#8A847C">
+            <input type="text" id="contact_style_noteColor" value="#8A847C">
+          </div>
+        </div>
+        <div class="field">
+          <label>Footer Color</label>
+          <div class="color-field">
+            <input type="color" id="contact_style_footerColor_picker" value="#F5EFE6">
+            <input type="text" id="contact_style_footerColor" value="#F5EFE6">
           </div>
         </div>
         <div class="field">
@@ -1111,11 +1322,12 @@
           </select>
         </div>
         <div class="field">
-          <label>Text Color</label>
-          <div class="color-field">
-            <input type="color" id="contact_style_textColor_picker" value="#F5EFE6">
-            <input type="text" id="contact_style_textColor" value="#F5EFE6">
-          </div>
+          <label class="range-label">Line Width <span class="range-value" id="contact_style_lineWidth_val">48px</span></label>
+          <input type="range" id="contact_style_lineWidth" min="24" max="80" value="48">
+        </div>
+        <div class="field">
+          <label class="range-label">Detail Gap <span class="range-value" id="contact_style_detailGap_val">32px</span></label>
+          <input type="range" id="contact_style_detailGap" min="16" max="48" value="32">
         </div>
         <div class="checkbox-field"><input type="checkbox" id="contact_style_showDivider"><label for="contact_style_showDivider">Show Divider Line Under Text</label></div>
         <div class="field">
@@ -1129,7 +1341,7 @@
             <input type="text" id="contact_style_dividerLineColor" value="#8B6E4E">
           </div>
         </div>
-      </div>
+        
 
       <!-- DESIGN -->
       <div class="panel" id="panel-design">
@@ -1312,18 +1524,18 @@ function fsToJs(v){if(!v)return null;if(v.stringValue!==undefined)return v.strin
 function deepMerge(t,d){const o=Object.assign({},d);for(const k of Object.keys(t)){const v=t[k];if(v!==null&&v!==undefined&&typeof v==='object'&&!Array.isArray(v)&&d[k]&&typeof d[k]==='object')o[k]=deepMerge(v,d[k]);else if(v!==null&&v!==undefined)o[k]=v;}return o;}
 
 const DEFAULT_DATA = {
-  cover: { monogram:"EP", name:"Estelle Privé", tagline:"International Realty", _style: { bgColor:'', monogramSize:72, nameSize:52, bgImageUrl:'', bgImageOpacity:0.3, taglineSize:11, imageLayout:'none', imageUrl:'', imageOpacity:1, imageWidth:100, imageHeight:200, nameLetterSpacing:0.08, monogramLetterSpacing:0.15, monogramColor:'#8B6E4E', nameColor:'#F5EFE6', taglineColor:'#8B6E4E', lineColor:'#8B6E4E', lineWidth:48, logoPosition:'none', logoSize:40, logoOpacity:1, logoUrl:'', logoUrl:'', logoUrl:'', logoUrl:'', logoUrl:'', logoUrl:'', logoUrl:'', logoUrl:'' } },
+  cover: { monogram:"EP", name:"Estelle Privé", tagline:"International Realty", _style: { bgColor:'', monogramSize:72, nameSize:52, bgImageUrl:'', bgImageOpacity:0.3, taglineSize:11, imageLayout:'none', imageUrl:'', imageOpacity:1, imageWidth:100, imageHeight:200, nameLetterSpacing:0.08, monogramLetterSpacing:0.15, monogramColor:'#8B6E4E', nameColor:'#F5EFE6', taglineColor:'#8B6E4E', lineColor:'#8B6E4E', lineWidth:48 } },
   house: {
     label:"The House", heading:"Discreet Excellence,", headingItalic:"Global Reach",
     p1:"Estelle Privé was founded on a singular conviction: that exceptional properties deserve exceptional representation. We operate at the intersection of private wealth advisory and curated real estate, offering a bespoke service to a discerning international clientele.",
     p2:"An international luxury real estate brokerage connecting discerning investors, private families, and institutional buyers with exceptional properties across the world's most coveted markets. From hotel acquisitions and branded residences to joint ventures and signature estates — we deliver curated opportunities backed by market intelligence, independent valuations, and a global network of developers, hotel operators, family offices, and institutional partners.",
     stats:[{number:"8",label:"Global Markets"},{number:"€2.4B",label:"Portfolio Value"},{number:"100%",label:"Private Clients"}],
-    _style: { bgColor:'', statNumberSize:36, statLabelSize:11, textMaxWidth:520, labelColor:'#8B6E4E', labelSize:10, headingColor:'#1A1610', headingSize:44, italicColor:'#8B6E4E', textColor:'#5C5244', textSize:15, statNumberColor:'#1A1610', statLabelColor:'#8A847C', textAlign:'center', statsGap:56, headingMarginBottom:48, showDivider:false, dividerWidth:48, dividerLineColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1, imageWidth:100, imageHeight:200, logoPosition:'none', logoSize:40, logoOpacity:1 },
+    _style: { bgColor:'', statNumberSize:36, statLabelSize:11, textMaxWidth:520, labelColor:'#8B6E4E', labelSize:10, headingColor:'#1A1610', headingSize:44, italicColor:'#8B6E4E', textColor:'#5C5244', textSize:15, statNumberColor:'#1A1610', statLabelColor:'#8A847C', textAlign:'center', statsGap:56, headingMarginBottom:48, showDivider:false, dividerWidth:48, dividerLineColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1, imageWidth:100, imageHeight:200, imageWidth:100, imageHeight:200, imageWidth:100, imageHeight:200, imageWidth:100, imageHeight:200, imageWidth:100, imageHeight:200, imageWidth:100, imageHeight:200, imageWidth:100, imageHeight:200 },
   },
   markets: {
     label:"Our Markets", heading1:"The World's Most", heading2:"Coveted Addresses", subtitle:"From European grandeur to Asia-Pacific modernity, Estelle Privé curates properties in the world's most sought-after locations.",
     cities:["Monaco","Paris","London","Saint Tropez","Marbella","Dubai","Geneva"],
-    _style: { layout:'list', bgColor:'', cityFontSize:30, dotColor:'', dotSize:6, cityPadding:24, labelColor:'#8B6E4E', headingColor:'#F5EFE6', cityColor:'#F5EFE6', textAlign:'center', showDivider:false, dividerWidth:48, dividerLineColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1, logoPosition:'none', logoSize:40, logoOpacity:1 },
+    _style: { layout:'list', bgColor:'', cityFontSize:30, dotColor:'', dotSize:6, cityPadding:24, labelColor:'#8B6E4E', headingColor:'#F5EFE6', cityColor:'#F5EFE6', textAlign:'center', showDivider:false, dividerWidth:48, dividerLineColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1 },
   },
   portfolio: {
     label:"The Portfolio", heading:"What We", headingItalic:"Do",
@@ -1334,7 +1546,7 @@ const DEFAULT_DATA = {
       {num:"04",title:"Iconic Residential",desc:"Private estates, waterfront villas, and sky residences in the world's most prestigious addresses. On-market and off-market opportunities curated for architectural merit, location prestige, and investment integrity."},
       {num:"05",title:"Corporate & Business",desc:"Strategic real estate advisory for multinational corporations, hotel brands, and institutional entities. Headquarters relocations, portfolio optimisation, and commercial asset transactions across key international markets."},
     ],
-    _style: { layout:'list', bgColor:'', vertNumSize:32, vertTitleSize:20, vertDescSize:13, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', vertNumColor:'#D5D3D0', vertTitleColor:'#1A1610', vertDescColor:'#5C5244', textAlign:'center', showDivider:false, dividerWidth:48, dividerLineColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1, logoPosition:'none', logoSize:40, logoOpacity:1 },
+    _style: { layout:'list', bgColor:'', vertNumSize:32, vertTitleSize:20, vertDescSize:13, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', vertNumColor:'#D5D3D0', vertTitleColor:'#1A1610', vertDescColor:'#5C5244', textAlign:'center', showDivider:false, dividerWidth:48, dividerLineColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1 },
   },
   process: {
     label:"The Process", heading:"How We", headingItalic:"Work",
@@ -1345,7 +1557,7 @@ const DEFAULT_DATA = {
       {numeral:"III",title:"Discretion & Confidentiality",text:"Our most significant transactions never appear online. For our private clients, complete confidentiality is not a feature — it is the foundation of every relationship we build."},
       {numeral:"IV",title:"Execution & Completion",text:"From a single acquisition to a multi-asset portfolio strategy — bespoke advisory through to completion, across jurisdictions. We coordinate legal, financial, and operational workstreams to ensure seamless closing."},
     ],
-    _style: { bgColor:'', stepNumeralSize:28, stepTitleSize:19, stepTextSize:13, introMaxWidth:520, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', introColor:'#5C5244', introSize:15, stepNumeralColor:'#8B6E4E', stepTitleColor:'#1A1610', stepTextColor:'#5C5244', textAlign:'center', stepGap:28, dividerColor:'', showDivider:true, dividerWidth:48, dividerLineColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1, logoPosition:'none', logoSize:40, logoOpacity:1 },
+    _style: { bgColor:'', stepNumeralSize:28, stepTitleSize:19, stepTextSize:13, introMaxWidth:520, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', introColor:'#5C5244', introSize:15, stepNumeralColor:'#8B6E4E', stepTitleColor:'#1A1610', stepTextColor:'#5C5244', textAlign:'center', stepGap:28, dividerColor:'', showDivider:true, dividerWidth:48, dividerLineColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1 },
   },
   why: {
     label:"Why Us", heading1:"Why Invest", heading2:"With Estelle Privé",
@@ -1355,7 +1567,7 @@ const DEFAULT_DATA = {
       {title:"Decision-Maker Network",text:"Direct relationships with developers, hotel owners, sovereign wealth entities, and UHNW individuals across every market we operate in. No intermediaries. No delays."},
       {title:"Absolute Confidentiality",text:"Every transaction is handled with complete discretion. No public listings, no press coverage, no leaks. Your privacy is the foundation — not a feature."},
     ],
-    _style: { bgColor:'', statementSize:26, pillarTitleSize:22, pillarTextSize:13.5, pillarGridWidth:180, labelColor:'#8B6E4E', headingColor:'#F5EFE6', statementColor:'#B5AFA7', pillarTitleColor:'#F5EFE6', pillarTextColor:'#8A847C', textAlign:'center', statementMaxWidth:480, pillarDividerColor:'', showDivider:false, dividerWidth:48, dividerLineColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1, logoPosition:'none', logoSize:40, logoOpacity:1 },
+    _style: { bgColor:'', statementSize:26, pillarTitleSize:22, pillarTextSize:13.5, pillarGridWidth:180, labelColor:'#8B6E4E', headingColor:'#F5EFE6', statementColor:'#B5AFA7', pillarTitleColor:'#F5EFE6', pillarTextColor:'#8A847C', textAlign:'center', statementMaxWidth:480, pillarDividerColor:'', showDivider:false, dividerWidth:48, dividerLineColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1 },
   },
   founder: {
     label:"The Founder", heading:"A Personal", headingItalic:"Note",
@@ -1370,13 +1582,13 @@ const DEFAULT_DATA = {
     signatureName:"Hani Y. Ayoub",
     role:"Founder & Chief Executive Officer",
     companyLine:"Estelle Privé International Realty",
-    _style: { letterStyle:'normal', bgColor:'', letterFontSize:14, signatureSize:52, letterMaxWidth:500, signatureUrl:'', labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', letterColor:'#5C5244', closingColor:'#5C5244', signatureColor:'#1A1610', nameColor:'#1A1610', roleColor:'#8A847C', textAlign:'center', letterLineHeight:2, showDivider:false, dividerWidth:48, dividerLineColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1, logoPosition:'none', logoSize:40, logoOpacity:1 },
+    _style: { letterStyle:'normal', bgColor:'', letterFontSize:14, signatureSize:52, letterMaxWidth:500, signatureUrl:'', labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', letterColor:'#5C5244', closingColor:'#5C5244', signatureColor:'#1A1610', nameColor:'#1A1610', roleColor:'#8A847C', textAlign:'center', letterLineHeight:2, showDivider:false, dividerWidth:48, dividerLineColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1 },
   },
   contact: {
     label:"Get in Touch", monogram:"EP", heading1:"Begin a", heading2:"Conversation",
     email:"enquiries@estelleprive.com", website:"www.estelleprive.com",
     note:"All enquiries are treated with complete discretion.", copyright:"© 2026 Estelle Privé International",
-    _style: { bgColor:'', monogramSize:48, detailValueSize:22, noteSize:12, monogramColor:'#8B6E4E', headingColor:'#F5EFE6', detailLabelColor:'#8A847C', detailValueColor:'#F5EFE6', noteColor:'#8A847C', footerColor:'#F5EFE6', textAlign:'center', lineWidth:48, detailGap:32, showDivider:false, dividerWidth:48, dividerLineColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1, logoPosition:'none', logoSize:40, logoOpacity:1 },
+    _style: { bgColor:'', monogramSize:48, detailValueSize:22, noteSize:12, monogramColor:'#8B6E4E', headingColor:'#F5EFE6', detailLabelColor:'#8A847C', detailValueColor:'#F5EFE6', noteColor:'#8A847C', footerColor:'#F5EFE6', textAlign:'center', lineWidth:48, detailGap:32, showDivider:false, dividerWidth:48, dividerLineColor:'', imageLayout:'none', imageUrl:'', imageOpacity:1 },
   },
   design: {
     colors: { accent:'#8B6E4E', accentDeep:'#6B5239', bgLight:'#FDFAF6', bgWarm:'#F5EFE6', bgDark:'#1A1610', textPrimary:'#1A1610', textSecondary:'#5C5244', textMuted:'#8A847C', border:'#E8E3DC' },
@@ -1483,12 +1695,69 @@ const COLOR_FIELDS = [
   {picker:'design_color_border_picker', text:'design_color_border'},
   {picker:'cover_style_bgColor_picker', text:'cover_style_bgColor'},
   {picker:'house_style_bgColor_picker', text:'house_style_bgColor'},
+  {picker:'markets_style_dotColor_picker', text:'markets_style_dotColor'},
   {picker:'portfolio_style_bgColor_picker', text:'portfolio_style_bgColor'},
   {picker:'process_style_bgColor_picker', text:'process_style_bgColor'},
   {picker:'founder_style_bgColor_picker', text:'founder_style_bgColor'},
   {picker:'contact_style_bgColor_picker', text:'contact_style_bgColor'},
+  // Cover text colors
+  {picker:'cover_style_monogramColor_picker', text:'cover_style_monogramColor'},
+  {picker:'cover_style_nameColor_picker', text:'cover_style_nameColor'},
+  {picker:'cover_style_taglineColor_picker', text:'cover_style_taglineColor'},
+  {picker:'cover_style_lineColor_picker', text:'cover_style_lineColor'},
+  // House text colors
+  {picker:'house_style_labelColor_picker', text:'house_style_labelColor'},
+  {picker:'house_style_headingColor_picker', text:'house_style_headingColor'},
+  {picker:'house_style_italicColor_picker', text:'house_style_italicColor'},
+  {picker:'house_style_textColor_picker', text:'house_style_textColor'},
+  {picker:'house_style_statNumberColor_picker', text:'house_style_statNumberColor'},
+  {picker:'house_style_statLabelColor_picker', text:'house_style_statLabelColor'},
+  // Markets text colors
+  {picker:'markets_style_labelColor_picker', text:'markets_style_labelColor'},
+  {picker:'markets_style_headingColor_picker', text:'markets_style_headingColor'},
+  {picker:'markets_style_cityColor_picker', text:'markets_style_cityColor'},
+  // Portfolio text colors
+  {picker:'portfolio_style_labelColor_picker', text:'portfolio_style_labelColor'},
+  {picker:'portfolio_style_headingColor_picker', text:'portfolio_style_headingColor'},
+  {picker:'portfolio_style_italicColor_picker', text:'portfolio_style_italicColor'},
+  {picker:'portfolio_style_vertNumColor_picker', text:'portfolio_style_vertNumColor'},
+  {picker:'portfolio_style_vertTitleColor_picker', text:'portfolio_style_vertTitleColor'},
+  {picker:'portfolio_style_vertDescColor_picker', text:'portfolio_style_vertDescColor'},
+  // Process text colors
+  {picker:'process_style_labelColor_picker', text:'process_style_labelColor'},
+  {picker:'process_style_headingColor_picker', text:'process_style_headingColor'},
+  {picker:'process_style_italicColor_picker', text:'process_style_italicColor'},
+  {picker:'process_style_introColor_picker', text:'process_style_introColor'},
+  {picker:'process_style_stepNumeralColor_picker', text:'process_style_stepNumeralColor'},
+  {picker:'process_style_stepTitleColor_picker', text:'process_style_stepTitleColor'},
+  {picker:'process_style_stepTextColor_picker', text:'process_style_stepTextColor'},
   {picker:'markets_style_bgColor_picker', text:'markets_style_bgColor'},
+  // Why Us text colors
   {picker:'why_style_bgColor_picker', text:'why_style_bgColor'},
+  {picker:'why_style_labelColor_picker', text:'why_style_labelColor'},
+  {picker:'why_style_headingColor_picker', text:'why_style_headingColor'},
+  {picker:'why_style_statementColor_picker', text:'why_style_statementColor'},
+  {picker:'why_style_pillarTitleColor_picker', text:'why_style_pillarTitleColor'},
+  {picker:'why_style_pillarTextColor_picker', text:'why_style_pillarTextColor'},
+  // Founder text colors
+  {picker:'founder_style_labelColor_picker', text:'founder_style_labelColor'},
+  {picker:'founder_style_headingColor_picker', text:'founder_style_headingColor'},
+  {picker:'founder_style_italicColor_picker', text:'founder_style_italicColor'},
+  {picker:'founder_style_letterColor_picker', text:'founder_style_letterColor'},
+  {picker:'founder_style_closingColor_picker', text:'founder_style_closingColor'},
+  {picker:'founder_style_signatureColor_picker', text:'founder_style_signatureColor'},
+  {picker:'founder_style_nameColor_picker', text:'founder_style_nameColor'},
+  {picker:'founder_style_roleColor_picker', text:'founder_style_roleColor'},
+  // Contact text colors
+  {picker:'contact_style_monogramColor_picker', text:'contact_style_monogramColor'},
+  {picker:'contact_style_headingColor_picker', text:'contact_style_headingColor'},
+  {picker:'contact_style_detailLabelColor_picker', text:'contact_style_detailLabelColor'},
+  {picker:'contact_style_detailValueColor_picker', text:'contact_style_detailValueColor'},
+  {picker:'contact_style_noteColor_picker', text:'contact_style_noteColor'},
+  {picker:'contact_style_footerColor_picker', text:'contact_style_footerColor'},
+  // New customization color fields
+  {picker:'process_style_dividerColor_picker', text:'process_style_dividerColor'},
+  {picker:'why_style_pillarDividerColor_picker', text:'why_style_pillarDividerColor'},
   // Divider line color fields
   {picker:'house_style_dividerLineColor_picker', text:'house_style_dividerLineColor'},
   {picker:'markets_style_dividerLineColor_picker', text:'markets_style_dividerLineColor'},
@@ -1497,15 +1766,6 @@ const COLOR_FIELDS = [
   {picker:'why_style_dividerLineColor_picker', text:'why_style_dividerLineColor'},
   {picker:'founder_style_dividerLineColor_picker', text:'founder_style_dividerLineColor'},
   {picker:'contact_style_dividerLineColor_picker', text:'contact_style_dividerLineColor'},
-
-  {picker:'cover_style_textColor_picker', text:'cover_style_textColor'},
-  {picker:'house_style_textColor_picker', text:'house_style_textColor'},
-  {picker:'markets_style_textColor_picker', text:'markets_style_textColor'},
-  {picker:'portfolio_style_textColor_picker', text:'portfolio_style_textColor'},
-  {picker:'process_style_textColor_picker', text:'process_style_textColor'},
-  {picker:'why_style_textColor_picker', text:'why_style_textColor'},
-  {picker:'founder_style_textColor_picker', text:'founder_style_textColor'},
-  {picker:'contact_style_textColor_picker', text:'contact_style_textColor'},
 ];
 
 COLOR_FIELDS.forEach(cf => {
@@ -1525,7 +1785,9 @@ COLOR_FIELDS.forEach(cf => {
 const RANGE_FIELDS = [
   {id:'cover_style_monogramSize', valId:'cover_style_monogramSize_val', unit:'px'},
   {id:'cover_style_nameSize', valId:'cover_style_nameSize_val', unit:'px'},
+  {id:'cover_style_bgImageOpacity', valId:'cover_style_bgImageOpacity_val', unit:''},
   {id:'markets_style_cityFontSize', valId:'markets_style_cityFontSize_val', unit:'px'},
+  {id:'why_style_statementSize', valId:'why_style_statementSize_val', unit:'px'},
   {id:'design_size_heading', valId:'design_size_heading_val', unit:'px'},
   {id:'design_size_body', valId:'design_size_body_val', unit:'px'},
   {id:'design_size_sectionLabel', valId:'design_size_sectionLabel_val', unit:'px'},
@@ -1534,7 +1796,43 @@ const RANGE_FIELDS = [
   {id:'design_spacing_pagePadH', valId:'design_spacing_pagePadH_val', unit:'px'},
   {id:'design_spacing_pagePadV', valId:'design_spacing_pagePadV_val', unit:'px'},
   {id:'cover_style_taglineSize', valId:'cover_style_taglineSize_val', unit:'px'},
+  {id:'cover_style_nameLetterSpacing', valId:'cover_style_nameLetterSpacing_val', unit:'em'},
+  {id:'cover_style_monogramLetterSpacing', valId:'cover_style_monogramLetterSpacing_val', unit:'em'},
+  {id:'house_style_statNumberSize', valId:'house_style_statNumberSize_val', unit:'px'},
+  {id:'house_style_statLabelSize', valId:'house_style_statLabelSize_val', unit:'px'},
+  {id:'house_style_textMaxWidth', valId:'house_style_textMaxWidth_val', unit:'px'},
+  {id:'markets_style_dotSize', valId:'markets_style_dotSize_val', unit:'px'},
+  {id:'markets_style_cityPadding', valId:'markets_style_cityPadding_val', unit:'px'},
+  {id:'portfolio_style_vertNumSize', valId:'portfolio_style_vertNumSize_val', unit:'px'},
+  {id:'portfolio_style_vertTitleSize', valId:'portfolio_style_vertTitleSize_val', unit:'px'},
+  {id:'portfolio_style_vertDescSize', valId:'portfolio_style_vertDescSize_val', unit:'px'},
+  {id:'process_style_stepNumeralSize', valId:'process_style_stepNumeralSize_val', unit:'px'},
+  {id:'process_style_stepTitleSize', valId:'process_style_stepTitleSize_val', unit:'px'},
+  {id:'process_style_stepTextSize', valId:'process_style_stepTextSize_val', unit:'px'},
+  {id:'process_style_introMaxWidth', valId:'process_style_introMaxWidth_val', unit:'px'},
+  {id:'why_style_pillarTitleSize', valId:'why_style_pillarTitleSize_val', unit:'px'},
+  {id:'why_style_pillarTextSize', valId:'why_style_pillarTextSize_val', unit:'px'},
+  {id:'why_style_pillarGridWidth', valId:'why_style_pillarGridWidth_val', unit:'px'},
+  {id:'founder_style_letterFontSize', valId:'founder_style_letterFontSize_val', unit:'px'},
   {id:'founder_style_signatureSize', valId:'founder_style_signatureSize_val', unit:'px'},
+  {id:'founder_style_letterMaxWidth', valId:'founder_style_letterMaxWidth_val', unit:'px'},
+  {id:'contact_style_monogramSize', valId:'contact_style_monogramSize_val', unit:'px'},
+  {id:'contact_style_detailValueSize', valId:'contact_style_detailValueSize_val', unit:'px'},
+  {id:'contact_style_noteSize', valId:'contact_style_noteSize_val', unit:'px'},
+  // New range fields
+  {id:'house_style_labelSize', valId:'house_style_labelSize_val', unit:'px'},
+  {id:'house_style_headingSize', valId:'house_style_headingSize_val', unit:'px'},
+  {id:'house_style_textSize', valId:'house_style_textSize_val', unit:'px'},
+  {id:'process_style_introSize', valId:'process_style_introSize_val', unit:'px'},
+  // New customization range fields
+  {id:'cover_style_lineWidth', valId:'cover_style_lineWidth_val', unit:'px'},
+  {id:'house_style_statsGap', valId:'house_style_statsGap_val', unit:'px'},
+  {id:'house_style_headingMarginBottom', valId:'house_style_headingMarginBottom_val', unit:'px'},
+  {id:'process_style_stepGap', valId:'process_style_stepGap_val', unit:'px'},
+  {id:'why_style_statementMaxWidth', valId:'why_style_statementMaxWidth_val', unit:'px'},
+  {id:'founder_style_letterLineHeight', valId:'founder_style_letterLineHeight_val', unit:''},
+  {id:'contact_style_lineWidth', valId:'contact_style_lineWidth_val', unit:'px'},
+  {id:'contact_style_detailGap', valId:'contact_style_detailGap_val', unit:'px'},
   // Divider line width fields
   {id:'house_style_dividerWidth', valId:'house_style_dividerWidth_val', unit:'px'},
   {id:'markets_style_dividerWidth', valId:'markets_style_dividerWidth_val', unit:'px'},
@@ -1551,40 +1849,24 @@ const RANGE_FIELDS = [
   {id:'why_style_imageOpacity', valId:'why_style_imageOpacity_val', unit:''},
   {id:'founder_style_imageOpacity', valId:'founder_style_imageOpacity_val', unit:''},
   {id:'contact_style_imageOpacity', valId:'contact_style_imageOpacity_val', unit:''},
-  {id:'cover_style_imageOpacity', valId:'cover_style_imageOpacity_val', unit:''},
-  {id:'cover_style_imageWidth', valId:'cover_style_imageWidth_val', unit:'%'},
-  {id:'cover_style_imageHeight', valId:'cover_style_imageHeight_val', unit:'px'},
-  {id:'house_style_imageWidth', valId:'house_style_imageWidth_val', unit:'%'},
-  {id:'house_style_imageHeight', valId:'house_style_imageHeight_val', unit:'px'},
-  {id:'markets_style_imageWidth', valId:'markets_style_imageWidth_val', unit:'%'},
-  {id:'markets_style_imageHeight', valId:'markets_style_imageHeight_val', unit:'px'},
-  {id:'portfolio_style_imageWidth', valId:'portfolio_style_imageWidth_val', unit:'%'},
-  {id:'portfolio_style_imageHeight', valId:'portfolio_style_imageHeight_val', unit:'px'},
-  {id:'process_style_imageWidth', valId:'process_style_imageWidth_val', unit:'%'},
-  {id:'process_style_imageHeight', valId:'process_style_imageHeight_val', unit:'px'},
-  {id:'why_style_imageWidth', valId:'why_style_imageWidth_val', unit:'%'},
-  {id:'why_style_imageHeight', valId:'why_style_imageHeight_val', unit:'px'},
-  {id:'founder_style_imageWidth', valId:'founder_style_imageWidth_val', unit:'%'},
-  {id:'founder_style_imageHeight', valId:'founder_style_imageHeight_val', unit:'px'},
-  {id:'contact_style_imageWidth', valId:'contact_style_imageWidth_val', unit:'%'},
-  {id:'contact_style_imageHeight', valId:'contact_style_imageHeight_val', unit:'px'},
-  // Logo placement range fields
-  {id:'cover_style_logoSize', valId:'cover_style_logoSize_val', unit:'px'},
-  {id:'cover_style_logoOpacity', valId:'cover_style_logoOpacity_val', unit:''},
-  {id:'house_style_logoSize', valId:'house_style_logoSize_val', unit:'px'},
-  {id:'house_style_logoOpacity', valId:'house_style_logoOpacity_val', unit:''},
-  {id:'markets_style_logoSize', valId:'markets_style_logoSize_val', unit:'px'},
-  {id:'markets_style_logoOpacity', valId:'markets_style_logoOpacity_val', unit:''},
-  {id:'portfolio_style_logoSize', valId:'portfolio_style_logoSize_val', unit:'px'},
-  {id:'portfolio_style_logoOpacity', valId:'portfolio_style_logoOpacity_val', unit:''},
-  {id:'process_style_logoSize', valId:'process_style_logoSize_val', unit:'px'},
-  {id:'process_style_logoOpacity', valId:'process_style_logoOpacity_val', unit:''},
-  {id:'why_style_logoSize', valId:'why_style_logoSize_val', unit:'px'},
-  {id:'why_style_logoOpacity', valId:'why_style_logoOpacity_val', unit:''},
-  {id:'founder_style_logoSize', valId:'founder_style_logoSize_val', unit:'px'},
-  {id:'founder_style_logoOpacity', valId:'founder_style_logoOpacity_val', unit:''},
-  {id:'contact_style_logoSize', valId:'contact_style_logoSize_val', unit:'px'},
-  {id:'contact_style_logoOpacity', valId:'contact_style_logoOpacity_val', unit:''}];
+,
+{id:'cover_style_imageOpacity', valId:'cover_style_imageOpacity_val', unit:''},
+{id:'cover_style_imageWidth', valId:'cover_style_imageWidth_val', unit:'%'},
+{id:'cover_style_imageHeight', valId:'cover_style_imageHeight_val', unit:'px'},
+{id:'house_style_imageWidth', valId:'house_style_imageWidth_val', unit:'%'},
+{id:'house_style_imageHeight', valId:'house_style_imageHeight_val', unit:'px'},
+{id:'markets_style_imageWidth', valId:'markets_style_imageWidth_val', unit:'%'},
+{id:'markets_style_imageHeight', valId:'markets_style_imageHeight_val', unit:'px'},
+{id:'portfolio_style_imageWidth', valId:'portfolio_style_imageWidth_val', unit:'%'},
+{id:'portfolio_style_imageHeight', valId:'portfolio_style_imageHeight_val', unit:'px'},
+{id:'process_style_imageWidth', valId:'process_style_imageWidth_val', unit:'%'},
+{id:'process_style_imageHeight', valId:'process_style_imageHeight_val', unit:'px'},
+{id:'why_style_imageWidth', valId:'why_style_imageWidth_val', unit:'%'},
+{id:'why_style_imageHeight', valId:'why_style_imageHeight_val', unit:'px'},
+{id:'founder_style_imageWidth', valId:'founder_style_imageWidth_val', unit:'%'},
+{id:'founder_style_imageHeight', valId:'founder_style_imageHeight_val', unit:'px'},
+{id:'contact_style_imageWidth', valId:'contact_style_imageWidth_val', unit:'%'},
+{id:'contact_style_imageHeight', valId:'contact_style_imageHeight_val', unit:'px'}];
 
 RANGE_FIELDS.forEach(rf => {
   const el = document.getElementById(rf.id);
@@ -1611,6 +1893,36 @@ function updateLogoPreview() {
   const preview = document.getElementById('logo_preview');
   if (data.design && data.design.logoUrl) {
     preview.innerHTML = '<img src="' + data.design.logoUrl + '" alt="Logo">';
+  } else {
+    preview.innerHTML = '';
+  }
+}
+
+// COVER BACKGROUND IMAGE UPLOAD
+document.getElementById('cover_style_bgImageUpload').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function() {
+    if (!data.cover._style) data.cover._style = {};
+    data.cover._style.bgImageUrl = reader.result;
+    updateCoverBgPreview();
+  _setVal('cover_style_imageLayout', cs.imageLayout || 'none');
+  _setVal('cover_style_imageUrl', (cs.imageUrl || ''));
+  _setSlider('cover_style_imageOpacity', 'cover_style_imageOpacity_val', cs.imageOpacity !== undefined ? cs.imageOpacity : 1, '');
+  _setSlider('cover_style_imageWidth', 'cover_style_imageWidth_val', cs.imageWidth || 100, '%');
+  _setSlider('cover_style_imageHeight', 'cover_style_imageHeight_val', cs.imageHeight || 200, 'px');
+  updatePageImagePreview('cover');
+    markUnsaved();
+  };
+  reader.readAsDataURL(file);
+});
+
+function updateCoverBgPreview() {
+  const preview = document.getElementById('cover_bgImage_preview');
+  const url = data.cover._style && data.cover._style.bgImageUrl;
+  if (url) {
+    preview.innerHTML = '<img src="' + url + '" alt="Background">';
   } else {
     preview.innerHTML = '';
   }
@@ -1656,40 +1968,8 @@ function updateSignaturePreview() {
 (function(){var el=document.getElementById('founder_style_imageLayout');if(el)el.addEventListener('change',function(){if(!data.founder)data.founder={};if(!data.founder._style)data.founder._style={};data.founder._style.imageLayout=el.value;markUnsaved();});})();
 (function(){var el=document.getElementById('contact_style_imageLayout');if(el)el.addEventListener('change',function(){if(!data.contact)data.contact={};if(!data.contact._style)data.contact._style={};data.contact._style.imageLayout=el.value;markUnsaved();});})();
 
-// PAGE LOGO UPLOADS
-['cover','house','markets','portfolio','process','why','founder','contact'].forEach(function(page){
-  var uploadEl=document.getElementById(page+'_style_logoUpload');
-  if(uploadEl){
-    uploadEl.addEventListener('change',function(e){
-      var file=e.target.files[0];if(!file)return;
-      var reader=new FileReader();
-      reader.onload=function(){
-        if(!data[page])data[page]={};
-        if(!data[page]._style)data[page]._style={};
-        data[page]._style.logoUrl=reader.result;
-        var preview=document.getElementById(page+'_logo_preview');
-        if(preview)preview.innerHTML='<img src="'+reader.result+'" style="max-width:100%;max-height:100%;object-fit:contain;">';
-        markUnsaved();
-        showToast('Logo uploaded for '+page);
-      };
-      reader.readAsDataURL(file);
-    });
-  }
-});
-
-// LOGO POSITION SELECT HANDLERS
-['cover','house','markets','portfolio','process','why','founder','contact'].forEach(function(page){
-  var el=document.getElementById(page+'_style_logoPosition');
-  if(el)el.addEventListener('change',function(){
-    if(!data[page])data[page]={};
-    if(!data[page]._style)data[page]._style={};
-    data[page]._style.logoPosition=el.value;
-    markUnsaved();
-  });
-});
-
 // PAGE IMAGE UPLOADS
-['cover','house','markets','portfolio','process','why','founder','contact'].forEach(page => {
+['house','markets','portfolio','process','why','founder','contact'].forEach(page => {
   const uploadEl = document.getElementById(page + '_style_imageUpload');
   if (uploadEl) {
     uploadEl.addEventListener('change', function(e) {
@@ -1843,9 +2123,10 @@ function populatePageStyles() {
   // Cover
   const cs = (data.cover && data.cover._style) || DEFAULT_DATA.cover._style || {};
   _setColor('cover_style_bgColor_picker', 'cover_style_bgColor', cs.bgColor);
-  _setColor('cover_style_textColor_picker', 'cover_style_textColor', cs.textColor || '#F5EFE6');
   _setSlider('cover_style_monogramSize', 'cover_style_monogramSize_val', cs.monogramSize || 72, 'px');
   _setSlider('cover_style_nameSize', 'cover_style_nameSize_val', cs.nameSize || 52, 'px');
+  _setSlider('cover_style_bgImageOpacity', 'cover_style_bgImageOpacity_val', cs.bgImageOpacity !== undefined ? cs.bgImageOpacity : 0.3, '');
+  updateCoverBgPreview();
   _setSlider('cover_style_taglineSize', 'cover_style_taglineSize_val', cs.taglineSize || 11, 'px');
   _setSlider('cover_style_nameLetterSpacing', 'cover_style_nameLetterSpacing_val', cs.nameLetterSpacing !== undefined ? cs.nameLetterSpacing : 0.08, 'em');
   _setSlider('cover_style_monogramLetterSpacing', 'cover_style_monogramLetterSpacing_val', cs.monogramLetterSpacing !== undefined ? cs.monogramLetterSpacing : 0.15, 'em');
@@ -1854,15 +2135,10 @@ function populatePageStyles() {
   _setColor('cover_style_taglineColor_picker', 'cover_style_taglineColor', cs.taglineColor || '#8B6E4E');
   _setColor('cover_style_lineColor_picker', 'cover_style_lineColor', cs.lineColor || '#8B6E4E');
   _setSlider('cover_style_lineWidth', 'cover_style_lineWidth_val', cs.lineWidth || 48, 'px');
-  _setVal('cover_style_logoPosition', cs.logoPosition || 'none');
-  _setSlider('cover_style_logoSize', 'cover_style_logoSize_val', cs.logoSize || 40, 'px');
-  _setSlider('cover_style_logoOpacity', 'cover_style_logoOpacity_val', cs.logoOpacity !== undefined ? cs.logoOpacity : 1, '');
-  var coverLogoPrev=document.getElementById('cover_logo_preview');if(coverLogoPrev){var lu=cs.logoUrl||'';if(lu){coverLogoPrev.innerHTML='<img src="'+lu+'" style="max-width:100%;max-height:100%;object-fit:contain;">';}else{coverLogoPrev.innerHTML='';}}
 
   // House
   const hs = (data.house && data.house._style) || DEFAULT_DATA.house._style || {};
   _setColor('house_style_bgColor_picker', 'house_style_bgColor', hs.bgColor);
-  _setColor('house_style_textColor_picker', 'house_style_textColor', hs.textColor || '#5C5244');
   _setSlider('house_style_statNumberSize', 'house_style_statNumberSize_val', hs.statNumberSize || 36, 'px');
   _setSlider('house_style_statLabelSize', 'house_style_statLabelSize_val', hs.statLabelSize || 11, 'px');
   _setSlider('house_style_textMaxWidth', 'house_style_textMaxWidth_val', hs.textMaxWidth || 520, 'px');
@@ -1888,16 +2164,11 @@ function populatePageStyles() {
   _setSlider('house_style_imageWidth', 'house_style_imageWidth_val', (hs.imageWidth || 100), '%');
   _setSlider('house_style_imageHeight', 'house_style_imageHeight_val', (hs.imageHeight || 200), 'px');
   updatePageImagePreview('house');
-  _setVal('house_style_logoPosition', hs.logoPosition || 'none');
-  _setSlider('house_style_logoSize', 'house_style_logoSize_val', hs.logoSize || 40, 'px');
-  _setSlider('house_style_logoOpacity', 'house_style_logoOpacity_val', hs.logoOpacity !== undefined ? hs.logoOpacity : 1, '');
-  var houseLogoPrev=document.getElementById('house_logo_preview');if(houseLogoPrev){var lu=hs.logoUrl||'';if(lu){houseLogoPrev.innerHTML='<img src="'+lu+'" style="max-width:100%;max-height:100%;object-fit:contain;">';}else{houseLogoPrev.innerHTML='';}}
 
   // Markets
   const ms = (data.markets && data.markets._style) || DEFAULT_DATA.markets._style || {};
   _setVal('markets_style_layout', ms.layout || 'list');
   _setColor('markets_style_bgColor_picker', 'markets_style_bgColor', ms.bgColor || '#1A1610');
-  _setColor('markets_style_textColor_picker', 'markets_style_textColor', ms.textColor || '#F5EFE6');
   _setSlider('markets_style_cityFontSize', 'markets_style_cityFontSize_val', ms.cityFontSize || 30, 'px');
   _setColor('markets_style_dotColor_picker', 'markets_style_dotColor', ms.dotColor);
   _setSlider('markets_style_dotSize', 'markets_style_dotSize_val', ms.dotSize || 6, 'px');
@@ -1916,16 +2187,11 @@ function populatePageStyles() {
   _setSlider('markets_style_imageWidth', 'markets_style_imageWidth_val', (ms.imageWidth || 100), '%');
   _setSlider('markets_style_imageHeight', 'markets_style_imageHeight_val', (ms.imageHeight || 200), 'px');
   updatePageImagePreview('markets');
-  _setVal('markets_style_logoPosition', ms.logoPosition || 'none');
-  _setSlider('markets_style_logoSize', 'markets_style_logoSize_val', ms.logoSize || 40, 'px');
-  _setSlider('markets_style_logoOpacity', 'markets_style_logoOpacity_val', ms.logoOpacity !== undefined ? ms.logoOpacity : 1, '');
-  var marketsLogoPrev=document.getElementById('markets_logo_preview');if(marketsLogoPrev){var lu=ms.logoUrl||'';if(lu){marketsLogoPrev.innerHTML='<img src="'+lu+'" style="max-width:100%;max-height:100%;object-fit:contain;">';}else{marketsLogoPrev.innerHTML='';}}
 
   // Portfolio
   const ps = (data.portfolio && data.portfolio._style) || DEFAULT_DATA.portfolio._style || {};
   _setVal('portfolio_style_layout', ps.layout || 'list');
   _setColor('portfolio_style_bgColor_picker', 'portfolio_style_bgColor', ps.bgColor);
-  _setColor('portfolio_style_textColor_picker', 'portfolio_style_textColor', ps.textColor || '#5C5244');
   _setSlider('portfolio_style_vertNumSize', 'portfolio_style_vertNumSize_val', ps.vertNumSize || 32, 'px');
   _setSlider('portfolio_style_vertTitleSize', 'portfolio_style_vertTitleSize_val', ps.vertTitleSize || 20, 'px');
   _setSlider('portfolio_style_vertDescSize', 'portfolio_style_vertDescSize_val', ps.vertDescSize || 13, 'px');
@@ -1946,15 +2212,10 @@ function populatePageStyles() {
   _setSlider('portfolio_style_imageWidth', 'portfolio_style_imageWidth_val', (ps.imageWidth || 100), '%');
   _setSlider('portfolio_style_imageHeight', 'portfolio_style_imageHeight_val', (ps.imageHeight || 200), 'px');
   updatePageImagePreview('portfolio');
-  _setVal('portfolio_style_logoPosition', ps.logoPosition || 'none');
-  _setSlider('portfolio_style_logoSize', 'portfolio_style_logoSize_val', ps.logoSize || 40, 'px');
-  _setSlider('portfolio_style_logoOpacity', 'portfolio_style_logoOpacity_val', ps.logoOpacity !== undefined ? ps.logoOpacity : 1, '');
-  var portfolioLogoPrev=document.getElementById('portfolio_logo_preview');if(portfolioLogoPrev){var lu=ps.logoUrl||'';if(lu){portfolioLogoPrev.innerHTML='<img src="'+lu+'" style="max-width:100%;max-height:100%;object-fit:contain;">';}else{portfolioLogoPrev.innerHTML='';}}
 
   // Process
   const prs = (data.process && data.process._style) || DEFAULT_DATA.process._style || {};
   _setColor('process_style_bgColor_picker', 'process_style_bgColor', prs.bgColor);
-  _setColor('process_style_textColor_picker', 'process_style_textColor', prs.textColor || '#5C5244');
   _setSlider('process_style_stepNumeralSize', 'process_style_stepNumeralSize_val', prs.stepNumeralSize || 28, 'px');
   _setSlider('process_style_stepTitleSize', 'process_style_stepTitleSize_val', prs.stepTitleSize || 19, 'px');
   _setSlider('process_style_stepTextSize', 'process_style_stepTextSize_val', prs.stepTextSize || 13, 'px');
@@ -1980,10 +2241,6 @@ function populatePageStyles() {
   _setSlider('process_style_imageWidth', 'process_style_imageWidth_val', (prs.imageWidth || 100), '%');
   _setSlider('process_style_imageHeight', 'process_style_imageHeight_val', (prs.imageHeight || 200), 'px');
   updatePageImagePreview('process');
-  _setVal('process_style_logoPosition', prs.logoPosition || 'none');
-  _setSlider('process_style_logoSize', 'process_style_logoSize_val', prs.logoSize || 40, 'px');
-  _setSlider('process_style_logoOpacity', 'process_style_logoOpacity_val', prs.logoOpacity !== undefined ? prs.logoOpacity : 1, '');
-  var processLogoPrev=document.getElementById('process_logo_preview');if(processLogoPrev){var lu=prs.logoUrl||'';if(lu){processLogoPrev.innerHTML='<img src="'+lu+'" style="max-width:100%;max-height:100%;object-fit:contain;">';}else{processLogoPrev.innerHTML='';}}
 
   // Why
   const ws = (data.why && data.why._style) || DEFAULT_DATA.why._style || {};
@@ -1992,7 +2249,6 @@ function populatePageStyles() {
   _setSlider('why_style_pillarTextSize', 'why_style_pillarTextSize_val', ws.pillarTextSize || 13.5, 'px');
   _setSlider('why_style_pillarGridWidth', 'why_style_pillarGridWidth_val', ws.pillarGridWidth || 180, 'px');
   _setColor('why_style_bgColor_picker', 'why_style_bgColor', ws.bgColor || '#1A1610');
-  _setColor('why_style_textColor_picker', 'why_style_textColor', ws.textColor || '#F5EFE6');
   _setColor('why_style_labelColor_picker', 'why_style_labelColor', ws.labelColor || '#8B6E4E');
   _setColor('why_style_headingColor_picker', 'why_style_headingColor', ws.headingColor || '#F5EFE6');
   _setColor('why_style_statementColor_picker', 'why_style_statementColor', ws.statementColor || '#B5AFA7');
@@ -2011,16 +2267,11 @@ function populatePageStyles() {
   _setSlider('why_style_imageWidth', 'why_style_imageWidth_val', (ws.imageWidth || 100), '%');
   _setSlider('why_style_imageHeight', 'why_style_imageHeight_val', (ws.imageHeight || 200), 'px');
   updatePageImagePreview('why');
-  _setVal('why_style_logoPosition', ws.logoPosition || 'none');
-  _setSlider('why_style_logoSize', 'why_style_logoSize_val', ws.logoSize || 40, 'px');
-  _setSlider('why_style_logoOpacity', 'why_style_logoOpacity_val', ws.logoOpacity !== undefined ? ws.logoOpacity : 1, '');
-  var whyLogoPrev=document.getElementById('why_logo_preview');if(whyLogoPrev){var lu=ws.logoUrl||'';if(lu){whyLogoPrev.innerHTML='<img src="'+lu+'" style="max-width:100%;max-height:100%;object-fit:contain;">';}else{whyLogoPrev.innerHTML='';}}
 
   // Founder
   const fds = (data.founder && data.founder._style) || DEFAULT_DATA.founder._style || {};
   _setVal('founder_style_letterStyle', fds.letterStyle || 'normal');
   _setColor('founder_style_bgColor_picker', 'founder_style_bgColor', fds.bgColor);
-  _setColor('founder_style_textColor_picker', 'founder_style_textColor', fds.textColor || '#5C5244');
   updateSignaturePreview();
   _setSlider('founder_style_letterFontSize', 'founder_style_letterFontSize_val', fds.letterFontSize || 14, 'px');
   _setSlider('founder_style_signatureSize', 'founder_style_signatureSize_val', fds.signatureSize || 36, 'px');
@@ -2045,15 +2296,10 @@ function populatePageStyles() {
   _setSlider('founder_style_imageWidth', 'founder_style_imageWidth_val', (fds.imageWidth || 100), '%');
   _setSlider('founder_style_imageHeight', 'founder_style_imageHeight_val', (fds.imageHeight || 200), 'px');
   updatePageImagePreview('founder');
-  _setVal('founder_style_logoPosition', fds.logoPosition || 'none');
-  _setSlider('founder_style_logoSize', 'founder_style_logoSize_val', fds.logoSize || 40, 'px');
-  _setSlider('founder_style_logoOpacity', 'founder_style_logoOpacity_val', fds.logoOpacity !== undefined ? fds.logoOpacity : 1, '');
-  var founderLogoPrev=document.getElementById('founder_logo_preview');if(founderLogoPrev){var lu=fds.logoUrl||'';if(lu){founderLogoPrev.innerHTML='<img src="'+lu+'" style="max-width:100%;max-height:100%;object-fit:contain;">';}else{founderLogoPrev.innerHTML='';}}
 
   // Contact
   const cts = (data.contact && data.contact._style) || DEFAULT_DATA.contact._style || {};
   _setColor('contact_style_bgColor_picker', 'contact_style_bgColor', cts.bgColor);
-  _setColor('contact_style_textColor_picker', 'contact_style_textColor', cts.textColor || '#F5EFE6');
   _setSlider('contact_style_monogramSize', 'contact_style_monogramSize_val', cts.monogramSize || 48, 'px');
   _setSlider('contact_style_detailValueSize', 'contact_style_detailValueSize_val', cts.detailValueSize || 22, 'px');
   _setSlider('contact_style_noteSize', 'contact_style_noteSize_val', cts.noteSize || 12, 'px');
@@ -2076,10 +2322,6 @@ function populatePageStyles() {
   _setSlider('contact_style_imageWidth', 'contact_style_imageWidth_val', (cts.imageWidth || 100), '%');
   _setSlider('contact_style_imageHeight', 'contact_style_imageHeight_val', (cts.imageHeight || 200), 'px');
   updatePageImagePreview('contact');
-  _setVal('contact_style_logoPosition', cts.logoPosition || 'none');
-  _setSlider('contact_style_logoSize', 'contact_style_logoSize_val', cts.logoSize || 40, 'px');
-  _setSlider('contact_style_logoOpacity', 'contact_style_logoOpacity_val', cts.logoOpacity !== undefined ? cts.logoOpacity : 1, '');
-  var contactLogoPrev=document.getElementById('contact_logo_preview');if(contactLogoPrev){var lu=cts.logoUrl||'';if(lu){contactLogoPrev.innerHTML='<img src="'+lu+'" style="max-width:100%;max-height:100%;object-fit:contain;">';}else{contactLogoPrev.innerHTML='';}}
 }
 
 function readPageStyles() {
@@ -2087,7 +2329,6 @@ function readPageStyles() {
   if (!data.cover) data.cover = {};
   if (!data.cover._style) data.cover._style = {};
   data.cover._style.bgColor = _readVal('cover_style_bgColor');
-  data.cover._style.textColor = _readVal('cover_style_textColor');
   data.cover._style.monogramSize = _readInt('cover_style_monogramSize');
   data.cover._style.nameSize = _readInt('cover_style_nameSize');
   data.cover._style.bgImageOpacity = _readFloat('cover_style_bgImageOpacity');
@@ -2104,14 +2345,11 @@ function readPageStyles() {
   data.cover._style.taglineColor = _readVal('cover_style_taglineColor');
   data.cover._style.lineColor = _readVal('cover_style_lineColor');
   data.cover._style.lineWidth = _readInt('cover_style_lineWidth');
-  data.cover._style.logoSize = _readInt('cover_style_logoSize');
-  data.cover._style.logoOpacity = _readFloat('cover_style_logoOpacity');
 
   // House
   if (!data.house) data.house = {};
   if (!data.house._style) data.house._style = {};
   data.house._style.bgColor = _readVal('house_style_bgColor');
-  data.house._style.textColor = _readVal('house_style_textColor');
   data.house._style.statNumberSize = _readInt('house_style_statNumberSize');
   data.house._style.statLabelSize = _readInt('house_style_statLabelSize');
   data.house._style.textMaxWidth = _readInt('house_style_textMaxWidth');
@@ -2136,15 +2374,12 @@ function readPageStyles() {
   data.house._style.imageOpacity = _readFloat('house_style_imageOpacity');
   data.house._style.imageWidth = _readInt('house_style_imageWidth');
   data.house._style.imageHeight = _readInt('house_style_imageHeight');
-  data.house._style.logoSize = _readInt('house_style_logoSize');
-  data.house._style.logoOpacity = _readFloat('house_style_logoOpacity');
 
   // Markets
   if (!data.markets) data.markets = {};
   if (!data.markets._style) data.markets._style = {};
   data.markets._style.layout = _readVal('markets_style_layout');
   data.markets._style.bgColor = _readVal('markets_style_bgColor');
-  data.markets._style.textColor = _readVal('markets_style_textColor');
   data.markets._style.cityFontSize = _readInt('markets_style_cityFontSize');
   data.markets._style.dotColor = _readVal('markets_style_dotColor');
   data.markets._style.dotSize = _readInt('markets_style_dotSize');
@@ -2162,15 +2397,12 @@ function readPageStyles() {
   data.markets._style.imageOpacity = _readFloat('markets_style_imageOpacity');
   data.markets._style.imageWidth = _readInt('markets_style_imageWidth');
   data.markets._style.imageHeight = _readInt('markets_style_imageHeight');
-  data.markets._style.logoSize = _readInt('markets_style_logoSize');
-  data.markets._style.logoOpacity = _readFloat('markets_style_logoOpacity');
 
   // Portfolio
   if (!data.portfolio) data.portfolio = {};
   if (!data.portfolio._style) data.portfolio._style = {};
   data.portfolio._style.layout = _readVal('portfolio_style_layout');
   data.portfolio._style.bgColor = _readVal('portfolio_style_bgColor');
-  data.portfolio._style.textColor = _readVal('portfolio_style_textColor');
   data.portfolio._style.vertNumSize = _readInt('portfolio_style_vertNumSize');
   data.portfolio._style.vertTitleSize = _readInt('portfolio_style_vertTitleSize');
   data.portfolio._style.vertDescSize = _readInt('portfolio_style_vertDescSize');
@@ -2190,14 +2422,11 @@ function readPageStyles() {
   data.portfolio._style.imageOpacity = _readFloat('portfolio_style_imageOpacity');
   data.portfolio._style.imageWidth = _readInt('portfolio_style_imageWidth');
   data.portfolio._style.imageHeight = _readInt('portfolio_style_imageHeight');
-  data.portfolio._style.logoSize = _readInt('portfolio_style_logoSize');
-  data.portfolio._style.logoOpacity = _readFloat('portfolio_style_logoOpacity');
 
   // Process
   if (!data.process) data.process = {};
   if (!data.process._style) data.process._style = {};
   data.process._style.bgColor = _readVal('process_style_bgColor');
-  data.process._style.textColor = _readVal('process_style_textColor');
   data.process._style.stepNumeralSize = _readInt('process_style_stepNumeralSize');
   data.process._style.stepTitleSize = _readInt('process_style_stepTitleSize');
   data.process._style.stepTextSize = _readInt('process_style_stepTextSize');
@@ -2222,14 +2451,11 @@ function readPageStyles() {
   data.process._style.imageOpacity = _readFloat('process_style_imageOpacity');
   data.process._style.imageWidth = _readInt('process_style_imageWidth');
   data.process._style.imageHeight = _readInt('process_style_imageHeight');
-  data.process._style.logoSize = _readInt('process_style_logoSize');
-  data.process._style.logoOpacity = _readFloat('process_style_logoOpacity');
 
   // Why
   if (!data.why) data.why = {};
   if (!data.why._style) data.why._style = {};
   data.why._style.bgColor = _readVal('why_style_bgColor');
-  data.why._style.textColor = _readVal('why_style_textColor');
   data.why._style.statementSize = _readInt('why_style_statementSize');
   data.why._style.pillarTitleSize = _readInt('why_style_pillarTitleSize');
   data.why._style.pillarTextSize = _readFloat('why_style_pillarTextSize');
@@ -2251,15 +2477,12 @@ function readPageStyles() {
   data.why._style.imageOpacity = _readFloat('why_style_imageOpacity');
   data.why._style.imageWidth = _readInt('why_style_imageWidth');
   data.why._style.imageHeight = _readInt('why_style_imageHeight');
-  data.why._style.logoSize = _readInt('why_style_logoSize');
-  data.why._style.logoOpacity = _readFloat('why_style_logoOpacity');
 
   // Founder
   if (!data.founder) data.founder = {};
   if (!data.founder._style) data.founder._style = {};
   data.founder._style.letterStyle = _readVal('founder_style_letterStyle');
   data.founder._style.bgColor = _readVal('founder_style_bgColor');
-  data.founder._style.textColor = _readVal('founder_style_textColor');
   data.founder._style.letterFontSize = _readInt('founder_style_letterFontSize');
   data.founder._style.signatureSize = _readInt('founder_style_signatureSize');
   data.founder._style.letterMaxWidth = _readInt('founder_style_letterMaxWidth');
@@ -2282,14 +2505,11 @@ function readPageStyles() {
   data.founder._style.imageOpacity = _readFloat('founder_style_imageOpacity');
   data.founder._style.imageWidth = _readInt('founder_style_imageWidth');
   data.founder._style.imageHeight = _readInt('founder_style_imageHeight');
-  data.founder._style.logoSize = _readInt('founder_style_logoSize');
-  data.founder._style.logoOpacity = _readFloat('founder_style_logoOpacity');
 
   // Contact
   if (!data.contact) data.contact = {};
   if (!data.contact._style) data.contact._style = {};
   data.contact._style.bgColor = _readVal('contact_style_bgColor');
-  data.contact._style.textColor = _readVal('contact_style_textColor');
   data.contact._style.monogramSize = _readInt('contact_style_monogramSize');
   data.contact._style.detailValueSize = _readInt('contact_style_detailValueSize');
   data.contact._style.noteSize = _readInt('contact_style_noteSize');
@@ -2311,8 +2531,6 @@ function readPageStyles() {
   data.contact._style.imageOpacity = _readFloat('contact_style_imageOpacity');
   data.contact._style.imageWidth = _readInt('contact_style_imageWidth');
   data.contact._style.imageHeight = _readInt('contact_style_imageHeight');
-  data.contact._style.logoSize = _readInt('contact_style_logoSize');
-  data.contact._style.logoOpacity = _readFloat('contact_style_logoOpacity');
 }
 
 function updateTabNames(){
@@ -2468,7 +2686,7 @@ function generateHTML(){
     if (layout === 'background') {
       r.bgStyle = "background-image:url('" + url + "');background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#1A1610;position:relative;";
       r.overlay = '<div style="position:absolute;inset:0;background:rgba(0,0,0,' + (1-opacity).toFixed(2) + ');z-index:0;"></div>';
-      // contentStyle removed — z-index handled by page CSS
+      r.contentStyle = 'position:relative;z-index:1;';
       return r;
     }
     if (layout === 'full-width') {
@@ -2488,36 +2706,6 @@ function generateHTML(){
       return r;
     }
     return r;
-  }
-
-  // Page logo helper
-  // Contrast helper: returns dark text for light backgrounds, light text for dark backgrounds
-  function contrastText(bgColor, lightText, darkText) {
-    if (!bgColor) return darkText || '#1A1610';
-    var hex = bgColor.replace('#','');
-    if (hex.length === 3) hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
-    var r = parseInt(hex.substr(0,2),16), g = parseInt(hex.substr(2,2),16), b = parseInt(hex.substr(4,2),16);
-    var luminance = (0.299*r + 0.587*g + 0.114*b) / 255;
-    return luminance > 0.5 ? (darkText || '#1A1610') : (lightText || '#F5EFE6');
-  }
-
-  function pageLogo(style, globalLogoUrl, monogram) {
-    var pos = style.logoPosition || 'none';
-    if (pos === 'none') return '';
-    var size = style.logoSize || 40;
-    var opacity = style.logoOpacity !== undefined ? style.logoOpacity : 1;
-    var localLogo = style.logoUrl || globalLogoUrl || '';
-    var posStyle = 'position:absolute;z-index:2;';
-    if (pos === 'top-left') posStyle += 'top:24px;left:24px;';
-    if (pos === 'top-center') posStyle += 'top:24px;left:50%;transform:translateX(-50%);';
-    if (pos === 'top-right') posStyle += 'top:24px;right:24px;';
-    if (pos === 'bottom-left') posStyle += 'bottom:24px;left:24px;';
-    if (pos === 'bottom-center') posStyle += 'bottom:24px;left:50%;transform:translateX(-50%);';
-    if (pos === 'bottom-right') posStyle += 'bottom:24px;right:24px;';
-    var content = localLogo
-      ? '<img src="' + localLogo + '" style="height:' + size + 'px;object-fit:contain;opacity:' + opacity + ';">'
-      : '<span style="font-family:var(--font-display);font-size:' + size + 'px;font-weight:300;color:var(--rosso);letter-spacing:.15em;opacity:' + opacity + ';">' + (monogram||'EP') + '</span>';
-    return '<div style="' + posStyle + '">' + content + '</div>';
   }
 
   // Alignment helper: generates inline style for text blocks that need max-width + alignment
@@ -2567,9 +2755,9 @@ function generateHTML(){
   const dotColor = marketsStyle.dotColor || colors.accent || '#8B6E4E';
   const dotSize = marketsStyle.dotSize || 6;
   const cityPadding = marketsStyle.cityPadding || 24;
-  const marketsLabelColor = marketsStyle.labelColor || '#8B6E4E';
-  const marketsHeadingColor = marketsStyle.headingColor || contrastText(marketsBg, '#F5EFE6', '#1A1610');
-  const marketsCityColor = marketsStyle.cityColor || contrastText(marketsBg, 'rgba(245,239,230,.9)', '#1A1610');
+  const marketsLabelColor = marketsStyle.labelColor || colors.accent || '#8B6E4E';
+  const marketsHeadingColor = marketsStyle.headingColor || colors.bgWarm || '#F5EFE6';
+  const marketsCityColor = marketsStyle.cityColor || '#F5EFE6';
   const marketsAlign = marketsStyle.textAlign || 'center';
   const marketsShowDivider = marketsStyle.showDivider;
   const marketsDividerWidth = marketsStyle.dividerWidth || 48;
@@ -2617,10 +2805,10 @@ function generateHTML(){
   const pillarTextSize = whyStyle.pillarTextSize || 13.5;
   const pillarGridWidth = whyStyle.pillarGridWidth || 180;
   const whyLabelColor = whyStyle.labelColor || colors.accent || '#8B6E4E';
-  const whyHeadingColor = whyStyle.headingColor || contrastText(whyBg, '#F5EFE6', '#1A1610');
-  const whyStatementColor = whyStyle.statementColor || contrastText(whyBg, 'rgba(245,239,230,.7)', '#5C5244');
-  const whyPillarTitleColor = whyStyle.pillarTitleColor || contrastText(whyBg, '#F5EFE6', '#1A1610');
-  const whyPillarTextColor = whyStyle.pillarTextColor || contrastText(whyBg, 'rgba(245,239,230,.55)', '#5C5244');
+  const whyHeadingColor = whyStyle.headingColor || colors.bgWarm || '#F5EFE6';
+  const whyStatementColor = whyStyle.statementColor || '#B5AFA7';
+  const whyPillarTitleColor = whyStyle.pillarTitleColor || colors.bgWarm || '#F5EFE6';
+  const whyPillarTextColor = whyStyle.pillarTextColor || colors.textMuted || '#8A847C';
   const whyAlign = whyStyle.textAlign || 'center';
   const whyStatementMaxWidth = whyStyle.statementMaxWidth || 480;
   const whyPillarDividerColor = whyStyle.pillarDividerColor || 'rgba(245,239,230,.06)';
@@ -2649,23 +2837,13 @@ function generateHTML(){
   const founderDividerLineColor = founderStyle.dividerLineColor || '#E8E3DC';
 
   const contactBg = contactStyle.bgColor || colors.bgDark || '#1A1610';
-
-  // Page text colors (user-configurable)
-  const coverTextColor = coverStyle.textColor || contrastText(coverBg || '#1A1610', '#F5EFE6', '#1A1610');
-  const housePageTextColor = houseStyle.textColor || '#5C5244';
-  const marketsPageTextColor = marketsStyle.textColor || contrastText(marketsBg, '#F5EFE6', '#1A1610');
-  const portfolioPageTextColor = portfolioStyle.textColor || '#5C5244';
-  const processPageTextColor = processStyle.textColor || '#5C5244';
-  const whyPageTextColor = whyStyle.textColor || contrastText(whyBg, '#F5EFE6', '#1A1610');
-  const founderPageTextColor = founderStyle.textColor || '#5C5244';
-  const contactPageTextColor = contactStyle.textColor || contrastText(contactBg, '#F5EFE6', '#1A1610');
   const contactMonogramSize = contactStyle.monogramSize || 48;
   const contactDetailValueSize = contactStyle.detailValueSize || 22;
   const contactNoteSize = contactStyle.noteSize || 12;
-  const contactMonogramColor = contactStyle.monogramColor || '#8B6E4E';
-  const contactHeadingColor = contactStyle.headingColor || contrastText(contactBg, '#F5EFE6', '#1A1610');
+  const contactMonogramColor = contactStyle.monogramColor || colors.accent || '#8B6E4E';
+  const contactHeadingColor = contactStyle.headingColor || colors.bgWarm || '#F5EFE6';
   const contactDetailLabelColor = contactStyle.detailLabelColor || colors.textMuted || '#8A847C';
-  const contactDetailValueColor = contactStyle.detailValueColor || contrastText(contactBg, '#F5EFE6', '#1A1610');
+  const contactDetailValueColor = contactStyle.detailValueColor || colors.bgWarm || '#F5EFE6';
   const contactNoteColor = contactStyle.noteColor || colors.textMuted || '#8A847C';
   const contactFooterColor = contactStyle.footerColor || colors.bgWarm || '#F5EFE6';
   const contactAlign = contactStyle.textAlign || 'center';
@@ -2709,15 +2887,15 @@ function generateHTML(){
     var coverPageStyle = 'background-color:' + (coverBg || '#1A1610') + ';position:relative;';
     var coverOverlayDiv = '';
     if (coverImgUrl && coverImgLayout === 'background') {
-      coverPageStyle = 'background-color:#1A1610;background-image:url(' + coverImgUrl + ');background-size:cover;background-position:center;background-repeat:no-repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact;position:relative;';
+      coverPageStyle = 'background-color:#1A1610;background-image:url(' + coverImgUrl + ');background-size:cover;background-position:center;background-repeat:no-repeat;position:relative;';
       coverOverlayDiv = '<div style="position:absolute;inset:0;background:rgba(0,0,0,' + (1 - coverImgOpacity).toFixed(2) + ');z-index:0;"></div>';
     }
-    pages += `<div class="page cover" style="${coverPageStyle}">${coverOverlayDiv}${pageLogo(coverStyle, logoUrl, d.cover.monogram)}<div class="cover-inner" style="position:relative;z-index:1;">${coverLogoHTML}<div class="cover-line" style="background:${coverLineColor};"></div><div class="cover-name" style="font-size:${nameSize}px;color:${coverNameColor};">${esc(d.cover.name)}</div><div class="cover-tagline" style="color:${coverTaglineColor};">${esc(d.cover.tagline)}</div></div></div>`;
+    pages += `<div class="page cover" style="${coverPageStyle}">${coverOverlayDiv}<div class="cover-inner" style="position:relative;z-index:1;">${coverLogoHTML}<div class="cover-line" style="background:${coverLineColor};"></div><div class="cover-name" style="font-size:${nameSize}px;color:${coverNameColor};">${esc(d.cover.name)}</div><div class="cover-tagline" style="color:${coverTaglineColor};">${esc(d.cover.tagline)}</div></div></div>`;
   }
 
   if (!hidden.includes('house')) {
     const houseImg = pageImage(houseStyle);
-    pages += `<div class="page house" style="${houseImg.bgStyle||'background:'+ houseBg +';'}">${houseImg.overlay||''}${pageLogo(houseStyle, logoUrl, d.cover.monogram)}${houseImg.before}<div class="page-label" style="color:${houseLabelColor};font-size:${houseLabelSize}px;">${esc(d.house.label)}</div><h2 class="page-heading" style="color:${houseHeadingColor};font-size:${houseHeadingSize}px;margin-bottom:${houseHeadingMarginBottom}px;">${esc(d.house.heading)}<br><em style="color:${houseItalicColor};">${esc(d.house.headingItalic)}</em></h2><p class="page-text" style="color:${houseTextColor};font-size:${houseTextSize}px;">${esc(d.house.p1)}</p><p class="page-text" style="margin-top:20px;color:${houseTextColor};font-size:${houseTextSize}px;">${esc(d.house.p2)}</p>${houseShowDivider ? `<div style="width:${houseDividerWidth}px;height:1px;background:${houseDividerLineColor};margin:40px ${houseAlign==='center'?'auto':'0'};"></div>` : ''}<div class="house-stats">${d.house.stats.map(s=>`<div><div class="house-stat-number" style="color:${houseStatNumberColor};">${esc(s.number)}</div><div class="house-stat-label" style="color:${houseStatLabelColor};">${esc(s.label)}</div></div>`).join('')}</div>${houseImg.after}</div>`;
+    pages += `<div class="page house" style="${houseImg.bgStyle||'background:'+ houseBg +';'}">${houseImg.overlay||''}${houseImg.before}<div style="${houseImg.contentStyle||''}"><div class="page-label" style="color:${houseLabelColor};font-size:${houseLabelSize}px;">${esc(d.house.label)}</div><h2 class="page-heading" style="color:${houseHeadingColor};font-size:${houseHeadingSize}px;margin-bottom:${houseHeadingMarginBottom}px;">${esc(d.house.heading)}<br><em style="color:${houseItalicColor};">${esc(d.house.headingItalic)}</em></h2><p class="page-text" style="color:${houseTextColor};font-size:${houseTextSize}px;">${esc(d.house.p1)}</p><p class="page-text" style="margin-top:20px;color:${houseTextColor};font-size:${houseTextSize}px;">${esc(d.house.p2)}</p>${houseShowDivider ? `<div style="width:${houseDividerWidth}px;height:1px;background:${houseDividerLineColor};margin:40px ${houseAlign==='center'?'auto':'0'};"></div>` : ''}<div class="house-stats">${d.house.stats.map(s=>`<div><div class="house-stat-number" style="color:${houseStatNumberColor};">${esc(s.number)}</div><div class="house-stat-label" style="color:${houseStatLabelColor};">${esc(s.label)}</div></div>`).join('')}</div>${houseImg.after}</div></div>`;
   }
 
   if (!hidden.includes('markets')) {
@@ -2742,98 +2920,98 @@ function generateHTML(){
     const marketsSubNonElegant = (marketsLayout !== 'elegant' && d.markets.subtitle) ? `<p style="font-family:var(--font-body);font-size:14px;font-weight:300;color:${marketsCityColor};opacity:0.6;margin-bottom:40px;">${esc(d.markets.subtitle)}</p>` : '';
     const mAlign = marketsLayout === 'elegant' ? 'align-items:center;text-align:center;justify-content:center;' : '';
     const marketsImg = pageImage(marketsStyle);
-    pages += `<div class="page markets" style="${mAlign}${marketsImg.bgStyle||'background:'+marketsBg+';'}">${marketsImg.overlay||''}${pageLogo(marketsStyle, logoUrl, d.cover.monogram)}${marketsImg.before}<div class="page-label" style="color:${marketsLabelColor};${marketsLayout==='elegant'?'width:100%;':''}">${esc(d.markets.label)}</div><h2 class="page-heading" style="color:${marketsHeadingColor};${marketsLayout==='elegant'?'text-align:center;width:100%;':''}">${esc(d.markets.heading1)}<br>${esc(d.markets.heading2)}</h2>${marketsSubNonElegant}${marketsShowDivider ? `<div style="width:${marketsDividerWidth}px;height:1px;background:${marketsDividerLineColor};margin:0 ${marketsAlign==='center'?'auto':'0'} 40px;"></div>` : ''}${marketsContent}${marketsImg.after}</div>`;
+    pages += `<div class="page markets" style="${mAlign}${marketsImg.bgStyle||'background:'+marketsBg+';'}">${marketsImg.overlay||''}${marketsImg.before}<div style="${marketsImg.contentStyle||''}"><div class="page-label" style="color:${marketsLabelColor};${marketsLayout==='elegant'?'width:100%;':''}">${esc(d.markets.label)}</div><h2 class="page-heading" style="color:${marketsHeadingColor};${marketsLayout==='elegant'?'text-align:center;width:100%;':''}">${esc(d.markets.heading1)}<br>${esc(d.markets.heading2)}</h2>${marketsSubNonElegant}${marketsShowDivider ? `<div style="width:${marketsDividerWidth}px;height:1px;background:${marketsDividerLineColor};margin:0 ${marketsAlign==='center'?'auto':'0'} 40px;"></div>` : ''}${marketsContent}${marketsImg.after}</div></div>`;
   }
 
   if (!hidden.includes('portfolio')) {
     const portfolioImg = pageImage(portfolioStyle);
-    pages += `<div class="page portfolio" style="${portfolioImg.bgStyle||'background:'+ portfolioBg +';'}">${portfolioImg.overlay||''}${pageLogo(portfolioStyle, logoUrl, d.cover.monogram)}${portfolioImg.before}<div class="page-label" style="color:${portfolioLabelColor};">${esc(d.portfolio.label)}</div><h2 class="page-heading" style="color:${portfolioHeadingColor};">${esc(d.portfolio.heading)} <em style="color:${portfolioItalicColor};">${esc(d.portfolio.headingItalic)}</em></h2>${portfolioShowDivider ? `<div style="width:${portfolioDividerWidth}px;height:1px;background:${portfolioDividerLineColor};margin:0 ${portfolioAlign==='center'?'auto':'0'} 32px;"></div>` : ''}<div class="portfolio-items">${d.portfolio.verticals.map(v=>`<div class="portfolio-item"><div class="portfolio-num">${esc(v.num)}</div><div><div class="portfolio-title">${esc(v.title)}</div><p class="portfolio-desc">${esc(v.desc)}</p></div></div>`).join('')}</div>${portfolioImg.after}</div>`;
+    pages += `<div class="page portfolio" style="${portfolioImg.bgStyle||'background:'+ portfolioBg +';'}">${portfolioImg.overlay||''}${portfolioImg.before}<div style="${portfolioImg.contentStyle||''}"><div class="page-label" style="color:${portfolioLabelColor};">${esc(d.portfolio.label)}</div><h2 class="page-heading" style="color:${portfolioHeadingColor};">${esc(d.portfolio.heading)} <em style="color:${portfolioItalicColor};">${esc(d.portfolio.headingItalic)}</em></h2>${portfolioShowDivider ? `<div style="width:${portfolioDividerWidth}px;height:1px;background:${portfolioDividerLineColor};margin:0 ${portfolioAlign==='center'?'auto':'0'} 32px;"></div>` : ''}<div class="portfolio-items">${d.portfolio.verticals.map(v=>`<div class="portfolio-item"><div class="portfolio-num">${esc(v.num)}</div><div><div class="portfolio-title">${esc(v.title)}</div><p class="portfolio-desc">${esc(v.desc)}</p></div></div>`).join('')}</div>${portfolioImg.after}</div></div>`;
   }
 
   if (!hidden.includes('process')) {
     const processImg = pageImage(processStyle);
-    pages += `<div class="page process" style="${processImg.bgStyle||'background:'+ processBg +';'}">${processImg.overlay||''}${pageLogo(processStyle, logoUrl, d.cover.monogram)}${processImg.before}<div class="page-label" style="color:${processLabelColor};">${esc(d.process.label)}</div><h2 class="page-heading" style="color:${processHeadingColor};">${esc(d.process.heading)} <em style="color:${processItalicColor};">${esc(d.process.headingItalic)}</em></h2><p class="process-intro" style="color:${processIntroColor};font-size:${processIntroSize}px;${alignStyle(processAlign)}">${esc(d.process.intro)}</p>${processShowDivider ? `<div style="width:${processDividerWidth}px;height:1px;background:${processDividerLineColor};margin:0 ${processAlign==='center'?'auto':'0'} 40px;"></div>` : ''}<div class="process-steps">${d.process.steps.map(s=>`<div class="process-step"><div class="step-num" style="color:${processStepNumeralColor};">${esc(s.numeral)}</div><div><div class="step-title" style="color:${processStepTitleColor};">${esc(s.title)}</div><p class="step-text" style="color:${processStepTextColor};">${esc(s.text)}</p></div></div>`).join('')}</div>${processImg.after}</div>`;
+    pages += `<div class="page process" style="${processImg.bgStyle||'background:'+ processBg +';'}">${processImg.overlay||''}${processImg.before}<div style="${processImg.contentStyle||''}"><div class="page-label" style="color:${processLabelColor};">${esc(d.process.label)}</div><h2 class="page-heading" style="color:${processHeadingColor};">${esc(d.process.heading)} <em style="color:${processItalicColor};">${esc(d.process.headingItalic)}</em></h2><p class="process-intro" style="color:${processIntroColor};font-size:${processIntroSize}px;${alignStyle(processAlign)}">${esc(d.process.intro)}</p>${processShowDivider ? `<div style="width:${processDividerWidth}px;height:1px;background:${processDividerLineColor};margin:0 ${processAlign==='center'?'auto':'0'} 40px;"></div>` : ''}<div class="process-steps">${d.process.steps.map(s=>`<div class="process-step"><div class="step-num" style="color:${processStepNumeralColor};">${esc(s.numeral)}</div><div><div class="step-title" style="color:${processStepTitleColor};">${esc(s.title)}</div><p class="step-text" style="color:${processStepTextColor};">${esc(s.text)}</p></div></div>`).join('')}</div>${processImg.after}</div></div>`;
   }
 
   if (!hidden.includes('why')) {
     const whyImg = pageImage(whyStyle);
-    pages += `<div class="page why" style="${whyImg.bgStyle||'background:'+ whyBg +';'}">${whyImg.overlay||''}${pageLogo(whyStyle, logoUrl, d.cover.monogram)}${whyImg.before}<div class="page-label" style="color:${whyLabelColor};">${esc(d.why.label)}</div><h2 class="page-heading" style="color:${whyHeadingColor};">${esc(d.why.heading1)}<br>${esc(d.why.heading2)}</h2><p class="why-statement" style="font-size:${statementSize}px;color:${whyStatementColor};${alignStyle(whyAlign)}">${esc(d.why.statement)}</p>${whyShowDivider ? `<div style="width:${whyDividerWidth}px;height:1px;background:${whyDividerLineColor};margin:0 ${whyAlign==='center'?'auto':'0'} 40px;"></div>` : ''}<div class="why-pillars">${d.why.pillars.map(p=>`<div class="why-pillar"><div class="why-pillar-title" style="color:${whyPillarTitleColor};">${esc(p.title)}</div><p class="why-pillar-text" style="color:${whyPillarTextColor};">${esc(p.text)}</p></div>`).join('')}</div>${whyImg.after}</div>`;
+    pages += `<div class="page why" style="${whyImg.bgStyle||'background:'+ whyBg +';'}">${whyImg.overlay||''}${whyImg.before}<div style="${whyImg.contentStyle||''}"><div class="page-label" style="color:${whyLabelColor};">${esc(d.why.label)}</div><h2 class="page-heading" style="color:${whyHeadingColor};">${esc(d.why.heading1)}<br>${esc(d.why.heading2)}</h2><p class="why-statement" style="font-size:${statementSize}px;color:${whyStatementColor};${alignStyle(whyAlign)}">${esc(d.why.statement)}</p>${whyShowDivider ? `<div style="width:${whyDividerWidth}px;height:1px;background:${whyDividerLineColor};margin:0 ${whyAlign==='center'?'auto':'0'} 40px;"></div>` : ''}<div class="why-pillars">${d.why.pillars.map(p=>`<div class="why-pillar"><div class="why-pillar-title" style="color:${whyPillarTitleColor};">${esc(p.title)}</div><p class="why-pillar-text" style="color:${whyPillarTextColor};">${esc(p.text)}</p></div>`).join('')}</div>${whyImg.after}</div></div>`;
   }
 
   if (!hidden.includes('founder')) {
     const letterFontStyle = letterStyle === 'italic' ? 'font-style:italic;' : '';
     const founderImg = pageImage(founderStyle);
-    pages += `<div class="page founder" style="${founderImg.bgStyle||'background:'+ founderBg +';'}padding:${pagePadV}px ${pagePadH}px;">${founderImg.overlay||''}${pageLogo(founderStyle, logoUrl, d.cover.monogram)}${founderImg.before}<div class="page-label" style="color:${founderLabelColor};">${esc(d.founder.label)}</div><h2 class="page-heading" style="color:${founderHeadingColor};">${esc(d.founder.heading)}<br><em style="color:${founderItalicColor};">${esc(d.founder.headingItalic)}</em></h2><div class="founder-letter" style="${letterFontStyle}color:${founderPageTextColor};">${d.founder.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div>${founderShowDivider ? `<div style="width:${founderDividerWidth}px;height:1px;background:${founderDividerLineColor};margin:40px auto;"></div>` : ''}<div class="founder-closing"><div class="founder-closing-regards" style="color:${founderClosingColor};">${esc(d.founder.closing)}</div><div class="founder-signature" style="color:${founderSignatureColor};">${signatureUrl ? `<img src="${signatureUrl}" alt="${esc(d.founder.signatureName)}" style="max-height:${signatureSize}px;object-fit:contain;">` : esc(d.founder.signatureName)}</div><div class="founder-name" style="color:${founderNameColor};">${esc(d.founder.signatureName)}</div><div class="founder-title-role" style="color:${founderRoleColor};">${esc(d.founder.role)}</div>${d.founder.companyLine ? `<div style="font-size:11px;font-weight:300;color:${founderRoleColor};letter-spacing:.1em;text-transform:uppercase;margin-top:2px;">${esc(d.founder.companyLine)}</div>` : ''}</div>${founderImg.after}</div>`;
+    pages += `<div class="page founder" style="${founderImg.bgStyle||'background:'+ founderBg +';'}">${founderImg.overlay||''}${founderImg.before}<div style="${founderImg.contentStyle||''}"><div class="page-label" style="color:${founderLabelColor};">${esc(d.founder.label)}</div><h2 class="page-heading" style="color:${founderHeadingColor};">${esc(d.founder.heading)}<br><em style="color:${founderItalicColor};">${esc(d.founder.headingItalic)}</em></h2><div class="founder-letter" style="${letterFontStyle}color:${founderLetterColor};">${d.founder.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div>${founderShowDivider ? `<div style="width:${founderDividerWidth}px;height:1px;background:${founderDividerLineColor};margin:40px ${founderAlign==='center'?'auto':'0'};"></div>` : ''}<div class="founder-closing"><div class="founder-closing-regards" style="color:${founderClosingColor};">${esc(d.founder.closing)}</div><div class="founder-signature" style="color:${founderSignatureColor};">${signatureUrl ? `<img src="${signatureUrl}" alt="${esc(d.founder.signatureName)}" style="max-height:${signatureSize}px;object-fit:contain;">` : esc(d.founder.signatureName)}</div><div class="founder-name" style="color:${founderNameColor};">${esc(d.founder.signatureName)}</div><div class="founder-title-role" style="color:${founderRoleColor};">${esc(d.founder.role)}</div>${d.founder.companyLine ? `<div class="founder-company" style="font-family:var(--font-body);font-size:11px;font-weight:300;color:${founderRoleColor};letter-spacing:.1em;text-transform:uppercase;margin-top:2px;">${esc(d.founder.companyLine)}</div>` : ''}</div>${founderImg.after}</div></div>`;
   }
 
   if (!hidden.includes('contact')) {
     const contactImg = pageImage(contactStyle);
-    pages += `<div class="page contact" style="${contactImg.bgStyle||'background:'+esc(contactBg)+';'}">${contactImg.overlay||''}${pageLogo(contactStyle, logoUrl, d.contact.monogram)}${contactImg.before}${contactLogoHTML}<h2 class="page-heading" style="color:${contactHeadingColor};">${esc(d.contact.heading1)}<br>${esc(d.contact.heading2)}</h2><div class="contact-detail"><div class="contact-detail-label" style="color:${contactDetailLabelColor};">Email</div><div class="contact-detail-value" style="color:${contactDetailValueColor};">${esc(d.contact.email)}</div></div><div class="contact-detail"><div class="contact-detail-label" style="color:${contactDetailLabelColor};">Web</div><div class="contact-detail-value" style="color:${contactDetailValueColor};">${esc(d.contact.website)}</div></div>${contactShowDivider ? `<div class="contact-line" style="width:${contactDividerWidth}px;background:${contactDividerLineColor};"></div>` : ''}<div class="contact-note" style="color:${contactNoteColor};">${esc(d.contact.note)}</div><div class="contact-footer" style="color:${contactFooterColor};">${esc(d.contact.copyright)}</div>${contactImg.after}</div>`;
+    pages += `<div class="page contact" style="${contactImg.bgStyle||'background:'+esc(contactBg)+';'}">${contactImg.overlay||''}${contactImg.before}<div style="${contactImg.contentStyle||''}">${contactLogoHTML}<h2 class="page-heading" style="color:${contactHeadingColor};">${esc(d.contact.heading1)}<br>${esc(d.contact.heading2)}</h2><div class="contact-detail"><div class="contact-detail-label" style="color:${contactDetailLabelColor};">Email</div><div class="contact-detail-value" style="color:${contactDetailValueColor};">${esc(d.contact.email)}</div></div><div class="contact-detail"><div class="contact-detail-label" style="color:${contactDetailLabelColor};">Web</div><div class="contact-detail-value" style="color:${contactDetailValueColor};">${esc(d.contact.website)}</div></div>${contactShowDivider ? `<div class="contact-line" style="width:${contactDividerWidth}px;background:${contactDividerLineColor};"></div>` : ''}<div class="contact-note" style="color:${contactNoteColor};">${esc(d.contact.note)}</div><div class="contact-footer" style="color:${contactFooterColor};">${esc(d.contact.copyright)}</div>${contactImg.after}</div></div>`;
   }
 
-  const displayFallback = "'Georgia', serif";
+  const displayFallback = displayFont.includes('Garamond') || displayFont.includes('Baskerville') || displayFont.includes('Crimson') ? "'Georgia', serif" : "'Georgia', serif";
   const bodyFallback = "'Helvetica Neue', sans-serif";
 
-  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${esc(d.cover.name)} — Company Profile</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="${fontsUrl}" rel="stylesheet"><style>:root{--rosso:${colors.accent};--rosso-deep:${colors.accentDeep};--bg:${colors.bgLight};--bg-warm:${colors.bgWarm};--bg-dark:${colors.bgDark};--text-primary:${colors.textPrimary};--text-secondary:${colors.textSecondary};--text-tertiary:${colors.textMuted};--border:${borderColor};--font-display:'${displayFont}',${displayFallback};--font-body:'${bodyFont}',${bodyFallback};}*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{-webkit-font-smoothing:antialiased;}::selection{background:var(--rosso);color:#fff;}@page{size:${pageSize};margin:0;}body{background:var(--bg);color:var(--text-secondary);font-family:var(--font-body);font-weight:300;line-height:${lineHeightBody};font-size:${bodySize}px;}.page{width:${pageWidth};min-height:${pageMinHeight};margin:0 auto;position:relative;overflow:visible;page-break-after:always;break-after:page;}.page:last-child{page-break-after:avoid;break-after:avoid;}.page-label{font-family:var(--font-body);font-size:${sectionLabelSize}px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--rosso);margin-bottom:40px;width:100%;}.page-heading{font-family:var(--font-display);font-size:${headingSize}px;font-weight:300;color:var(--text-primary);line-height:1.15;margin-bottom:48px;width:100%;letter-spacing:${letterSpacingHeadings}em;}.page-heading em{font-style:italic;color:var(--rosso);}.page-text{display:block;margin-bottom:16px;font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:${houseTextMaxWidth}px;width:100%;text-align:left;margin-left:auto;margin-right:auto;}.cover{justify-content:center;align-items:center;text-align:center;}.cover-inner{padding:60px;}.cover-monogram{font-family:var(--font-display);font-size:72px;font-weight:400;color:var(--rosso);letter-spacing:${coverMonogramLetterSpacing}em;margin-bottom:48px;}.cover-line{width:${coverLineWidth}px;height:1px;background:var(--rosso);margin:0 auto 48px;}.cover-name{font-family:var(--font-display);font-size:56px;font-weight:400;letter-spacing:.12em;color:${colors.bgWarm};letter-spacing:${coverNameLetterSpacing}em;margin-bottom:20px;}.cover-tagline{font-family:var(--font-body);font-size:${coverTaglineSize}px;font-weight:400;letter-spacing:.5em;text-transform:uppercase;color:var(--rosso);}.house{padding:${pagePadV}px ${pagePadH}px;justify-content:flex-start;align-items:${houseAlign==='center'?'center':'flex-start'};text-align:${houseAlign};}.house-stats{display:flex;gap:${houseStatsGap}px;margin-top:56px;padding-top:40px;border-top:1px solid var(--border);justify-content:center;width:100%;}.house-stat-number{font-family:var(--font-display);font-size:${statNumSize}px;font-weight:300;color:var(--text-primary);margin-bottom:4px;}.house-stat-label{font-family:var(--font-body);font-size:${statLabelSize}px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--text-tertiary);}.markets{padding:${pagePadV}px ${pagePadH}px;justify-content:flex-start;align-items:${marketsAlign==='center'?'center':'flex-start'};text-align:${marketsAlign};}.markets .page-label{color:var(--rosso);}.markets .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.markets-list{display:flex;flex-direction:column;width:100%;}.market-city{font-family:var(--font-display);font-size:${cityFontSize}px;font-weight:300;color:rgba(245,239,230,.9);padding:${cityPadding}px 0;border-bottom:1px solid rgba(245,239,230,.06);display:flex;align-items:center;gap:20px;}.market-city::before{content:'';width:${dotSize}px;height:${dotSize}px;background:${dotColor};border-radius:50%;flex-shrink:0;}.portfolio{padding:${pagePadV}px ${pagePadH}px;justify-content:flex-start;align-items:${portfolioAlign==='center'?'center':'flex-start'};text-align:${portfolioAlign};}${portfolioItemsCSS}.process{padding:${pagePadV}px ${pagePadH}px;justify-content:flex-start;align-items:${processAlign==='center'?'center':'flex-start'};text-align:${processAlign};}.process-intro{display:block;margin-bottom:48px;font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:${introMaxWidth}px;margin-bottom:48px;text-align:center;margin-left:auto;margin-right:auto;width:100%;}.process-steps{margin-top:0;width:100%;max-width:580px;}.process-step{display:grid;grid-template-columns:48px 1fr;gap:24px;padding:${processStepGap}px 0;border-bottom:1px solid ${processDividerColor};align-items:start;text-align:left;}.process-step:first-child{padding-top:0;}.step-num{font-family:var(--font-display);font-size:${stepNumeralSize}px;font-weight:300;color:var(--rosso);}.step-title{font-family:var(--font-display);font-size:${stepTitleSize}px;font-weight:400;color:var(--text-primary);margin-bottom:6px;}.step-text{font-family:var(--font-body);font-size:${stepTextSize}px;font-weight:300;color:var(--text-secondary);line-height:1.8;}.why{padding:${pagePadV}px ${pagePadH}px;justify-content:flex-start;align-items:${whyAlign==='center'?'center':'flex-start'};text-align:${whyAlign};}.why .page-heading{color:${colors.bgWarm};margin-bottom:40px;}.why-statement{display:block;font-family:var(--font-display);font-size:${statementSize}px;font-weight:300;font-style:italic;color:rgba(245,239,230,.7);line-height:1.5;max-width:${whyStatementMaxWidth}px;margin-bottom:56px;text-align:center;margin-left:auto;margin-right:auto;width:100%;}.why-pillars{display:flex;flex-direction:column;width:100%;max-width:580px;}.why-pillar{display:grid;grid-template-columns:${pillarGridWidth}px 1fr;gap:40px;padding:32px 0;border-top:1px solid ${whyPillarDividerColor};text-align:left;}.why-pillar-title{font-family:var(--font-display);font-size:${pillarTitleSize}px;font-weight:400;color:${colors.bgWarm};}.why-pillar-text{font-family:var(--font-body);font-size:${pillarTextSize}px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.8;}.founder{justify-content:flex-start;text-align:${founderAlign};}.founder-letter{display:block;font-family:var(--font-body);font-size:${letterFontSize}px;font-weight:300;color:var(--text-secondary);line-height:${founderLetterLineHeight};max-width:${letterMaxWidth}px;text-align:left;margin-left:auto;margin-right:auto;width:100%;}.founder-letter p{margin-bottom:20px;}.founder-closing{display:block;margin-top:40px;max-width:500px;text-align:left;margin-left:auto;margin-right:auto;width:100%;}.founder-closing-regards{font-family:var(--font-body);font-size:${letterFontSize}px;font-weight:300;color:var(--text-secondary);margin-bottom:28px;}.founder-signature{font-family:var(--font-display);font-size:${signatureSize}px;font-weight:300;font-style:italic;color:var(--text-primary);margin-bottom:8px;letter-spacing:.02em;}.founder-name{font-family:var(--font-body);font-size:14px;font-weight:400;color:var(--text-primary);letter-spacing:.08em;}.founder-title-role{font-family:var(--font-body);font-size:11px;font-weight:300;color:var(--text-tertiary);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;}.contact{justify-content:flex-start;align-items:${contactAlign==='center'?'center':'flex-start'};text-align:${contactAlign};padding:${pagePadV}px ${pagePadH}px;}.contact-monogram{font-family:var(--font-display);font-size:${contactMonogramSize}px;font-weight:300;color:var(--rosso);letter-spacing:.15em;margin-bottom:48px;}.contact .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.contact-detail{margin-bottom:${contactDetailGap}px;}.contact-detail-label{font-family:var(--font-body);font-size:10px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px;}.contact-detail-value{font-family:var(--font-display);font-size:${contactDetailValueSize}px;font-weight:300;color:${colors.bgWarm};}.contact-line{width:${contactLineWidth}px;height:1px;background:rgba(139,110,78,.4);margin:48px auto;}.contact-note{font-family:var(--font-body);font-size:${contactNoteSize}px;font-weight:300;color:rgba(245,239,230,.35);font-style:italic;}.contact-footer{position:absolute;bottom:40px;left:0;right:0;text-align:center;font-family:var(--font-body);font-size:10px;font-weight:300;letter-spacing:.15em;color:rgba(245,239,230,.2);}@media print{body{background:none;}.page{width:100%;height:100vh;margin:0;page-break-inside:avoid;}}${customCSS ? '\n' + customCSS : ''}</style></head><body>${pages}</body></html>`;
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${esc(d.cover.name)} — Company Profile</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="${fontsUrl}" rel="stylesheet"><style>:root{--rosso:${colors.accent};--rosso-deep:${colors.accentDeep};--bg:${colors.bgLight};--bg-warm:${colors.bgWarm};--bg-dark:${colors.bgDark};--text-primary:${colors.textPrimary};--text-secondary:${colors.textSecondary};--text-tertiary:${colors.textMuted};--border:${borderColor};--font-display:'${displayFont}',${displayFallback};--font-body:'${bodyFont}',${bodyFallback};}*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{-webkit-font-smoothing:antialiased;}::selection{background:var(--rosso);color:#fff;}@page{size:${pageSize};margin:0;}body{background:var(--bg);color:var(--text-secondary);font-family:var(--font-body);font-weight:300;line-height:${lineHeightBody};font-size:${bodySize}px;}.page{width:${pageWidth};min-height:${pageMinHeight};margin:0 auto;position:relative;overflow:hidden;display:flex;flex-direction:column;page-break-after:always;break-after:page;}.page:last-child{page-break-after:avoid;break-after:avoid;}.page-label{font-family:var(--font-body);font-size:${sectionLabelSize}px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--rosso);margin-bottom:40px;width:100%;}.page-heading{font-family:var(--font-display);font-size:${headingSize}px;font-weight:300;color:var(--text-primary);line-height:1.15;margin-bottom:48px;width:100%;letter-spacing:${letterSpacingHeadings}em;}.page-heading em{font-style:italic;color:var(--rosso);}.page-text{font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:${houseTextMaxWidth}px;width:100%;text-align:left;margin-left:auto;margin-right:auto;}.cover{justify-content:center;align-items:center;text-align:center;}.cover-inner{padding:60px;}.cover-monogram{font-family:var(--font-display);font-size:72px;font-weight:400;color:var(--rosso);letter-spacing:${coverMonogramLetterSpacing}em;margin-bottom:48px;}.cover-line{width:${coverLineWidth}px;height:1px;background:var(--rosso);margin:0 auto 48px;}.cover-name{font-family:var(--font-display);font-size:56px;font-weight:400;letter-spacing:.12em;color:${colors.bgWarm};letter-spacing:${coverNameLetterSpacing}em;margin-bottom:20px;}.cover-tagline{font-family:var(--font-body);font-size:${coverTaglineSize}px;font-weight:400;letter-spacing:.5em;text-transform:uppercase;color:var(--rosso);}.house{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${houseAlign==='center'?'center':'flex-start'};text-align:${houseAlign};}.house-stats{display:flex;gap:${houseStatsGap}px;margin-top:56px;padding-top:40px;border-top:1px solid var(--border);justify-content:center;width:100%;}.house-stat-number{font-family:var(--font-display);font-size:${statNumSize}px;font-weight:300;color:var(--text-primary);margin-bottom:4px;}.house-stat-label{font-family:var(--font-body);font-size:${statLabelSize}px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--text-tertiary);}.markets{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${marketsAlign==='center'?'center':'flex-start'};text-align:${marketsAlign};}.markets .page-label{color:var(--rosso);}.markets .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.markets-list{display:flex;flex-direction:column;width:100%;}.market-city{font-family:var(--font-display);font-size:${cityFontSize}px;font-weight:300;color:rgba(245,239,230,.9);padding:${cityPadding}px 0;border-bottom:1px solid rgba(245,239,230,.06);display:flex;align-items:center;gap:20px;}.market-city::before{content:'';width:${dotSize}px;height:${dotSize}px;background:${dotColor};border-radius:50%;flex-shrink:0;}.portfolio{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${portfolioAlign==='center'?'center':'flex-start'};text-align:${portfolioAlign};}${portfolioItemsCSS}.process{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${processAlign==='center'?'center':'flex-start'};text-align:${processAlign};}.process-intro{font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:${introMaxWidth}px;margin-bottom:48px;text-align:center;margin-left:auto;margin-right:auto;width:100%;}.process-steps{margin-top:0;width:100%;max-width:580px;}.process-step{display:grid;grid-template-columns:48px 1fr;gap:24px;padding:${processStepGap}px 0;border-bottom:1px solid ${processDividerColor};align-items:start;text-align:left;}.process-step:first-child{padding-top:0;}.step-num{font-family:var(--font-display);font-size:${stepNumeralSize}px;font-weight:300;color:var(--rosso);}.step-title{font-family:var(--font-display);font-size:${stepTitleSize}px;font-weight:400;color:var(--text-primary);margin-bottom:6px;}.step-text{font-family:var(--font-body);font-size:${stepTextSize}px;font-weight:300;color:var(--text-secondary);line-height:1.8;}.why{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${whyAlign==='center'?'center':'flex-start'};text-align:${whyAlign};}.why .page-heading{color:${colors.bgWarm};margin-bottom:40px;}.why-statement{font-family:var(--font-display);font-size:${statementSize}px;font-weight:300;font-style:italic;color:rgba(245,239,230,.7);line-height:1.5;max-width:${whyStatementMaxWidth}px;margin-bottom:56px;text-align:center;margin-left:auto;margin-right:auto;width:100%;}.why-pillars{display:flex;flex-direction:column;width:100%;max-width:580px;}.why-pillar{display:grid;grid-template-columns:${pillarGridWidth}px 1fr;gap:40px;padding:32px 0;border-top:1px solid ${whyPillarDividerColor};text-align:left;}.why-pillar-title{font-family:var(--font-display);font-size:${pillarTitleSize}px;font-weight:400;color:${colors.bgWarm};}.why-pillar-text{font-family:var(--font-body);font-size:${pillarTextSize}px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.8;}.founder{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${founderAlign==='center'?'center':'flex-start'};text-align:${founderAlign};}.founder-letter{font-family:var(--font-body);font-size:${letterFontSize}px;font-weight:300;color:var(--text-secondary);line-height:${founderLetterLineHeight};max-width:${letterMaxWidth}px;text-align:left;margin-left:auto;margin-right:auto;width:100%;}.founder-letter p{margin-bottom:20px;}.founder-closing{margin-top:40px;max-width:500px;text-align:left;margin-left:auto;margin-right:auto;width:100%;}.founder-closing-regards{font-family:var(--font-body);font-size:${letterFontSize}px;font-weight:300;color:var(--text-secondary);margin-bottom:28px;}.founder-signature{font-family:var(--font-display);font-size:${signatureSize}px;font-weight:300;font-style:italic;color:var(--text-primary);margin-bottom:8px;letter-spacing:.02em;}.founder-name{font-family:var(--font-body);font-size:14px;font-weight:400;color:var(--text-primary);letter-spacing:.08em;}.founder-title-role{font-family:var(--font-body);font-size:11px;font-weight:300;color:var(--text-tertiary);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;}.contact{justify-content:center;align-items:${contactAlign==='center'?'center':'flex-start'};text-align:${contactAlign};padding:${pagePadV}px ${pagePadH}px;}.contact-monogram{font-family:var(--font-display);font-size:${contactMonogramSize}px;font-weight:300;color:var(--rosso);letter-spacing:.15em;margin-bottom:48px;}.contact .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.contact-detail{margin-bottom:${contactDetailGap}px;}.contact-detail-label{font-family:var(--font-body);font-size:10px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px;}.contact-detail-value{font-family:var(--font-display);font-size:${contactDetailValueSize}px;font-weight:300;color:${colors.bgWarm};}.contact-line{width:${contactLineWidth}px;height:1px;background:rgba(139,110,78,.4);margin:48px auto;}.contact-note{font-family:var(--font-body);font-size:${contactNoteSize}px;font-weight:300;color:rgba(245,239,230,.35);font-style:italic;}.contact-footer{position:absolute;bottom:40px;left:0;right:0;text-align:center;font-family:var(--font-body);font-size:10px;font-weight:300;letter-spacing:.15em;color:rgba(245,239,230,.2);}@media print{body{background:none;}.page{width:100%;height:100vh;margin:0;page-break-inside:avoid;}}${customCSS ? '\n' + customCSS : ''}</style></head><body>${pages}</body></html>`;
 }
 
 // IMAGE LIBRARY
 var CURATED_IMAGES=[
-{url:'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=2400&q=90',label:'Hotel Infinity Pool',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=2400&q=90',label:'Grand Hotel Lobby',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=2400&q=90',label:'Hotel at Night',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=2400&q=90',label:'Boutique Suite',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1455587734955-081b22074882?w=2400&q=90',label:'Palace Hotel',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=2400&q=90',label:'Resort Terrace',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=2400&q=90',label:'Mediterranean Coast',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=2400&q=90',label:'Turquoise Beach',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=2400&q=90',label:'Coastal Cliffs',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=2400&q=90',label:'Infinity Pool Resort',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=2400&q=90',label:'Ocean Sunset',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1499678329028-101435549a4e?w=2400&q=90',label:'Beach Panorama',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=2400&q=90',label:'Lake Mountain View',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=2400&q=90',label:'Modern Villa',cat:'Villas'},
-{url:'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=2400&q=90',label:'Villa with Pool',cat:'Villas'},
-{url:'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=2400&q=90',label:'Contemporary Estate',cat:'Villas'},
-{url:'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=2400&q=90',label:'Mediterranean Villa',cat:'Villas'},
-{url:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=2400&q=90',label:'Luxury Estate',cat:'Villas'},
-{url:'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=2400&q=90',label:'Villa Facade',cat:'Villas'},
-{url:'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=2400&q=90',label:'Penthouse View',cat:'Penthouses'},
-{url:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2400&q=90',label:'Modern Interior',cat:'Interiors'},
-{url:'https://images.unsplash.com/photo-1505577058444-a3dab90d4253?w=2400&q=90',label:'Elegant Living Room',cat:'Interiors'},
-{url:'https://images.unsplash.com/photo-1416331108676-a22ccb276e35?w=2400&q=90',label:'Grand Hallway',cat:'Interiors'},
-{url:'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?w=2400&q=90',label:'Marble Bathroom',cat:'Interiors'},
-{url:'https://images.unsplash.com/photo-1586375300773-8384e3e4916f?w=2400&q=90',label:'Country Manor',cat:'Countryside'},
-{url:'https://images.unsplash.com/photo-1582610116397-edb318620f90?w=2400&q=90',label:'Heritage Estate',cat:'Countryside'},
-{url:'https://images.unsplash.com/photo-1573052905904-34ad8c27f0cc?w=2400&q=90',label:'Vineyard Estate',cat:'Countryside'},
-{url:'https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=2400&q=90',label:'Tuscan Villa',cat:'Countryside'},
+{url:'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80',label:'Hotel Infinity Pool',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&q=80',label:'Grand Hotel Lobby',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80',label:'Hotel at Night',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1200&q=80',label:'Boutique Suite',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1455587734955-081b22074882?w=1200&q=80',label:'Palace Hotel',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1200&q=80',label:'Resort Terrace',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1200&q=80',label:'Mediterranean Coast',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80',label:'Turquoise Beach',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=1200&q=80',label:'Coastal Cliffs',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&q=80',label:'Infinity Pool Resort',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1200&q=80',label:'Ocean Sunset',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1499678329028-101435549a4e?w=1200&q=80',label:'Beach Panorama',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200&q=80',label:'Lake Mountain View',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80',label:'Modern Villa',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80',label:'Villa with Pool',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80',label:'Contemporary Estate',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1200&q=80',label:'Mediterranean Villa',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80',label:'Luxury Estate',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80',label:'Villa Facade',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80',label:'Penthouse View',cat:'Penthouses'},
+{url:'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80',label:'Modern Interior',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1505577058444-a3dab90d4253?w=1200&q=80',label:'Elegant Living Room',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1416331108676-a22ccb276e35?w=1200&q=80',label:'Grand Hallway',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?w=1200&q=80',label:'Marble Bathroom',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1586375300773-8384e3e4916f?w=1200&q=80',label:'Country Manor',cat:'Countryside'},
+{url:'https://images.unsplash.com/photo-1582610116397-edb318620f90?w=1200&q=80',label:'Heritage Estate',cat:'Countryside'},
+{url:'https://images.unsplash.com/photo-1573052905904-34ad8c27f0cc?w=1200&q=80',label:'Vineyard Estate',cat:'Countryside'},
+{url:'https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=1200&q=80',label:'Tuscan Villa',cat:'Countryside'},
 
-{url:'https://images.unsplash.com/photo-1602941525421-8f8b81d3edbb?w=2400&q=90',label:'Santorini View',cat:'Mediterranean'},
-{url:'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=2400&q=90',label:'Luxury Bedroom',cat:'Interiors'},
-{url:'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=2400&q=90',label:'Poolside Villa',cat:'Villas'},
-{url:'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=2400&q=90',label:'Tropical Beach',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?w=2400&q=90',label:'Amalfi Coast',cat:'Mediterranean'},
-{url:'https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=2400&q=90',label:'Dubai Skyline',cat:'City Views'},
-{url:'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=2400&q=90',label:'Modern Skyscraper',cat:'City Views'},
-{url:'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=2400&q=90',label:'Hotel Room View',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=2400&q=90',label:'Luxury Hotel Room',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=2400&q=90',label:'Resort Morning',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=2400&q=90',label:'Modern Kitchen',cat:'Interiors'},
-{url:'https://images.unsplash.com/photo-1577495508048-b635879837f1?w=2400&q=90',label:'Chandelier Hall',cat:'Interiors'},
-{url:'https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=2400&q=90',label:'White Villa',cat:'Villas'},
-{url:'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=2400&q=90',label:'Overwater Bungalow',cat:'Hotels'},
-{url:'https://images.unsplash.com/photo-1518684079-3c830dcef090?w=2400&q=90',label:'Dubai Marina',cat:'City Views'},
-{url:'https://images.unsplash.com/photo-1549294413-26f195200c16?w=2400&q=90',label:'Monaco Harbor',cat:'Mediterranean'},
-{url:'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=2400&q=90',label:'Maldives Paradise',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=2400&q=90',label:'Coastal Road',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=2400&q=90',label:'Ocean Waves',cat:'Sea Views'},
-{url:'https://images.unsplash.com/photo-1559599189-fe84dea4eb79?w=2400&q=90',label:'Greek Islands',cat:'Mediterranean'},
-{url:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=2400&q=90',label:'Dining Room',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1602941525421-8f8b81d3edbb?w=1200&q=80',label:'Santorini View',cat:'Mediterranean'},
+{url:'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80',label:'Luxury Bedroom',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1200&q=80',label:'Poolside Villa',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1200&q=80',label:'Tropical Beach',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?w=1200&q=80',label:'Amalfi Coast',cat:'Mediterranean'},
+{url:'https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=1200&q=80',label:'Dubai Skyline',cat:'City Views'},
+{url:'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80',label:'Modern Skyscraper',cat:'City Views'},
+{url:'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=1200&q=80',label:'Hotel Room View',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1200&q=80',label:'Luxury Hotel Room',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1200&q=80',label:'Resort Morning',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80',label:'Modern Kitchen',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1577495508048-b635879837f1?w=1200&q=80',label:'Chandelier Hall',cat:'Interiors'},
+{url:'https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=1200&q=80',label:'White Villa',cat:'Villas'},
+{url:'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1200&q=80',label:'Overwater Bungalow',cat:'Hotels'},
+{url:'https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1200&q=80',label:'Dubai Marina',cat:'City Views'},
+{url:'https://images.unsplash.com/photo-1549294413-26f195200c16?w=1200&q=80',label:'Monaco Harbor',cat:'Mediterranean'},
+{url:'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1200&q=80',label:'Maldives Paradise',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=1200&q=80',label:'Coastal Road',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=1200&q=80',label:'Ocean Waves',cat:'Sea Views'},
+{url:'https://images.unsplash.com/photo-1559599189-fe84dea4eb79?w=1200&q=80',label:'Greek Islands',cat:'Mediterranean'},
+{url:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80',label:'Dining Room',cat:'Interiors'},
 ];
-function buildImagePicker(containerId,page){var el=document.getElementById(containerId);if(!el)return;var html='';for(var i=0;i<CURATED_IMAGES.length;i++){var img=CURATED_IMAGES[i];html+='<div style="cursor:pointer;border:1px solid var(--border);overflow:visible;" onclick="quickApplyImage(\''+page+'\',this.dataset.url)" data-url="'+img.url+'"><img src="'+img.url+'" alt="'+img.label+'" style="width:100%;height:60px;object-fit:cover;" loading="lazy"><div style="padding:3px 5px;font-size:8px;color:var(--text-muted);background:var(--bg);">'+img.label+'</div></div>';}el.innerHTML=html;}
+function buildImagePicker(containerId,page){var el=document.getElementById(containerId);if(!el)return;var html='';for(var i=0;i<CURATED_IMAGES.length;i++){var img=CURATED_IMAGES[i];html+='<div style="cursor:pointer;border:1px solid var(--border);overflow:hidden;" onclick="quickApplyImage(\''+page+'\',this.dataset.url)" data-url="'+img.url+'"><img src="'+img.url+'" alt="'+img.label+'" style="width:100%;height:60px;object-fit:cover;" loading="lazy"><div style="padding:3px 5px;font-size:8px;color:var(--text-muted);background:var(--bg);">'+img.label+'</div></div>';}el.innerHTML=html;}
 function quickApplyImage(page,url){if(!data[page])data[page]={};if(!data[page]._style)data[page]._style={};data[page]._style.imageUrl=url;if(!data[page]._style.imageLayout||data[page]._style.imageLayout==='none')data[page]._style.imageLayout='full-width';var layoutEl=document.getElementById(page+'_style_imageLayout');if(layoutEl&&layoutEl.value==='none')layoutEl.value='full-width';var urlEl=document.getElementById(page+'_style_imageUrl');if(urlEl)urlEl.value=url;updatePageImagePreview(page);markUnsaved();showToast('Image applied');}
 function buildImageLibrary(){var el=document.getElementById('imageLibrary');if(!el)return;var html='';for(var i=0;i<CURATED_IMAGES.length;i++){var img=CURATED_IMAGES[i
-];html+='<div style="cursor:pointer;border:1px solid var(--border);overflow:visible;" onclick="navigator.clipboard.writeText(this.dataset.url).then(function(){showToast(\'URL copied\')})" data-url="'+img.url+'"><img src="'+img.url+'" alt="'+img.label+'" style="width:100%;height:80px;object-fit:cover;" loading="lazy"><div style="padding:4px 6px;font-size:9px;color:var(--text-muted);background:var(--bg);">'+img.cat+' \u2014 '+img.label+'</div></div>';}el.innerHTML=html;}
+];html+='<div style="cursor:pointer;border:1px solid var(--border);overflow:hidden;" onclick="navigator.clipboard.writeText(this.dataset.url).then(function(){showToast(\'URL copied\')})" data-url="'+img.url+'"><img src="'+img.url+'" alt="'+img.label+'" style="width:100%;height:80px;object-fit:cover;" loading="lazy"><div style="padding:4px 6px;font-size:9px;color:var(--text-muted);background:var(--bg);">'+img.cat+' \u2014 '+img.label+'</div></div>';}el.innerHTML=html;}
 buildImageLibrary();
 ['cover','house','markets','portfolio','process','why','founder','contact'].forEach(function(p){buildImagePicker(p+'_imagePicker',p);});
 
@@ -2848,7 +3026,7 @@ buildSignaturePresets();
 function updatePreview(){readForm();document.getElementById('previewFrame').srcdoc=generateHTML();}
 document.getElementById('saveBtn').addEventListener('click',()=>{readForm();updatePreview();saveToFirestore();});
 document.getElementById('refreshBtn').addEventListener('click',()=>{loadFromFirestore();showToast('Refreshed from cloud');});
-document.getElementById('debugBtn').addEventListener('click',function(){readForm();var html=generateHTML();var s=html.indexOf('THE FOUNDER');if(s<0)s=html.indexOf(data.founder.label);var pageStart=html.lastIndexOf('<div',s);var depth=0;var i=pageStart;while(i<html.length){if(html.substring(i,i+4)==='<div')depth++;if(html.substring(i,i+6)==='</div>')depth--;if(depth===0){i+=6;break;}i++;}var founderHTML=html.substring(pageStart,i);var head=html.substring(0,html.indexOf('</head>'))+'</head><body>';var out=head+founderHTML+'</body></html>';var w=window.open('','_blank');w.document.open();w.document.write(out);w.document.close();});
+document.getElementById('debugBtn').addEventListener('click',()=>{readForm();var html=generateHTML();var coverStart=html.indexOf('class="page cover"');var coverChunk=coverStart>-1?html.substring(coverStart,coverStart+400):'NOT FOUND';var imgUrl=data.cover&&data.cover._style?data.cover._style.imageUrl:'NONE';var imgLayout=data.cover&&data.cover._style?data.cover._style.imageLayout:'NONE';var w=window.open('','_blank');w.document.write('<pre>imageUrl: '+imgUrl+'\nimageLayout: '+imgLayout+'\n\nCover HTML:\n'+coverChunk.replace(/</g,'&lt;')+'</pre>');});
 document.getElementById('previewBtn').addEventListener('click',()=>{readForm();window.open(URL.createObjectURL(new Blob([generateHTML()],{type:'text/html'})),'_blank');});
 document.getElementById('downloadBtn').addEventListener('click',()=>{readForm();const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([generateHTML()],{type:'text/html'}));a.download=`${data.cover.name.replace(/\s+/g,'-').toLowerCase()}-profile.html`;a.click();});
 document.getElementById('exportBtn').addEventListener('click',()=>{readForm();const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));a.download=`profile-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();});
