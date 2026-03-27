@@ -308,7 +308,6 @@
           <label class="range-label">Image Height <span class="range-value" id="house_style_imageHeight_val">200px</span></label>
           <input type="range" id="house_style_imageHeight" min="80" max="500" value="200">
         </div>
-      </div>
         <hr class="section-divider">
         <div class="section-label">Logo Placement</div>
         <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
@@ -366,7 +365,7 @@
             <input type="text" id="house_style_dividerLineColor" value="#E8E3DC">
           </div>
         </div>
-        
+      </div>
 
       <!-- MARKETS -->
       <div class="panel" id="panel-markets">
@@ -433,7 +432,6 @@
           <label class="range-label">Image Height <span class="range-value" id="markets_style_imageHeight_val">200px</span></label>
           <input type="range" id="markets_style_imageHeight" min="80" max="500" value="200">
         </div>
-      </div>
         <hr class="section-divider">
         <div class="section-label">Logo Placement</div>
         <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
@@ -495,7 +493,7 @@
             <input type="text" id="markets_style_dividerLineColor" value="#8B6E4E">
           </div>
         </div>
-        
+      </div>
 
       <!-- PORTFOLIO -->
       <div class="panel" id="panel-portfolio">
@@ -547,7 +545,6 @@
           <label class="range-label">Image Height <span class="range-value" id="portfolio_style_imageHeight_val">200px</span></label>
           <input type="range" id="portfolio_style_imageHeight" min="80" max="500" value="200">
         </div>
-      </div>
         <hr class="section-divider">
         <div class="section-label">Logo Placement</div>
         <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
@@ -612,7 +609,7 @@
             <input type="text" id="portfolio_style_dividerLineColor" value="#E8E3DC">
           </div>
         </div>
-        
+      </div>
 
       <!-- PROCESS -->
       <div class="panel" id="panel-process">
@@ -665,7 +662,6 @@
           <label class="range-label">Image Height <span class="range-value" id="process_style_imageHeight_val">200px</span></label>
           <input type="range" id="process_style_imageHeight" min="80" max="500" value="200">
         </div>
-      </div>
         <hr class="section-divider">
         <div class="section-label">Logo Placement</div>
         <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
@@ -723,7 +719,7 @@
             <input type="text" id="process_style_dividerLineColor" value="#E8E3DC">
           </div>
         </div>
-        
+      </div>
 
       <!-- WHY US -->
       <div class="panel" id="panel-why">
@@ -776,7 +772,6 @@
           <label class="range-label">Image Height <span class="range-value" id="why_style_imageHeight_val">200px</span></label>
           <input type="range" id="why_style_imageHeight" min="80" max="500" value="200">
         </div>
-      </div>
         <hr class="section-divider">
         <div class="section-label">Logo Placement</div>
         <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
@@ -834,7 +829,7 @@
             <input type="text" id="why_style_dividerLineColor" value="#8B6E4E">
           </div>
         </div>
-        
+      </div>
 
       <!-- FOUNDER -->
       <div class="panel" id="panel-founder">
@@ -900,7 +895,6 @@
           <label class="range-label">Image Height <span class="range-value" id="founder_style_imageHeight_val">200px</span></label>
           <input type="range" id="founder_style_imageHeight" min="80" max="500" value="200">
         </div>
-      </div>
         <hr class="section-divider">
         <div class="section-label">Logo Placement</div>
         <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
@@ -969,7 +963,7 @@
             <input type="text" id="founder_style_dividerLineColor" value="#E8E3DC">
           </div>
         </div>
-        
+      </div>
 
       <!-- CONTACT -->
       <div class="panel" id="panel-contact">
@@ -1022,7 +1016,6 @@
           <label class="range-label">Image Height <span class="range-value" id="contact_style_imageHeight_val">200px</span></label>
           <input type="range" id="contact_style_imageHeight" min="80" max="500" value="200">
         </div>
-      </div>
         <hr class="section-divider">
         <div class="section-label">Logo Placement</div>
         <div class="panel-desc">Upload a logo or use the one from Design tab.</div>
@@ -1080,7 +1073,7 @@
             <input type="text" id="contact_style_dividerLineColor" value="#8B6E4E">
           </div>
         </div>
-        
+      </div>
 
       <!-- DESIGN -->
       <div class="panel" id="panel-design">
@@ -1434,69 +1427,12 @@ const COLOR_FIELDS = [
   {picker:'design_color_border_picker', text:'design_color_border'},
   {picker:'cover_style_bgColor_picker', text:'cover_style_bgColor'},
   {picker:'house_style_bgColor_picker', text:'house_style_bgColor'},
-  {picker:'markets_style_dotColor_picker', text:'markets_style_dotColor'},
   {picker:'portfolio_style_bgColor_picker', text:'portfolio_style_bgColor'},
   {picker:'process_style_bgColor_picker', text:'process_style_bgColor'},
   {picker:'founder_style_bgColor_picker', text:'founder_style_bgColor'},
   {picker:'contact_style_bgColor_picker', text:'contact_style_bgColor'},
-  // Cover text colors
-  {picker:'cover_style_monogramColor_picker', text:'cover_style_monogramColor'},
-  {picker:'cover_style_nameColor_picker', text:'cover_style_nameColor'},
-  {picker:'cover_style_taglineColor_picker', text:'cover_style_taglineColor'},
-  {picker:'cover_style_lineColor_picker', text:'cover_style_lineColor'},
-  // House text colors
-  {picker:'house_style_labelColor_picker', text:'house_style_labelColor'},
-  {picker:'house_style_headingColor_picker', text:'house_style_headingColor'},
-  {picker:'house_style_italicColor_picker', text:'house_style_italicColor'},
-  {picker:'house_style_textColor_picker', text:'house_style_textColor'},
-  {picker:'house_style_statNumberColor_picker', text:'house_style_statNumberColor'},
-  {picker:'house_style_statLabelColor_picker', text:'house_style_statLabelColor'},
-  // Markets text colors
-  {picker:'markets_style_labelColor_picker', text:'markets_style_labelColor'},
-  {picker:'markets_style_headingColor_picker', text:'markets_style_headingColor'},
-  {picker:'markets_style_cityColor_picker', text:'markets_style_cityColor'},
-  // Portfolio text colors
-  {picker:'portfolio_style_labelColor_picker', text:'portfolio_style_labelColor'},
-  {picker:'portfolio_style_headingColor_picker', text:'portfolio_style_headingColor'},
-  {picker:'portfolio_style_italicColor_picker', text:'portfolio_style_italicColor'},
-  {picker:'portfolio_style_vertNumColor_picker', text:'portfolio_style_vertNumColor'},
-  {picker:'portfolio_style_vertTitleColor_picker', text:'portfolio_style_vertTitleColor'},
-  {picker:'portfolio_style_vertDescColor_picker', text:'portfolio_style_vertDescColor'},
-  // Process text colors
-  {picker:'process_style_labelColor_picker', text:'process_style_labelColor'},
-  {picker:'process_style_headingColor_picker', text:'process_style_headingColor'},
-  {picker:'process_style_italicColor_picker', text:'process_style_italicColor'},
-  {picker:'process_style_introColor_picker', text:'process_style_introColor'},
-  {picker:'process_style_stepNumeralColor_picker', text:'process_style_stepNumeralColor'},
-  {picker:'process_style_stepTitleColor_picker', text:'process_style_stepTitleColor'},
-  {picker:'process_style_stepTextColor_picker', text:'process_style_stepTextColor'},
   {picker:'markets_style_bgColor_picker', text:'markets_style_bgColor'},
-  // Why Us text colors
   {picker:'why_style_bgColor_picker', text:'why_style_bgColor'},
-  {picker:'why_style_labelColor_picker', text:'why_style_labelColor'},
-  {picker:'why_style_headingColor_picker', text:'why_style_headingColor'},
-  {picker:'why_style_statementColor_picker', text:'why_style_statementColor'},
-  {picker:'why_style_pillarTitleColor_picker', text:'why_style_pillarTitleColor'},
-  {picker:'why_style_pillarTextColor_picker', text:'why_style_pillarTextColor'},
-  // Founder text colors
-  {picker:'founder_style_labelColor_picker', text:'founder_style_labelColor'},
-  {picker:'founder_style_headingColor_picker', text:'founder_style_headingColor'},
-  {picker:'founder_style_italicColor_picker', text:'founder_style_italicColor'},
-  {picker:'founder_style_letterColor_picker', text:'founder_style_letterColor'},
-  {picker:'founder_style_closingColor_picker', text:'founder_style_closingColor'},
-  {picker:'founder_style_signatureColor_picker', text:'founder_style_signatureColor'},
-  {picker:'founder_style_nameColor_picker', text:'founder_style_nameColor'},
-  {picker:'founder_style_roleColor_picker', text:'founder_style_roleColor'},
-  // Contact text colors
-  {picker:'contact_style_monogramColor_picker', text:'contact_style_monogramColor'},
-  {picker:'contact_style_headingColor_picker', text:'contact_style_headingColor'},
-  {picker:'contact_style_detailLabelColor_picker', text:'contact_style_detailLabelColor'},
-  {picker:'contact_style_detailValueColor_picker', text:'contact_style_detailValueColor'},
-  {picker:'contact_style_noteColor_picker', text:'contact_style_noteColor'},
-  {picker:'contact_style_footerColor_picker', text:'contact_style_footerColor'},
-  // New customization color fields
-  {picker:'process_style_dividerColor_picker', text:'process_style_dividerColor'},
-  {picker:'why_style_pillarDividerColor_picker', text:'why_style_pillarDividerColor'},
   // Divider line color fields
   {picker:'house_style_dividerLineColor_picker', text:'house_style_dividerLineColor'},
   {picker:'markets_style_dividerLineColor_picker', text:'markets_style_dividerLineColor'},
@@ -1524,9 +1460,7 @@ COLOR_FIELDS.forEach(cf => {
 const RANGE_FIELDS = [
   {id:'cover_style_monogramSize', valId:'cover_style_monogramSize_val', unit:'px'},
   {id:'cover_style_nameSize', valId:'cover_style_nameSize_val', unit:'px'},
-  {id:'cover_style_bgImageOpacity', valId:'cover_style_bgImageOpacity_val', unit:''},
   {id:'markets_style_cityFontSize', valId:'markets_style_cityFontSize_val', unit:'px'},
-  {id:'why_style_statementSize', valId:'why_style_statementSize_val', unit:'px'},
   {id:'design_size_heading', valId:'design_size_heading_val', unit:'px'},
   {id:'design_size_body', valId:'design_size_body_val', unit:'px'},
   {id:'design_size_sectionLabel', valId:'design_size_sectionLabel_val', unit:'px'},
@@ -1535,43 +1469,7 @@ const RANGE_FIELDS = [
   {id:'design_spacing_pagePadH', valId:'design_spacing_pagePadH_val', unit:'px'},
   {id:'design_spacing_pagePadV', valId:'design_spacing_pagePadV_val', unit:'px'},
   {id:'cover_style_taglineSize', valId:'cover_style_taglineSize_val', unit:'px'},
-  {id:'cover_style_nameLetterSpacing', valId:'cover_style_nameLetterSpacing_val', unit:'em'},
-  {id:'cover_style_monogramLetterSpacing', valId:'cover_style_monogramLetterSpacing_val', unit:'em'},
-  {id:'house_style_statNumberSize', valId:'house_style_statNumberSize_val', unit:'px'},
-  {id:'house_style_statLabelSize', valId:'house_style_statLabelSize_val', unit:'px'},
-  {id:'house_style_textMaxWidth', valId:'house_style_textMaxWidth_val', unit:'px'},
-  {id:'markets_style_dotSize', valId:'markets_style_dotSize_val', unit:'px'},
-  {id:'markets_style_cityPadding', valId:'markets_style_cityPadding_val', unit:'px'},
-  {id:'portfolio_style_vertNumSize', valId:'portfolio_style_vertNumSize_val', unit:'px'},
-  {id:'portfolio_style_vertTitleSize', valId:'portfolio_style_vertTitleSize_val', unit:'px'},
-  {id:'portfolio_style_vertDescSize', valId:'portfolio_style_vertDescSize_val', unit:'px'},
-  {id:'process_style_stepNumeralSize', valId:'process_style_stepNumeralSize_val', unit:'px'},
-  {id:'process_style_stepTitleSize', valId:'process_style_stepTitleSize_val', unit:'px'},
-  {id:'process_style_stepTextSize', valId:'process_style_stepTextSize_val', unit:'px'},
-  {id:'process_style_introMaxWidth', valId:'process_style_introMaxWidth_val', unit:'px'},
-  {id:'why_style_pillarTitleSize', valId:'why_style_pillarTitleSize_val', unit:'px'},
-  {id:'why_style_pillarTextSize', valId:'why_style_pillarTextSize_val', unit:'px'},
-  {id:'why_style_pillarGridWidth', valId:'why_style_pillarGridWidth_val', unit:'px'},
-  {id:'founder_style_letterFontSize', valId:'founder_style_letterFontSize_val', unit:'px'},
   {id:'founder_style_signatureSize', valId:'founder_style_signatureSize_val', unit:'px'},
-  {id:'founder_style_letterMaxWidth', valId:'founder_style_letterMaxWidth_val', unit:'px'},
-  {id:'contact_style_monogramSize', valId:'contact_style_monogramSize_val', unit:'px'},
-  {id:'contact_style_detailValueSize', valId:'contact_style_detailValueSize_val', unit:'px'},
-  {id:'contact_style_noteSize', valId:'contact_style_noteSize_val', unit:'px'},
-  // New range fields
-  {id:'house_style_labelSize', valId:'house_style_labelSize_val', unit:'px'},
-  {id:'house_style_headingSize', valId:'house_style_headingSize_val', unit:'px'},
-  {id:'house_style_textSize', valId:'house_style_textSize_val', unit:'px'},
-  {id:'process_style_introSize', valId:'process_style_introSize_val', unit:'px'},
-  // New customization range fields
-  {id:'cover_style_lineWidth', valId:'cover_style_lineWidth_val', unit:'px'},
-  {id:'house_style_statsGap', valId:'house_style_statsGap_val', unit:'px'},
-  {id:'house_style_headingMarginBottom', valId:'house_style_headingMarginBottom_val', unit:'px'},
-  {id:'process_style_stepGap', valId:'process_style_stepGap_val', unit:'px'},
-  {id:'why_style_statementMaxWidth', valId:'why_style_statementMaxWidth_val', unit:'px'},
-  {id:'founder_style_letterLineHeight', valId:'founder_style_letterLineHeight_val', unit:''},
-  {id:'contact_style_lineWidth', valId:'contact_style_lineWidth_val', unit:'px'},
-  {id:'contact_style_detailGap', valId:'contact_style_detailGap_val', unit:'px'},
   // Divider line width fields
   {id:'house_style_dividerWidth', valId:'house_style_dividerWidth_val', unit:'px'},
   {id:'markets_style_dividerWidth', valId:'markets_style_dividerWidth_val', unit:'px'},
@@ -1588,41 +1486,40 @@ const RANGE_FIELDS = [
   {id:'why_style_imageOpacity', valId:'why_style_imageOpacity_val', unit:''},
   {id:'founder_style_imageOpacity', valId:'founder_style_imageOpacity_val', unit:''},
   {id:'contact_style_imageOpacity', valId:'contact_style_imageOpacity_val', unit:''},
-,
-{id:'cover_style_imageOpacity', valId:'cover_style_imageOpacity_val', unit:''},
-{id:'cover_style_imageWidth', valId:'cover_style_imageWidth_val', unit:'%'},
-{id:'cover_style_imageHeight', valId:'cover_style_imageHeight_val', unit:'px'},
-{id:'house_style_imageWidth', valId:'house_style_imageWidth_val', unit:'%'},
-{id:'house_style_imageHeight', valId:'house_style_imageHeight_val', unit:'px'},
-{id:'markets_style_imageWidth', valId:'markets_style_imageWidth_val', unit:'%'},
-{id:'markets_style_imageHeight', valId:'markets_style_imageHeight_val', unit:'px'},
-{id:'portfolio_style_imageWidth', valId:'portfolio_style_imageWidth_val', unit:'%'},
-{id:'portfolio_style_imageHeight', valId:'portfolio_style_imageHeight_val', unit:'px'},
-{id:'process_style_imageWidth', valId:'process_style_imageWidth_val', unit:'%'},
-{id:'process_style_imageHeight', valId:'process_style_imageHeight_val', unit:'px'},
-{id:'why_style_imageWidth', valId:'why_style_imageWidth_val', unit:'%'},
-{id:'why_style_imageHeight', valId:'why_style_imageHeight_val', unit:'px'},
-{id:'founder_style_imageWidth', valId:'founder_style_imageWidth_val', unit:'%'},
-{id:'founder_style_imageHeight', valId:'founder_style_imageHeight_val', unit:'px'},
-{id:'contact_style_imageWidth', valId:'contact_style_imageWidth_val', unit:'%'},
-{id:'contact_style_imageHeight', valId:'contact_style_imageHeight_val', unit:'px'},
-// Logo placement range fields
-{id:'cover_style_logoSize', valId:'cover_style_logoSize_val', unit:'px'},
-{id:'cover_style_logoOpacity', valId:'cover_style_logoOpacity_val', unit:''},
-{id:'house_style_logoSize', valId:'house_style_logoSize_val', unit:'px'},
-{id:'house_style_logoOpacity', valId:'house_style_logoOpacity_val', unit:''},
-{id:'markets_style_logoSize', valId:'markets_style_logoSize_val', unit:'px'},
-{id:'markets_style_logoOpacity', valId:'markets_style_logoOpacity_val', unit:''},
-{id:'portfolio_style_logoSize', valId:'portfolio_style_logoSize_val', unit:'px'},
-{id:'portfolio_style_logoOpacity', valId:'portfolio_style_logoOpacity_val', unit:''},
-{id:'process_style_logoSize', valId:'process_style_logoSize_val', unit:'px'},
-{id:'process_style_logoOpacity', valId:'process_style_logoOpacity_val', unit:''},
-{id:'why_style_logoSize', valId:'why_style_logoSize_val', unit:'px'},
-{id:'why_style_logoOpacity', valId:'why_style_logoOpacity_val', unit:''},
-{id:'founder_style_logoSize', valId:'founder_style_logoSize_val', unit:'px'},
-{id:'founder_style_logoOpacity', valId:'founder_style_logoOpacity_val', unit:''},
-{id:'contact_style_logoSize', valId:'contact_style_logoSize_val', unit:'px'},
-{id:'contact_style_logoOpacity', valId:'contact_style_logoOpacity_val', unit:''}];
+  {id:'cover_style_imageOpacity', valId:'cover_style_imageOpacity_val', unit:''},
+  {id:'cover_style_imageWidth', valId:'cover_style_imageWidth_val', unit:'%'},
+  {id:'cover_style_imageHeight', valId:'cover_style_imageHeight_val', unit:'px'},
+  {id:'house_style_imageWidth', valId:'house_style_imageWidth_val', unit:'%'},
+  {id:'house_style_imageHeight', valId:'house_style_imageHeight_val', unit:'px'},
+  {id:'markets_style_imageWidth', valId:'markets_style_imageWidth_val', unit:'%'},
+  {id:'markets_style_imageHeight', valId:'markets_style_imageHeight_val', unit:'px'},
+  {id:'portfolio_style_imageWidth', valId:'portfolio_style_imageWidth_val', unit:'%'},
+  {id:'portfolio_style_imageHeight', valId:'portfolio_style_imageHeight_val', unit:'px'},
+  {id:'process_style_imageWidth', valId:'process_style_imageWidth_val', unit:'%'},
+  {id:'process_style_imageHeight', valId:'process_style_imageHeight_val', unit:'px'},
+  {id:'why_style_imageWidth', valId:'why_style_imageWidth_val', unit:'%'},
+  {id:'why_style_imageHeight', valId:'why_style_imageHeight_val', unit:'px'},
+  {id:'founder_style_imageWidth', valId:'founder_style_imageWidth_val', unit:'%'},
+  {id:'founder_style_imageHeight', valId:'founder_style_imageHeight_val', unit:'px'},
+  {id:'contact_style_imageWidth', valId:'contact_style_imageWidth_val', unit:'%'},
+  {id:'contact_style_imageHeight', valId:'contact_style_imageHeight_val', unit:'px'},
+  // Logo placement range fields
+  {id:'cover_style_logoSize', valId:'cover_style_logoSize_val', unit:'px'},
+  {id:'cover_style_logoOpacity', valId:'cover_style_logoOpacity_val', unit:''},
+  {id:'house_style_logoSize', valId:'house_style_logoSize_val', unit:'px'},
+  {id:'house_style_logoOpacity', valId:'house_style_logoOpacity_val', unit:''},
+  {id:'markets_style_logoSize', valId:'markets_style_logoSize_val', unit:'px'},
+  {id:'markets_style_logoOpacity', valId:'markets_style_logoOpacity_val', unit:''},
+  {id:'portfolio_style_logoSize', valId:'portfolio_style_logoSize_val', unit:'px'},
+  {id:'portfolio_style_logoOpacity', valId:'portfolio_style_logoOpacity_val', unit:''},
+  {id:'process_style_logoSize', valId:'process_style_logoSize_val', unit:'px'},
+  {id:'process_style_logoOpacity', valId:'process_style_logoOpacity_val', unit:''},
+  {id:'why_style_logoSize', valId:'why_style_logoSize_val', unit:'px'},
+  {id:'why_style_logoOpacity', valId:'why_style_logoOpacity_val', unit:''},
+  {id:'founder_style_logoSize', valId:'founder_style_logoSize_val', unit:'px'},
+  {id:'founder_style_logoOpacity', valId:'founder_style_logoOpacity_val', unit:''},
+  {id:'contact_style_logoSize', valId:'contact_style_logoSize_val', unit:'px'},
+  {id:'contact_style_logoOpacity', valId:'contact_style_logoOpacity_val', unit:''}];
 
 RANGE_FIELDS.forEach(rf => {
   const el = document.getElementById(rf.id);
@@ -1649,36 +1546,6 @@ function updateLogoPreview() {
   const preview = document.getElementById('logo_preview');
   if (data.design && data.design.logoUrl) {
     preview.innerHTML = '<img src="' + data.design.logoUrl + '" alt="Logo">';
-  } else {
-    preview.innerHTML = '';
-  }
-}
-
-// COVER BACKGROUND IMAGE UPLOAD
-document.getElementById('cover_style_bgImageUpload').addEventListener('change', function(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function() {
-    if (!data.cover._style) data.cover._style = {};
-    data.cover._style.bgImageUrl = reader.result;
-    updateCoverBgPreview();
-  _setVal('cover_style_imageLayout', cs.imageLayout || 'none');
-  _setVal('cover_style_imageUrl', (cs.imageUrl || ''));
-  _setSlider('cover_style_imageOpacity', 'cover_style_imageOpacity_val', cs.imageOpacity !== undefined ? cs.imageOpacity : 1, '');
-  _setSlider('cover_style_imageWidth', 'cover_style_imageWidth_val', cs.imageWidth || 100, '%');
-  _setSlider('cover_style_imageHeight', 'cover_style_imageHeight_val', cs.imageHeight || 200, 'px');
-  updatePageImagePreview('cover');
-    markUnsaved();
-  };
-  reader.readAsDataURL(file);
-});
-
-function updateCoverBgPreview() {
-  const preview = document.getElementById('cover_bgImage_preview');
-  const url = data.cover._style && data.cover._style.bgImageUrl;
-  if (url) {
-    preview.innerHTML = '<img src="' + url + '" alt="Background">';
   } else {
     preview.innerHTML = '';
   }
@@ -1757,7 +1624,7 @@ function updateSignaturePreview() {
 });
 
 // PAGE IMAGE UPLOADS
-['house','markets','portfolio','process','why','founder','contact'].forEach(page => {
+['cover','house','markets','portfolio','process','why','founder','contact'].forEach(page => {
   const uploadEl = document.getElementById(page + '_style_imageUpload');
   if (uploadEl) {
     uploadEl.addEventListener('change', function(e) {
@@ -1913,8 +1780,6 @@ function populatePageStyles() {
   _setColor('cover_style_bgColor_picker', 'cover_style_bgColor', cs.bgColor);
   _setSlider('cover_style_monogramSize', 'cover_style_monogramSize_val', cs.monogramSize || 72, 'px');
   _setSlider('cover_style_nameSize', 'cover_style_nameSize_val', cs.nameSize || 52, 'px');
-  _setSlider('cover_style_bgImageOpacity', 'cover_style_bgImageOpacity_val', cs.bgImageOpacity !== undefined ? cs.bgImageOpacity : 0.3, '');
-  updateCoverBgPreview();
   _setSlider('cover_style_taglineSize', 'cover_style_taglineSize_val', cs.taglineSize || 11, 'px');
   _setSlider('cover_style_nameLetterSpacing', 'cover_style_nameLetterSpacing_val', cs.nameLetterSpacing !== undefined ? cs.nameLetterSpacing : 0.08, 'em');
   _setSlider('cover_style_monogramLetterSpacing', 'cover_style_monogramLetterSpacing_val', cs.monogramLetterSpacing !== undefined ? cs.monogramLetterSpacing : 0.15, 'em');
@@ -2805,7 +2670,7 @@ function generateHTML(){
     pages += `<div class="page contact" style="${contactImg.bgStyle||'background:'+esc(contactBg)+';'}">${contactImg.overlay||''}${pageLogo(contactStyle, logoUrl, d.contact.monogram)}${contactImg.before}<div style="${contactImg.contentStyle||''}">${contactLogoHTML}<h2 class="page-heading" style="color:${contactHeadingColor};">${esc(d.contact.heading1)}<br>${esc(d.contact.heading2)}</h2><div class="contact-detail"><div class="contact-detail-label" style="color:${contactDetailLabelColor};">Email</div><div class="contact-detail-value" style="color:${contactDetailValueColor};">${esc(d.contact.email)}</div></div><div class="contact-detail"><div class="contact-detail-label" style="color:${contactDetailLabelColor};">Web</div><div class="contact-detail-value" style="color:${contactDetailValueColor};">${esc(d.contact.website)}</div></div>${contactShowDivider ? `<div class="contact-line" style="width:${contactDividerWidth}px;background:${contactDividerLineColor};"></div>` : ''}<div class="contact-note" style="color:${contactNoteColor};">${esc(d.contact.note)}</div><div class="contact-footer" style="color:${contactFooterColor};">${esc(d.contact.copyright)}</div>${contactImg.after}</div></div>`;
   }
 
-  const displayFallback = displayFont.includes('Garamond') || displayFont.includes('Baskerville') || displayFont.includes('Crimson') ? "'Georgia', serif" : "'Georgia', serif";
+  const displayFallback = "'Georgia', serif";
   const bodyFallback = "'Helvetica Neue', sans-serif";
 
   return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${esc(d.cover.name)} — Company Profile</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="${fontsUrl}" rel="stylesheet"><style>:root{--rosso:${colors.accent};--rosso-deep:${colors.accentDeep};--bg:${colors.bgLight};--bg-warm:${colors.bgWarm};--bg-dark:${colors.bgDark};--text-primary:${colors.textPrimary};--text-secondary:${colors.textSecondary};--text-tertiary:${colors.textMuted};--border:${borderColor};--font-display:'${displayFont}',${displayFallback};--font-body:'${bodyFont}',${bodyFallback};}*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{-webkit-font-smoothing:antialiased;}::selection{background:var(--rosso);color:#fff;}@page{size:${pageSize};margin:0;}body{background:var(--bg);color:var(--text-secondary);font-family:var(--font-body);font-weight:300;line-height:${lineHeightBody};font-size:${bodySize}px;}.page{width:${pageWidth};min-height:${pageMinHeight};margin:0 auto;position:relative;overflow:hidden;display:flex;flex-direction:column;page-break-after:always;break-after:page;}.page:last-child{page-break-after:avoid;break-after:avoid;}.page-label{font-family:var(--font-body);font-size:${sectionLabelSize}px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--rosso);margin-bottom:40px;width:100%;}.page-heading{font-family:var(--font-display);font-size:${headingSize}px;font-weight:300;color:var(--text-primary);line-height:1.15;margin-bottom:48px;width:100%;letter-spacing:${letterSpacingHeadings}em;}.page-heading em{font-style:italic;color:var(--rosso);}.page-text{font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:${houseTextMaxWidth}px;width:100%;text-align:left;margin-left:auto;margin-right:auto;}.cover{justify-content:center;align-items:center;text-align:center;}.cover-inner{padding:60px;}.cover-monogram{font-family:var(--font-display);font-size:72px;font-weight:400;color:var(--rosso);letter-spacing:${coverMonogramLetterSpacing}em;margin-bottom:48px;}.cover-line{width:${coverLineWidth}px;height:1px;background:var(--rosso);margin:0 auto 48px;}.cover-name{font-family:var(--font-display);font-size:56px;font-weight:400;letter-spacing:.12em;color:${colors.bgWarm};letter-spacing:${coverNameLetterSpacing}em;margin-bottom:20px;}.cover-tagline{font-family:var(--font-body);font-size:${coverTaglineSize}px;font-weight:400;letter-spacing:.5em;text-transform:uppercase;color:var(--rosso);}.house{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${houseAlign==='center'?'center':'flex-start'};text-align:${houseAlign};}.house-stats{display:flex;gap:${houseStatsGap}px;margin-top:56px;padding-top:40px;border-top:1px solid var(--border);justify-content:center;width:100%;}.house-stat-number{font-family:var(--font-display);font-size:${statNumSize}px;font-weight:300;color:var(--text-primary);margin-bottom:4px;}.house-stat-label{font-family:var(--font-body);font-size:${statLabelSize}px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--text-tertiary);}.markets{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${marketsAlign==='center'?'center':'flex-start'};text-align:${marketsAlign};}.markets .page-label{color:var(--rosso);}.markets .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.markets-list{display:flex;flex-direction:column;width:100%;}.market-city{font-family:var(--font-display);font-size:${cityFontSize}px;font-weight:300;color:rgba(245,239,230,.9);padding:${cityPadding}px 0;border-bottom:1px solid rgba(245,239,230,.06);display:flex;align-items:center;gap:20px;}.market-city::before{content:'';width:${dotSize}px;height:${dotSize}px;background:${dotColor};border-radius:50%;flex-shrink:0;}.portfolio{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${portfolioAlign==='center'?'center':'flex-start'};text-align:${portfolioAlign};}${portfolioItemsCSS}.process{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${processAlign==='center'?'center':'flex-start'};text-align:${processAlign};}.process-intro{font-family:var(--font-body);font-size:${bodySize}px;font-weight:300;color:var(--text-secondary);line-height:1.9;max-width:${introMaxWidth}px;margin-bottom:48px;text-align:center;margin-left:auto;margin-right:auto;width:100%;}.process-steps{margin-top:0;width:100%;max-width:580px;}.process-step{display:grid;grid-template-columns:48px 1fr;gap:24px;padding:${processStepGap}px 0;border-bottom:1px solid ${processDividerColor};align-items:start;text-align:left;}.process-step:first-child{padding-top:0;}.step-num{font-family:var(--font-display);font-size:${stepNumeralSize}px;font-weight:300;color:var(--rosso);}.step-title{font-family:var(--font-display);font-size:${stepTitleSize}px;font-weight:400;color:var(--text-primary);margin-bottom:6px;}.step-text{font-family:var(--font-body);font-size:${stepTextSize}px;font-weight:300;color:var(--text-secondary);line-height:1.8;}.why{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${whyAlign==='center'?'center':'flex-start'};text-align:${whyAlign};}.why .page-heading{color:${colors.bgWarm};margin-bottom:40px;}.why-statement{font-family:var(--font-display);font-size:${statementSize}px;font-weight:300;font-style:italic;color:rgba(245,239,230,.7);line-height:1.5;max-width:${whyStatementMaxWidth}px;margin-bottom:56px;text-align:center;margin-left:auto;margin-right:auto;width:100%;}.why-pillars{display:flex;flex-direction:column;width:100%;max-width:580px;}.why-pillar{display:grid;grid-template-columns:${pillarGridWidth}px 1fr;gap:40px;padding:32px 0;border-top:1px solid ${whyPillarDividerColor};text-align:left;}.why-pillar-title{font-family:var(--font-display);font-size:${pillarTitleSize}px;font-weight:400;color:${colors.bgWarm};}.why-pillar-text{font-family:var(--font-body);font-size:${pillarTextSize}px;font-weight:300;color:rgba(245,239,230,.55);line-height:1.8;}.founder{padding:${pagePadV}px ${pagePadH}px;justify-content:center;align-items:${founderAlign==='center'?'center':'flex-start'};text-align:${founderAlign};}.founder-letter{font-family:var(--font-body);font-size:${letterFontSize}px;font-weight:300;color:var(--text-secondary);line-height:${founderLetterLineHeight};max-width:${letterMaxWidth}px;text-align:left;margin-left:auto;margin-right:auto;width:100%;}.founder-letter p{margin-bottom:20px;}.founder-closing{margin-top:40px;max-width:500px;text-align:left;margin-left:auto;margin-right:auto;width:100%;}.founder-closing-regards{font-family:var(--font-body);font-size:${letterFontSize}px;font-weight:300;color:var(--text-secondary);margin-bottom:28px;}.founder-signature{font-family:var(--font-display);font-size:${signatureSize}px;font-weight:300;font-style:italic;color:var(--text-primary);margin-bottom:8px;letter-spacing:.02em;}.founder-name{font-family:var(--font-body);font-size:14px;font-weight:400;color:var(--text-primary);letter-spacing:.08em;}.founder-title-role{font-family:var(--font-body);font-size:11px;font-weight:300;color:var(--text-tertiary);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;}.contact{justify-content:center;align-items:${contactAlign==='center'?'center':'flex-start'};text-align:${contactAlign};padding:${pagePadV}px ${pagePadH}px;}.contact-monogram{font-family:var(--font-display);font-size:${contactMonogramSize}px;font-weight:300;color:var(--rosso);letter-spacing:.15em;margin-bottom:48px;}.contact .page-heading{color:${colors.bgWarm};margin-bottom:56px;}.contact-detail{margin-bottom:${contactDetailGap}px;}.contact-detail-label{font-family:var(--font-body);font-size:10px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px;}.contact-detail-value{font-family:var(--font-display);font-size:${contactDetailValueSize}px;font-weight:300;color:${colors.bgWarm};}.contact-line{width:${contactLineWidth}px;height:1px;background:rgba(139,110,78,.4);margin:48px auto;}.contact-note{font-family:var(--font-body);font-size:${contactNoteSize}px;font-weight:300;color:rgba(245,239,230,.35);font-style:italic;}.contact-footer{position:absolute;bottom:40px;left:0;right:0;text-align:center;font-family:var(--font-body);font-size:10px;font-weight:300;letter-spacing:.15em;color:rgba(245,239,230,.2);}@media print{body{background:none;}.page{width:100%;height:100vh;margin:0;page-break-inside:avoid;}}${customCSS ? '\n' + customCSS : ''}</style></head><body>${pages}</body></html>`;
