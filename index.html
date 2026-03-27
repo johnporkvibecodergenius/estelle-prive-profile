@@ -457,6 +457,13 @@
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
         <div class="field">
+          <label>Background Color</label>
+          <div class="color-field">
+            <input type="color" id="markets_style_bgColor_picker" value="#1A1610">
+            <input type="text" id="markets_style_bgColor" value="#1A1610">
+          </div>
+        </div>
+        <div class="field">
           <label class="range-label">City Font Size <span class="range-value" id="markets_style_cityFontSize_val">30px</span></label>
           <input type="range" id="markets_style_cityFontSize" min="20" max="48" value="30">
         </div>
@@ -806,6 +813,13 @@
         </div>
         <hr class="section-divider">
         <div class="section-label">Page Styling</div>
+        <div class="field">
+          <label>Background Color</label>
+          <div class="color-field">
+            <input type="color" id="why_style_bgColor_picker" value="#1A1610">
+            <input type="text" id="why_style_bgColor" value="#1A1610">
+          </div>
+        </div>
         <div class="field">
           <label class="range-label">Statement Font Size <span class="range-value" id="why_style_statementSize_val">26px</span></label>
           <input type="range" id="why_style_statementSize" min="18" max="36" value="26">
@@ -1542,7 +1556,9 @@ const COLOR_FIELDS = [
   // New customization color fields
   {picker:'process_style_dividerColor_picker', text:'process_style_dividerColor'},
   {picker:'why_style_pillarDividerColor_picker', text:'why_style_pillarDividerColor'},
-];
+
+  {picker:'why_style_bgColor_picker', text:'why_style_bgColor'},
+  {picker:'markets_style_bgColor_picker', text:'markets_style_bgColor'},];
 
 COLOR_FIELDS.forEach(cf => {
   const picker = document.getElementById(cf.picker);
