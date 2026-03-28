@@ -1922,6 +1922,7 @@ function populatePageStyles() {
   _setSlider('why_style_pillarTitleSize', 'why_style_pillarTitleSize_val', ws.pillarTitleSize || 22, 'px');
   _setSlider('why_style_pillarTextSize', 'why_style_pillarTextSize_val', ws.pillarTextSize || 13.5, 'px');
   _setSlider('why_style_pillarGridWidth', 'why_style_pillarGridWidth_val', ws.pillarGridWidth || 180, 'px');
+  _setColor('why_style_bgColor_picker', 'why_style_bgColor', ws.bgColor || colors.bgDark || '#1A1610');
   _setColor('why_style_labelColor_picker', 'why_style_labelColor', ws.labelColor || '#8B6E4E');
   _setColor('why_style_headingColor_picker', 'why_style_headingColor', ws.headingColor || '#F5EFE6');
   _setColor('why_style_statementColor_picker', 'why_style_statementColor', ws.statementColor || '#B5AFA7');
@@ -2087,6 +2088,7 @@ function readPageStyles() {
   // Why
   if (!data.why) data.why = {};
   if (!data.why._style) data.why._style = {};
+  data.why._style.bgColor = _readVal('why_style_bgColor');
   data.why._style.statementSize = _readInt('why_style_statementSize');
   data.why._style.pillarTitleSize = _readInt('why_style_pillarTitleSize');
   data.why._style.pillarTextSize = _readFloat('why_style_pillarTextSize');
