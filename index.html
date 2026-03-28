@@ -1868,6 +1868,7 @@ function populatePageStyles() {
   _setSlider('markets_style_imageOpacity', 'markets_style_imageOpacity_val', ms.imageOpacity !== undefined ? ms.imageOpacity : 1, '');
   updatePageImagePreview('markets');
 
+  _setColor('markets_style_bgColor_picker', 'markets_style_bgColor', ms.bgColor || colors.bgDark || '#1A1610');
   // Portfolio
   const ps = (data.portfolio && data.portfolio._style) || DEFAULT_DATA.portfolio._style || {};
   _setVal('portfolio_style_layout', ps.layout || 'list');
@@ -2031,7 +2032,9 @@ function readPageStyles() {
   // imageUrl managed by quickApplyImage/upload, not text field
   data.markets._style.imageOpacity = _readFloat('markets_style_imageOpacity');
 
-  // Portfolio
+    if (!data.markets._style) data.markets._style = {};
+  data.markets._style.bgColor = _readVal('markets_style_bgColor');
+// Portfolio
   if (!data.portfolio) data.portfolio = {};
   if (!data.portfolio._style) data.portfolio._style = {};
   data.portfolio._style.layout = _readVal('portfolio_style_layout');
@@ -2373,6 +2376,7 @@ function generateHTML(){
   const coverStyle = (d.cover && d.cover._style) || {};
   const houseStyle = (d.house && d.house._style) || {};
   const marketsStyle = (d.markets && d.markets._style) || {};
+  const marketsBg = marketsStyle.bgColor || colors.bgDark || '#1A1610';
   const portfolioStyle = (d.portfolio && d.portfolio._style) || {};
   const processStyle = (d.process && d.process._style) || {};
   const whyStyle = (d.why && d.why._style) || {};
@@ -2588,7 +2592,7 @@ function generateHTML(){
     const marketsSubNonElegant = (marketsLayout !== 'elegant' && d.markets.subtitle) ? `<p style="font-family:var(--font-body);font-size:14px;font-weight:300;color:${marketsCityColor};opacity:0.6;margin-bottom:40px;">${esc(d.markets.subtitle)}</p>` : '';
     const mAlign = marketsLayout === 'elegant' ? 'align-items:center;text-align:center;justify-content:center;' : '';
     const marketsImg = pageImage(marketsStyle);
-    pages += `<div class="page markets" style="${marketsImg.bgStyle||mAlign}">${marketsImg.overlay||''}${marketsImg.before||''}<div style="${marketsImg.contentStyle||''}"><div class="page-label" style="color:${marketsLabelColor};${marketsLayout==='elegant'?'width:100%;':''}">${esc(d.markets.label)}</div><h2 class="page-heading" style="color:${marketsHeadingColor};${marketsLayout==='elegant'?'text-align:center;width:100%;':''}">${esc(d.markets.heading1)}<br>${esc(d.markets.heading2)}</h2>${marketsSubNonElegant}${marketsContent}${marketsImg.after||''}</div></div>`;
+    pages += `<div class="page markets" style="background:${marketsBg};${marketsImg.bgStyle||''}">${marketsImg.overlay||''}${marketsImg.before||''}<div style="${marketsImg.contentStyle||''}"><div class="page-label" style="color:${marketsLabelColor};${marketsLayout==='elegant'?'width:100%;':''}">${esc(d.markets.label)}</div><h2 class="page-heading" style="color:${marketsHeadingColor};${marketsLayout==='elegant'?'text-align:center;width:100%;':''}">${esc(d.markets.heading1)}<br>${esc(d.markets.heading2)}</h2>${marketsSubNonElegant}${marketsContent}${marketsImg.after||''}</div></div>`;
   }
 
   if (!hidden.includes('portfolio')) {
@@ -2609,7 +2613,7 @@ function generateHTML(){
   if (!hidden.includes('founder')) {
     const letterFontStyle = letterStyle === 'italic' ? 'font-style:italic;' : '';
     const founderImg = pageImage(founderStyle);
-    pages += `<div class="page founder" style="${founderImg.bgStyle||''}">${founderImg.overlay||''}${founderImg.before||''}<div style="${founderImg.contentStyle||''}"><div class="page-label" style="color:${founderLabelColor};">${esc(d.founder.label)}</div><h2 class="page-heading" style="color:${founderHeadingColor};">${esc(d.founder.heading)}<br><em style="color:${founderItalicColor};">${esc(d.founder.headingItalic)}</em></h2><div class="founder-letter" style="${letterFontStyle}color:${founderLetterColor};">${d.founder.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div><div class="founder-closing"><div class="founder-closing-regards" style="color:${founderClosingColor};">${esc(d.founder.closing)}</div><div class="founder-signature" style="color:${founderSignatureColor};">${esc(d.founder.signatureName)}</div><div class="founder-name" style="color:${founderNameColor};">${esc(d.founder.signatureName)}</div><div class="founder-title-role" style="color:${founderRoleColor};">${esc(d.founder.role)}</div></div>${founderImg.after||''}</div></div>`;
+    pages += `<div class="page founder" style="background:${founderBg};${founderImg.bgStyle||''}">${founderImg.overlay||''}${founderImg.before||''}<div style="${founderImg.contentStyle||''}"><div class="page-label" style="color:${founderLabelColor};">${esc(d.founder.label)}</div><h2 class="page-heading" style="color:${founderHeadingColor};">${esc(d.founder.heading)}<br><em style="color:${founderItalicColor};">${esc(d.founder.headingItalic)}</em></h2><div class="founder-letter" style="${letterFontStyle}color:${founderLetterColor};">${d.founder.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div><div class="founder-closing"><div class="founder-closing-regards" style="color:${founderClosingColor};">${esc(d.founder.closing)}</div><div class="founder-signature" style="color:${founderSignatureColor};">${esc(d.founder.signatureName)}</div><div class="founder-name" style="color:${founderNameColor};">${esc(d.founder.signatureName)}</div><div class="founder-title-role" style="color:${founderRoleColor};">${esc(d.founder.role)}</div></div>${founderImg.after||''}</div></div>`;
   }
 
   if (!hidden.includes('contact')) {
