@@ -2528,7 +2528,7 @@ function generateHTML(){
   const founderBg = founderStyle.bgColor || colors.bgLight || '#FDFAF6';
   const letterFontSize = founderStyle.letterFontSize || 14;
   const signatureUrl = founderStyle.signatureUrl || '';
-  const signatureSize = founderStyle.signatureSize || 36;
+  const signatureSize = founderStyle.signatureSize || 80;
   const letterMaxWidth = founderStyle.letterMaxWidth || 500;
   const founderLabelColor = founderStyle.labelColor || colors.accent || '#8B6E4E';
   const founderHeadingColor = founderStyle.headingColor || colors.textPrimary || '#1A1610';
@@ -2647,7 +2647,7 @@ function generateHTML(){
   if (!hidden.includes('founder')) {
     const letterFontStyle = letterStyle === 'italic' ? 'font-style:italic;' : '';
     const founderImg = pageImage(founderStyle);
-    pages += `<div class="page founder" style="background:${founderBg};${founderImg.bgStyle||''}">${founderImg.overlay||''}${founderImg.before||''}<div style="${founderImg.contentStyle||''}"><div class="page-label" style="color:${founderLabelColor};">${esc(d.founder.label)}</div><h2 class="page-heading" style="color:${founderHeadingColor};">${esc(d.founder.heading)}<br><em style="color:${founderItalicColor};">${esc(d.founder.headingItalic)}</em></h2><div class="founder-letter" style="${letterFontStyle}color:${founderLetterColor};">${d.founder.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div><div class="founder-closing"><div class="founder-closing-regards" style="color:${founderClosingColor};">${esc(d.founder.closing)}</div><div class="founder-signature" style="color:${founderSignatureColor};">${signatureUrl ? '<img src="' + signatureUrl + '" alt="signature" style="max-height:' + signatureSize + 'px;object-fit:contain;mix-blend-mode:multiply;">' : esc(d.founder.signatureName)}</div><div class="founder-name" style="color:${founderNameColor};">${esc(d.founder.signatureName)}</div><div class="founder-title-role" style="color:${founderRoleColor};">${esc(d.founder.role)}</div></div>${founderImg.after||''}</div></div>`;
+    pages += `<div class="page founder" style="background:${founderBg};${founderImg.bgStyle||''}">${founderImg.overlay||''}${founderImg.before||''}<div style="${founderImg.contentStyle||''}"><div class="page-label" style="color:${founderLabelColor};">${esc(d.founder.label)}</div><h2 class="page-heading" style="color:${founderHeadingColor};">${esc(d.founder.heading)}<br><em style="color:${founderItalicColor};">${esc(d.founder.headingItalic)}</em></h2><div class="founder-letter" style="${letterFontStyle}color:${founderLetterColor};">${d.founder.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div><div class="founder-closing"><div class="founder-closing-regards" style="color:${founderClosingColor};">${esc(d.founder.closing)}</div><div class="founder-name" style="color:${founderNameColor};font-size:14px;font-weight:400;letter-spacing:.08em;">${esc(d.founder.signatureName)}</div><div class="founder-title-role" style="color:${founderRoleColor};">${esc(d.founder.role)}</div>${signatureUrl ? '<div style="margin-top:24px;"><img src="' + signatureUrl + '" alt="signature" style="max-height:' + signatureSize + 'px;object-fit:contain;mix-blend-mode:multiply;"></div>' : ''}${d.founder.companyLine ? '<div style="font-size:11px;font-weight:300;color:' + founderRoleColor + ';letter-spacing:.1em;text-transform:uppercase;margin-top:4px;">' + esc(d.founder.companyLine) + '</div>' : ''}</div>${founderImg.after||''}</div></div>`;
   }
 
   if (!hidden.includes('contact')) {
