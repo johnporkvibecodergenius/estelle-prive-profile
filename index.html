@@ -205,7 +205,7 @@
         </div>
         <div class="field">
           <label class="range-label">Monogram Size <span class="range-value" id="cover_style_monogramSize_val">72px</span></label>
-          <input type="range" id="cover_style_monogramSize" min="48" max="200" value="140">
+          <input type="range" id="cover_style_monogramSize" min="48" max="250" value="140">
         </div>
         <div class="field">
           <label class="range-label">Name Font Size <span class="range-value" id="cover_style_nameSize_val">52px</span></label>
@@ -1090,7 +1090,7 @@
         </div>
         <div class="field">
           <label class="range-label">Monogram Size <span class="range-value" id="contact_style_monogramSize_val">48px</span></label>
-          <input type="range" id="contact_style_monogramSize" min="32" max="160" value="80">
+          <input type="range" id="contact_style_monogramSize" min="32" max="200" value="120">
         </div>
         <div class="field">
           <label class="range-label">Detail Value Size <span class="range-value" id="contact_style_detailValueSize_val">22px</span></label>
@@ -1400,7 +1400,7 @@ const DEFAULT_DATA = {
     label:"Get in Touch", monogram:"EP", heading1:"Begin a", heading2:"Conversation",
     email:"enquiries@estelleprive.com", website:"www.estelleprive.com",
     note:"All enquiries are treated with complete discretion.", copyright:"© 2026 Estelle Privé International",
-    _style: { bgColor:'', monogramSize:80, detailValueSize:22, noteSize:12, monogramColor:'#8B6E4E', headingColor:'#F5EFE6', detailLabelColor:'#8A847C', detailValueColor:'#F5EFE6', noteColor:'#8A847C', footerColor:'#F5EFE6', textAlign:'center', lineWidth:48, detailGap:32, imageLayout:'none', imageUrl:'', imageOpacity:1 },
+    _style: { bgColor:'', monogramSize:120, detailValueSize:22, noteSize:12, monogramColor:'#8B6E4E', headingColor:'#F5EFE6', detailLabelColor:'#8A847C', detailValueColor:'#F5EFE6', noteColor:'#8A847C', footerColor:'#F5EFE6', textAlign:'center', lineWidth:48, detailGap:32, imageLayout:'none', imageUrl:'', imageOpacity:1 },
   },
   design: {
     colors: { accent:'#8B6E4E', accentDeep:'#6B5239', bgLight:'#FDFAF6', bgWarm:'#F5EFE6', bgDark:'#1A1610', textPrimary:'#1A1610', textSecondary:'#5C5244', textMuted:'#8A847C', border:'#E8E3DC' },
@@ -1964,7 +1964,7 @@ function populatePageStyles() {
 // Contact
   const cts = (data.contact && data.contact._style) || DEFAULT_DATA.contact._style || {};
   _setColor('contact_style_bgColor_picker', 'contact_style_bgColor', cts.bgColor);
-  _setSlider('contact_style_monogramSize', 'contact_style_monogramSize_val', cts.monogramSize || 80, 'px');
+  _setSlider('contact_style_monogramSize', 'contact_style_monogramSize_val', cts.monogramSize || 120, 'px');
   _setSlider('contact_style_detailValueSize', 'contact_style_detailValueSize_val', cts.detailValueSize || 22, 'px');
   _setSlider('contact_style_noteSize', 'contact_style_noteSize_val', cts.noteSize || 12, 'px');
   _setColor('contact_style_monogramColor_picker', 'contact_style_monogramColor', cts.monogramColor || '#8B6E4E');
@@ -2573,7 +2573,7 @@ function generateHTML(){
   const actualLogoUrl = logoUrl || 'ep-monogram.png';
   const coverLogoHTML = `<div class="cover-monogram" style="margin-bottom:48px;"><img src="${actualLogoUrl}" alt="${esc(d.cover.name)}" style="height:${monogramSize}px;width:auto;object-fit:contain;"></div>`;
 
-  const contactLogoHTML = `<div style="margin-bottom:48px;text-align:center;"><img src="${actualLogoUrl}" alt="${esc(d.cover.name)}" style="height:${Math.max(contactMonogramSize, 120)}px;width:auto;object-fit:contain;opacity:0.85;"></div>`;
+  const contactLogoHTML = `<div style="margin-bottom:48px;text-align:center;"><img src="${actualLogoUrl}" alt="${esc(d.cover.name)}" style="height:${contactMonogramSize}px;width:auto;object-fit:contain;opacity:0.85;"></div>`;
 
   // Build pages
   let pages = '';
