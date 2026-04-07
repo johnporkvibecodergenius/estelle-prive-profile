@@ -2569,14 +2569,11 @@ function generateHTML(){
   const coverOverlay = bgImageUrl ? `<div style="position:absolute;inset:0;background:rgba(0,0,0,${bgImageOpacity});z-index:0;"></div>` : '';
   const coverInnerZ = bgImageUrl ? 'position:relative;z-index:1;' : '';
 
-  // Logo rendering
-  const coverLogoHTML = logoMode === 'image' && logoUrl
-    ? `<div class="cover-monogram" style="font-size:${monogramSize}px;color:${coverMonogramColor};"><img src="${logoUrl}" alt="Logo" style="max-height:${monogramSize}px;max-width:${monogramSize * 2}px;object-fit:contain;"></div>`
-    : `<div class="cover-monogram" style="font-size:${monogramSize}px;color:${coverMonogramColor};">${esc(d.cover.monogram)}</div>`;
+  // Logo rendering — always use EP monogram image if available, fallback to text
+  const actualLogoUrl = logoUrl || 'ep-monogram.png';
+  const coverLogoHTML = `<div class="cover-monogram" style="margin-bottom:48px;"><img src="${actualLogoUrl}" alt="${esc(d.cover.name)}" style="height:${monogramSize}px;width:auto;object-fit:contain;"></div>`;
 
-  const contactLogoHTML = logoMode === 'image' && logoUrl
-    ? `<div class="contact-monogram" style="color:${contactMonogramColor};"><img src="${logoUrl}" alt="Logo" style="max-height:${contactMonogramSize}px;max-width:${contactMonogramSize * 2}px;object-fit:contain;"></div>`
-    : `<div class="contact-monogram" style="color:${contactMonogramColor};">${esc(d.contact.monogram)}</div>`;
+  const contactLogoHTML = `<div class="contact-monogram" style="margin-bottom:48px;"><img src="${actualLogoUrl}" alt="${esc(d.cover.name)}" style="height:${contactMonogramSize}px;width:auto;object-fit:contain;"></div>`;
 
   // Build pages
   let pages = '';
