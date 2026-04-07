@@ -205,7 +205,7 @@
         </div>
         <div class="field">
           <label class="range-label">Monogram Size <span class="range-value" id="cover_style_monogramSize_val">72px</span></label>
-          <input type="range" id="cover_style_monogramSize" min="48" max="120" value="72">
+          <input type="range" id="cover_style_monogramSize" min="48" max="200" value="140">
         </div>
         <div class="field">
           <label class="range-label">Name Font Size <span class="range-value" id="cover_style_nameSize_val">52px</span></label>
@@ -1090,7 +1090,7 @@
         </div>
         <div class="field">
           <label class="range-label">Monogram Size <span class="range-value" id="contact_style_monogramSize_val">48px</span></label>
-          <input type="range" id="contact_style_monogramSize" min="32" max="72" value="48">
+          <input type="range" id="contact_style_monogramSize" min="32" max="160" value="80">
         </div>
         <div class="field">
           <label class="range-label">Detail Value Size <span class="range-value" id="contact_style_detailValueSize_val">22px</span></label>
@@ -1337,7 +1337,7 @@ function fsToJs(v){if(!v)return null;if(v.stringValue!==undefined)return v.strin
 function deepMerge(t,d){const o=Object.assign({},d);for(const k of Object.keys(t)){const v=t[k];if(v!==null&&v!==undefined&&typeof v==='object'&&!Array.isArray(v)&&d[k]&&typeof d[k]==='object')o[k]=deepMerge(v,d[k]);else if(v!==null&&v!==undefined)o[k]=v;}return o;}
 
 const DEFAULT_DATA = {
-  cover: { monogram:"EP", name:"Estelle Privé", tagline:"International Realty", _style: { bgColor:'', monogramSize:72, nameSize:52, bgImageUrl:'', bgImageOpacity:0.3, taglineSize:11, imageLayout:'none', imageUrl:'', imageOpacity:1, nameLetterSpacing:0.08, monogramLetterSpacing:0.15, monogramColor:'#8B6E4E', nameColor:'#F5EFE6', taglineColor:'#8B6E4E', lineColor:'#8B6E4E', lineWidth:48 } },
+  cover: { monogram:"EP", name:"Estelle Privé", tagline:"International Realty", _style: { bgColor:'', monogramSize:140, nameSize:52, bgImageUrl:'', bgImageOpacity:0.3, taglineSize:11, imageLayout:'none', imageUrl:'', imageOpacity:1, nameLetterSpacing:0.08, monogramLetterSpacing:0.15, monogramColor:'#8B6E4E', nameColor:'#F5EFE6', taglineColor:'#8B6E4E', lineColor:'#8B6E4E', lineWidth:48 } },
   house: {
     label:"The House", heading:"Discreet Excellence,", headingItalic:"Global Reach",
     p1:"Estelle Privé was founded on a singular conviction: that exceptional properties deserve exceptional representation. We operate at the intersection of private wealth advisory and curated real estate, offering a bespoke service to a discerning international clientele.",
@@ -1400,7 +1400,7 @@ const DEFAULT_DATA = {
     label:"Get in Touch", monogram:"EP", heading1:"Begin a", heading2:"Conversation",
     email:"enquiries@estelleprive.com", website:"www.estelleprive.com",
     note:"All enquiries are treated with complete discretion.", copyright:"© 2026 Estelle Privé International",
-    _style: { bgColor:'', monogramSize:48, detailValueSize:22, noteSize:12, monogramColor:'#8B6E4E', headingColor:'#F5EFE6', detailLabelColor:'#8A847C', detailValueColor:'#F5EFE6', noteColor:'#8A847C', footerColor:'#F5EFE6', textAlign:'center', lineWidth:48, detailGap:32, imageLayout:'none', imageUrl:'', imageOpacity:1 },
+    _style: { bgColor:'', monogramSize:80, detailValueSize:22, noteSize:12, monogramColor:'#8B6E4E', headingColor:'#F5EFE6', detailLabelColor:'#8A847C', detailValueColor:'#F5EFE6', noteColor:'#8A847C', footerColor:'#F5EFE6', textAlign:'center', lineWidth:48, detailGap:32, imageLayout:'none', imageUrl:'', imageOpacity:1 },
   },
   design: {
     colors: { accent:'#8B6E4E', accentDeep:'#6B5239', bgLight:'#FDFAF6', bgWarm:'#F5EFE6', bgDark:'#1A1610', textPrimary:'#1A1610', textSecondary:'#5C5244', textMuted:'#8A847C', border:'#E8E3DC' },
@@ -1817,7 +1817,7 @@ function populatePageStyles() {
   // Cover
   const cs = (data.cover && data.cover._style) || DEFAULT_DATA.cover._style || {};
   _setColor('cover_style_bgColor_picker', 'cover_style_bgColor', cs.bgColor);
-  _setSlider('cover_style_monogramSize', 'cover_style_monogramSize_val', cs.monogramSize || 72, 'px');
+  _setSlider('cover_style_monogramSize', 'cover_style_monogramSize_val', cs.monogramSize || 140, 'px');
   _setSlider('cover_style_nameSize', 'cover_style_nameSize_val', cs.nameSize || 52, 'px');
   _setSlider('cover_style_bgImageOpacity', 'cover_style_bgImageOpacity_val', cs.bgImageOpacity !== undefined ? cs.bgImageOpacity : 0.3, '');
   updateCoverBgPreview();
@@ -1964,7 +1964,7 @@ function populatePageStyles() {
 // Contact
   const cts = (data.contact && data.contact._style) || DEFAULT_DATA.contact._style || {};
   _setColor('contact_style_bgColor_picker', 'contact_style_bgColor', cts.bgColor);
-  _setSlider('contact_style_monogramSize', 'contact_style_monogramSize_val', cts.monogramSize || 48, 'px');
+  _setSlider('contact_style_monogramSize', 'contact_style_monogramSize_val', cts.monogramSize || 80, 'px');
   _setSlider('contact_style_detailValueSize', 'contact_style_detailValueSize_val', cts.detailValueSize || 22, 'px');
   _setSlider('contact_style_noteSize', 'contact_style_noteSize_val', cts.noteSize || 12, 'px');
   _setColor('contact_style_monogramColor_picker', 'contact_style_monogramColor', cts.monogramColor || '#8B6E4E');
