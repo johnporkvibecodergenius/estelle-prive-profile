@@ -963,7 +963,7 @@
         </div>
         <div class="field">
           <label class="range-label">Signature Size <span class="range-value" id="founder_style_signatureSize_val">36px</span></label>
-          <input type="range" id="founder_style_signatureSize" min="24" max="56" value="36">
+          <input type="range" id="founder_style_signatureSize" min="24" max="120" value="72">
         </div>
         <div class="field">
           <label class="range-label">Letter Max Width <span class="range-value" id="founder_style_letterMaxWidth_val">500px</span></label>
@@ -1394,7 +1394,7 @@ const DEFAULT_DATA = {
     closing:"With warm regards,",
     signatureName:"Hani Y. Ayoub",
     role:"Founder & Managing Director — Estelle Privé",
-    _style: { letterStyle:'normal', bgColor:'', letterFontSize:14, signatureSize:56, letterMaxWidth:500, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', letterColor:'#5C5244', closingColor:'#5C5244', signatureColor:'#1A1610', nameColor:'#1A1610', roleColor:'#8A847C', textAlign:'center', letterLineHeight:2, imageLayout:'none', imageUrl:'', imageOpacity:1 , signatureUrl:'', signatureSize:52},
+    _style: { letterStyle:'normal', bgColor:'', letterFontSize:14, signatureSize:72, letterMaxWidth:500, labelColor:'#8B6E4E', headingColor:'#1A1610', italicColor:'#8B6E4E', letterColor:'#5C5244', closingColor:'#5C5244', signatureColor:'#1A1610', nameColor:'#1A1610', roleColor:'#8A847C', textAlign:'center', letterLineHeight:2, imageLayout:'none', imageUrl:'', imageOpacity:1 , signatureUrl:'', signatureSize:52},
   },
   contact: {
     label:"Get in Touch", monogram:"EP", heading1:"Begin a", heading2:"Conversation",
@@ -1941,7 +1941,7 @@ function populatePageStyles() {
   _setVal('founder_style_letterStyle', fds.letterStyle || 'normal');
   _setColor('founder_style_bgColor_picker', 'founder_style_bgColor', fds.bgColor);
   _setSlider('founder_style_letterFontSize', 'founder_style_letterFontSize_val', fds.letterFontSize || 14, 'px');
-  _setSlider('founder_style_signatureSize', 'founder_style_signatureSize_val', fds.signatureSize || 36, 'px');
+  _setSlider('founder_style_signatureSize', 'founder_style_signatureSize_val', fds.signatureSize || 72, 'px');
   _setSlider('founder_style_letterMaxWidth', 'founder_style_letterMaxWidth_val', fds.letterMaxWidth || 500, 'px');
   _setColor('founder_style_labelColor_picker', 'founder_style_labelColor', fds.labelColor || '#8B6E4E');
   _setColor('founder_style_headingColor_picker', 'founder_style_headingColor', fds.headingColor || '#1A1610');
@@ -2570,7 +2570,7 @@ function generateHTML(){
   const coverInnerZ = bgImageUrl ? 'position:relative;z-index:1;' : '';
 
   // Logo rendering — always use EP monogram image if available, fallback to text
-  const actualLogoUrl = logoUrl || 'ep-monogram.png';
+  const actualLogoUrl = logoUrl || 'https://johnporkvibecodergenius.github.io/estelle-prive-profile/ep-monogram.png';
   const coverLogoHTML = `<div class="cover-monogram" style="margin-bottom:48px;"><img src="${actualLogoUrl}" alt="${esc(d.cover.name)}" style="height:${monogramSize}px;width:auto;object-fit:contain;"></div>`;
 
   const contactLogoHTML = `<div style="margin-bottom:48px;text-align:center;"><img src="${actualLogoUrl}" alt="${esc(d.cover.name)}" style="height:${contactMonogramSize}px;width:auto;object-fit:contain;opacity:0.85;"></div>`;
